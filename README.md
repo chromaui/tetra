@@ -1,14 +1,12 @@
-# Tetris  ⍜ ⍚ 
+# Tetris ⍜ ⍚
 
 <img src="src/cover.jpg" />
 
 This library centralised Chromatic and Storybooks' style guides as well as an exhaustive list of components use accross our suite of marketing sites. This is also a good excuse to test all the new features that both Storybook and Chromatic offers. Please feel free to learn from it and ask any questions that comes your way.
 
-
-
 ## Install
 
-```bash
+```console
 npm install --save @chromaui/tetris
 ```
 
