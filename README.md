@@ -1,5 +1,6 @@
-# Turborepo Design System Starter
+# Tetris
 
+Style Guide + UI Library for Chromatic and Storybook marketing sites
 This guide explains how to use a React design system starter powered by:
 
 - 🏎 [Turborepo](https://turbo.build/repo) — High-performance build system for Monorepos
@@ -94,7 +95,7 @@ acme-core
 Each file inside of `acme-core/src` is a component inside our design system. For example:
 
 ```tsx:acme-core/src/Button.tsx
-import * as React from 'react';
+import * as React from "react";
 
 export interface ButtonProps {
   children: React.ReactNode;
@@ -104,15 +105,14 @@ export function Button(props: ButtonProps) {
   return <button>{props.children}</button>;
 }
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 ```
 
 When adding a new file, ensure the component is also exported from the entry `index.tsx` file:
 
 ```tsx:acme-core/src/index.tsx
 import * as React from "react";
-export { Button, type ButtonProps } from "./Button";
-// Add new component exports here
+export { Button, ButtonProps } from "./Button";
 ```
 
 ## Storybook
