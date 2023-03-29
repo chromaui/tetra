@@ -1,7 +1,6 @@
 # Tetris
 
-Style Guide + UI Library for Chromatic and Storybook marketing sites
-This guide explains how to use a React design system starter powered by:
+Style Guide + UI Library for Chromatic and Storybook marketing sites. It is powered by:
 
 - 🏎 [Turborepo](https://turbo.build/repo) — High-performance build system for Monorepos
 - 🚀 [React](https://reactjs.org/) — JavaScript library for user interfaces
@@ -15,17 +14,6 @@ As well as a few others tools preconfigured:
 - [Prettier](https://prettier.io) for code formatting
 - [Changesets](https://github.com/changesets/changesets) for managing versioning and changelogs
 - [GitHub Actions](https://github.com/changesets/action) for fully automated package publishing
-
-## Using this example
-
-Clone the design system example locally or [from GitHub](https://github.com/vercel/turbo/tree/main/examples/design-system):
-
-```bash
-npx degit vercel/turbo/examples/design-system design-system
-cd design-system
-pnpm install
-git init . && git add . && git commit -m "Init"
-```
 
 ### Useful Commands
 
