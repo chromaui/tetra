@@ -34,10 +34,10 @@ Using Turborepo simplifes managing your design system monorepo, as you can have 
 This Turborepo includes the following packages and applications:
 
 - `apps/docs`: Component documentation site with Storybook
-- `packages/@acme/core`: Core React components
-- `packages/@acme/utils`: Shared React utilities
-- `packages/@acme/tsconfig`: Shared `tsconfig.json`s used throughout the Turborepo
-- `packages/eslint-config-acme`: ESLint preset
+- `packages/@tetris/core`: Core React components
+- `packages/@tetris/utils`: Shared React utilities
+- `packages/@tetris/tsconfig`: Shared `tsconfig.json`s used throughout the Turborepo
+- `packages/eslint-config-tetris`: ESLint preset
 
 Each package and app is 100% [TypeScript](https://www.typescriptlang.org/). Workspaces enables us to "hoist" dependencies that are shared between packages to the root `package.json`. This means smaller `node_modules` folders and a better local dev experience. To install a dependency for the entire monorepo, use the `-w` workspaces flag with `pnpm add`.
 
@@ -49,17 +49,17 @@ To make the core library code work across all browsers, we need to compile the r
 
 Running `pnpm build` from the root of the Turborepo will run the `build` command defined in each package's `package.json` file. Turborepo runs each `build` in parallel and caches & hashes the output to speed up future builds.
 
-For `acme-core`, the `build` command is the following:
+For `tetris-core`, the `build` command is the following:
 
 ```bash
 tsup src/index.tsx --format esm,cjs --dts --external react
 ```
 
-`tsup` compiles `src/index.tsx`, which exports all of the components in the design system, into both ES Modules and CommonJS formats as well as their TypeScript types. The `package.json` for `acme-core` then instructs the consumer to select the correct format:
+`tsup` compiles `src/index.tsx`, which exports all of the components in the design system, into both ES Modules and CommonJS formats as well as their TypeScript types. The `package.json` for `tetris-core` then instructs the consumer to select the correct format:
 
-```json:acme-core/package.json
+```json:tetris-core/package.json
 {
-  "name": "@acme/core",
+  "name": "@tetris/core",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -68,10 +68,10 @@ tsup src/index.tsx --format esm,cjs --dts --external react
 }
 ```
 
-Run `pnpm build` to confirm compilation is working correctly. You should see a folder `acme-core/dist` which contains the compiled output.
+Run `pnpm build` to confirm compilation is working correctly. You should see a folder `tetris-core/dist` which contains the compiled output.
 
 ```bash
-acme-core
+tetris-core
 └── dist
     ├── index.d.ts  <-- Types
     ├── index.js    <-- CommonJS version
@@ -80,9 +80,9 @@ acme-core
 
 ## Components
 
-Each file inside of `acme-core/src` is a component inside our design system. For example:
+Each file inside of `tetris-core/src` is a component inside our design system. For example:
 
-```tsx:acme-core/src/Button.tsx
+```tsx:tetris-core/src/Button.tsx
 import * as React from "react";
 
 export interface ButtonProps {
@@ -98,7 +98,7 @@ Button.displayName = "Button";
 
 When adding a new file, ensure the component is also exported from the entry `index.tsx` file:
 
-```tsx:acme-core/src/index.tsx
+```tsx:tetris-core/src/index.tsx
 import * as React from "react";
 export { Button, ButtonProps } from "./Button";
 ```
@@ -109,13 +109,13 @@ Storybook provides us with an interactive UI playground for our components. This
 
 - Use Vite to bundle stories instantly (in milliseconds)
 - Automatically find any stories inside the `stories/` folder
-- Support using module path aliases like `@acme-core` for imports
+- Support using module path aliases like `@tetris-core` for imports
 - Write MDX for component documentation pages
 
 For example, here's the included Story for our `Button` component:
 
 ```js:apps/docs/stories/button.stories.mdx
-import { Button } from '@acme-core/src';
+import { Button } from '@tetris-core/src';
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Button" component={Button} />
@@ -168,10 +168,10 @@ When you push your code to GitHub, the [GitHub Action](https://github.com/change
 turbo run build --filter=docs^... && changeset publish
 ```
 
-Turborepo runs the `build` script for all publishable packages (excluding docs) and publishes the packages to npm. By default, this example includes `acme` as the npm organization. To change this, do the following:
+Turborepo runs the `build` script for all publishable packages (excluding docs) and publishes the packages to npm. By default, this example includes `tetris` as the npm organization. To change this, do the following:
 
-- Rename folders in `packages/*` to replace `acme` with your desired scope
-- Search and replace `acme` with your desired scope
+- Rename folders in `packages/*` to replace `tetris` with your desired scope
+- Search and replace `tetris` with your desired scope
 - Re-run `pnpm install`
 
 To publish packages to a private npm organization scope, **remove** the following from each of the `package.json`'s
