@@ -1,13 +1,12 @@
 {
-  "name": "tsup-react-package-starter",
-  "description": "",
-  "version": "0.0.0",
-  "author": "",
-  "license": "",
-  "keywords": [],
+  "name": "@chromaui/tetris",
+  "version": "1.0.0",
+  "description": "Style Guide + UI library for Chromatic and Storybook marketing sites and docs",
+  "author": "cdedreuille",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/chromaui/tetris.git"
   },
   "scripts": {
     "dev": "concurrently \"yarn build --watch\" \"yarn storybook\" ",
@@ -15,8 +14,6 @@
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "lint:fix": "yarn lint --fix && prettier --write .",
-    "prepare": "husky install",
-    "commit": "cz",
     "storybook": "start-storybook -p 6006 --quiet",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
@@ -56,31 +53,11 @@
     ],
     "*": "prettier --write"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/@ryansonshine/cz-conventional-changelog"
-    }
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore(release): v${version}"
-    },
-    "github": {
-      "release": true
-    },
-    "npm": {
-      "publish": false
-    }
-  },
   "engines": {
     "node": ">=14.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.21.3",
-    "@commitlint/cli": "17.4.4",
-    "@commitlint/config-conventional": "17.4.4",
-    "@ryansonshine/commitizen": "4.2.8",
-    "@ryansonshine/cz-conventional-changelog": "3.3.4",
     "@storybook/addon-actions": "6.5.16",
     "@storybook/addon-essentials": "6.5.16",
     "@storybook/addon-interactions": "6.5.16",
@@ -110,7 +87,6 @@
     "eslint-plugin-storybook": "0.6.11",
     "eslint-plugin-typescript-sort-keys": "2.3.0",
     "eslint-plugin-unused-imports": "2.0.0",
-    "husky": "8.0.3",
     "lint-staged": "13.2.0",
     "prettier": "2.8.4",
     "react": "18.2.0",

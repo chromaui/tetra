@@ -5,6 +5,5 @@ storybook-static
 yarn.lock
 *.snap
 .npmrc
-.husky
 .gitignore
 .editorconfig
