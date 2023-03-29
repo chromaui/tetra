@@ -9,12 +9,11 @@
     "url": "git+https://github.com/chromaui/tetris.git"
   },
   "scripts": {
-    "dev": "concurrently \"yarn build --watch\" \"yarn storybook\" ",
     "build": "tsup --onSuccess \"yarn yalc publish\"",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "lint:fix": "yarn lint --fix && prettier --write .",
-    "storybook": "start-storybook -p 6006 --quiet",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "release": "yarn build && yarn release-it"
@@ -70,28 +69,15 @@
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
-    "@types/react-test-renderer": "18.0.0",
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
     "babel-loader": "9.1.2",
-    "concurrently": "7.6.0",
     "eslint": "8.36.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-prettier": "8.7.0",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-jsx-a11y": "6.7.1",
-    "eslint-plugin-prefer-arrow": "1.2.3",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.32.2",
-    "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-storybook": "0.6.11",
-    "eslint-plugin-typescript-sort-keys": "2.3.0",
-    "eslint-plugin-unused-imports": "2.0.0",
     "lint-staged": "13.2.0",
     "prettier": "2.8.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-test-renderer": "18.2.0",
     "release-it": "15.9.0",
     "tsup": "6.6.3",
     "typescript": "5.0.2",
@@ -100,11 +86,5 @@
   "peerDependencies": {
     "react": ">=17",
     "react-dom": ">=17"
-  },
-  "resolutions": {
-    "glob-parent": ">=5.1.2",
-    "parse-url": ">=8.1.0",
-    "trim": ">=0.0.3",
-    "trim-newlines": ">=3.0.1"
   }
 }
