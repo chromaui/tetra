@@ -1,183 +1,125 @@
-# Tetris
+# React Package Starter
 
-Style Guide + UI Library for Chromatic and Storybook marketing sites. It is powered by:
+This is a simple and slightly opinionated starter kit for developing and publishing React packages. It comes with a several pre-configured tools, so you could focus on coding instead of configuring a project for the nth time.
 
-- 🏎 [Turborepo](https://turbo.build/repo) — High-performance build system for Monorepos
-- 🚀 [React](https://reactjs.org/) — JavaScript library for user interfaces
-- 🛠 [Tsup](https://github.com/egoist/tsup) — TypeScript bundler powered by esbuild
-- 📖 [Storybook](https://storybook.js.org/) — UI component environment powered by Vite
+## Getting started
 
-As well as a few others tools preconfigured:
+```console
+npx degit TimMikeladze/tsup-react-package-starter my-react-package
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-- [Changesets](https://github.com/changesets/changesets) for managing versioning and changelogs
-- [GitHub Actions](https://github.com/changesets/action) for fully automated package publishing
+cd my-react-package && git init
 
-### Useful Commands
-
-- `pnpm build` - Build all packages, including the Storybook site
-- `pnpm dev` - Run all packages locally and preview with Storybook
-- `pnpm lint` - Lint all packages
-- `pnpm changeset` - Generate a changeset
-- `pnpm clean` - Clean up all `node_modules` and `dist` folders (runs each package's clean script)
-
-## Turborepo
-
-[Turborepo](https://turbo.build/repo) is a high-performance build system for JavaScript and TypeScript codebases. It was designed after the workflows used by massive software engineering organizations to ship code at scale. Turborepo abstracts the complex configuration needed for monorepos and provides fast, incremental builds with zero-configuration remote caching.
-
-Using Turborepo simplifes managing your design system monorepo, as you can have a single lint, build, test, and release process for all packages. [Learn more](https://vercel.com/blog/monorepos-are-changing-how-teams-build-software) about how monorepos improve your development workflow.
-
-## Apps & Packages
-
-This Turborepo includes the following packages and applications:
-
-- `apps/docs`: Component documentation site with Storybook
-- `packages/@tetris/core`: Core React components
-- `packages/@tetris/utils`: Shared React utilities
-- `packages/@tetris/tsconfig`: Shared `tsconfig.json`s used throughout the Turborepo
-- `packages/eslint-config-tetris`: ESLint preset
-
-Each package and app is 100% [TypeScript](https://www.typescriptlang.org/). Workspaces enables us to "hoist" dependencies that are shared between packages to the root `package.json`. This means smaller `node_modules` folders and a better local dev experience. To install a dependency for the entire monorepo, use the `-w` workspaces flag with `pnpm add`.
-
-This example sets up your `.gitignore` to exclude all generated files, other folders like `node_modules` used to store your dependencies.
-
-### Compilation
-
-To make the core library code work across all browsers, we need to compile the raw TypeScript and React code to plain JavaScript. We can accomplish this with `tsup`, which uses `esbuild` to greatly improve performance.
-
-Running `pnpm build` from the root of the Turborepo will run the `build` command defined in each package's `package.json` file. Turborepo runs each `build` in parallel and caches & hashes the output to speed up future builds.
-
-For `tetris-core`, the `build` command is the following:
-
-```bash
-tsup src/index.tsx --format esm,cjs --dts --external react
+yarn && yarn dev
 ```
 
-`tsup` compiles `src/index.tsx`, which exports all of the components in the design system, into both ES Modules and CommonJS formats as well as their TypeScript types. The `package.json` for `tetris-core` then instructs the consumer to select the correct format:
+❗Important note: This project uses [yarn](https://yarnpkg.com/) for managing dependencies. If you want to use another package manager, remove the `yarn.lock` and control-f for usages of `yarn` in the project and replace them with your package manager of choice.
 
-```json:tetris-core/package.json
-{
-  "name": "@tetris/core",
-  "version": "0.0.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "sideEffects": false,
-}
+## What's included?
+
+- ⚡️[tsup](https://github.com/egoist/tsup) - The simplest and fastest way to bundle your TypeScript libraries. Used to bundle package as ESM and CJS modules. Supports TypeScript, Code Splitting, PostCSS, and more out of the box.
+- 🔗 [Yalc](https://github.com/wclr/yalc) - Better workflow than npm | yarn link for package authors.
+- 📖 [Storybook](https://storybook.js.org/) - Build UI components and pages in isolation. It streamlines UI development, testing, and documentation.
+- 🧪 [Jest](https://jestjs.io/) - A testing framework for JavaScript. Preconfigured to work with TypeScript and JSX.
+- 🔼 [Release-it](https://github.com/release-it/release-it/) - release-it is a command line tool to automatically generate a new GitHub Release and populates it with the changes (commits) made since the last release.
+- 🐙 [Test & Publish via Github Actions](https://docs.github.com/en/actions) - CI/CD workflows for your package. Run tests on every commit plus integrate with Github Releases to automate publishing package to NPM and Storybook to Github Pages.
+- 📄 [Commitizen](https://github.com/commitizen/cz-cli) — When you commit with Commitizen, you'll be prompted to fill out any required commit fields at commit time.
+- 🚓 [Commitlint](https://github.com/conventional-changelog/commitlint) — Checks that your commit messages meet the conventional commit format.
+- 🐶 [Husky](https://github.com/typicode/husky) — Running scripts before committing.
+- 🚫 [lint-staged](https://github.com/okonet/lint-staged) — Run linters on git staged files
+- 🖌 [Renovate](https://github.com/renovatebot/renovate) - Universal dependency update tool that fits into your workflows. Configured to periodically check your dependencies for updates and send automated pull requests.
+- ☑️ [ESLint](https://eslint.org/) - A linter for JavaScript. Includes a simple configuration for React projects based on the recommended ESLint and AirBnB configs.
+- 🎨 [Prettier](https://prettier.io/) - An opinionated code formatter.
+
+## Usage
+
+### Developing
+
+Watch and rebuild code with `tsup` and runs Storybook to preview your UI during development.
+
+```console
+yarn dev
 ```
 
-Run `pnpm build` to confirm compilation is working correctly. You should see a folder `tetris-core/dist` which contains the compiled output.
+Run tests with `jest` when changes are detected.
 
-```bash
-tetris-core
-└── dist
-    ├── index.d.ts  <-- Types
-    ├── index.js    <-- CommonJS version
-    └── index.mjs   <-- ES Modules version
+```console
+yarn test:watch
 ```
 
-## Components
+### Building
 
-Each file inside of `tetris-core/src` is a component inside our design system. For example:
+Build package with `tsup` for production.
 
-```tsx:tetris-core/src/Button.tsx
-import * as React from "react";
-
-export interface ButtonProps {
-  children: React.ReactNode;
-}
-
-export function Button(props: ButtonProps) {
-  return <button>{props.children}</button>;
-}
-
-Button.displayName = "Button";
+```console
+yarn build
 ```
 
-When adding a new file, ensure the component is also exported from the entry `index.tsx` file:
+### Linking
 
-```tsx:tetris-core/src/index.tsx
-import * as React from "react";
-export { Button, ButtonProps } from "./Button";
+Often times you want to `link` the package you're developing to another project locally to test it out to circumvent the need to publish it to NPM.
+
+For this we use [yalc](https://github.com/wclr/yalc) which is a tool for local package development and simulating the publishing and installation of packages.
+
+In a project where you want to consume your package simply run:
+
+```console
+npx yalc link my-react-package
+# or
+yarn yalc add my-react-package
 ```
 
-## Storybook
+Learn more about `yalc` [here](https://github.com/wclr/yalc).
 
-Storybook provides us with an interactive UI playground for our components. This allows us to preview our components in the browser and instantly see changes when developing locally. This example preconfigures Storybook to:
+### Testing
 
-- Use Vite to bundle stories instantly (in milliseconds)
-- Automatically find any stories inside the `stories/` folder
-- Support using module path aliases like `@tetris-core` for imports
-- Write MDX for component documentation pages
+To run all tests once without watching for changes.
 
-For example, here's the included Story for our `Button` component:
-
-```js:apps/docs/stories/button.stories.mdx
-import { Button } from '@tetris-core/src';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-
-<Meta title="Components/Button" component={Button} />
-
-# Button
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur tempor, nisl nunc egestas nisi, euismod aliquam nisl nunc euismod.
-
-## Props
-
-<Props of={Box} />
-
-## Examples
-
-<Preview>
-  <Story name="Default">
-    <Button>Hello</Button>
-  </Story>
-</Preview>
+```console
+yarn test
 ```
 
-This example includes a few helpful Storybook scripts:
+To watch for changes and run tests.
 
-- `pnpm dev`: Starts Storybook in dev mode with hot reloading at `localhost:6006`
-- `pnpm build`: Builds the Storybook UI and generates the static HTML files
-- `pnpm preview-storybook`: Starts a local server to view the generated Storybook UI
-
-## Versioning & Publishing Packages
-
-This example uses [Changesets](https://github.com/changesets/changesets) to manage versions, create changelogs, and publish to npm. It's preconfigured so you can start publishing packages immediately.
-
-You'll need to create an `NPM_TOKEN` and `GITHUB_TOKEN` and add it to your GitHub repository settings to enable access to npm. It's also worth installing the [Changesets bot](https://github.com/apps/changeset-bot) on your repository.
-
-### Generating the Changelog
-
-To generate your changelog, run `pnpm changeset` locally:
-
-1. **Which packages would you like to include?** – This shows which packages and changed and which have remained the same. By default, no packages are included. Press `space` to select the packages you want to include in the `changeset`.
-1. **Which packages should have a major bump?** – Press `space` to select the packages you want to bump versions for.
-1. If doing the first major version, confirm you want to release.
-1. Write a summary for the changes.
-1. Confirm the changeset looks as expected.
-1. A new Markdown file will be created in the `changeset` folder with the summary and a list of the packages included.
-
-### Releasing
-
-When you push your code to GitHub, the [GitHub Action](https://github.com/changesets/action) will run the `release` script defined in the root `package.json`:
-
-```bash
-turbo run build --filter=docs^... && changeset publish
+```
+yarn test:watch
 ```
 
-Turborepo runs the `build` script for all publishable packages (excluding docs) and publishes the packages to npm. By default, this example includes `tetris` as the npm organization. To change this, do the following:
+### Committing
 
-- Rename folders in `packages/*` to replace `tetris` with your desired scope
-- Search and replace `tetris` with your desired scope
-- Re-run `pnpm install`
+When you are ready to commit simply run the following command to get a well formatted commit message. All staged files will automatically be linted and fixed as well.
 
-To publish packages to a private npm organization scope, **remove** the following from each of the `package.json`'s
-
-```diff
-- "publishConfig": {
--  "access": "public"
-- },
+```console
+yarn commit
 ```
+
+### Releasing, tagging & publishing to NPM
+
+Create a semantic version tag and publish to Github Releases. When a new release is detected a Github Action will automatically build the package and publish it to NPM. Additionally, a Storybook will be published to Github pages.
+
+Learn more about how to use the `release-it` command [here](https://github.com/release-it/release-it).
+
+```console
+yarn release
+```
+
+When you are ready to publish to NPM simply run the following command:
+
+```console
+yarn publish
+```
+
+#### Auto publish after Github Release
+
+❗Important note: in order to publish package to NPM you must add your token as a Github Action secret. Learn more on how to configure your repository and publish packages through Github Actions [here](https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages).
+
+## PostCSS
+
+[tsup](https://github.com/egoist/tsup) supports PostCSS out of the box. Simply run `yarn add postcss -D` add a `postcss.config.js` file to the root of your project, then add any plugins you need. Learn more how to configure PostCSS [here](https://tsup.egoist.dev/#css-support).
+
+Additionally consider using the [tsup](https://github.com/egoist/tsup) configuration option `injectStyle` to inject the CSS directly into your Javascript bundle instead of outputting a separate CSS file.
+
+## Built something using this starter-kit?
+
+That's awesome! Feel free to add it to the list.
+
+- [next-auth-mui](https://github.com/TimMikeladze/next-auth-mui) - Sign-in dialog for NextAuth built with MUI and React. Detects configured OAuth and Email providers and renders buttons or input fields for each respectively. Fully themeable, extensible and customizable to support custom credential flows.
