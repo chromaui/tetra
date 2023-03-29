@@ -1,6 +1,4 @@
-# Tetris
-
-<img src="src/cover.jpg" width="960px" />
+<img src="src/cover.jpg" />
 
 ## Install
 
