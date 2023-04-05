@@ -5,16 +5,10 @@ import { FC } from 'react';
 export interface ButtonProps {
   children: String;
   size?: 'sm' | 'md' | 'lg';
-  theme?: 'light' | 'dark';
   variant?: 'solid' | 'outline';
-  onClick?: () => void;
 }
 
-const Container = styled.button<{
-  size: ButtonProps['size'];
-  themeComp: ButtonProps['theme'];
-  variant: ButtonProps['variant'];
-}>`
+export const Button = styled.button<ButtonProps>`
   border: 0;
   border-radius: 3em;
   cursor: pointer;
@@ -40,22 +34,7 @@ const Container = styled.button<{
   box-shadow: 0 0 0 1px ${colors.blue['500']};
 `;
 
-export const Button: FC<ButtonProps> = ({
-  children = 'Hello World',
-  size = 'md',
-  theme = 'light',
-  variant = 'solid',
-  onClick,
-}) => {
-  return (
-    <Container
-      type="button"
-      size={size}
-      themeComp={theme}
-      variant={variant}
-      onClick={onClick}
-    >
-      {children}
-    </Container>
-  );
+Button.defaultProps = {
+  size: 'md',
+  variant: 'solid',
 };
