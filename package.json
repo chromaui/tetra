@@ -2,7 +2,9 @@
   "name": "@chromaui/tetra",
   "version": "1.0.0",
   "description": "Style Guide + UI library for Chromatic and Storybook marketing sites and docs",
-  "author": "cdedreuille",
+  "author": {
+    "name": "cdedreuille"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,7 +18,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "storybook-to-ghpages",
-    "release": "yarn build && yarn release-it"
+    "release": "yarn build && yarn release-it",
+    "chromatic": "npx chromatic --project-token=b80523143ab2"
   },
   "tsup": {
     "entry": [
@@ -75,6 +78,7 @@
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
     "babel-loader": "9.1.2",
+    "chromatic": "6.17.3",
     "eslint": "8.36.0",
     "eslint-plugin-storybook": "0.6.11",
     "lint-staged": "13.2.0",
@@ -93,5 +97,11 @@
   },
   "dependencies": {
     "@storybook/theming": "7.0.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/chromaui/tetra/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/chromaui/tetra#readme",
+  "_id": "@chromaui/tetra@1.0.0"
 }
