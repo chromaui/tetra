@@ -14,7 +14,6 @@ export const Base: Story = {
   args: {
     children: 'Hello World',
     size: 'md',
-    theme: 'light',
     variant: 'solid',
   },
 };

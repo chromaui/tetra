@@ -93,6 +93,7 @@
     "react-dom": ">=17"
   },
   "dependencies": {
+    "@storybook/design-system": "7.15.8",
     "@storybook/theming": "7.0.2"
   },
   "bugs": {
