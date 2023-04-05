@@ -1,13 +1,14 @@
 import { styled } from '@storybook/theming';
 import { colors } from './tokens';
+import { FC } from 'react';
 
-export type ButtonProps = {
+export interface ButtonProps {
   children: String;
   size?: 'sm' | 'md' | 'lg';
   theme?: 'light' | 'dark';
   variant?: 'solid' | 'outline';
   onClick?: () => void;
-};
+}
 
 const Container = styled.button<{
   size: ButtonProps['size'];
@@ -39,13 +40,13 @@ const Container = styled.button<{
   box-shadow: 0 0 0 1px ${colors.blue['500']};
 `;
 
-export function Button({
+export const Button: FC<ButtonProps> = ({
   children = 'Hello World',
   size = 'md',
   theme = 'light',
   variant = 'solid',
   onClick,
-}: ButtonProps) {
+}) => {
   return (
     <Container
       type="button"
@@ -57,4 +58,4 @@ export function Button({
       {children}
     </Container>
   );
-}
+};
