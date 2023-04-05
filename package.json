@@ -1,12 +1,12 @@
 {
-  "name": "@chromaui/tetris",
+  "name": "@chromaui/tetra",
   "version": "1.0.0",
   "description": "Style Guide + UI library for Chromatic and Storybook marketing sites and docs",
   "author": "cdedreuille",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chromaui/tetris.git"
+    "url": "git+https://github.com/chromaui/tetra.git"
   },
   "scripts": {
     "build": "tsup --onSuccess \"yarn yalc publish\"",

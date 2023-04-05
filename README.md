@@ -1,4 +1,4 @@
-# Tetris ⍜ ⍚
+# Tetra ⍜ ⍚
 
 <img src="src/cover.jpg" />
 
@@ -7,7 +7,7 @@ This library centralised Chromatic and Storybooks' style guides as well as an ex
 ## Install
 
 ```console
-npm install --save @chromaui/tetris
+npm install --save @chromaui/tetra
 ```
 
 ## Developing
