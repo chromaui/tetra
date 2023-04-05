@@ -4,13 +4,17 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/addon-mdx-gfm',
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: 'webpack5',
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
   },
   typescript: {
     check: false,
     reactDocgen: false,
+  },
+  docs: {
+    autodocs: true,
   },
 };
