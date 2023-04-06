@@ -7,7 +7,7 @@ This library centralised Chromatic and Storybooks' style guides as well as an ex
 ## Install
 
 ```console
-npm install --save @chromaui/tetra
+yarn add @chromaui/tetra
 ```
 
 ## Developing
