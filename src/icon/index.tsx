@@ -1,33 +1,25 @@
 import { FC } from 'react';
-import { Plus } from './icons/plus';
-import { Trash } from './icons/trash';
-import { X } from './icons/x';
+import { icons } from './iconPaths';
+import { colors } from '../tokens';
 
-export enum Icons {
-  x = 'x',
-  trash = 'trash',
-  plus = 'plus',
-}
+export type IconType = keyof typeof icons;
 
 export interface IconProps {
-  name: keyof typeof Icons;
+  name: IconType;
   size?: 12 | 14 | 16 | 18 | 20 | 24;
-  className?: string;
+  color?: keyof typeof colors;
 }
 
-export const Icon: FC<IconProps> = ({ name, className, size = 14 }) => {
+export const Icon: FC<IconProps> = ({ name, size = 14, color = 'gray500' }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={size || '16'}
-      height={size || '16'}
-      viewBox="0 0 16 16"
-      className={className}
-      fill="none"
+      width={size}
+      height={size}
+      viewBox="0 0 14 14"
+      fill={colors[color] || 'currentColor'}
     >
-      {name === 'plus' && <Plus />}
-      {name === 'x' && <X />}
-      {name === 'trash' && <Trash />}
+      {icons[name]}
     </svg>
   );
 };
