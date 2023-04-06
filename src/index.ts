@@ -1,3 +1,3 @@
 export { colors } from './tokens';
-export { Button } from './button';
+export { Button } from './Button/Button';
 export { Icon } from './icon';
