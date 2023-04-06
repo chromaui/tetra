@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import React, { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from './index';
-import { colors } from '../tokens';
+import { Button } from './Button';
+import { colors } from './tokens';
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
