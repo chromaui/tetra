@@ -6,7 +6,8 @@ import {
   IconItem,
 } from '@storybook/blocks';
 import * as IconStories from './icon.stories';
-import { Icon, Icons } from './index';
+import { Icon } from './index';
+import { icons } from './iconPaths';
 
 <Meta title="Icon/Docs" of={IconStories} />
 
@@ -33,7 +34,7 @@ This is a collection of icons that can be used in the UI.
 <div className="spacer" />
 
 <IconGallery>
-  {Object.keys(Icons).map((icon) => (
+  {Object.keys(icons).map((icon) => (
     <IconItem key={icon} name={icon}>
       <Icon name={icon} />
     </IconItem>

@@ -18,6 +18,8 @@ export const Base: Story = {
     size: 'md',
     variant: 'solid',
     color: 'blue',
+    leftIcon: undefined,
+    rightIcon: undefined,
   },
 };
 
@@ -63,7 +65,7 @@ export const Variants: Story = {
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
-          backgroundColor: colors.gray['800'],
+          backgroundColor: colors.gray800,
           padding: '2rem 0',
           gap: '1rem',
         }}
@@ -98,11 +100,149 @@ export const Colors: Story = {
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
-          backgroundColor: colors.gray['800'],
+          backgroundColor: colors.gray800,
           padding: '2rem 0',
         }}
       >
         <Button color="white">White Button</Button>
+      </div>
+    </div>
+  ),
+};
+
+export const LeftIcon: Story = {
+  render: () => (
+    <div style={{ display: 'flex', width: '100%' }}>
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: colors.white,
+          padding: '4rem 0',
+          gap: '1rem',
+        }}
+      >
+        <Button size="sm" leftIcon="facehappy">
+          Hello World
+        </Button>
+        <Button size="md" leftIcon="facehappy">
+          Hello World
+        </Button>
+        <Button size="lg" leftIcon="facehappy">
+          Hello World
+        </Button>
+        <Button size="sm" leftIcon="facehappy" variant="outline">
+          Hello World
+        </Button>
+        <Button size="md" leftIcon="facehappy" variant="outline">
+          Hello World
+        </Button>
+        <Button size="lg" leftIcon="facehappy" variant="outline">
+          Hello World
+        </Button>
+      </div>
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: colors.gray800,
+          padding: '4rem 0',
+          gap: '1rem',
+        }}
+      >
+        <Button size="sm" leftIcon="facehappy" color="white">
+          Hello World
+        </Button>
+        <Button size="md" leftIcon="facehappy" color="white">
+          Hello World
+        </Button>
+        <Button size="lg" leftIcon="facehappy" color="white">
+          Hello World
+        </Button>
+        <Button size="sm" leftIcon="facehappy" color="white" variant="outline">
+          Hello World
+        </Button>
+        <Button size="md" leftIcon="facehappy" color="white" variant="outline">
+          Hello World
+        </Button>
+        <Button size="lg" leftIcon="facehappy" color="white" variant="outline">
+          Hello World
+        </Button>
+      </div>
+    </div>
+  ),
+};
+
+export const RightIcon: Story = {
+  render: () => (
+    <div style={{ display: 'flex', width: '100%' }}>
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: colors.white,
+          padding: '4rem 0',
+          gap: '1rem',
+        }}
+      >
+        <Button size="sm" rightIcon="facehappy">
+          Hello World
+        </Button>
+        <Button size="md" rightIcon="facehappy">
+          Hello World
+        </Button>
+        <Button size="lg" rightIcon="facehappy">
+          Hello World
+        </Button>
+        <Button size="sm" rightIcon="facehappy" variant="outline">
+          Hello World
+        </Button>
+        <Button size="md" rightIcon="facehappy" variant="outline">
+          Hello World
+        </Button>
+        <Button size="lg" rightIcon="facehappy" variant="outline">
+          Hello World
+        </Button>
+      </div>
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: colors.gray800,
+          padding: '4rem 0',
+          gap: '1rem',
+        }}
+      >
+        <Button size="sm" rightIcon="facehappy" color="white">
+          Hello World
+        </Button>
+        <Button size="md" rightIcon="facehappy" color="white">
+          Hello World
+        </Button>
+        <Button size="lg" rightIcon="facehappy" color="white">
+          Hello World
+        </Button>
+        <Button size="sm" rightIcon="facehappy" color="white" variant="outline">
+          Hello World
+        </Button>
+        <Button size="md" rightIcon="facehappy" color="white" variant="outline">
+          Hello World
+        </Button>
+        <Button size="lg" rightIcon="facehappy" color="white" variant="outline">
+          Hello World
+        </Button>
       </div>
     </div>
   ),
