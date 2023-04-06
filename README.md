@@ -12,7 +12,7 @@ yarn add @chromaui/tetra
 
 ## Preview
 You can preview this library on Chromatic  
-https://www.chromatic.com/library?appId=642d765a7e8afcfb104268dc
+https://642d765a7e8afcfb104268dc-murpazadzf.chromatic.com/
 
 ## Developing
 
