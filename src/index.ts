@@ -1,3 +1,3 @@
-export * from './Button';
+export * from './button';
 export * from './tokens';
-export { Button } from './Button';
+export { Button } from './button';
