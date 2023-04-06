@@ -1,6 +1,7 @@
 export const colors = {
   black: '#000000',
   white: '#FFFFFF',
+
   gray50: '#F9FAFB',
   gray100: '#F3F4F6',
   gray200: '#E5E7EB',
@@ -11,7 +12,41 @@ export const colors = {
   gray700: '#374151',
   gray800: '#1F2937',
   gray900: '#111827',
+
   blue100: '#DEF2FF',
+  blue200: '#BBE4FE',
+  blue300: '#78CAFE',
+  blue400: '#4BB9FD',
   blue500: '#1EA7FD',
   blue600: '#0B94EB',
+
+  teal100: '#D8F8F7',
+  teal200: '#C3F2F1',
+  teal300: '#87E6E5',
+  teal400: '#5FDDDC',
+  teal500: '#37D5D3',
+
+  purple100: '#F0E3FC',
+  purple200: '#D8BEF0',
+  purple300: '#B991DE',
+  purple400: '#9760CA',
+  purple500: '#6F2CAC',
+
+  pink100: '#FFECF2',
+  pink200: '#FFC7DA',
+  pink300: '#FF91B6',
+  pink400: '#FF6C9D',
+  pink500: '#FF4785',
+
+  orange100: '#FFE5DC',
+  orange200: '#FFC6B2',
+  orange300: '#FF8F66',
+  orange400: '#FF6933',
+  orange500: '#FF4400',
+
+  yellow100: '#FFF2D7',
+  yellow200: '#FFE6B2',
+  yellow300: '#FFCE66',
+  yellow400: '#FFBE33',
+  yellow500: '#FFAE00',
 };
