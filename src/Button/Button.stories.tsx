@@ -24,11 +24,14 @@ export const Base: Story = {
 };
 
 export const Sizes: Story = {
-  render: () => (
+  args: {
+    ...Base.args,
+  },
+  render: ({ children }) => (
     <>
-      <Button size="sm">Hello World</Button>
-      <Button size="md">Hello World</Button>
-      <Button size="lg">Hello World</Button>
+      <Button size="sm">{children}</Button>
+      <Button size="md">{children}</Button>
+      <Button size="lg">{children}</Button>
     </>
   ),
   decorators: [
@@ -41,7 +44,10 @@ export const Sizes: Story = {
 };
 
 export const Variants: Story = {
-  render: () => (
+  args: {
+    ...Base.args,
+  },
+  render: ({ children }) => (
     <div style={{ display: 'flex', width: '100%' }}>
       <div
         style={{
@@ -54,10 +60,10 @@ export const Variants: Story = {
         }}
       >
         <Button variant="solid" color="blue">
-          Blue Button
+          {children}
         </Button>
         <Button variant="outline" color="blue">
-          Blue Button
+          {children}
         </Button>
       </div>
       <div
@@ -71,10 +77,10 @@ export const Variants: Story = {
         }}
       >
         <Button variant="solid" color="white">
-          White Button
+          {children}
         </Button>
         <Button variant="outline" color="white">
-          White Button
+          {children}
         </Button>
       </div>
     </div>
@@ -82,7 +88,10 @@ export const Variants: Story = {
 };
 
 export const Colors: Story = {
-  render: () => (
+  args: {
+    ...Base.args,
+  },
+  render: ({ children }) => (
     <div style={{ display: 'flex', width: '100%' }}>
       <div
         style={{
@@ -93,7 +102,7 @@ export const Colors: Story = {
           padding: '2rem 0',
         }}
       >
-        <Button color="blue">Blue Button</Button>
+        <Button color="blue">{children}</Button>
       </div>
       <div
         style={{
@@ -104,14 +113,17 @@ export const Colors: Story = {
           padding: '2rem 0',
         }}
       >
-        <Button color="white">White Button</Button>
+        <Button color="white">{children}</Button>
       </div>
     </div>
   ),
 };
 
 export const LeftIcon: Story = {
-  render: () => (
+  args: {
+    ...Base.args,
+  },
+  render: ({ children }) => (
     <div style={{ display: 'flex', width: '100%' }}>
       <div
         style={{
@@ -126,22 +138,22 @@ export const LeftIcon: Story = {
         }}
       >
         <Button size="sm" leftIcon="facehappy">
-          Hello World
+          {children}
         </Button>
         <Button size="md" leftIcon="facehappy">
-          Hello World
+          {children}
         </Button>
         <Button size="lg" leftIcon="facehappy">
-          Hello World
+          {children}
         </Button>
         <Button size="sm" leftIcon="facehappy" variant="outline">
-          Hello World
+          {children}
         </Button>
         <Button size="md" leftIcon="facehappy" variant="outline">
-          Hello World
+          {children}
         </Button>
         <Button size="lg" leftIcon="facehappy" variant="outline">
-          Hello World
+          {children}
         </Button>
       </div>
       <div
@@ -157,22 +169,22 @@ export const LeftIcon: Story = {
         }}
       >
         <Button size="sm" leftIcon="facehappy" color="white">
-          Hello World
+          {children}
         </Button>
         <Button size="md" leftIcon="facehappy" color="white">
-          Hello World
+          {children}
         </Button>
         <Button size="lg" leftIcon="facehappy" color="white">
-          Hello World
+          {children}
         </Button>
         <Button size="sm" leftIcon="facehappy" color="white" variant="outline">
-          Hello World
+          {children}
         </Button>
         <Button size="md" leftIcon="facehappy" color="white" variant="outline">
-          Hello World
+          {children}
         </Button>
         <Button size="lg" leftIcon="facehappy" color="white" variant="outline">
-          Hello World
+          {children}
         </Button>
       </div>
     </div>
@@ -180,7 +192,10 @@ export const LeftIcon: Story = {
 };
 
 export const RightIcon: Story = {
-  render: () => (
+  args: {
+    ...Base.args,
+  },
+  render: ({ children }) => (
     <div style={{ display: 'flex', width: '100%' }}>
       <div
         style={{
@@ -195,22 +210,22 @@ export const RightIcon: Story = {
         }}
       >
         <Button size="sm" rightIcon="facehappy">
-          Hello World
+          {children}
         </Button>
         <Button size="md" rightIcon="facehappy">
-          Hello World
+          {children}
         </Button>
         <Button size="lg" rightIcon="facehappy">
-          Hello World
+          {children}
         </Button>
         <Button size="sm" rightIcon="facehappy" variant="outline">
-          Hello World
+          {children}
         </Button>
         <Button size="md" rightIcon="facehappy" variant="outline">
-          Hello World
+          {children}
         </Button>
         <Button size="lg" rightIcon="facehappy" variant="outline">
-          Hello World
+          {children}
         </Button>
       </div>
       <div
@@ -226,22 +241,22 @@ export const RightIcon: Story = {
         }}
       >
         <Button size="sm" rightIcon="facehappy" color="white">
-          Hello World
+          {children}
         </Button>
         <Button size="md" rightIcon="facehappy" color="white">
-          Hello World
+          {children}
         </Button>
         <Button size="lg" rightIcon="facehappy" color="white">
-          Hello World
+          {children}
         </Button>
         <Button size="sm" rightIcon="facehappy" color="white" variant="outline">
-          Hello World
+          {children}
         </Button>
         <Button size="md" rightIcon="facehappy" color="white" variant="outline">
-          Hello World
+          {children}
         </Button>
         <Button size="lg" rightIcon="facehappy" color="white" variant="outline">
-          Hello World
+          {children}
         </Button>
       </div>
     </div>

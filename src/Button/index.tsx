@@ -56,6 +56,18 @@ const Container = styled.div<{
   }};
   font-weight: 600;
   gap: 0.75rem;
+  transition: all 0.16s ease-in-out;
+
+  &:hover {
+    background: ${({ variant, color }) => {
+      if (variant === 'solid' && color === 'blue') return colors.blue600;
+      if (variant === 'solid' && color === 'white') return colors.blue100;
+      if (variant === 'outline' && color === 'blue') return colors.blue100;
+      if (variant === 'outline' && color === 'white')
+        return 'rgba(255, 255, 255, 0.1)';
+      return 'transparent';
+    }};
+  }
 `;
 
 export const Button: FC<ButtonProps> = ({
