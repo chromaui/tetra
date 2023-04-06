@@ -79,7 +79,6 @@
   "bugs": {
     "url": "https://github.com/chromaui/tetra/issues"
   },
-  "readme": "ERROR: No README data found!",
   "homepage": "https://github.com/chromaui/tetra#readme",
   "publishConfig": {
     "access": "public",
