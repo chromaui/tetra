@@ -1,6 +1,6 @@
 {
   "name": "@chromaui/tetra",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Style Guide + UI library for Chromatic and Storybook marketing sites and docs",
   "author": {
     "name": "cdedreuille"
@@ -100,7 +100,6 @@
   },
   "readme": "ERROR: No README data found!",
   "homepage": "https://github.com/chromaui/tetra#readme",
-  "_id": "@chromaui/tetra@1.0.0",
   "publishConfig": {
     "access": "public"
   }
