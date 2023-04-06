@@ -11,33 +11,14 @@
     "url": "git+https://github.com/chromaui/tetra.git"
   },
   "scripts": {
-    "build": "tsup --onSuccess \"yarn yalc publish\"",
+    "build": "tsup",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "lint:fix": "yarn lint --fix && prettier --write .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "deploy-storybook": "storybook-to-ghpages",
     "release": "yarn build && yarn release-it",
     "chromatic": "npx chromatic --project-token=b80523143ab2"
-  },
-  "tsup": {
-    "entry": [
-      "src/index.ts"
-    ],
-    "treeshake": true,
-    "sourcemap": true,
-    "minify": true,
-    "clean": true,
-    "dts": true,
-    "splitting": false,
-    "format": [
-      "cjs",
-      "esm"
-    ],
-    "external": [
-      "react"
-    ]
   },
   "types": "./dist/index.d.ts",
   "exports": {
@@ -61,7 +42,6 @@
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.2",
     "@storybook/addon-interactions": "^7.0.2",
-    "@storybook/addon-links": "^7.0.2",
     "@storybook/blocks": "^7.0.2",
     "@storybook/react": "^7.0.2",
     "@storybook/react-vite": "^7.0.2",
@@ -72,7 +52,6 @@
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
     "@vitejs/plugin-react": "3.1.0",
-    "babel-loader": "9.1.2",
     "chromatic": "6.17.3",
     "eslint": "8.36.0",
     "eslint-plugin-storybook": "0.6.11",
@@ -84,8 +63,7 @@
     "storybook": "7.0.2",
     "tsup": "6.6.3",
     "typescript": "5.0.2",
-    "vite": "4.2.1",
-    "yalc": "1.0.0-pre.53"
+    "vite": "4.2.1"
   },
   "peerDependencies": {
     "react": ">=17",
@@ -98,8 +76,8 @@
   "bugs": {
     "url": "https://github.com/chromaui/tetra/issues"
   },
-  "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/chromaui/tetra#readme",
+  "readme": "https://github.com/chromaui/tetra#readme",
+  "homepage": "https://github.com/chromaui/tetra",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
