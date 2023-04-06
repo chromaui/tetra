@@ -47,7 +47,7 @@ Learn more about `yalc` [here](https://github.com/wclr/yalc).
 To release a new version of the package simply run the following command:
 
 ```console
-yarn publish
+yarn release
 ```
 
 This command will build the package using [tsup](https://tsup.egoist.dev/#code-splitting), create a new version, a new tag and publish on NPM. Learn more about how to use the `release-it` command [here](https://github.com/release-it/release-it).
