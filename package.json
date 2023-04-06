@@ -100,5 +100,8 @@
   },
   "readme": "ERROR: No README data found!",
   "homepage": "https://github.com/chromaui/tetra#readme",
-  "_id": "@chromaui/tetra@1.0.0"
+  "_id": "@chromaui/tetra@1.0.0",
+  "publishConfig": {
+    "access": "public"
+  }
 }
