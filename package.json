@@ -11,7 +11,8 @@
     "url": "git+https://github.com/chromaui/tetra.git"
   },
   "scripts": {
-    "build": "tsup",
+    "dev": "concurrently  -n \"Build,SB\" \"yarn build --watch\" \"yarn storybook\" ",
+    "build": "tsup --onSuccess \"yarn yalc publish\"",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "lint:fix": "yarn lint --fix && prettier --write .",
@@ -53,6 +54,7 @@
     "@typescript-eslint/parser": "5.55.0",
     "@vitejs/plugin-react": "3.1.0",
     "chromatic": "6.17.3",
+    "concurrently": "8.0.1",
     "eslint": "8.36.0",
     "eslint-plugin-storybook": "0.6.11",
     "lint-staged": "13.2.0",
@@ -63,7 +65,8 @@
     "storybook": "7.0.2",
     "tsup": "6.6.3",
     "typescript": "5.0.2",
-    "vite": "4.2.1"
+    "vite": "4.2.1",
+    "yalc": "1.0.0-pre.53"
   },
   "peerDependencies": {
     "react": ">=17",
@@ -76,8 +79,8 @@
   "bugs": {
     "url": "https://github.com/chromaui/tetra/issues"
   },
-  "readme": "https://github.com/chromaui/tetra#readme",
-  "homepage": "https://github.com/chromaui/tetra",
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/chromaui/tetra#readme",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
