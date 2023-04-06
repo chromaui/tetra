@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Plus } from './plus';
-import { Trash } from './trash';
-import { X } from './x';
+import { Plus } from './icons/plus';
+import { Trash } from './icons/trash';
+import { X } from './icons/x';
 
 export enum Icons {
   x = 'x',
@@ -31,5 +31,3 @@ export const Icon: FC<IconProps> = ({ name, className, size = 14 }) => {
     </svg>
   );
 };
-
-export default Icon;

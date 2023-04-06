@@ -18,6 +18,8 @@ export const Base: Story = {
     size: 'md',
     variant: 'solid',
     color: 'blue',
+    leftIcon: undefined,
+    rightIcon: undefined,
   },
 };
 
@@ -27,6 +29,52 @@ export const Sizes: Story = {
       <Button size="sm">Hello World</Button>
       <Button size="md">Hello World</Button>
       <Button size="lg">Hello World</Button>
+    </>
+  ),
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const LeftIcon: Story = {
+  render: () => (
+    <>
+      <Button size="sm" leftIcon="plus">
+        Hello World
+      </Button>
+      <Button size="md" leftIcon="plus">
+        Hello World
+      </Button>
+      <Button size="lg" leftIcon="plus">
+        Hello World
+      </Button>
+    </>
+  ),
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const RightIcon: Story = {
+  render: () => (
+    <>
+      <Button size="sm" rightIcon="plus">
+        Hello World
+      </Button>
+      <Button size="md" rightIcon="plus">
+        Hello World
+      </Button>
+      <Button size="lg" rightIcon="plus">
+        Hello World
+      </Button>
     </>
   ),
   decorators: [

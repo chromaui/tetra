@@ -1,15 +1,22 @@
 import { styled } from '@storybook/theming';
 import { colors } from '../tokens';
 import { FC } from 'react';
+import { Icon, Icons } from '../icon';
 
 export interface ButtonProps {
   children: String;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'solid' | 'outline';
   color?: 'blue' | 'white';
+  leftIcon?: keyof typeof Icons;
+  rightIcon?: keyof typeof Icons;
 }
 
-export const Container = styled.div<ButtonProps>`
+export const Container = styled.div<{
+  size: ButtonProps['size'];
+  variant: ButtonProps['variant'];
+  color: ButtonProps['color'];
+}>`
   border: 0;
   border-radius: 3em;
   cursor: pointer;
@@ -48,6 +55,7 @@ export const Container = styled.div<ButtonProps>`
     if (size === 'lg') return '1rem';
   }};
   font-weight: 600;
+  gap: 0.75rem;
 `;
 
 export const Button: FC<ButtonProps> = ({
@@ -55,10 +63,18 @@ export const Button: FC<ButtonProps> = ({
   size = 'md',
   variant = 'solid',
   color = 'blue',
+  leftIcon,
+  rightIcon,
 }) => {
+  let iconSize: 12 | 14 | 16 = 14;
+  if (size === 'sm') iconSize = 12;
+  if (size === 'lg') iconSize = 16;
+
   return (
     <Container size={size} variant={variant} color={color}>
+      {leftIcon && <Icon name={leftIcon} size={iconSize} />}
       {children}
+      {rightIcon && <Icon name={rightIcon} size={iconSize} />}
     </Container>
   );
 };
