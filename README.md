@@ -44,19 +44,13 @@ Learn more about `yalc` [here](https://github.com/wclr/yalc).
 
 ## Releasing, tagging & publishing to NPM
 
-Create a semantic version tag and publish to Github Releases. When a new release is detected a Github Action will automatically build the package and publish it to NPM. Additionally, a Storybook will be published to Github pages.
-
-Learn more about how to use the `release-it` command [here](https://github.com/release-it/release-it).
-
-```console
-yarn release
-```
-
-When you are ready to publish to NPM simply run the following command:
+To release a new version of the package simply run the following command:
 
 ```console
 yarn publish
 ```
+
+This command will build the package using [tsup](https://tsup.egoist.dev/#code-splitting), create a new version, a new tag and publish on NPM. Learn more about how to use the `release-it` command [here](https://github.com/release-it/release-it).
 
 ## PostCSS
 

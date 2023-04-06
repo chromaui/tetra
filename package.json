@@ -17,7 +17,7 @@
     "lint:fix": "yarn lint --fix && prettier --write .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "yarn build && yarn release-it",
+    "publish": "yarn build && yarn release-it",
     "chromatic": "npx chromatic --project-token=b80523143ab2"
   },
   "types": "./dist/index.d.ts",
