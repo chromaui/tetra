@@ -1,2 +1,2 @@
-export * from './Example';
 export * from './tokens';
+export { Button } from './Button';
