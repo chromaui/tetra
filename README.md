@@ -10,6 +10,10 @@ This library centralised Chromatic and Storybooks' style guides as well as an ex
 yarn add @chromaui/tetra
 ```
 
+## Preview
+You can preview this library on Chromatic  
+https://www.chromatic.com/library?appId=642d765a7e8afcfb104268dc
+
 ## Developing
 
 Watch and rebuild code with `tsup` and runs Storybook to preview your UI during development.
