@@ -8,6 +8,6 @@ export default defineConfig({
   clean: true,
   dts: true,
   splitting: false,
-  format: ['cjs', 'esm'],
+  format: ['cjs'],
   external: ['react'],
 });
