@@ -9,7 +9,8 @@ const { GlobalStyle: StorybookDSGlobalStyle } = designSystemGlobal;
 
 const withGlobalStyle: Decorator = (storyFn) => (
   <>
-    <StorybookDSGlobalStyle />
+    {/* I removed the global style to make sure we are setting every elements on each components instead of relying on global styles. */}
+    {/* <StorybookDSGlobalStyle /> */}
     {storyFn()}
   </>
 );
