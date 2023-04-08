@@ -50,3 +50,40 @@ export const colors = {
   yellow400: '#FFBE33',
   yellow500: '#FFAE00',
 };
+
+export const fontFamilies = {
+  sans: '"Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  mono: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+};
+
+export const fontWeights = {
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+};
+
+export const fontSizes = {
+  xs: '0.75rem', // 12px
+  sm: '0.875rem', // 14px
+  md: '1rem', // 16px
+  lg: '1.125rem', // 18px
+  xl: '1.25rem', // 20px
+  '2xl': '1.5rem', // 24px
+  '3xl': '1.875rem', // 30px
+  '4xl': '2.25rem', // 36px
+  '5xl': '3rem', // 48px
+  '6xl': '3.75rem', // 60px
+};
+
+export const lineHeights = {
+  xs: '1.25rem', // 20px
+  sm: '1.5rem', // 24px
+  md: '1.75rem', // 28px
+  lg: '2rem', // 32px
+  xl: '2.375rem', // 38px
+  '2xl': '2.75rem', // 44px
+  '3xl': '3rem', // 48px
+  '4xl': '3.375rem', // 54px
+  '5xl': '4rem', // 64px
+};

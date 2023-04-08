@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
-import { colors } from './tokens';
+import { colors, fontFamilies } from './tokens';
 import { Icon, IconType } from './icon';
 
 export interface ButtonProps {
@@ -55,6 +55,7 @@ const Container = styled.div<{
     if (size === 'lg') return '1rem';
   }};
   font-weight: 600;
+  font-family: ${fontFamilies.sans};
   gap: 0.75rem;
   transition: all 0.16s ease-in-out;
 
