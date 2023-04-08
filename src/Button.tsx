@@ -13,6 +13,7 @@ export interface ButtonProps {
   href?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
   onClick?: () => void;
+  as: 'button' | 'a';
 }
 
 const Container = styled.a<{
@@ -85,6 +86,7 @@ export const Button: FC<ButtonProps> = ({
   href,
   target,
   onClick,
+  as,
   ...rest
 }) => {
   let iconSize: 12 | 14 | 16 = 14;
@@ -97,13 +99,17 @@ export const Button: FC<ButtonProps> = ({
   if (variant === 'outline' && color === 'blue') iconColor = 'blue500';
   if (variant === 'outline' && color === 'white') iconColor = 'white';
 
+  let asContainer: ButtonProps['as'] = 'button';
+  if (href) asContainer = 'a';
+  if (as && !href) asContainer = as;
+
   return (
     <Container
       size={size}
       variant={variant}
       color={color}
       onClick={onClick}
-      as={href ? 'a' : 'button'}
+      as={asContainer}
       href={href}
       target={target}
       {...rest}
