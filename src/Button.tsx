@@ -78,6 +78,7 @@ export const Button: FC<ButtonProps> = ({
   color = 'blue',
   leftIcon,
   rightIcon,
+  ...rest
 }) => {
   let iconSize: 12 | 14 | 16 = 14;
   if (size === 'sm') iconSize = 12;
@@ -90,7 +91,7 @@ export const Button: FC<ButtonProps> = ({
   if (variant === 'outline' && color === 'white') iconColor = 'white';
 
   return (
-    <Container size={size} variant={variant} color={color}>
+    <Container size={size} variant={variant} color={color} {...rest}>
       {leftIcon && <Icon name={leftIcon} size={iconSize} color={iconColor} />}
       {children}
       {rightIcon && <Icon name={rightIcon} size={iconSize} color={iconColor} />}
