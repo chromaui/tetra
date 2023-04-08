@@ -92,6 +92,12 @@ const Container = styled.div<{
     if (variant === 'bodyMd') return fontWeights.regular;
     if (variant === 'bodySm') return fontWeights.regular;
   }};
+  text-align: ${({ alignment }) => {
+    if (alignment === 'start') return 'left';
+    if (alignment === 'center') return 'center';
+    if (alignment === 'end') return 'right';
+    if (alignment === 'justify') return 'justify';
+  }};
 `;
 
 export const Text: FC<TextProps> = ({

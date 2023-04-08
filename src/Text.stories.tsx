@@ -55,3 +55,27 @@ export const Body: Story = {
     </div>
   ),
 };
+
+export const Alignments: Story = {
+  args: {
+    ...Base.args,
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat, velit vel egestas rutrum, arcu ante suscipit mauris, eu eleifend mi ipsum et tellus. Integer pharetra diam interdum egestas consectetur. Sed mollis in lectus eget commodo. Cras non sodales elit. Ut ultricies porta ante, sit amet elementum urna commodo nec. Donec volutpat sed massa ac maximus. Curabitur nec imperdiet felis. Vivamus et velit non erat scelerisque rutrum vitae ac purus. Mauris congue facilisis orci scelerisque fermentum. Aenean viverra, felis id lobortis consectetur, lacus dolor cursus metus, ac volutpat lorem est ac risus. Aliquam ultricies massa vel sagittis vestibulum. Integer placerat, lacus id ultrices posuere, felis neque tristique est, a pretium justo urna faucibus dui. Etiam quis justo tempor, facilisis erat at, suscipit lacus.',
+  },
+  render: ({ children }) => (
+    <div>
+      <Text variant="bodyMd" alignment="start">
+        {children}
+      </Text>
+      <Text variant="bodyMd" alignment="center">
+        {children}
+      </Text>
+      <Text variant="bodyMd" alignment="end">
+        {children}
+      </Text>
+      <Text variant="bodyMd" alignment="justify">
+        {children}
+      </Text>
+    </div>
+  ),
+};
