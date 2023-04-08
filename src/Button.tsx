@@ -10,9 +10,12 @@ export interface ButtonProps {
   color?: 'blue' | 'white';
   leftIcon?: IconType;
   rightIcon?: IconType;
+  href?: string;
+  target?: '_blank' | '_self' | '_parent' | '_top';
+  onClick?: () => void;
 }
 
-const Container = styled.div<{
+const Container = styled.a<{
   size: ButtonProps['size'];
   variant: ButtonProps['variant'];
   color: ButtonProps['color'];
@@ -58,6 +61,7 @@ const Container = styled.div<{
   font-family: ${fontFamilies.sans};
   gap: 0.75rem;
   transition: all 0.16s ease-in-out;
+  text-decoration: none;
 
   &:hover {
     background: ${({ variant, color }) => {
@@ -78,6 +82,9 @@ export const Button: FC<ButtonProps> = ({
   color = 'blue',
   leftIcon,
   rightIcon,
+  href,
+  target,
+  onClick,
   ...rest
 }) => {
   let iconSize: 12 | 14 | 16 = 14;
@@ -91,7 +98,16 @@ export const Button: FC<ButtonProps> = ({
   if (variant === 'outline' && color === 'white') iconColor = 'white';
 
   return (
-    <Container size={size} variant={variant} color={color} {...rest}>
+    <Container
+      size={size}
+      variant={variant}
+      color={color}
+      onClick={onClick}
+      as={href ? 'a' : 'button'}
+      href={href}
+      target={target}
+      {...rest}
+    >
       {leftIcon && <Icon name={leftIcon} size={iconSize} color={iconColor} />}
       {children}
       {rightIcon && <Icon name={rightIcon} size={iconSize} color={iconColor} />}

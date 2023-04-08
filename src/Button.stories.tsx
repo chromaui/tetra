@@ -20,6 +20,8 @@ export const Base: Story = {
     color: 'blue',
     leftIcon: undefined,
     rightIcon: undefined,
+    href: undefined,
+    target: undefined,
   },
 };
 
