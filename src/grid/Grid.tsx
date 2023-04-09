@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { styled } from '@storybook/theming';
-import { minLg, minMd } from '../helpers/helpers';
-import { spacing } from '../tokens/tokens';
+import { minLg, minMd } from '../helpers';
+import { spacing } from '../tokens';
 import { Column, ColumnProps } from './Column';
 
 interface GridProps {

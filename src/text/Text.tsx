@@ -6,8 +6,8 @@ import {
   fontSize as tokenFontSize,
   fontWeight as tokenFontWeight,
   lineHeight as tokenLineHeight,
-} from './tokens';
-import { minSm } from './helpers';
+} from '../tokens';
+import { minSm } from '../helpers';
 
 export interface TextProps {
   children: ReactNode;

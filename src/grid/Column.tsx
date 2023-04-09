@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { styled } from '@storybook/theming';
-import { spacing } from '../tokens/tokens';
+import { spacing } from '../tokens';
 
 export interface ColumnProps {
   children: ReactNode;
