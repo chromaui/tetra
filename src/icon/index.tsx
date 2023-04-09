@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { icons } from './iconPaths';
-import { color as tokenColor } from '../tokens';
+import { color as tokenColor } from '../_tokens';
 
 export type IconType = keyof typeof icons;
 

@@ -1,7 +1,7 @@
 import React, { Meta, StoryObj } from '@storybook/react';
 
 import { Button } from './Button';
-import { color } from '../tokens/tokens';
+import { color } from '../_tokens/tokens';
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
