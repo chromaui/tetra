@@ -34,6 +34,7 @@ const Container = styled.div<{
   alignment: TextProps['alignment'];
   fontWeight: TextProps['fontWeight'];
 }>`
+  margin: 0; // Reset
   font-family: ${fontFamilies.sans};
   color: ${({ color }) => {
     if (color) return colors[color];
@@ -66,14 +67,6 @@ const Container = styled.div<{
     if (variant === 'bodySm') return lineHeights.xs;
   }};
   margin-bottom: ${({ variant }) => {
-    if (variant === 'heading4xl') return 0;
-    if (variant === 'heading3xl') return 0;
-    if (variant === 'heading2xl') return 0;
-    if (variant === 'headingXl') return 0;
-    if (variant === 'headingLg') return 0;
-    if (variant === 'headingMd') return 0;
-    if (variant === 'headingSm') return 0;
-    if (variant === 'headingXs') return 0;
     if (variant === 'bodyLg') return '1.5rem';
     if (variant === 'bodyMd') return '1.25rem';
     if (variant === 'bodySm') return '1rem';
