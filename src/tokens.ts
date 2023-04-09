@@ -87,3 +87,11 @@ export const lineHeights = {
   '4xl': '3.375rem', // 54px
   '5xl': '4rem', // 64px
 };
+
+export const breakpoints = {
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+  '2xl': '1536px',
+};
