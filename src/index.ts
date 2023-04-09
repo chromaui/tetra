@@ -5,7 +5,7 @@ export * from './_tokens';
 export * from './_helpers';
 
 // Components
-export { Button } from './button';
-export { Grid } from './grid';
-export { Icon } from './icon';
-export { Text } from './text';
+export { Button } from './Button';
+export { Grid } from './Grid';
+export { Icon } from './Icon';
+export { Text } from './Text';
