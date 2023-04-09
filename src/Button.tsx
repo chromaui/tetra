@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
-import { colors, fontFamilies } from './tokens';
+import { color as tokenColor, fontFamily } from './tokens';
 import { Icon, IconType } from './Icon';
 
 export interface ButtonProps {
@@ -32,15 +32,15 @@ const Container = styled.a<{
     if (size === 'lg') return '0 2rem';
   }};
   background: ${({ variant, color }) => {
-    if (variant === 'solid' && color === 'blue') return colors.blue500;
-    if (variant === 'solid' && color === 'white') return colors.white;
+    if (variant === 'solid' && color === 'blue') return tokenColor.blue500;
+    if (variant === 'solid' && color === 'white') return tokenColor.white;
     return 'transparent';
   }};
   color: ${({ variant, color }) => {
-    if (variant === 'solid' && color === 'blue') return colors.white;
-    if (variant === 'solid' && color === 'white') return colors.blue500;
-    if (variant === 'outline' && color === 'white') return colors.white;
-    return colors.blue500;
+    if (variant === 'solid' && color === 'blue') return tokenColor.white;
+    if (variant === 'solid' && color === 'white') return tokenColor.blue500;
+    if (variant === 'outline' && color === 'white') return tokenColor.white;
+    return tokenColor.blue500;
   }};
   height: ${({ size }) => {
     if (size === 'sm') return '1.75rem';
@@ -49,9 +49,9 @@ const Container = styled.a<{
   }};
   box-shadow: ${({ color, variant }) => {
     if (variant === 'outline' && color === 'blue')
-      return `0 0 0 1px ${colors.blue500}`;
+      return `0 0 0 1px ${tokenColor.blue500}`;
     if (variant === 'outline' && color === 'white')
-      return `0 0 0 1px ${colors.white}`;
+      return `0 0 0 1px ${tokenColor.white}`;
   }};
   font-size: ${({ size }) => {
     if (size === 'sm') return '0.75rem';
@@ -59,16 +59,16 @@ const Container = styled.a<{
     if (size === 'lg') return '1rem';
   }};
   font-weight: 600;
-  font-family: ${fontFamilies.sans};
+  font-family: ${fontFamily.sans};
   gap: 0.75rem;
   transition: all 0.16s ease-in-out;
   text-decoration: none;
 
   &:hover {
     background: ${({ variant, color }) => {
-      if (variant === 'solid' && color === 'blue') return colors.blue600;
-      if (variant === 'solid' && color === 'white') return colors.blue100;
-      if (variant === 'outline' && color === 'blue') return colors.blue100;
+      if (variant === 'solid' && color === 'blue') return tokenColor.blue600;
+      if (variant === 'solid' && color === 'white') return tokenColor.blue100;
+      if (variant === 'outline' && color === 'blue') return tokenColor.blue100;
       if (variant === 'outline' && color === 'white')
         return 'rgba(255, 255, 255, 0.1)';
       return 'transparent';
@@ -93,7 +93,7 @@ export const Button: FC<ButtonProps> = ({
   if (size === 'sm') iconSize = 12;
   if (size === 'lg') iconSize = 16;
 
-  let iconColor: keyof typeof colors = 'gray500';
+  let iconColor: keyof typeof tokenColor = 'gray500';
   if (variant === 'solid' && color === 'blue') iconColor = 'white';
   if (variant === 'solid' && color === 'white') iconColor = 'blue500';
   if (variant === 'outline' && color === 'blue') iconColor = 'blue500';

@@ -1,7 +1,7 @@
 import React, { Meta, StoryObj } from '@storybook/react';
 
 import { Button } from './Button';
-import { colors } from './tokens';
+import { color } from './tokens';
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
@@ -56,7 +56,7 @@ export const Variants: Story = {
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
-          backgroundColor: colors.white,
+          backgroundColor: color.white,
           padding: '2rem 0',
           gap: '1rem',
         }}
@@ -73,7 +73,7 @@ export const Variants: Story = {
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
-          backgroundColor: colors.gray800,
+          backgroundColor: color.gray800,
           padding: '2rem 0',
           gap: '1rem',
         }}
@@ -100,7 +100,7 @@ export const Colors: Story = {
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
-          backgroundColor: colors.white,
+          backgroundColor: color.white,
           padding: '2rem 0',
         }}
       >
@@ -111,7 +111,7 @@ export const Colors: Story = {
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
-          backgroundColor: colors.gray800,
+          backgroundColor: color.gray800,
           padding: '2rem 0',
         }}
       >
@@ -134,7 +134,7 @@ export const LeftIcon: Story = {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: colors.white,
+          backgroundColor: color.white,
           padding: '4rem 0',
           gap: '1rem',
         }}
@@ -165,7 +165,7 @@ export const LeftIcon: Story = {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: colors.gray800,
+          backgroundColor: color.gray800,
           padding: '4rem 0',
           gap: '1rem',
         }}
@@ -206,7 +206,7 @@ export const RightIcon: Story = {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: colors.white,
+          backgroundColor: color.white,
           padding: '4rem 0',
           gap: '1rem',
         }}
@@ -237,7 +237,7 @@ export const RightIcon: Story = {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: colors.gray800,
+          backgroundColor: color.gray800,
           padding: '4rem 0',
           gap: '1rem',
         }}

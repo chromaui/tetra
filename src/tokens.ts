@@ -1,4 +1,4 @@
-export const colors = {
+export const color = {
   black: '#000000',
   white: '#FFFFFF',
 
@@ -51,19 +51,19 @@ export const colors = {
   yellow500: '#FFAE00',
 };
 
-export const fontFamilies = {
+export const fontFamily = {
   sans: '"Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
   mono: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
 };
 
-export const fontWeights = {
+export const fontWeight = {
   regular: 400,
   medium: 500,
   semibold: 600,
   bold: 700,
 };
 
-export const fontSizes = {
+export const fontSize = {
   xs: '0.75rem', // 12px
   sm: '0.875rem', // 14px
   md: '1rem', // 16px
@@ -76,7 +76,7 @@ export const fontSizes = {
   '6xl': '3.75rem', // 60px
 };
 
-export const lineHeights = {
+export const lineHeight = {
   xs: '1.25rem', // 20px
   sm: '1.5rem', // 24px
   md: '1.75rem', // 28px
@@ -88,10 +88,34 @@ export const lineHeights = {
   '5xl': '4rem', // 64px
 };
 
-export const breakpoints = {
+export const breakpoint = {
   sm: 640,
   md: 768,
   lg: 1024,
   xl: 1280,
   '2xl': 1536,
+};
+
+export const spacing = {
+  0: '0px', // 0px
+  0.25: '1px', // 1px
+  0.5: '0.125rem', // 2px
+  1: '0.25rem', // 4px
+  2: '0.5rem', // 8px
+  3: '0.75rem', // 12px
+  4: '1rem', // 16px
+  5: '1.25rem', // 20px
+  6: '1.5rem', // 24px
+  8: '2rem', // 32px
+  10: '2.5rem', // 40px
+  12: '3rem', // 48px
+  16: '4rem', // 64px
+  20: '5rem', // 80px
+  24: '6rem', // 96px
+  28: '7rem', // 112px
+  32: '8rem', // 128px
+  36: '9rem', // 144px
+  40: '10rem', // 160px
+  44: '11rem', // 176px
+  48: '12rem', // 192px
 };

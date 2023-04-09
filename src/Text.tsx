@@ -1,11 +1,11 @@
 import React, { FC, ReactNode } from 'react';
 import { styled } from '@storybook/theming';
 import {
-  colors,
-  fontFamilies,
-  fontSizes,
-  fontWeights,
-  lineHeights,
+  color as tokenColor,
+  fontFamily as tokenFontFamily,
+  fontSize as tokenFontSize,
+  fontWeight as tokenFontWeight,
+  lineHeight as tokenLineHeight,
 } from './tokens';
 import { minSm } from './helpers';
 
@@ -24,8 +24,8 @@ export interface TextProps {
     | 'bodyMd'
     | 'bodySm';
   alignment?: 'start' | 'center' | 'end' | 'justify';
-  fontWeight?: keyof typeof fontWeights;
-  color?: keyof typeof colors;
+  fontWeight?: keyof typeof tokenFontWeight;
+  color?: keyof typeof tokenColor;
   as?:
     | 'h1'
     | 'h2'
@@ -46,36 +46,36 @@ const Container = styled.div<{
   fontWeight: TextProps['fontWeight'];
 }>`
   margin: 0; // Reset
-  font-family: ${fontFamilies.sans};
+  font-family: ${tokenFontFamily.sans};
   color: ${({ color }) => {
-    if (color) return colors[color];
-    return colors.black;
+    if (color) return tokenColor[color];
+    return tokenColor.black;
   }};
   font-size: ${({ variant }) => {
-    if (variant === 'heading4xl') return fontSizes['4xl'];
-    if (variant === 'heading3xl') return fontSizes['4xl'];
-    if (variant === 'heading2xl') return fontSizes['3xl'];
-    if (variant === 'headingXl') return fontSizes['2xl'];
-    if (variant === 'headingLg') return fontSizes['2xl'];
-    if (variant === 'headingMd') return fontSizes.xl;
-    if (variant === 'headingSm') return fontSizes.lg;
-    if (variant === 'headingXs') return fontSizes.md;
-    if (variant === 'bodyLg') return fontSizes.lg;
-    if (variant === 'bodyMd') return fontSizes.md;
-    if (variant === 'bodySm') return fontSizes.sm;
+    if (variant === 'heading4xl') return tokenFontSize['4xl'];
+    if (variant === 'heading3xl') return tokenFontSize['4xl'];
+    if (variant === 'heading2xl') return tokenFontSize['3xl'];
+    if (variant === 'headingXl') return tokenFontSize['2xl'];
+    if (variant === 'headingLg') return tokenFontSize['2xl'];
+    if (variant === 'headingMd') return tokenFontSize.xl;
+    if (variant === 'headingSm') return tokenFontSize.lg;
+    if (variant === 'headingXs') return tokenFontSize.md;
+    if (variant === 'bodyLg') return tokenFontSize.lg;
+    if (variant === 'bodyMd') return tokenFontSize.md;
+    if (variant === 'bodySm') return tokenFontSize.sm;
   }};
   line-height: ${({ variant }) => {
-    if (variant === 'heading4xl') return lineHeights['2xl'];
-    if (variant === 'heading3xl') return lineHeights['2xl'];
-    if (variant === 'heading2xl') return lineHeights.xl;
-    if (variant === 'headingXl') return lineHeights.lg;
-    if (variant === 'headingLg') return lineHeights.lg;
-    if (variant === 'headingMd') return lineHeights.lg;
-    if (variant === 'headingSm') return lineHeights.md;
-    if (variant === 'headingXs') return lineHeights.sm;
-    if (variant === 'bodyLg') return lineHeights.md;
-    if (variant === 'bodyMd') return lineHeights.sm;
-    if (variant === 'bodySm') return lineHeights.xs;
+    if (variant === 'heading4xl') return tokenLineHeight['2xl'];
+    if (variant === 'heading3xl') return tokenLineHeight['2xl'];
+    if (variant === 'heading2xl') return tokenLineHeight.xl;
+    if (variant === 'headingXl') return tokenLineHeight.lg;
+    if (variant === 'headingLg') return tokenLineHeight.lg;
+    if (variant === 'headingMd') return tokenLineHeight.lg;
+    if (variant === 'headingSm') return tokenLineHeight.md;
+    if (variant === 'headingXs') return tokenLineHeight.sm;
+    if (variant === 'bodyLg') return tokenLineHeight.md;
+    if (variant === 'bodyMd') return tokenLineHeight.sm;
+    if (variant === 'bodySm') return tokenLineHeight.xs;
   }};
   margin-bottom: ${({ variant, as }) => {
     if (as === 'p' && variant === 'bodyLg') return '1.5rem';
@@ -83,18 +83,18 @@ const Container = styled.div<{
     if (as === 'p' && variant === 'bodySm') return '1rem';
   }};
   font-weight: ${({ variant, fontWeight }) => {
-    if (fontWeight) return fontWeights[fontWeight];
-    if (variant === 'heading4xl') return fontWeights.semibold;
-    if (variant === 'heading3xl') return fontWeights.semibold;
-    if (variant === 'heading2xl') return fontWeights.semibold;
-    if (variant === 'headingXl') return fontWeights.semibold;
-    if (variant === 'headingLg') return fontWeights.semibold;
-    if (variant === 'headingMd') return fontWeights.semibold;
-    if (variant === 'headingSm') return fontWeights.semibold;
-    if (variant === 'headingXs') return fontWeights.semibold;
-    if (variant === 'bodyLg') return fontWeights.regular;
-    if (variant === 'bodyMd') return fontWeights.regular;
-    if (variant === 'bodySm') return fontWeights.regular;
+    if (fontWeight) return tokenFontWeight[fontWeight];
+    if (variant === 'heading4xl') return tokenFontWeight.semibold;
+    if (variant === 'heading3xl') return tokenFontWeight.semibold;
+    if (variant === 'heading2xl') return tokenFontWeight.semibold;
+    if (variant === 'headingXl') return tokenFontWeight.semibold;
+    if (variant === 'headingLg') return tokenFontWeight.semibold;
+    if (variant === 'headingMd') return tokenFontWeight.semibold;
+    if (variant === 'headingSm') return tokenFontWeight.semibold;
+    if (variant === 'headingXs') return tokenFontWeight.semibold;
+    if (variant === 'bodyLg') return tokenFontWeight.regular;
+    if (variant === 'bodyMd') return tokenFontWeight.regular;
+    if (variant === 'bodySm') return tokenFontWeight.regular;
   }};
   text-align: ${({ alignment }) => {
     if (alignment === 'start') return 'left';
@@ -105,30 +105,30 @@ const Container = styled.div<{
 
   ${minSm} {
     font-size: ${({ variant }) => {
-      if (variant === 'heading4xl') return fontSizes['6xl'];
-      if (variant === 'heading3xl') return fontSizes['5xl'];
-      if (variant === 'heading2xl') return fontSizes['4xl'];
-      if (variant === 'headingXl') return fontSizes['3xl'];
-      if (variant === 'headingLg') return fontSizes['2xl'];
-      if (variant === 'headingMd') return fontSizes.xl;
-      if (variant === 'headingSm') return fontSizes.lg;
-      if (variant === 'headingXs') return fontSizes.md;
-      if (variant === 'bodyLg') return fontSizes.lg;
-      if (variant === 'bodyMd') return fontSizes.md;
-      if (variant === 'bodySm') return fontSizes.sm;
+      if (variant === 'heading4xl') return tokenFontSize['6xl'];
+      if (variant === 'heading3xl') return tokenFontSize['5xl'];
+      if (variant === 'heading2xl') return tokenFontSize['4xl'];
+      if (variant === 'headingXl') return tokenFontSize['3xl'];
+      if (variant === 'headingLg') return tokenFontSize['2xl'];
+      if (variant === 'headingMd') return tokenFontSize.xl;
+      if (variant === 'headingSm') return tokenFontSize.lg;
+      if (variant === 'headingXs') return tokenFontSize.md;
+      if (variant === 'bodyLg') return tokenFontSize.lg;
+      if (variant === 'bodyMd') return tokenFontSize.md;
+      if (variant === 'bodySm') return tokenFontSize.sm;
     }};
     line-height: ${({ variant }) => {
-      if (variant === 'heading4xl') return lineHeights['5xl'];
-      if (variant === 'heading3xl') return lineHeights['4xl'];
-      if (variant === 'heading2xl') return lineHeights['3xl'];
-      if (variant === 'headingXl') return lineHeights.xl;
-      if (variant === 'headingLg') return lineHeights.lg;
-      if (variant === 'headingMd') return lineHeights.md;
-      if (variant === 'headingSm') return lineHeights.sm;
-      if (variant === 'headingXs') return lineHeights.sm;
-      if (variant === 'bodyLg') return lineHeights.md;
-      if (variant === 'bodyMd') return lineHeights.sm;
-      if (variant === 'bodySm') return lineHeights.xs;
+      if (variant === 'heading4xl') return tokenLineHeight['5xl'];
+      if (variant === 'heading3xl') return tokenLineHeight['4xl'];
+      if (variant === 'heading2xl') return tokenLineHeight['3xl'];
+      if (variant === 'headingXl') return tokenLineHeight.xl;
+      if (variant === 'headingLg') return tokenLineHeight.lg;
+      if (variant === 'headingMd') return tokenLineHeight.md;
+      if (variant === 'headingSm') return tokenLineHeight.sm;
+      if (variant === 'headingXs') return tokenLineHeight.sm;
+      if (variant === 'bodyLg') return tokenLineHeight.md;
+      if (variant === 'bodyMd') return tokenLineHeight.sm;
+      if (variant === 'bodySm') return tokenLineHeight.xs;
     }};
   }
 `;
