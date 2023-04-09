@@ -25,7 +25,17 @@ export interface TextProps {
   alignment?: 'start' | 'center' | 'end' | 'justify';
   fontWeight?: keyof typeof fontWeights;
   color?: keyof typeof colors;
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'legend';
+  as?:
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'p'
+    | 'span'
+    | 'legend'
+    | 'div';
 }
 
 const Container = styled.div<{
@@ -66,10 +76,10 @@ const Container = styled.div<{
     if (variant === 'bodyMd') return lineHeights.sm;
     if (variant === 'bodySm') return lineHeights.xs;
   }};
-  margin-bottom: ${({ variant }) => {
-    if (variant === 'bodyLg') return '1.5rem';
-    if (variant === 'bodyMd') return '1.25rem';
-    if (variant === 'bodySm') return '1rem';
+  margin-bottom: ${({ variant, as }) => {
+    if (as === 'p' && variant === 'bodyLg') return '1.5rem';
+    if (as === 'p' && variant === 'bodyMd') return '1.25rem';
+    if (as === 'p' && variant === 'bodySm') return '1rem';
   }};
   font-weight: ${({ variant, fontWeight }) => {
     if (fontWeight) return fontWeights[fontWeight];
