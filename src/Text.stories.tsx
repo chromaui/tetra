@@ -37,6 +37,7 @@ export const Heading: Story = {
       <Text as="h1" variant="headingLg">{`Heading Lg - ${children}`}</Text>
       <Text as="h1" variant="headingMd">{`Heading Md - ${children}`}</Text>
       <Text as="h1" variant="headingSm">{`Heading Sm - ${children}`}</Text>
+      <Text as="h1" variant="headingXs">{`Heading Xs - ${children}`}</Text>
     </div>
   ),
 };

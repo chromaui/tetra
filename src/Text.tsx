@@ -7,6 +7,7 @@ import {
   fontWeights,
   lineHeights,
 } from './tokens';
+import { minSm } from './helpers';
 
 export interface TextProps {
   children: ReactNode;
@@ -51,10 +52,10 @@ const Container = styled.div<{
     return colors.black;
   }};
   font-size: ${({ variant }) => {
-    if (variant === 'heading4xl') return fontSizes['6xl'];
-    if (variant === 'heading3xl') return fontSizes['5xl'];
-    if (variant === 'heading2xl') return fontSizes['4xl'];
-    if (variant === 'headingXl') return fontSizes['3xl'];
+    if (variant === 'heading4xl') return fontSizes['3xl'];
+    if (variant === 'heading3xl') return fontSizes['3xl'];
+    if (variant === 'heading2xl') return fontSizes['3xl'];
+    if (variant === 'headingXl') return fontSizes['2xl'];
     if (variant === 'headingLg') return fontSizes['2xl'];
     if (variant === 'headingMd') return fontSizes.xl;
     if (variant === 'headingSm') return fontSizes.lg;
@@ -64,11 +65,11 @@ const Container = styled.div<{
     if (variant === 'bodySm') return fontSizes.sm;
   }};
   line-height: ${({ variant }) => {
-    if (variant === 'heading4xl') return lineHeights['5xl'];
-    if (variant === 'heading3xl') return lineHeights['4xl'];
-    if (variant === 'heading2xl') return lineHeights['3xl'];
-    if (variant === 'headingXl') return lineHeights['2xl'];
-    if (variant === 'headingLg') return lineHeights.xl;
+    if (variant === 'heading4xl') return lineHeights.xl;
+    if (variant === 'heading3xl') return lineHeights.xl;
+    if (variant === 'heading2xl') return lineHeights.xl;
+    if (variant === 'headingXl') return lineHeights.lg;
+    if (variant === 'headingLg') return lineHeights.lg;
     if (variant === 'headingMd') return lineHeights.lg;
     if (variant === 'headingSm') return lineHeights.md;
     if (variant === 'headingXs') return lineHeights.sm;
@@ -101,6 +102,35 @@ const Container = styled.div<{
     if (alignment === 'end') return 'right';
     if (alignment === 'justify') return 'justify';
   }};
+
+  ${minSm} {
+    font-size: ${({ variant }) => {
+      if (variant === 'heading4xl') return fontSizes['6xl'];
+      if (variant === 'heading3xl') return fontSizes['5xl'];
+      if (variant === 'heading2xl') return fontSizes['4xl'];
+      if (variant === 'headingXl') return fontSizes['3xl'];
+      if (variant === 'headingLg') return fontSizes['2xl'];
+      if (variant === 'headingMd') return fontSizes.xl;
+      if (variant === 'headingSm') return fontSizes.lg;
+      if (variant === 'headingXs') return fontSizes.md;
+      if (variant === 'bodyLg') return fontSizes.lg;
+      if (variant === 'bodyMd') return fontSizes.md;
+      if (variant === 'bodySm') return fontSizes.sm;
+    }};
+    line-height: ${({ variant }) => {
+      if (variant === 'heading4xl') return lineHeights['5xl'];
+      if (variant === 'heading3xl') return lineHeights['4xl'];
+      if (variant === 'heading2xl') return lineHeights['3xl'];
+      if (variant === 'headingXl') return lineHeights.xl;
+      if (variant === 'headingLg') return lineHeights.lg;
+      if (variant === 'headingMd') return lineHeights.md;
+      if (variant === 'headingSm') return lineHeights.sm;
+      if (variant === 'headingXs') return lineHeights.sm;
+      if (variant === 'bodyLg') return lineHeights.md;
+      if (variant === 'bodyMd') return lineHeights.sm;
+      if (variant === 'bodySm') return lineHeights.xs;
+    }};
+  }
 `;
 
 export const Text: FC<TextProps> = ({
