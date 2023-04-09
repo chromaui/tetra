@@ -52,8 +52,8 @@ const Container = styled.div<{
     return colors.black;
   }};
   font-size: ${({ variant }) => {
-    if (variant === 'heading4xl') return fontSizes['3xl'];
-    if (variant === 'heading3xl') return fontSizes['3xl'];
+    if (variant === 'heading4xl') return fontSizes['4xl'];
+    if (variant === 'heading3xl') return fontSizes['4xl'];
     if (variant === 'heading2xl') return fontSizes['3xl'];
     if (variant === 'headingXl') return fontSizes['2xl'];
     if (variant === 'headingLg') return fontSizes['2xl'];
@@ -65,8 +65,8 @@ const Container = styled.div<{
     if (variant === 'bodySm') return fontSizes.sm;
   }};
   line-height: ${({ variant }) => {
-    if (variant === 'heading4xl') return lineHeights.xl;
-    if (variant === 'heading3xl') return lineHeights.xl;
+    if (variant === 'heading4xl') return lineHeights['2xl'];
+    if (variant === 'heading3xl') return lineHeights['2xl'];
     if (variant === 'heading2xl') return lineHeights.xl;
     if (variant === 'headingXl') return lineHeights.lg;
     if (variant === 'headingLg') return lineHeights.lg;
