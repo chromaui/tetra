@@ -1,9 +1,10 @@
 import React, { FC, ReactNode } from 'react';
 import { styled } from '@storybook/theming';
-import { minLg, minMd } from './helpers';
-import { spacing } from './tokens';
+import { minLg, minMd } from '../helpers/helpers';
+import { spacing } from '../tokens/tokens';
+import { Column, ColumnProps } from './Column';
 
-interface Props {
+interface GridProps {
   children: ReactNode;
   padding?: boolean;
   mt?: keyof typeof spacing;
@@ -13,9 +14,9 @@ interface Props {
 
 const Container = styled.div<{
   padding: boolean;
-  mt: Props['mt'];
-  mb: Props['mb'];
-  gap?: Props['gap'];
+  mt: GridProps['mt'];
+  mb: GridProps['mb'];
+  gap?: GridProps['gap'];
 }>`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -38,17 +39,12 @@ const Container = styled.div<{
   }
 `;
 
-export const Grid: FC<Props> = ({
-  children,
-  padding = true,
-  mt,
-  mb,
-  gap = true,
-  ...rest
-}) => {
-  return (
-    <Container padding={padding} mt={mt} mb={mb} gap={gap} {...rest}>
-      {children}
-    </Container>
-  );
-};
+export const Grid: FC<GridProps> & {
+  Column: FC<ColumnProps>;
+} = ({ children, padding = true, mt, mb, gap = true, ...rest }) => (
+  <Container padding={padding} mt={mt} mb={mb} gap={gap} {...rest}>
+    {children}
+  </Container>
+);
+
+Grid.Column = Column;
