@@ -13,7 +13,7 @@ export interface ButtonProps {
   href?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
   onClick?: () => void;
-  as: 'button' | 'a';
+  as?: 'button' | 'a';
 }
 
 const Container = styled.a<{

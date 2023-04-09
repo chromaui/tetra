@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { styled } from '@storybook/theming';
 import {
   colors,
@@ -9,7 +9,7 @@ import {
 } from './tokens';
 
 export interface TextProps {
-  children: String;
+  children: ReactNode;
   variant?:
     | 'heading4xl'
     | 'heading3xl'
@@ -100,6 +100,7 @@ export const Text: FC<TextProps> = ({
   fontWeight,
   color,
   as = 'p',
+  ...rest
 }) => {
   return (
     <Container
@@ -108,6 +109,7 @@ export const Text: FC<TextProps> = ({
       fontWeight={fontWeight}
       alignment={alignment}
       as={as}
+      {...rest}
     >
       {children}
     </Container>
