@@ -17,25 +17,27 @@ export const Base: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-  render: () => (
-    <>
-      <Stack mt={4} mb={4}>
-        <Placeholder height={300} color="orange100" />
-        <Placeholder height={300} color="blue100" />
-        <Placeholder height={300} color="yellow100" />
-        <Placeholder height={300} color="purple100" />
-        <Placeholder height={300} color="pink100" />
-        <Placeholder height={300} color="teal100" />
-      </Stack>
-      <Stack mt={4} mb={4}>
-        <Placeholder height={300} color="yellow100" />
-        <Placeholder height={300} color="blue100" />
-        <Placeholder height={300} color="orange100" />
-      </Stack>
-      <Stack mt={4} mb={4}>
-        <Placeholder height={300} color="teal100" />
-        <Placeholder height={300} color="pink100" />
-      </Stack>
-    </>
-  ),
+  render: () => {
+    return (
+      <>
+        <Stack mt={10}>
+          <Placeholder height={300} color="orange100" />
+          <Placeholder height={300} color="blue100" />
+          <Placeholder height={300} color="yellow100" />
+          <Placeholder height={300} color="purple100" />
+          <Placeholder height={300} color="pink100" />
+          <Placeholder height={300} color="teal100" />
+        </Stack>
+        <Stack mt={4}>
+          <Placeholder height={300} color="yellow100" />
+          <Placeholder height={300} color="blue100" />
+          <Placeholder height={300} color="orange100" />
+        </Stack>
+        <Stack mt={4} mb={10}>
+          <Placeholder height={300} color="teal100" />
+          <Placeholder height={300} color="pink100" />
+        </Stack>
+      </>
+    );
+  },
 };

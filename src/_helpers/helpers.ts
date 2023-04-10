@@ -1,5 +1,6 @@
-import { breakpoint } from '../_tokens/tokens';
+import { spacing, breakpoint } from '../_tokens/tokens';
 
+export const minBase = `@media (min-width: ${breakpoint.base}px)`;
 export const minSm = `@media (min-width: ${breakpoint.sm}px)`;
 export const minMd = `@media (min-width: ${breakpoint.md}px)`;
 export const minLg = `@media (min-width: ${breakpoint.lg}px)`;
