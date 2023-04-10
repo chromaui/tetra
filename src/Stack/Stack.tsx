@@ -22,7 +22,7 @@ interface StackProps {
   pb?: keyof typeof spacing | ResponsiveObjTypes;
   pl?: keyof typeof spacing | ResponsiveObjTypes;
   pr?: keyof typeof spacing | ResponsiveObjTypes;
-  gap?: keyof typeof spacing;
+  gap?: keyof typeof spacing | ResponsiveObjTypes;
   maxWidth?: number;
 }
 
@@ -87,10 +87,10 @@ export const Stack = styled.div<{
   maxWidth?: StackProps['maxWidth'];
 }>`
   display: flex;
-  gap: ${({ gap }) => spacing[gap || 4]};
   max-width: ${({ maxWidth }) => maxWidth || 1248}px;
   margin: 0 auto;
   flex-direction: column;
+  gap: ${({ gap }) => getValue(gap, 'base', 4)};
   margin-top: ${({ mt }) => getValue(mt, 'base', 0)};
   margin-bottom: ${({ mb }) => getValue(mb, 'base', 0)};
   padding-left: ${({ px, pl }) => getValue(px || pl, 'base', 5)};
@@ -99,6 +99,7 @@ export const Stack = styled.div<{
   padding-bottom: ${({ py, pb }) => getValue(py || pb, 'base', 0)};
 
   ${minSm} {
+    gap: ${({ gap }) => getValue(gap, 'sm', 4)};
     margin-top: ${({ mt }) => getValue(mt, 'sm', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'sm', 0)};
     padding-left: ${({ px, pl }) => getValue(px || pl, 'sm', 10)};
@@ -109,6 +110,7 @@ export const Stack = styled.div<{
 
   ${minMd} {
     flex-direction: row;
+    gap: ${({ gap }) => getValue(gap, 'sm', 4)};
     margin-top: ${({ mt }) => getValue(mt, 'md', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'md', 0)};
     padding-left: ${({ px, pl }) => getValue(px || pl, 'md', 10)};
@@ -118,6 +120,7 @@ export const Stack = styled.div<{
   }
 
   ${minLg} {
+    gap: ${({ gap }) => getValue(gap, 'sm', 4)};
     margin-top: ${({ mt }) => getValue(mt, 'lg', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'lg', 0)};
     padding-left: ${({ px, pl }) => getValue(px || pl, 'lg', 10)};
@@ -127,6 +130,7 @@ export const Stack = styled.div<{
   }
 
   ${minXl} {
+    gap: ${({ gap }) => getValue(gap, 'sm', 4)};
     margin-top: ${({ mt }) => getValue(mt, 'xl', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'xl', 0)};
     padding-left: ${({ px, pl }) => getValue(px || pl, 'xl', 10)};
@@ -136,6 +140,7 @@ export const Stack = styled.div<{
   }
 
   ${min2xl} {
+    gap: ${({ gap }) => getValue(gap, 'sm', 4)};
     margin-top: ${({ mt }) => getValue(mt, '2xl', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, '2xl', 0)};
     padding-left: ${({ px, pl }) => getValue(px || pl, '2xl', 10)};
