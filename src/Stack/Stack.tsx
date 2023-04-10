@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { styled } from '@storybook/theming';
 import { minMd } from '../_helpers';
 import { spacing } from '../_tokens';
@@ -12,7 +12,13 @@ interface StackProps {
   gap?: keyof typeof spacing;
 }
 
-const Container = styled.div<{
+// TODO
+// - Add support for responsive mt + mb + gap + px + py
+//   ex: mt={{ base: 4, sm: 6, md: 10 }}
+// - Add support for custom direction depending on breakpoint
+//   ex: direction={{ base: 'row', md: 'column' }}
+
+export const Stack = styled.div<{
   mt: StackProps['mt'];
   mb: StackProps['mb'];
   gap?: StackProps['gap'];
@@ -35,17 +41,3 @@ const Container = styled.div<{
     padding-right: ${({ px }) => (px ? spacing[px] : spacing[10])};
   }
 `;
-
-export const Stack: FC<StackProps> = ({
-  children,
-  mt,
-  mb,
-  gap,
-  px,
-  py,
-  ...rest
-}) => (
-  <Container mt={mt} mb={mb} gap={gap} px={px} py={py} {...rest}>
-    {children}
-  </Container>
-);
