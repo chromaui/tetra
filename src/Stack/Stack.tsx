@@ -18,6 +18,10 @@ interface StackProps {
   mb?: keyof typeof spacing | ResponsiveObjTypes;
   px?: keyof typeof spacing | ResponsiveObjTypes;
   py?: keyof typeof spacing | ResponsiveObjTypes;
+  pt?: keyof typeof spacing | ResponsiveObjTypes;
+  pb?: keyof typeof spacing | ResponsiveObjTypes;
+  pl?: keyof typeof spacing | ResponsiveObjTypes;
+  pr?: keyof typeof spacing | ResponsiveObjTypes;
   gap?: keyof typeof spacing;
   maxWidth?: number;
 }
@@ -76,6 +80,10 @@ export const Stack = styled.div<{
   gap?: StackProps['gap'];
   px?: StackProps['px'];
   py?: StackProps['py'];
+  pt?: StackProps['pt'];
+  pb?: StackProps['pb'];
+  pl?: StackProps['pl'];
+  pr?: StackProps['pr'];
   maxWidth?: StackProps['maxWidth'];
 }>`
   display: flex;
@@ -85,54 +93,54 @@ export const Stack = styled.div<{
   flex-direction: column;
   margin-top: ${({ mt }) => getValue(mt, 'base', 0)};
   margin-bottom: ${({ mb }) => getValue(mb, 'base', 0)};
-  padding-left: ${({ px }) => getValue(px, 'base', 5)};
-  padding-right: ${({ px }) => getValue(px, 'base', 5)};
-  padding-top: ${({ py }) => getValue(py, 'base', 0)};
-  padding-bottom: ${({ py }) => getValue(py, 'base', 0)};
+  padding-left: ${({ px, pl }) => getValue(px || pl, 'base', 5)};
+  padding-right: ${({ px, pr }) => getValue(px || pr, 'base', 5)};
+  padding-top: ${({ py, pt }) => getValue(py || pt, 'base', 0)};
+  padding-bottom: ${({ py, pb }) => getValue(py || pb, 'base', 0)};
 
   ${minSm} {
     margin-top: ${({ mt }) => getValue(mt, 'sm', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'sm', 0)};
-    padding-left: ${({ px }) => getValue(px, 'sm', 10)};
-    padding-right: ${({ px }) => getValue(px, 'sm', 10)};
-    padding-top: ${({ py }) => getValue(py, 'sm', 0)};
-    padding-bottom: ${({ py }) => getValue(py, 'sm', 0)};
+    padding-left: ${({ px, pl }) => getValue(px || pl, 'sm', 10)};
+    padding-right: ${({ px, pr }) => getValue(px || pr, 'sm', 10)};
+    padding-top: ${({ py, pt }) => getValue(py || pt, 'sm', 0)};
+    padding-bottom: ${({ py, pb }) => getValue(py || pb, 'sm', 0)};
   }
 
   ${minMd} {
     flex-direction: row;
     margin-top: ${({ mt }) => getValue(mt, 'md', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'md', 0)};
-    padding-left: ${({ px }) => getValue(px, 'md', 10)};
-    padding-right: ${({ px }) => getValue(px, 'md', 10)};
-    padding-top: ${({ py }) => getValue(py, 'md', 0)};
-    padding-bottom: ${({ py }) => getValue(py, 'md', 0)};
+    padding-left: ${({ px, pl }) => getValue(px || pl, 'md', 10)};
+    padding-right: ${({ px, pr }) => getValue(px || pr, 'md', 10)};
+    padding-top: ${({ py, pt }) => getValue(py || pt, 'md', 0)};
+    padding-bottom: ${({ py, pb }) => getValue(py || pb, 'md', 0)};
   }
 
   ${minLg} {
     margin-top: ${({ mt }) => getValue(mt, 'lg', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'lg', 0)};
-    padding-left: ${({ px }) => getValue(px, 'lg', 10)};
-    padding-right: ${({ px }) => getValue(px, 'lg', 10)};
-    padding-top: ${({ py }) => getValue(py, 'lg', 0)};
-    padding-bottom: ${({ py }) => getValue(py, 'lg', 0)};
+    padding-left: ${({ px, pl }) => getValue(px || pl, 'lg', 10)};
+    padding-right: ${({ px, pr }) => getValue(px || pr, 'lg', 10)};
+    padding-top: ${({ py, pt }) => getValue(py || pt, 'lg', 0)};
+    padding-bottom: ${({ py, pb }) => getValue(py || pb, 'lg', 0)};
   }
 
   ${minXl} {
     margin-top: ${({ mt }) => getValue(mt, 'xl', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'xl', 0)};
-    padding-left: ${({ px }) => getValue(px, 'xl', 10)};
-    padding-right: ${({ px }) => getValue(px, 'xl', 10)};
-    padding-top: ${({ py }) => getValue(py, 'xl', 0)};
-    padding-bottom: ${({ py }) => getValue(py, 'xl', 0)};
+    padding-left: ${({ px, pl }) => getValue(px || pl, 'xl', 10)};
+    padding-right: ${({ px, pr }) => getValue(px || pr, 'xl', 10)};
+    padding-top: ${({ py, pt }) => getValue(py || pt, 'xl', 0)};
+    padding-bottom: ${({ py, pb }) => getValue(py || pb, 'xl', 0)};
   }
 
   ${min2xl} {
     margin-top: ${({ mt }) => getValue(mt, '2xl', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, '2xl', 0)};
-    padding-left: ${({ px }) => getValue(px, '2xl', 10)};
-    padding-right: ${({ px }) => getValue(px, '2xl', 10)};
-    padding-top: ${({ py }) => getValue(py, '2xl', 0)};
-    padding-bottom: ${({ py }) => getValue(py, '2xl', 0)};
+    padding-left: ${({ px, pl }) => getValue(px || pl, '2xl', 10)};
+    padding-right: ${({ px, pr }) => getValue(px || pr, '2xl', 10)};
+    padding-top: ${({ py, pt }) => getValue(py || pt, '2xl', 0)};
+    padding-bottom: ${({ py, pb }) => getValue(py || pb, '2xl', 0)};
   }
 `;
