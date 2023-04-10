@@ -79,7 +79,7 @@ export const Stack = styled.div<{
   maxWidth?: StackProps['maxWidth'];
 }>`
   display: flex;
-  gap: ${({ gap }) => gap || spacing[4]};
+  gap: ${({ gap }) => spacing[gap || 4]};
   max-width: ${({ maxWidth }) => maxWidth || 1248}px;
   margin: 0 auto;
   flex-direction: column;
