@@ -110,7 +110,7 @@ export const Stack = styled.div<{
 
   ${minMd} {
     flex-direction: row;
-    gap: ${({ gap }) => getValue(gap, 'sm', 4)};
+    gap: ${({ gap }) => getValue(gap, 'md', 4)};
     margin-top: ${({ mt }) => getValue(mt, 'md', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'md', 0)};
     padding-left: ${({ px, pl }) => getValue(px || pl, 'md', 10)};
@@ -120,7 +120,7 @@ export const Stack = styled.div<{
   }
 
   ${minLg} {
-    gap: ${({ gap }) => getValue(gap, 'sm', 4)};
+    gap: ${({ gap }) => getValue(gap, 'lg', 4)};
     margin-top: ${({ mt }) => getValue(mt, 'lg', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'lg', 0)};
     padding-left: ${({ px, pl }) => getValue(px || pl, 'lg', 10)};
@@ -130,7 +130,7 @@ export const Stack = styled.div<{
   }
 
   ${minXl} {
-    gap: ${({ gap }) => getValue(gap, 'sm', 4)};
+    gap: ${({ gap }) => getValue(gap, 'xl', 4)};
     margin-top: ${({ mt }) => getValue(mt, 'xl', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, 'xl', 0)};
     padding-left: ${({ px, pl }) => getValue(px || pl, 'xl', 10)};
@@ -140,7 +140,7 @@ export const Stack = styled.div<{
   }
 
   ${min2xl} {
-    gap: ${({ gap }) => getValue(gap, 'sm', 4)};
+    gap: ${({ gap }) => getValue(gap, '2xl', 4)};
     margin-top: ${({ mt }) => getValue(mt, '2xl', 0)};
     margin-bottom: ${({ mb }) => getValue(mb, '2xl', 0)};
     padding-left: ${({ px, pl }) => getValue(px || pl, '2xl', 10)};
