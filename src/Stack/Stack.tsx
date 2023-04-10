@@ -19,6 +19,7 @@ interface StackProps {
   px?: keyof typeof spacing | ResponsiveObjTypes;
   py?: keyof typeof spacing | ResponsiveObjTypes;
   gap?: keyof typeof spacing;
+  maxWidth?: number;
 }
 
 // TODO
@@ -75,10 +76,11 @@ export const Stack = styled.div<{
   gap?: StackProps['gap'];
   px?: StackProps['px'];
   py?: StackProps['py'];
+  maxWidth?: StackProps['maxWidth'];
 }>`
   display: flex;
   gap: ${({ gap }) => gap || spacing[4]};
-  max-width: 1248px;
+  max-width: ${({ maxWidth }) => maxWidth || 1248}px;
   margin: 0 auto;
   flex-direction: column;
   margin-top: ${({ mt }) => getValue(mt, 'base', 0)};
