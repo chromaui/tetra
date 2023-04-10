@@ -17,6 +17,7 @@ interface StackProps {
 //   ex: mt={{ base: 4, sm: 6, md: 10 }}
 // - Add support for custom direction depending on breakpoint
 //   ex: direction={{ base: 'row', md: 'column' }}
+// - Add support for no full-width stack
 
 export const Stack = styled.div<{
   mt: StackProps['mt'];
