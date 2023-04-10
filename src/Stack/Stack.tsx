@@ -78,7 +78,7 @@ export const Stack = styled.div<{
 }>`
   display: flex;
   gap: ${({ gap }) => gap || spacing[4]};
-  max-width: 1880px;
+  max-width: 1248px;
   margin: 0 auto;
   flex-direction: column;
   margin-top: ${({ mt }) => getValue(mt, 'base', 0)};
