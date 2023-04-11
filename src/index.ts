@@ -5,6 +5,7 @@ export * from './_tokens';
 export {
   minBase,
   minSm,
+  minMd,
   minLg,
   minXl,
   min2xl,
