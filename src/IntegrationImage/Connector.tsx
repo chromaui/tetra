@@ -45,15 +45,16 @@ const Container = styled.div`
 `;
 
 const Circle = styled.div`
-  width: 4px;
-  height: 4px;
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
   border: 2px solid #fff;
   background: #ff4785;
   border-radius: 100%;
 
   ${minMd} {
-    width: 6px;
-    height: 6px;
+    width: 10px;
+    height: 10px;
   }
 `;
 
