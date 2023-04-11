@@ -20,7 +20,7 @@ export const Base: Story = {
   render: () => {
     return (
       <>
-        <Stack>
+        <Stack mx={10} mt={10}>
           <Placeholder height={300} color="orange100" />
           <Placeholder height={300} color="blue100" />
           <Placeholder height={300} color="yellow100" />
