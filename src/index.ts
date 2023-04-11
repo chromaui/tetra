@@ -22,5 +22,6 @@ export { Button } from './Button';
 export { Divider } from './Divider';
 export { Grid } from './Grid';
 export { Icon } from './Icon';
+export { IntegrationImage } from './IntegrationImage';
 export { Text } from './Text';
 export { Stack } from './Stack';

@@ -1,0 +1,1 @@
+export { IntegrationImage } from './IntegrationImage';
