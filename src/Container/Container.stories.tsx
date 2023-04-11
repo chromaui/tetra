@@ -4,7 +4,7 @@ import { Container } from './Container';
 import { Placeholder } from '../Placeholder';
 
 const meta: Meta<typeof Container> = {
-  title: 'Container',
+  title: 'Layout/Container',
   component: Container,
   tags: ['autodocs'],
 };

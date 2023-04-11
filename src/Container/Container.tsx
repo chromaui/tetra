@@ -37,55 +37,67 @@ export const Container = styled.div<{
 }>`
   max-width: ${({ maxWidth }) => maxWidth || 1248}px;
   margin: 0 auto;
-  margin-top: ${({ mt }) => getResponsiveValue(mt, 'base', 0)};
-  margin-bottom: ${({ mb }) => getResponsiveValue(mb, 'base', 0)};
-  padding-left: ${({ px, pl }) => getResponsiveValue(px || pl, 'base', 5)};
-  padding-right: ${({ px, pr }) => getResponsiveValue(px || pr, 'base', 5)};
-  padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, 'base', 0)};
-  padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, 'base', 0)};
+  margin-top: ${({ mt }) => getResponsiveValue(mt, 'base')};
+  margin-bottom: ${({ mb }) => getResponsiveValue(mb, 'base')};
+  padding-left: ${({ px, pl }) =>
+    px || pl ? getResponsiveValue(px || pl, 'base') : spacing[5]};
+  padding-right: ${({ px, pr }) =>
+    px || pr ? getResponsiveValue(px || pr, 'base') : spacing[5]};
+  padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, 'base')};
+  padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, 'base')};
 
   ${minSm} {
-    margin-top: ${({ mt }) => getResponsiveValue(mt, 'sm', 0)};
-    margin-bottom: ${({ mb }) => getResponsiveValue(mb, 'sm', 0)};
-    padding-left: ${({ px, pl }) => getResponsiveValue(px || pl, 'sm', 10)};
-    padding-right: ${({ px, pr }) => getResponsiveValue(px || pr, 'sm', 10)};
-    padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, 'sm', 0)};
-    padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, 'sm', 0)};
+    margin-top: ${({ mt }) => getResponsiveValue(mt, 'sm')};
+    margin-bottom: ${({ mb }) => getResponsiveValue(mb, 'sm')};
+    padding-left: ${({ px, pl }) =>
+      px || pl ? getResponsiveValue(px || pl, 'sm') : spacing[10]};
+    padding-right: ${({ px, pr }) =>
+      px || pr ? getResponsiveValue(px || pr, 'sm') : spacing[10]};
+    padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, 'sm')};
+    padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, 'sm')};
   }
 
   ${minMd} {
-    margin-top: ${({ mt }) => getResponsiveValue(mt, 'md', 0)};
-    margin-bottom: ${({ mb }) => getResponsiveValue(mb, 'md', 0)};
-    padding-left: ${({ px, pl }) => getResponsiveValue(px || pl, 'md', 10)};
-    padding-right: ${({ px, pr }) => getResponsiveValue(px || pr, 'md', 10)};
-    padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, 'md', 0)};
-    padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, 'md', 0)};
+    margin-top: ${({ mt }) => getResponsiveValue(mt, 'md')};
+    margin-bottom: ${({ mb }) => getResponsiveValue(mb, 'md')};
+    padding-left: ${({ px, pl }) =>
+      px || pl ? getResponsiveValue(px || pl, 'md') : spacing[10]};
+    padding-right: ${({ px, pr }) =>
+      px || pr ? getResponsiveValue(px || pr, 'md') : spacing[10]};
+    padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, 'md')};
+    padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, 'md')};
   }
 
   ${minLg} {
-    margin-top: ${({ mt }) => getResponsiveValue(mt, 'lg', 0)};
-    margin-bottom: ${({ mb }) => getResponsiveValue(mb, 'lg', 0)};
-    padding-left: ${({ px, pl }) => getResponsiveValue(px || pl, 'lg', 10)};
-    padding-right: ${({ px, pr }) => getResponsiveValue(px || pr, 'lg', 10)};
-    padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, 'lg', 0)};
-    padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, 'lg', 0)};
+    margin-top: ${({ mt }) => getResponsiveValue(mt, 'lg')};
+    margin-bottom: ${({ mb }) => getResponsiveValue(mb, 'lg')};
+    padding-left: ${({ px, pl }) =>
+      px || pl ? getResponsiveValue(px || pl, 'lg') : spacing[10]};
+    padding-right: ${({ px, pr }) =>
+      px || pr ? getResponsiveValue(px || pr, 'lg') : spacing[10]};
+    padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, 'lg')};
+    padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, 'lg')};
   }
 
   ${minXl} {
-    margin-top: ${({ mt }) => getResponsiveValue(mt, 'xl', 0)};
-    margin-bottom: ${({ mb }) => getResponsiveValue(mb, 'xl', 0)};
-    padding-left: ${({ px, pl }) => getResponsiveValue(px || pl, 'xl', 10)};
-    padding-right: ${({ px, pr }) => getResponsiveValue(px || pr, 'xl', 10)};
-    padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, 'xl', 0)};
-    padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, 'xl', 0)};
+    margin-top: ${({ mt }) => getResponsiveValue(mt, 'xl')};
+    margin-bottom: ${({ mb }) => getResponsiveValue(mb, 'xl')};
+    padding-left: ${({ px, pl }) =>
+      px || pl ? getResponsiveValue(px || pl, 'xl') : spacing[10]};
+    padding-right: ${({ px, pr }) =>
+      px || pr ? getResponsiveValue(px || pr, 'xl') : spacing[10]};
+    padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, 'xl')};
+    padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, 'xl')};
   }
 
   ${min2xl} {
-    margin-top: ${({ mt }) => getResponsiveValue(mt, '2xl', 0)};
-    margin-bottom: ${({ mb }) => getResponsiveValue(mb, '2xl', 0)};
-    padding-left: ${({ px, pl }) => getResponsiveValue(px || pl, '2xl', 10)};
-    padding-right: ${({ px, pr }) => getResponsiveValue(px || pr, '2xl', 10)};
-    padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, '2xl', 0)};
-    padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, '2xl', 0)};
+    margin-top: ${({ mt }) => getResponsiveValue(mt, '2xl')};
+    margin-bottom: ${({ mb }) => getResponsiveValue(mb, '2xl')};
+    padding-left: ${({ px, pl }) =>
+      px || pl ? getResponsiveValue(px || pl, '2xl') : spacing[10]};
+    padding-right: ${({ px, pr }) =>
+      px || pr ? getResponsiveValue(px || pr, '2xl') : spacing[10]};
+    padding-top: ${({ py, pt }) => getResponsiveValue(py || pt, '2xl')};
+    padding-bottom: ${({ py, pb }) => getResponsiveValue(py || pb, '2xl')};
   }
 `;
