@@ -4,7 +4,7 @@ import { Stack } from './Stack';
 import { Placeholder } from '../Placeholder';
 
 const meta: Meta<typeof Stack> = {
-  title: 'Stack',
+  title: 'Layout/Stack',
   component: Stack,
   tags: ['autodocs'],
 };
@@ -20,7 +20,7 @@ export const Base: Story = {
   render: () => {
     return (
       <>
-        <Stack mt={10}>
+        <Stack>
           <Placeholder height={300} color="orange100" />
           <Placeholder height={300} color="blue100" />
           <Placeholder height={300} color="yellow100" />
@@ -28,12 +28,12 @@ export const Base: Story = {
           <Placeholder height={300} color="pink100" />
           <Placeholder height={300} color="teal100" />
         </Stack>
-        <Stack mt={4}>
+        <Stack my={10} mx={10}>
           <Placeholder height={300} color="yellow100" />
           <Placeholder height={300} color="blue100" />
           <Placeholder height={300} color="orange100" />
         </Stack>
-        <Stack mt={4} mb={10}>
+        <Stack my={10} mx={10}>
           <Placeholder height={300} color="teal100" />
           <Placeholder height={300} color="pink100" />
         </Stack>
