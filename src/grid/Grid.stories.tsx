@@ -4,7 +4,7 @@ import { Grid } from './Grid';
 import { Placeholder } from '../Placeholder';
 
 const meta: Meta<typeof Grid> = {
-  title: 'Grid',
+  title: 'Layout/Grid',
   component: Grid,
   tags: ['autodocs'],
 };
