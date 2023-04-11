@@ -4,7 +4,7 @@ import { Button } from './Button';
 import { color } from '../_tokens/tokens';
 
 const meta: Meta<typeof Button> = {
-  title: 'Button',
+  title: 'Actions/Button',
   component: Button,
   tags: ['autodocs'],
 };

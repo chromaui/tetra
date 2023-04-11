@@ -6,7 +6,7 @@ export type IconType = keyof typeof icons;
 
 export interface IconProps {
   name: IconType;
-  size?: 12 | 14 | 16 | 18 | 20 | 24;
+  size?: number;
   color?: keyof typeof tokenColor;
 }
 
