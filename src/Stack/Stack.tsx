@@ -29,7 +29,7 @@ export const Stack = styled(BlockWithOptions)<{
   direction?: StackProps['direction'];
 }>`
   display: flex;
-  flex-direction: 'column';
+  flex-direction: column;
   gap: ${({ gap }) => (gap ? getResponsiveValue(gap, 'base') : spacing[4])};
 
   ${minSm} {
