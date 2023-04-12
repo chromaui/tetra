@@ -16,6 +16,9 @@ export {
   max2xl,
 } from './_helpers';
 
+// Hooks
+export { useMediaQuery } from './_hooks/useMediaQuery';
+
 // Components
 export { Container } from './Container';
 export { Button } from './Button';
