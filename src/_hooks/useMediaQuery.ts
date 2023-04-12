@@ -15,19 +15,51 @@ export function useMediaQuery(
     | 'maxLg'
     | 'maxXl'
     | 'max2Xl'
+    | 'base'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | '2xl'
 ): boolean {
   let newQuery = '';
+  // Min
   if (query === 'minBase') newQuery = `(min-width: ${breakpoint.base}px)`;
   if (query === 'minSm') newQuery = `(min-width: ${breakpoint.sm}px)`;
   if (query === 'minMd') newQuery = `(min-width: ${breakpoint.md}px)`;
   if (query === 'minLg') newQuery = `(min-width: ${breakpoint.lg}px)`;
   if (query === 'minXl') newQuery = `(min-width: ${breakpoint.xl}px)`;
   if (query === 'min2Xl') newQuery = `(min-width: ${breakpoint['2xl']}px)`;
+
+  // Max
   if (query === 'maxSm') newQuery = `(max-width: ${breakpoint.sm - 1}px)`;
   if (query === 'maxMd') newQuery = `(max-width: ${breakpoint.md - 1}px)`;
   if (query === 'maxLg') newQuery = `(max-width: ${breakpoint.lg - 1}px)`;
   if (query === 'maxXl') newQuery = `(max-width: ${breakpoint.xl - 1}px)`;
   if (query === 'max2Xl') newQuery = `(max-width: ${breakpoint['2xl'] - 1}px)`;
+
+  // Exact
+  if (query === 'base')
+    newQuery = `(min-width: ${breakpoint.base}px) and (max-width: ${
+      breakpoint.sm - 1
+    }px)`;
+  if (query === 'sm')
+    newQuery = `(min-width: ${breakpoint.sm}px) and (max-width: ${
+      breakpoint.md - 1
+    }px)`;
+  if (query === 'md')
+    newQuery = `(min-width: ${breakpoint.md}px) and (max-width: ${
+      breakpoint.lg - 1
+    }px)`;
+  if (query === 'lg')
+    newQuery = `(min-width: ${breakpoint.lg}px) and (max-width: ${
+      breakpoint.xl - 1
+    }px)`;
+  if (query === 'xl')
+    newQuery = `(min-width: ${breakpoint.xl}px) and (max-width: ${
+      breakpoint['2xl'] - 1
+    }px)`;
+  if (query === '2xl') newQuery = `(min-width: ${breakpoint['2xl']}px)`;
 
   const getMatches = (query: string): boolean => {
     // Prevents SSR issues
