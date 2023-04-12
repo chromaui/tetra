@@ -1,7 +1,6 @@
 import React, { Meta, StoryObj } from '@storybook/react';
 
 import { IntegrationImage } from './IntegrationImage';
-import { Placeholder } from '../Placeholder';
 import { Icon } from '../Icon';
 
 const meta: Meta<typeof IntegrationImage> = {
