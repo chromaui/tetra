@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { styled } from '@storybook/theming';
 import { color, spacing } from '../_tokens';
-import { Icon } from '../Icon';
+import { Icon } from '../Icon2';
 import { Connector } from './Connector';
 import { minMd } from '../_helpers';
 

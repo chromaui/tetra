@@ -2,7 +2,7 @@ import React, { Meta, StoryObj } from '@storybook/react';
 
 import { IntegrationImage } from './IntegrationImage';
 import { Placeholder } from '../Placeholder';
-import { Icon } from '../Icon';
+import { Icon } from '../Icon2';
 
 const meta: Meta<typeof IntegrationImage> = {
   title: 'IntegrationImage',
