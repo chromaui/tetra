@@ -1,6 +1,6 @@
 {
   "name": "@chromaui/tetra",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Style Guide + UI library for Chromatic and Storybook marketing sites and docs",
   "author": {
     "name": "cdedreuille"
