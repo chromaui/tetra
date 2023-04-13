@@ -50,9 +50,9 @@ export const Body: Story = {
   },
   render: ({ children }) => (
     <div>
-      <Text variant="bodyLg">{children}</Text>
-      <Text variant="bodyMd">{children}</Text>
-      <Text variant="bodySm">{children}</Text>
+      <Text variant="bodyLg">BodyLg — {children}</Text>
+      <Text variant="bodyMd">BodyMd — {children}</Text>
+      <Text variant="bodySm">BodySm — {children}</Text>
     </div>
   ),
 };

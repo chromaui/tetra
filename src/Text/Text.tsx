@@ -74,7 +74,7 @@ const Container = styled.div<{
     if (variant === 'headingSm') return tokenLineHeight.md;
     if (variant === 'headingXs') return tokenLineHeight.sm;
     if (variant === 'bodyLg') return tokenLineHeight.md;
-    if (variant === 'bodyMd') return tokenLineHeight.sm;
+    if (variant === 'bodyMd') return tokenLineHeight.md;
     if (variant === 'bodySm') return tokenLineHeight.xs;
   }};
   margin-bottom: ${({ variant, as }) => {
@@ -127,7 +127,7 @@ const Container = styled.div<{
       if (variant === 'headingSm') return tokenLineHeight.sm;
       if (variant === 'headingXs') return tokenLineHeight.sm;
       if (variant === 'bodyLg') return tokenLineHeight.md;
-      if (variant === 'bodyMd') return tokenLineHeight.sm;
+      if (variant === 'bodyMd') return tokenLineHeight.md;
       if (variant === 'bodySm') return tokenLineHeight.xs;
     }};
   }
