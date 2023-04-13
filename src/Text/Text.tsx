@@ -118,10 +118,10 @@ const Container = styled.div<{
       if (variant === 'bodySm') return tokenFontSize.sm;
     }};
     line-height: ${({ variant }) => {
-      if (variant === 'heading4xl') return tokenLineHeight['5xl'];
-      if (variant === 'heading3xl') return tokenLineHeight['4xl'];
-      if (variant === 'heading2xl') return tokenLineHeight['3xl'];
-      if (variant === 'headingXl') return tokenLineHeight.xl;
+      if (variant === 'heading4xl') return tokenLineHeight['6xl'];
+      if (variant === 'heading3xl') return tokenLineHeight['5xl'];
+      if (variant === 'heading2xl') return tokenLineHeight['4xl'];
+      if (variant === 'headingXl') return tokenLineHeight['2xl'];
       if (variant === 'headingLg') return tokenLineHeight.lg;
       if (variant === 'headingMd') return tokenLineHeight.md;
       if (variant === 'headingSm') return tokenLineHeight.sm;

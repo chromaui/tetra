@@ -84,8 +84,9 @@ export const lineHeight = {
   xl: '2.375rem', // 38px
   '2xl': '2.75rem', // 44px
   '3xl': '3rem', // 48px
-  '4xl': '3.375rem', // 54px
-  '5xl': '4rem', // 64px
+  '4xl': '3.25rem', // 52px
+  '5xl': '3.75rem', // 60px
+  '6xl': '4.25rem', // 68px
 };
 
 export const breakpoint = {
