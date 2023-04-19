@@ -1,19 +1,8 @@
 import React from 'react';
 import type { Preview, Decorator } from '@storybook/react';
-import {
-  global as designSystemGlobal,
-  loadFontsForStorybook,
-} from '@storybook/design-system';
+import { loadFontsForStorybook } from '@storybook/design-system';
 
-const { GlobalStyle: StorybookDSGlobalStyle } = designSystemGlobal;
-
-const withGlobalStyle: Decorator = (storyFn) => (
-  <>
-    {/* I removed the global style to make sure we are setting every elements on each components instead of relying on global styles. */}
-    {/* <StorybookDSGlobalStyle /> */}
-    {storyFn()}
-  </>
-);
+const withGlobalStyle: Decorator = (storyFn) => <>{storyFn()}</>;
 
 const preview: Preview = {
   parameters: {
