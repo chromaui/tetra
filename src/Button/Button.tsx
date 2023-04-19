@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
 import { color as tokenColor, fontFamily } from '../_tokens';
-import { Icon, IconType } from '../Icon';
+import { Icon } from '../Icon';
+import { IconType } from '../Icon/Icon';
 
 export interface ButtonProps {
   children: String;

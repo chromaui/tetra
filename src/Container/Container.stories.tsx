@@ -19,7 +19,7 @@ export const Base: Story = {
   },
   render: () => {
     return (
-      <Container mt={10} mb={10}>
+      <Container marginTop={10} marginBottom={10}>
         <Placeholder height={600} color="orange100" />
       </Container>
     );

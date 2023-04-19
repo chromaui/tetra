@@ -20,7 +20,7 @@ export const Base: Story = {
   render: () => {
     return (
       <>
-        <Stack mx={10} mt={10}>
+        <Stack marginX={10} marginTop={10}>
           <Placeholder height={300} color="orange100" />
           <Placeholder height={300} color="blue100" />
           <Placeholder height={300} color="yellow100" />
@@ -28,12 +28,12 @@ export const Base: Story = {
           <Placeholder height={300} color="pink100" />
           <Placeholder height={300} color="teal100" />
         </Stack>
-        <Stack my={10} mx={10}>
+        <Stack marginY={10} marginX={10}>
           <Placeholder height={300} color="yellow100" />
           <Placeholder height={300} color="blue100" />
           <Placeholder height={300} color="orange100" />
         </Stack>
-        <Stack my={10} mx={10}>
+        <Stack marginY={10} marginX={10}>
           <Placeholder height={300} color="teal100" />
           <Placeholder height={300} color="pink100" />
         </Stack>
