@@ -138,7 +138,7 @@ export const Text: FC<TextProps> = ({
   variant = 'bodyMd',
   alignment = 'start',
   fontWeight,
-  color,
+  color = 'gray800',
   as = 'p',
   ...rest
 }) => {
