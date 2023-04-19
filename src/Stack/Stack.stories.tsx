@@ -21,9 +21,6 @@ export const Base: Story = {
   render: () => {
     return (
       <>
-        <BlockWithOptions paddingX={32} paddingY={32}>
-          <Placeholder height={300} color="orange100" />
-        </BlockWithOptions>
         <Stack marginX={10} marginTop={10}>
           <Placeholder height={300} color="orange100" />
           <Placeholder height={300} color="blue100" />
