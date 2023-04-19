@@ -2,7 +2,6 @@ import React, { Meta, StoryObj } from '@storybook/react';
 
 import { Stack } from './Stack';
 import { Placeholder } from '../Placeholder';
-import { BlockWithOptions } from '../_helpers';
 
 const meta: Meta<typeof Stack> = {
   title: 'Layout/Stack',
