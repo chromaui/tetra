@@ -64,29 +64,29 @@ export const fontWeight = {
 };
 
 export const fontSize = {
-  xs: '0.75rem', // 12px
-  sm: '0.875rem', // 14px
-  md: '1rem', // 16px
-  lg: '1.125rem', // 18px
-  xl: '1.25rem', // 20px
-  '2xl': '1.5rem', // 24px
-  '3xl': '1.875rem', // 30px
-  '4xl': '2.25rem', // 36px
-  '5xl': '3rem', // 48px
-  '6xl': '3.75rem', // 60px
+  12: '0.75rem', // 12px
+  14: '0.875rem', // 14px
+  16: '1rem', // 16px
+  18: '1.125rem', // 18px
+  20: '1.25rem', // 20px
+  24: '1.5rem', // 24px
+  30: '1.875rem', // 30px
+  36: '2.25rem', // 36px
+  48: '3rem', // 48px
+  60: '3.75rem', // 60px
 };
 
 export const lineHeight = {
-  xs: '1.25rem', // 20px
-  sm: '1.5rem', // 24px
-  md: '1.75rem', // 28px
-  lg: '2rem', // 32px
-  xl: '2.375rem', // 38px
-  '2xl': '2.75rem', // 44px
-  '3xl': '3rem', // 48px
-  '4xl': '3.25rem', // 52px
-  '5xl': '3.75rem', // 60px
-  '6xl': '4.25rem', // 68px
+  20: '1.25rem', // 20px
+  24: '1.5rem', // 24px
+  28: '1.75rem', // 28px
+  32: '2rem', // 32px
+  38: '2.375rem', // 38px
+  44: '2.75rem', // 44px
+  48: '3rem', // 48px
+  52: '3.25rem', // 52px
+  60: '3.75rem', // 60px
+  68: '4.25rem', // 68px
 };
 
 export const breakpoint = {
