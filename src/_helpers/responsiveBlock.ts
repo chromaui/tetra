@@ -105,32 +105,32 @@ const doubleOptions = (
 const getFullStyles = ({ array, props }: { array: any; props: any }) => {
   return array.map((option: string) => {
     // Special Margins
-    if (props[option] !== null && option === 'marginX')
+    if (props[option] && option === 'marginX')
       return doubleOptions('margin-left', 'margin-right', props, option);
-    if (props[option] !== null && option === 'marginY')
+    if (props[option] && option === 'marginY')
       return doubleOptions('margin-top', 'margin-bottom', props, option);
     // Special Paddings
-    if (props[option] !== null && option === 'paddingX')
+    if (props[option] && option === 'paddingX')
       return doubleOptions('padding-left', 'padding-right', props, option);
-    if (props[option] !== null && option === 'paddingY')
+    if (props[option] && option === 'paddingY')
       return doubleOptions('padding-top', 'padding-bottom', props, option);
     // Margins
-    if (props[option] !== null && option === 'marginLeft')
+    if (props[option] && option === 'marginLeft')
       return singleOption('margin-left', props, option);
-    if (props[option] !== null && option === 'marginRight')
+    if (props[option] && option === 'marginRight')
       return singleOption('margin-right', props, option);
-    if (props[option] !== null && option === 'marginTop')
+    if (props[option] && option === 'marginTop')
       return singleOption('margin-top', props, option);
-    if (props[option] !== null && option === 'marginBottom')
+    if (props[option] && option === 'marginBottom')
       return singleOption('margin-bottom', props, option);
     // Paddings
-    if (props[option] !== null && option === 'paddingLeft')
+    if (props[option] && option === 'paddingLeft')
       return singleOption('padding-left', props, option);
-    if (props[option] !== null && option === 'paddingRight')
+    if (props[option] && option === 'paddingRight')
       return singleOption('padding-right', props, option);
-    if (props[option] !== null && option === 'paddingTop')
+    if (props[option] && option === 'paddingTop')
       return singleOption('padding-top', props, option);
-    if (props[option] !== null && option === 'paddingBottom')
+    if (props[option] && option === 'paddingBottom')
       return singleOption('padding-bottom', props, option);
   });
 };
