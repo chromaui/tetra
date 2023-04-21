@@ -1,6 +1,7 @@
 import { Meta, Typeset } from '@storybook/blocks';
 import { fontSize, fontWeight, lineHeight, fontFamily } from './tokens';
 import { InfoBox } from '../_localComponents/InfoBox';
+import { List } from '../_localComponents/List';
 import { Stack } from '../Stack';
 
 <Meta title="Tokens/Typography" />
@@ -17,22 +18,45 @@ Like in other ui in mondays interface, typography works by principle of accessib
 
 <Stack marginTop={12} />
 
-### Font Family
-
-- `sans` "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
-- `mono` "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace
-
-### Font Weight
-
-- `regular` 400
-- `medium` 500
-- `semibold` 600
-- `bold` 700
-
-### Font Sizes
+### Font Size
 
 <Typeset
   fontSizes={[12, 14, 16, 18, 20, 24, 30, 36, 48, 60]}
   fontWeight={fontWeight.regular}
   fontFamily={fontFamily.sans}
 />
+
+<Stack marginTop={12} />
+
+### Font Family
+
+<List
+  list={Object.entries(fontFamily).map(([key, value]) => ({
+    name: key,
+    value: value,
+  }))}
+/>
+
+<Stack marginTop={12} />
+
+### Font Weight
+
+<List
+  list={Object.entries(fontWeight).map(([key, value]) => ({
+    name: key,
+    value: value,
+  }))}
+/>
+
+<Stack marginTop={12} />
+
+### Line Height
+
+<List
+  list={Object.entries(lineHeight).map(([key, value]) => ({
+    name: key,
+    value: value,
+  }))}
+/>
+
+<Stack marginTop={12} />
