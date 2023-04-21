@@ -1,7 +1,7 @@
 import React, { Meta, StoryObj } from '@storybook/react';
 
 import { Grid } from './Grid';
-import { Placeholder } from '../Placeholder';
+import { Placeholder } from '../_localComponents/Placeholder';
 
 const meta: Meta<typeof Grid> = {
   title: 'Layout/Grid',

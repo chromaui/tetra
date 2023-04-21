@@ -1,0 +1,12 @@
+import { Meta, Typeset } from '@storybook/blocks';
+import { fontSize, fontWeight, lineHeight, fontFamily } from './tokens';
+import { InfoBox } from '../_localComponents/InfoBox';
+import { Stack } from '../Stack';
+
+<Meta title="Tokens/Spacing" />
+
+# Spacing
+
+We are using spacing pretty token pretty much in all components. All values are saved in rem units, which means that they are relative to the font size of the root element. This way, the spacing will scale with the font size.
+
+<Stack marginTop={12} />

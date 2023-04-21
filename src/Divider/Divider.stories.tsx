@@ -1,7 +1,7 @@
 import React, { Meta, StoryObj } from '@storybook/react';
 
 import { Divider } from './Divider';
-import { Placeholder } from '../Placeholder';
+import { Placeholder } from '../_localComponents/Placeholder';
 import { Stack } from '../Stack';
 
 const meta: Meta<typeof Divider> = {

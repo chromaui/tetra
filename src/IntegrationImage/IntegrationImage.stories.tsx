@@ -4,7 +4,7 @@ import { IntegrationImage } from './IntegrationImage';
 import { Icon } from '../Icon';
 
 const meta: Meta<typeof IntegrationImage> = {
-  title: 'IntegrationImage',
+  title: 'Components/IntegrationImage',
   component: IntegrationImage,
   tags: ['autodocs'],
 };

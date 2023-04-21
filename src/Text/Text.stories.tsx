@@ -3,7 +3,7 @@ import React, { Meta, StoryObj } from '@storybook/react';
 import { Text } from './Text';
 
 const meta: Meta<typeof Text> = {
-  title: 'Text',
+  title: 'Components/Text',
   component: Text,
   tags: ['autodocs'],
 };

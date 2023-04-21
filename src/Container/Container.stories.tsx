@@ -1,7 +1,7 @@
 import React, { Meta, StoryObj } from '@storybook/react';
 
 import { Container } from './Container';
-import { Placeholder } from '../Placeholder';
+import { Placeholder } from '../_localComponents/Placeholder';
 
 const meta: Meta<typeof Container> = {
   title: 'Layout/Container',

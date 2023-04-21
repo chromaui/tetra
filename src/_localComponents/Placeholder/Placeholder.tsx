@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
-import { color as tokenColor } from '../_tokens';
+import { color as tokenColor } from '../../_tokens';
 
 export interface PlaceholderProps {
   width?: number;

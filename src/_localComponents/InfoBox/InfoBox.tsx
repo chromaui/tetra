@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
-import { color as tokenColor, spacing } from '../_tokens';
-import { Text } from '../Text';
-import { Icon, IconType } from '../Icon/Icon';
+import { color as tokenColor, spacing } from '../../_tokens';
+import { Text } from '../../Text';
+import { Icon, IconType } from '../../Icon/Icon';
 
 export interface InfoBoxProps {
   children: String;
