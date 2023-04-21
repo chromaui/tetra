@@ -4,6 +4,6 @@ export default create({
   base: 'light',
   brandTitle: 'Tetra',
   brandUrl: 'https://tetra.chromatic.com',
-  brandImage: 'src/logo.png',
+  brandImage: 'https://tetra.chromatic.com/logo.png',
   brandTarget: '_self',
 });
