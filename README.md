@@ -1,6 +1,6 @@
 # Tetra ⍜ ⍚
 
-<img src="src/cover.jpg" />
+<img src="public/cover.jpg" />
 
 This library centralised Chromatic and Storybooks' style guides as well as an exhaustive list of components use accross our suite of marketing sites. This is also a good excuse to test all the new features that both Storybook and Chromatic offers. Please feel free to learn from it and ask any questions that comes your way.
 
@@ -11,6 +11,7 @@ yarn add @chromaui/tetra
 ```
 
 ## Preview
+
 You can preview this library on Chromatic  
 https://642d765a7e8afcfb104268dc-murpazadzf.chromatic.com/
 

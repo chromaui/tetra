@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "concurrently  -n \"Build,SB\" \"yarn build --watch\" \"yarn storybook\" ",
-    "build": "tsup --onSuccess \"yarn yalc publish\"",
+    "build": "tsup --onSuccess \"cp -a public/. dist/public\"",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "lint:fix": "yarn lint --fix && prettier --write .",
@@ -67,8 +67,7 @@
     "storybook": "7.0.6",
     "tsup": "6.6.3",
     "typescript": "5.0.2",
-    "vite": "4.2.1",
-    "yalc": "1.0.0-pre.53"
+    "vite": "4.2.1"
   },
   "peerDependencies": {
     "react": ">=17",
