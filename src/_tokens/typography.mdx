@@ -1,0 +1,38 @@
+import { Meta, Typeset } from '@storybook/blocks';
+import { fontSize, fontWeight, lineHeight, fontFamily } from './tokens';
+import { InfoBox } from '../InfoBox';
+import { Stack } from '../Stack';
+
+<Meta title="Tokens/Typography" />
+
+# Typography
+
+Like in other ui in mondays interface, typography works by principle of accessibility before aesthetics. Therefore the text should be readable and help the user understand what's important by well contrasted size and colors hierarchy.
+
+<InfoBox backgroundColor="pink100">
+  These typography tokens are not meant to be used on their own. At all cost you
+  should avoid to use them directly in your code. Instead, use the typography
+  components provided by the UI kit.
+</InfoBox>
+
+<Stack marginTop={12} />
+
+### Font Family
+
+- `sans` "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+- `mono` "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace
+
+### Font Weight
+
+- `regular` 400
+- `medium` 500
+- `semibold` 600
+- `bold` 700
+
+### Font Sizes
+
+<Typeset
+  fontSizes={[12, 14, 16, 18, 20, 24, 30, 36, 48, 60]}
+  fontWeight={fontWeight.regular}
+  fontFamily={fontFamily.sans}
+/>
