@@ -1,0 +1,20 @@
+import { Meta, Typeset } from '@storybook/blocks';
+import { breakpoint } from './tokens';
+import { InfoBox } from '../_localComponents/InfoBox';
+import { Stack } from '../Stack';
+import { Breakpoints } from '../_localComponents/Breakpoints';
+
+<Meta title="Tokens/Breakpoint" />
+
+# Breakpoint
+
+We built a set of breakpoints that could be used in any components or layouts. The breakpoints are based on the [Tailwind](https://tailwindcss.com/docs/responsive-design) and [Polaris](https://polaris.shopify.com/tokens/breakpoints) breakpoints.
+
+<Stack marginTop={8} />
+
+<Breakpoints
+  list={Object.entries(breakpoint).map(([key, value]) => ({
+    name: key,
+    value: value,
+  }))}
+/>
