@@ -26,6 +26,7 @@ export interface TextProps {
   alignment?: 'start' | 'center' | 'end' | 'justify';
   fontWeight?: keyof typeof tokenFontWeight;
   color?: keyof typeof tokenColor;
+  lineHeightAuto?: boolean;
   as?:
     | 'h1'
     | 'h2'
@@ -44,6 +45,7 @@ const Container = styled.div<{
   color: TextProps['color'];
   alignment: TextProps['alignment'];
   fontWeight: TextProps['fontWeight'];
+  lineHeightAuto: TextProps['lineHeightAuto'];
 }>`
   margin: 0; // Reset
   font-family: ${tokenFontFamily.sans};
@@ -64,7 +66,8 @@ const Container = styled.div<{
     if (variant === 'bodyMd') return tokenFontSize[16];
     if (variant === 'bodySm') return tokenFontSize[14];
   }};
-  line-height: ${({ variant }) => {
+  line-height: ${({ variant, lineHeightAuto }) => {
+    if (lineHeightAuto) return 'auto';
     if (variant === 'heading4xl') return tokenLineHeight[44];
     if (variant === 'heading3xl') return tokenLineHeight[44];
     if (variant === 'heading2xl') return tokenLineHeight[38];
@@ -117,7 +120,8 @@ const Container = styled.div<{
       if (variant === 'bodyMd') return tokenFontSize[16];
       if (variant === 'bodySm') return tokenFontSize[14];
     }};
-    line-height: ${({ variant }) => {
+    line-height: ${({ variant, lineHeightAuto }) => {
+      if (lineHeightAuto) return 'auto';
       if (variant === 'heading4xl') return tokenLineHeight[68];
       if (variant === 'heading3xl') return tokenLineHeight[60];
       if (variant === 'heading2xl') return tokenLineHeight[52];
@@ -139,6 +143,7 @@ export const Text: FC<TextProps> = ({
   alignment = 'start',
   fontWeight,
   color = 'gray800',
+  lineHeightAuto = false,
   as = 'p',
   ...rest
 }) => {
@@ -148,6 +153,7 @@ export const Text: FC<TextProps> = ({
       color={color}
       fontWeight={fontWeight}
       alignment={alignment}
+      lineHeightAuto={lineHeightAuto}
       as={as}
       {...rest}
     >

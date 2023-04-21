@@ -1,7 +1,8 @@
 import { Meta, Typeset } from '@storybook/blocks';
-import { fontSize, fontWeight, lineHeight, fontFamily } from './tokens';
+import { spacing } from './tokens';
 import { InfoBox } from '../_localComponents/InfoBox';
 import { Stack } from '../Stack';
+import { Spacings } from '../_localComponents/Spacings';
 
 <Meta title="Tokens/Spacing" />
 
@@ -9,4 +10,11 @@ import { Stack } from '../Stack';
 
 We are using spacing pretty token pretty much in all components. All values are saved in rem units, which means that they are relative to the font size of the root element. This way, the spacing will scale with the font size.
 
-<Stack marginTop={12} />
+<Stack marginTop={8} />
+
+<Spacings
+  list={Object.entries(spacing).map(([key, value]) => ({
+    name: key,
+    value: value,
+  }))}
+/>
