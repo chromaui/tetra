@@ -99,26 +99,53 @@ export const Colors: Story = {
         style={{
           flex: 1,
           display: 'flex',
-          justifyContent: 'center',
+          alignItems: 'center',
           backgroundColor: color.white,
-          padding: '2rem 0',
+          padding: '4rem 0',
+          gap: 20,
+          flexDirection: 'column',
         }}
       >
-        <Button color="blue">{children}</Button>
+        <Button color="blue">{`Blue - ${children}`}</Button>
+        <Button color="white">{`White - ${children}`}</Button>
+        <Button color="gray">{`Gray - ${children}`}</Button>
+        <Button color="blue" variant="outline">
+          {`Blue - ${children}`}
+        </Button>
+        <Button color="white" variant="outline">
+          {`White - ${children}`}
+        </Button>
+        <Button color="gray" variant="outline">
+          {`Gray - ${children}`}
+        </Button>
       </div>
       <div
         style={{
           flex: 1,
           display: 'flex',
-          justifyContent: 'center',
+          alignItems: 'center',
           backgroundColor: color.gray800,
-          padding: '2rem 0',
+          padding: '4rem 0',
+          gap: 20,
+          flexDirection: 'column',
         }}
       >
-        <Button color="white">{children}</Button>
+        <Button color="blue">{`Blue - ${children}`}</Button>
+        <Button color="white">{`White - ${children}`}</Button>
+        <Button color="gray">{`Gray - ${children}`}</Button>
+        <Button color="blue" variant="outline">{`Blue - ${children}`}</Button>
+        <Button color="white" variant="outline">
+          {`White - ${children}`}
+        </Button>
+        <Button color="gray" variant="outline">
+          {`Gray - ${children}`}
+        </Button>
       </div>
     </div>
   ),
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export const LeftIcon: Story = {
