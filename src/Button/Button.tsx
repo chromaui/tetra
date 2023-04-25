@@ -8,7 +8,7 @@ export interface ButtonProps {
   children: String;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'solid' | 'outline';
-  color?: 'blue' | 'white';
+  color?: 'blue' | 'white' | 'gray';
   leftIcon?: IconType;
   rightIcon?: IconType;
   href?: string;
@@ -35,12 +35,15 @@ const Container = styled.a<{
   background: ${({ variant, color }) => {
     if (variant === 'solid' && color === 'blue') return tokenColor.blue500;
     if (variant === 'solid' && color === 'white') return tokenColor.white;
+    if (variant === 'solid' && color === 'gray') return tokenColor.gray100;
     return 'transparent';
   }};
   color: ${({ variant, color }) => {
     if (variant === 'solid' && color === 'blue') return tokenColor.white;
     if (variant === 'solid' && color === 'white') return tokenColor.blue500;
+    if (variant === 'solid' && color === 'gray') return tokenColor.gray500;
     if (variant === 'outline' && color === 'white') return tokenColor.white;
+    if (variant === 'outline' && color === 'gray') return tokenColor.gray500;
     return tokenColor.blue500;
   }};
   height: ${({ size }) => {
@@ -53,6 +56,8 @@ const Container = styled.a<{
       return `0 0 0 1px ${tokenColor.blue500}`;
     if (variant === 'outline' && color === 'white')
       return `0 0 0 1px ${tokenColor.white}`;
+    if (variant === 'outline' && color === 'gray')
+      return `0 0 0 1px ${tokenColor.gray300}`;
   }};
   font-size: ${({ size }) => {
     if (size === 'sm') return '0.75rem';
@@ -69,9 +74,11 @@ const Container = styled.a<{
     background: ${({ variant, color }) => {
       if (variant === 'solid' && color === 'blue') return tokenColor.blue600;
       if (variant === 'solid' && color === 'white') return tokenColor.blue100;
+      if (variant === 'solid' && color === 'gray') return tokenColor.gray200;
       if (variant === 'outline' && color === 'blue') return tokenColor.blue100;
       if (variant === 'outline' && color === 'white')
         return 'rgba(255, 255, 255, 0.1)';
+      if (variant === 'outline' && color === 'gray') return tokenColor.gray100;
       return 'transparent';
     }};
   }
