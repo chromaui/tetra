@@ -87,6 +87,9 @@ export const Variants: Story = {
       </div>
     </div>
   ),
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export const Colors: Story = {
@@ -218,6 +221,9 @@ export const LeftIcon: Story = {
       </div>
     </div>
   ),
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export const RightIcon: Story = {
@@ -290,4 +296,7 @@ export const RightIcon: Story = {
       </div>
     </div>
   ),
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
