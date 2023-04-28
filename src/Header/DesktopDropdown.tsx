@@ -11,6 +11,7 @@ import {
 } from './styles';
 import { Icon } from '../Icon';
 import { minSm } from '../_helpers';
+import { useHeaderContext } from './HeaderContext';
 
 export interface DesktopDropdownProps {
   children: ReactNode;
@@ -65,14 +66,15 @@ export const DesktopDropdown: FC<DesktopDropdownProps> = ({
   children,
   name,
 }) => {
+  const { theme } = useHeaderContext();
+
   return (
     <NavigationMenu.Item>
       <NavigationMenuTrigger>
         <Text
           as="div"
           lineHeightAuto
-          // color={theme === 'light' ? 'gray800' : 'white'}
-          color="white"
+          color={theme === 'light' ? 'gray800' : 'white'}
           variant="bodySm"
           fontWeight="bold"
         >
