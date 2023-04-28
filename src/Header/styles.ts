@@ -1,4 +1,28 @@
-import { keyframes } from '@storybook/theming';
+import { css, keyframes } from '@storybook/theming';
+import { color, spacing } from '../_tokens';
+
+export const NavigationMenuItem = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 ${spacing[2]};
+  outline: none;
+  user-select: none;
+  border-radius: 4px;
+  border: none;
+  height: ${spacing[8]};
+  background: transparent;
+  gap: 8px;
+  text-decoration: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px ${color.blue400};
+  }
+
+  &:hover {
+    background-color: rgba(30, 167, 253, 0.14);
+  }
+`;
 
 export const enterFromRight = keyframes`
   from {
