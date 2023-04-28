@@ -1,5 +1,5 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { styled } from '@storybook/theming';
 import { Text } from '../Text';
 import { NavigationMenuItem } from './styles';
@@ -16,14 +16,18 @@ const NavigationMenuLink = styled(NavigationMenu.Link)`
 
 export const DesktopLink: FC<DesktopLinkProps> = ({ name, href }) => {
   const { theme } = useHeaderContext();
+  const [active, setActive] = useState(false);
 
   return (
-    <NavigationMenu.Item>
+    <NavigationMenu.Item
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+    >
       <NavigationMenuLink href={href}>
         <Text
           as="div"
           lineHeightAuto
-          color={theme === 'light' ? 'gray800' : 'white'}
+          color={active ? 'blue500' : theme === 'light' ? 'gray800' : 'white'}
           variant="bodySm"
           fontWeight="bold"
         >

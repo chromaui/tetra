@@ -18,7 +18,14 @@ type Story = StoryObj<typeof Header>;
 
 export const Light: Story = {
   render: () => (
-    <div style={{ backgroundColor: '#fff', width: '100vw', height: '100vh' }}>
+    <div
+      style={{
+        backgroundColor: '#fff',
+        width: '100vw',
+        height: '100vh',
+        paddingTop: '16px',
+      }}
+    >
       <Header
         theme="light"
         navDesktop={

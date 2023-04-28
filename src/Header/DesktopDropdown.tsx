@@ -1,5 +1,5 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 import { Text } from '../Text';
 import { styled } from '@storybook/theming';
 import {
@@ -67,21 +67,30 @@ export const DesktopDropdown: FC<DesktopDropdownProps> = ({
   name,
 }) => {
   const { theme } = useHeaderContext();
+  const [active, setActive] = useState(false);
 
   return (
-    <NavigationMenu.Item>
+    <NavigationMenu.Item
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+    >
       <NavigationMenuTrigger>
         <Text
           as="div"
           lineHeightAuto
-          color={theme === 'light' ? 'gray800' : 'white'}
+          color={active ? 'blue500' : theme === 'light' ? 'gray800' : 'white'}
           variant="bodySm"
           fontWeight="bold"
         >
           {name}
         </Text>
         <CaretDown className="CaretDown">
-          <Icon name="arrowdown" aria-hidden size={12} />
+          <Icon
+            name="arrowdown"
+            aria-hidden
+            size={12}
+            color={active ? 'blue500' : 'gray400'}
+          />
         </CaretDown>
       </NavigationMenuTrigger>
       <NavigationMenuContent>{children}</NavigationMenuContent>
