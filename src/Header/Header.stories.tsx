@@ -149,6 +149,13 @@ export const Light: Story = {
             </Header.DesktopDropdown>
           </Header.Desktop>
         }
+        right={
+          <>
+            <Button size="md" variant="outline" color="blue">
+              Sign up
+            </Button>
+          </>
+        }
       />
     </div>
   ),
