@@ -23,7 +23,6 @@ export const Light: Story = {
         backgroundColor: '#fff',
         width: '100vw',
         height: '100vh',
-        paddingTop: '16px',
       }}
     >
       <Header
@@ -164,7 +163,6 @@ export const Dark: Story = {
         backgroundColor: '#171C23',
         width: '100vw',
         height: '100vh',
-        paddingTop: '16px',
       }}
     >
       <Header

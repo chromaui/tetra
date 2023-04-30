@@ -5,6 +5,10 @@ import { DesktopDropdown, DesktopDropdownProps } from './DesktopDropdown';
 import { DesktopColumn, DesktopColumnProps } from './DesktopColumn';
 import { DesktopItem, DesktopItemProps } from './DesktopItem';
 import HeaderContext from './HeaderContext';
+import { styled } from '@storybook/theming';
+import { Logo } from '../Logo';
+import { spacing } from '../_tokens';
+import { Container } from '../Container';
 
 // How to structure this component?
 // - Header.NavDesktop
@@ -22,8 +26,20 @@ import HeaderContext from './HeaderContext';
 // - [ ] Add logo
 // - [ ] Add right component
 
+const Wrapper = styled(Container)`
+  display: flex;
+  height: 120px;
+  align-items: center;
+`;
+
+const Left = styled.div`
+  display: flex;
+  gap: ${spacing[10]};
+`;
+
 export interface HeaderProps {
   theme?: 'light' | 'dark';
+  logo?: 'chromatic' | 'storybook';
   navDesktop?: ReactNode;
   navMobile?: ReactNode;
 }
@@ -34,10 +50,15 @@ export const Header: FC<HeaderProps> & {
   DesktopLink: FC<DesktopLinkProps>;
   DesktopColumn: FC<DesktopColumnProps>;
   DesktopItem: FC<DesktopItemProps>;
-} = ({ theme = 'light', navDesktop }) => {
+} = ({ theme = 'light', logo = 'chromatic', navDesktop }) => {
   return (
     <HeaderContext.Provider value={{ theme }}>
-      {navDesktop}
+      <Wrapper>
+        <Left>
+          <Logo name={logo} width={140} theme={theme} />
+          {navDesktop}
+        </Left>
+      </Wrapper>
     </HeaderContext.Provider>
   );
 };
