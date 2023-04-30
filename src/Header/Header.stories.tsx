@@ -6,6 +6,7 @@ import { FigmaIcon } from './icons/figma';
 import { CollectiveIcon } from './icons/collective';
 import { BBCIcon } from './icons/bbc';
 import { MondayIcon } from './icons/monday';
+import { Button } from '../Button';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -287,6 +288,13 @@ export const Dark: Story = {
               </Header.DesktopColumn>
             </Header.DesktopDropdown>
           </Header.Desktop>
+        }
+        right={
+          <>
+            <Button size="md" variant="outline" color="white">
+              Sign up
+            </Button>
+          </>
         }
       />
     </div>

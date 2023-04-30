@@ -23,13 +23,12 @@ import { Container } from '../Container';
 // - [ ] Add gridalt icon for the use cases
 // - [ ] Create new text variant for separators
 // - [ ] Add context to be able to share theme between components
-// - [ ] Add logo
-// - [ ] Add right component
 
 const Wrapper = styled(Container)`
   display: flex;
   height: 120px;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const Left = styled.div`
@@ -42,6 +41,7 @@ export interface HeaderProps {
   logo?: 'chromatic' | 'storybook';
   navDesktop?: ReactNode;
   navMobile?: ReactNode;
+  right?: ReactNode;
 }
 
 export const Header: FC<HeaderProps> & {
@@ -50,7 +50,7 @@ export const Header: FC<HeaderProps> & {
   DesktopLink: FC<DesktopLinkProps>;
   DesktopColumn: FC<DesktopColumnProps>;
   DesktopItem: FC<DesktopItemProps>;
-} = ({ theme = 'light', logo = 'chromatic', navDesktop }) => {
+} = ({ theme = 'light', logo = 'chromatic', navDesktop, right }) => {
   return (
     <HeaderContext.Provider value={{ theme }}>
       <Wrapper>
@@ -58,6 +58,7 @@ export const Header: FC<HeaderProps> & {
           <Logo name={logo} width={140} theme={theme} />
           {navDesktop}
         </Left>
+        {right}
       </Wrapper>
     </HeaderContext.Provider>
   );
