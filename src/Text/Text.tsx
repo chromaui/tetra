@@ -22,7 +22,8 @@ export interface TextProps {
     | 'headingXs'
     | 'bodyLg'
     | 'bodyMd'
-    | 'bodySm';
+    | 'bodySm'
+    | 'subheading';
   alignment?: 'start' | 'center' | 'end' | 'justify';
   fontWeight?: keyof typeof tokenFontWeight;
   color?: keyof typeof tokenColor;
@@ -65,6 +66,7 @@ const Container = styled.div<{
     if (variant === 'bodyLg') return tokenFontSize[18];
     if (variant === 'bodyMd') return tokenFontSize[16];
     if (variant === 'bodySm') return tokenFontSize[14];
+    if (variant === 'subheading') return tokenFontSize[11];
   }};
   line-height: ${({ variant, lineHeightAuto }) => {
     if (lineHeightAuto) return 'auto';
@@ -79,6 +81,7 @@ const Container = styled.div<{
     if (variant === 'bodyLg') return tokenLineHeight[28];
     if (variant === 'bodyMd') return tokenLineHeight[28];
     if (variant === 'bodySm') return tokenLineHeight[20];
+    if (variant === 'subheading') return 'auto';
   }};
   margin-bottom: ${({ variant, as }) => {
     if (as === 'p' && variant === 'bodyLg') return '1.5rem';
@@ -98,12 +101,21 @@ const Container = styled.div<{
     if (variant === 'bodyLg') return tokenFontWeight.regular;
     if (variant === 'bodyMd') return tokenFontWeight.regular;
     if (variant === 'bodySm') return tokenFontWeight.regular;
+    if (variant === 'subheading') return tokenFontWeight.bold;
   }};
   text-align: ${({ alignment }) => {
     if (alignment === 'start') return 'left';
     if (alignment === 'center') return 'center';
     if (alignment === 'end') return 'right';
     if (alignment === 'justify') return 'justify';
+  }};
+  letter-spacing: ${({ variant }) => {
+    if (variant === 'subheading') return '0.35em';
+    return 'normal';
+  }};
+  text-transform: ${({ variant }) => {
+    if (variant === 'subheading') return 'uppercase';
+    return 'none';
   }};
 
   ${minSm} {
