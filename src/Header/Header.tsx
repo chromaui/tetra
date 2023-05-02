@@ -1,9 +1,4 @@
 import React, { FC, ReactNode, useState } from 'react';
-import { DesktopLink, DesktopLinkProps } from './DesktopLink';
-import { Desktop, DesktopProps } from './Desktop';
-import { DesktopDropdown, DesktopDropdownProps } from './DesktopDropdown';
-import { DesktopColumn, DesktopColumnProps } from './DesktopColumn';
-import { DesktopItem, DesktopItemProps } from './DesktopItem';
 import HeaderContext from './HeaderContext';
 import { styled } from '@storybook/theming';
 import { Logo } from '../Logo';
@@ -11,15 +6,6 @@ import { color, spacing } from '../_tokens';
 import { Container } from '../Container';
 import { IconType } from '../Icon/Icon';
 import { NavDesktop } from './NavDesktop';
-
-// How to structure this component?
-// - Header.NavDesktop
-// -- Header.NavDesktopItem
-// --- Header.NavDesktopLink
-// --- Header.NavDesktopTrigger
-// --- Header.NavDesktopContent
-// - Header.NavMobile
-// TBD
 
 // TODO
 // - [ ] Add gridalt icon for the use cases
@@ -72,13 +58,7 @@ export interface HeaderProps {
   triggerType?: 'click' | 'hover';
 }
 
-export const Header: FC<HeaderProps> & {
-  Desktop: FC<DesktopProps>;
-  DesktopDropdown: FC<DesktopDropdownProps>;
-  DesktopLink: FC<DesktopLinkProps>;
-  DesktopColumn: FC<DesktopColumnProps>;
-  DesktopItem: FC<DesktopItemProps>;
-} = ({
+export const Header: FC<HeaderProps> = ({
   theme = 'light',
   logo = 'chromatic',
   navDesktop,
@@ -101,9 +81,3 @@ export const Header: FC<HeaderProps> & {
     </HeaderContext.Provider>
   );
 };
-
-Header.Desktop = Desktop;
-Header.DesktopDropdown = DesktopDropdown;
-Header.DesktopLink = DesktopLink;
-Header.DesktopColumn = DesktopColumn;
-Header.DesktopItem = DesktopItem;

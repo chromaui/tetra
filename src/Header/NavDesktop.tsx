@@ -1,7 +1,6 @@
 import { styled } from '@storybook/theming';
 import React, { FC } from 'react';
-import { spacing } from '../_tokens';
-import { NavigationMenuItem } from './styles';
+import { color, spacing } from '../_tokens';
 import { Text } from '../Text';
 import { Icon } from '../Icon';
 import { useHeaderContext } from './HeaderContext';
@@ -26,7 +25,26 @@ const List = styled.div`
 `;
 
 const NavigationMenuTrigger = styled.div`
-  ${NavigationMenuItem}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 ${spacing[2]};
+  outline: none;
+  user-select: none;
+  border-radius: 4px;
+  border: none;
+  height: ${spacing[8]};
+  background: transparent;
+  gap: 8px;
+  text-decoration: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px ${color.blue400};
+  }
+
+  &:hover {
+    background-color: rgba(30, 167, 253, 0.14);
+  }
 
   &[data-state='open'] > .CaretDown {
     transform: rotate(-180deg) translateY(0px);
