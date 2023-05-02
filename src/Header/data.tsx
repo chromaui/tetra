@@ -8,6 +8,8 @@ import { HeaderProps } from './Header';
 export const navDesktop: HeaderProps['navDesktop'] = [
   {
     name: 'Features',
+    menuWidth: 648,
+    menuHeight: 411,
     menu: [
       {
         content: [
@@ -53,9 +55,7 @@ export const navDesktop: HeaderProps['navDesktop'] = [
             href: '#',
           },
         ],
-        options: {
-          backgroundColor: 'white',
-        },
+        backgroundColor: 'white',
       },
       {
         content: [
@@ -94,14 +94,15 @@ export const navDesktop: HeaderProps['navDesktop'] = [
             href: '#',
           },
         ],
-        options: {
-          backgroundColor: 'blue50',
-        },
+        backgroundColor: 'blue50',
       },
     ],
   },
   {
     name: 'Customers',
+    menuWidth: 648,
+    menuHeight: 411,
+    menuLeftPosition: 24,
     menu: [
       {
         content: [
@@ -178,23 +179,27 @@ export const navDesktop: HeaderProps['navDesktop'] = [
             href: '#',
           },
         ],
-        options: {
-          backgroundColor: 'blue50',
-        },
+        backgroundColor: 'blue50',
       },
     ],
   },
   {
     name: 'Pricing',
+    href: '#',
   },
   {
     name: 'Docs',
+    href: '#',
   },
   {
     name: 'Changelog',
+    href: '#',
   },
   {
     name: 'Company',
+    menuWidth: 324,
+    menuHeight: 279,
+    menuLeftPosition: 400,
     menu: [
       {
         content: [
@@ -226,9 +231,7 @@ export const navDesktop: HeaderProps['navDesktop'] = [
             href: '#',
           },
         ],
-        options: {
-          backgroundColor: 'white',
-        },
+        backgroundColor: 'white',
       },
     ],
   },

@@ -43,7 +43,7 @@ export const NavDesktop: FC = () => {
   const { theme, navDesktop, active, setActive } = useHeaderContext();
 
   return (
-    <NavigationMenu onMouseLeave={() => setActive(null)}>
+    <NavigationMenu onMouseLeave={() => setActive('')}>
       <List>
         {navDesktop &&
           navDesktop.map((item) => {
@@ -53,7 +53,7 @@ export const NavDesktop: FC = () => {
               <NavigationMenuTrigger
                 key={item.name}
                 onMouseEnter={() =>
-                  item.menu ? setActive(item.name) : setActive(null)
+                  item.menu ? setActive(item.name) : setActive('')
                 }
               >
                 <Text

@@ -45,6 +45,10 @@ export interface HeaderProps {
   right?: ReactNode;
   navDesktop: {
     name: string;
+    menuWidth?: number;
+    menuHeight?: number;
+    menuLeftPosition?: number;
+    href?: string;
     menu?: {
       content: (
         | {
@@ -62,9 +66,7 @@ export interface HeaderProps {
             customIcon?: ReactNode;
           }
       )[];
-      options?: {
-        backgroundColor?: keyof typeof color;
-      };
+      backgroundColor?: keyof typeof color;
     }[];
   }[];
   triggerType?: 'click' | 'hover';
