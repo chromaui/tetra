@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 import { DesktopLink, DesktopLinkProps } from './DesktopLink';
 import { Desktop, DesktopProps } from './Desktop';
 import { DesktopDropdown, DesktopDropdownProps } from './DesktopDropdown';
@@ -7,8 +7,10 @@ import { DesktopItem, DesktopItemProps } from './DesktopItem';
 import HeaderContext from './HeaderContext';
 import { styled } from '@storybook/theming';
 import { Logo } from '../Logo';
-import { spacing } from '../_tokens';
+import { color, spacing } from '../_tokens';
 import { Container } from '../Container';
+import { IconType } from '../Icon/Icon';
+import { NavDesktop } from './NavDesktop';
 
 // How to structure this component?
 // - Header.NavDesktop
@@ -39,9 +41,33 @@ const Left = styled.div`
 export interface HeaderProps {
   theme?: 'light' | 'dark';
   logo?: 'chromatic' | 'storybook';
-  navDesktop?: ReactNode;
   navMobile?: ReactNode;
   right?: ReactNode;
+  navDesktop: {
+    name: string;
+    menu?: {
+      content: (
+        | {
+            type: 'separator';
+            title: string;
+            href: string;
+          }
+        | {
+            type: 'link';
+            title: string;
+            description: string;
+            href: string;
+            icon?: IconType;
+            iconColor?: keyof typeof color;
+            customIcon?: ReactNode;
+          }
+      )[];
+      options?: {
+        backgroundColor?: keyof typeof color;
+      };
+    }[];
+  }[];
+  triggerType?: 'click' | 'hover';
 }
 
 export const Header: FC<HeaderProps> & {
@@ -50,13 +76,23 @@ export const Header: FC<HeaderProps> & {
   DesktopLink: FC<DesktopLinkProps>;
   DesktopColumn: FC<DesktopColumnProps>;
   DesktopItem: FC<DesktopItemProps>;
-} = ({ theme = 'light', logo = 'chromatic', navDesktop, right }) => {
+} = ({
+  theme = 'light',
+  logo = 'chromatic',
+  navDesktop,
+  right,
+  triggerType,
+}) => {
+  const [active, setActive] = useState<string | null>('');
+
   return (
-    <HeaderContext.Provider value={{ theme }}>
+    <HeaderContext.Provider
+      value={{ theme, triggerType, navDesktop, active, setActive }}
+    >
       <Wrapper>
         <Left>
           <Logo name={logo} width={140} theme={theme} />
-          {navDesktop}
+          {navDesktop && <NavDesktop />}
         </Left>
         {right}
       </Wrapper>

@@ -3,6 +3,10 @@ import { HeaderProps } from './Header';
 
 interface HeaderContextType {
   theme?: HeaderProps['theme'];
+  triggerType?: HeaderProps['triggerType'];
+  navDesktop?: HeaderProps['navDesktop'];
+  active: string | null;
+  setActive: (id: string | null) => void;
 }
 
 const HeaderContext = createContext<HeaderContextType | null>(null);

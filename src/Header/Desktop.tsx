@@ -9,7 +9,7 @@ export interface DesktopProps {
   children: ReactNode;
 }
 
-const NavigationMenuRoot = styled(NavigationMenu.Root)`
+const NavigationMenuRoot = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
