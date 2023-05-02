@@ -65,6 +65,7 @@ export const fontWeight = {
 };
 
 export const fontSize = {
+  11: '0.6875rem', // 11px
   12: '0.75rem', // 12px
   14: '0.875rem', // 14px
   16: '1rem', // 16px
