@@ -34,8 +34,7 @@ const NavigationButton = styled.button`
   cursor: pointer;
 
   &:focus {
-    /* box-shadow: 0 0 0 2px ${color.blue400}; */
-    background-color: rgba(30, 167, 253, 0.14);
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
   }
 
   &:hover {
