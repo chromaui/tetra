@@ -48,6 +48,7 @@ export const NavDesktop: FC = () => {
               onMouseEnter={() => {
                 if (triggerType === 'hover') {
                   if (item.menu) setActive(item.name);
+                  else setActive('');
                 }
               }}
             />

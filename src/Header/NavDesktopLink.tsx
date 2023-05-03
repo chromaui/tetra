@@ -34,7 +34,8 @@ const NavigationButton = styled.button`
   cursor: pointer;
 
   &:focus {
-    box-shadow: 0 0 0 2px ${color.blue400};
+    /* box-shadow: 0 0 0 2px ${color.blue400}; */
+    background-color: rgba(30, 167, 253, 0.14);
   }
 
   &:hover {
@@ -62,8 +63,16 @@ export const NavDesktopLink: FC<DesktopItemProps> = ({
   const { theme } = useHeaderContext();
 
   return (
-    <NavigationMenuContainer onClick={onClick} onMouseEnter={onMouseEnter}>
-      <NavigationButton>
+    <NavigationMenuContainer
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      role="none"
+    >
+      <NavigationButton
+        role="menuitem"
+        aria-haspopup={isMenu ? 'true' : 'false'}
+        aria-expanded="false"
+      >
         <Text
           as="div"
           lineHeightAuto
@@ -75,8 +84,8 @@ export const NavDesktopLink: FC<DesktopItemProps> = ({
         </Text>
         {isMenu && (
           <CaretDown
-            initial={{ rotate: 0 }}
-            animate={{ rotate: isActive ? -180 : 0 }}
+            initial={{ rotate: 0, y: 1 }}
+            animate={{ rotate: isActive ? -180 : 0, y: isActive ? 0 : 1 }}
             transition={{
               duration: 0.12,
               ease: 'easeInOut',
