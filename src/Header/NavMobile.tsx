@@ -4,16 +4,23 @@ import { color, spacing } from '../_tokens';
 import { useHeaderContext } from './HeaderContext';
 import { motion } from 'framer-motion';
 import { NavMobileGroup } from './NavMobileGroup';
+import { minSm } from '../_helpers';
 
 const NavigationMenu = styled(motion.div)`
   position: fixed;
   background-color: ${color.white};
   box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
     hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
-  left: ${spacing[5]};
-  right: ${spacing[5]};
   top: 60px;
   border-radius: 6px;
+  left: ${spacing[5]};
+  right: ${spacing[5]};
+
+  ${minSm} {
+    left: auto;
+    right: ${spacing[10]};
+    min-width: 320px;
+  }
 `;
 
 const List = styled.div`

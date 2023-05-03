@@ -12,8 +12,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 // TODO
 // - [ ] Add gridalt icon for the use cases
-// - [ ] Create new text variant for separators
-// - [ ] Add context to be able to share theme between components
+// - [ ] Find a way to make items clickable
 
 const Wrapper = styled.div<{ breakpoint?: HeaderProps['breakpoint'] }>`
   display: flex;
