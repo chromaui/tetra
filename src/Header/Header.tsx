@@ -126,7 +126,7 @@ export const Header: FC<HeaderProps> = ({
   navMobile,
   breakpoint,
   right,
-  triggerType,
+  triggerType = 'hover',
 }) => {
   const isDesktop = useMediaQuery({ min: breakpoint || 1024 });
   const [active, setActive] = useState<string | null>('');

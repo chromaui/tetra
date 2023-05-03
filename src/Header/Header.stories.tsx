@@ -112,6 +112,7 @@ export const NavStructure2: Story = {
     >
       <Header
         theme="dark"
+        triggerType="click"
         navDesktop={navDesktop2}
         navMobile={navMobile}
         breakpoint={980}

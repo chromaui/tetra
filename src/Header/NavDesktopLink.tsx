@@ -11,6 +11,7 @@ export interface DesktopItemProps {
   name: string;
   isMenu?: boolean;
   onMouseEnter?: () => void;
+  onClick?: () => void;
 }
 
 const NavigationMenuTrigger = styled.div`

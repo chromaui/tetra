@@ -23,10 +23,12 @@ const List = styled.div`
 `;
 
 export const NavDesktop: FC = () => {
-  const { navDesktop, active, setActive } = useHeaderContext();
+  const { triggerType, navDesktop, active, setActive } = useHeaderContext();
 
   return (
-    <NavigationMenu onMouseLeave={() => setActive('')}>
+    <NavigationMenu
+      onMouseLeave={() => triggerType === 'hover' && setActive('')}
+    >
       <List>
         {navDesktop &&
           navDesktop.map((item) => (
@@ -35,9 +37,17 @@ export const NavDesktop: FC = () => {
               name={item.name}
               isMenu={!!item.menu}
               key={item.name}
-              onMouseEnter={() =>
-                item.menu ? setActive(item.name) : setActive('')
-              }
+              onClick={() => {
+                if (triggerType === 'click' && item.menu) {
+                  if (item.name !== active) setActive(item.name);
+                  else setActive('');
+                }
+              }}
+              onMouseEnter={() => {
+                if (triggerType === 'hover') {
+                  if (item.menu) setActive(item.name);
+                }
+              }}
             />
           ))}
         ;
