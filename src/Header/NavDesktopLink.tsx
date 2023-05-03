@@ -14,7 +14,11 @@ export interface DesktopItemProps {
   onClick?: () => void;
 }
 
-const NavigationMenuTrigger = styled.div`
+const NavigationMenuContainer = styled.li`
+  display: flex;
+`;
+
+const NavigationButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,38 +56,41 @@ export const NavDesktopLink: FC<DesktopItemProps> = ({
   isActive,
   name,
   isMenu,
-  ...rest
+  onClick,
+  onMouseEnter,
 }) => {
   const { theme } = useHeaderContext();
 
   return (
-    <NavigationMenuTrigger {...rest}>
-      <Text
-        as="div"
-        lineHeightAuto
-        color={isActive ? 'blue500' : theme === 'light' ? 'gray800' : 'white'}
-        variant="bodySm"
-        fontWeight="bold"
-      >
-        {name}
-      </Text>
-      {isMenu && (
-        <CaretDown
-          initial={{ rotate: 0 }}
-          animate={{ rotate: isActive ? -180 : 0 }}
-          transition={{
-            duration: 0.12,
-            ease: 'easeInOut',
-          }}
+    <NavigationMenuContainer onClick={onClick} onMouseEnter={onMouseEnter}>
+      <NavigationButton>
+        <Text
+          as="div"
+          lineHeightAuto
+          color={isActive ? 'blue500' : theme === 'light' ? 'gray800' : 'white'}
+          variant="bodySm"
+          fontWeight="bold"
         >
-          <Icon
-            name="arrowdown"
-            aria-hidden
-            size={12}
-            color={isActive ? 'blue500' : 'gray400'}
-          />
-        </CaretDown>
-      )}
-    </NavigationMenuTrigger>
+          {name}
+        </Text>
+        {isMenu && (
+          <CaretDown
+            initial={{ rotate: 0 }}
+            animate={{ rotate: isActive ? -180 : 0 }}
+            transition={{
+              duration: 0.12,
+              ease: 'easeInOut',
+            }}
+          >
+            <Icon
+              name="arrowdown"
+              aria-hidden
+              size={12}
+              color={isActive ? 'blue500' : 'gray400'}
+            />
+          </CaretDown>
+        )}
+      </NavigationButton>
+    </NavigationMenuContainer>
   );
 };

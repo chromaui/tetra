@@ -5,14 +5,14 @@ import { useHeaderContext } from './HeaderContext';
 import { NavDesktopContent } from './NavDesktopContent';
 import { NavDesktopLink } from './NavDesktopLink';
 
-const NavigationMenu = styled.div`
+const NavigationMenu = styled.nav`
   position: relative;
   display: flex;
   justify-content: center;
   z-index: 1;
 `;
 
-const List = styled.div`
+const List = styled.ul`
   display: flex;
   gap: ${spacing[1]};
   justify-content: center;
@@ -28,8 +28,10 @@ export const NavDesktop: FC = () => {
   return (
     <NavigationMenu
       onMouseLeave={() => triggerType === 'hover' && setActive('')}
+      aria-label="Chromatic"
+      role="menubar"
     >
-      <List>
+      <List role="menubar" aria-label="Chromatic">
         {navDesktop &&
           navDesktop.map((item) => (
             <NavDesktopLink
@@ -50,7 +52,6 @@ export const NavDesktop: FC = () => {
               }}
             />
           ))}
-        ;
       </List>
       <NavDesktopContent />
     </NavigationMenu>

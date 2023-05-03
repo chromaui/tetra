@@ -13,12 +13,12 @@ const NavigationMenu = styled(motion.div)`
     hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   top: 60px;
   border-radius: 6px;
-  left: ${spacing[5]};
-  right: ${spacing[5]};
+  left: ${spacing[4]};
+  right: ${spacing[4]};
 
   ${minSm} {
     left: auto;
-    right: ${spacing[10]};
+    right: ${spacing[8]};
     min-width: 320px;
   }
 `;

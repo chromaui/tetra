@@ -57,7 +57,7 @@ export const Dark: Story = {
         breakpoint={980}
         right={
           <>
-            <NavDesktopLink name="Sign in" />
+            {/* <NavDesktopLink name="Sign in" /> */}
             <Button size="md" variant="outline" color="white">
               Sign up
             </Button>
@@ -87,7 +87,7 @@ export const NavStructure1: Story = {
         breakpoint={980}
         right={
           <>
-            <NavDesktopLink name="Sign in" />
+            {/* <NavDesktopLink name="Sign in" /> */}
             <Button size="md" variant="outline" color="white">
               Sign up
             </Button>
@@ -118,7 +118,7 @@ export const NavStructure2: Story = {
         breakpoint={980}
         right={
           <>
-            <NavDesktopLink name="Sign in" />
+            {/* <NavDesktopLink name="Sign in" /> */}
             <Button size="md" variant="outline" color="white">
               Sign up
             </Button>
