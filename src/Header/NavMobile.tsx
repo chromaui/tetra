@@ -22,12 +22,12 @@ const List = styled.div`
   margin: 0;
 `;
 
-export const NavDesktop: FC = () => {
+export const NavMobile: FC = () => {
   const { navDesktop, active, setActive } = useHeaderContext();
 
   return (
     <NavigationMenu onMouseLeave={() => setActive('')}>
-      <List>
+      {/* <List>
         {navDesktop &&
           navDesktop.map((item) => (
             <NavDesktopLink
@@ -42,7 +42,7 @@ export const NavDesktop: FC = () => {
           ))}
         ;
       </List>
-      <NavDesktopContent />
+      <NavDesktopContent /> */}
     </NavigationMenu>
   );
 };

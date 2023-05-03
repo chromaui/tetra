@@ -5,8 +5,11 @@ interface HeaderContextType {
   theme?: HeaderProps['theme'];
   triggerType?: HeaderProps['triggerType'];
   navDesktop?: HeaderProps['navDesktop'];
+  navMobile?: HeaderProps['navMobile'];
   active: string | null;
   setActive: (id: string | null) => void;
+  mobileMenuOpen: boolean;
+  setMobileMenuOpen: (value: boolean) => void;
 }
 
 const HeaderContext = createContext<HeaderContextType | null>(null);

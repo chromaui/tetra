@@ -21,6 +21,10 @@ export function useMediaQuery(
     | 'lg'
     | 'xl'
     | '2xl'
+    | {
+        min?: number;
+        max?: number;
+      }
 ): boolean {
   let newQuery = '';
   // Min
@@ -60,6 +64,17 @@ export function useMediaQuery(
       breakpoint['2xl'] - 1
     }px)`;
   if (query === '2xl') newQuery = `(min-width: ${breakpoint['2xl']}px)`;
+
+  // Custom
+  if (typeof query === 'object') {
+    if (query.min && query.max) {
+      newQuery = `(min-width: ${query.min}px) and (max-width: ${query.max}px)`;
+    } else if (query.min) {
+      newQuery = `(min-width: ${query.min}px)`;
+    } else if (query.max) {
+      newQuery = `(max-width: ${query.max}px)`;
+    }
+  }
 
   const getMatches = (query: string): boolean => {
     // Prevents SSR issues
