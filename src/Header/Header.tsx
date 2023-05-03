@@ -8,18 +8,22 @@ import { IconType } from '../Icon/Icon';
 import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
 import { useMediaQuery } from '../_hooks/useMediaQuery';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 // TODO
 // - [ ] Add gridalt icon for the use cases
 // - [ ] Create new text variant for separators
 // - [ ] Add context to be able to share theme between components
 
-const Wrapper = styled(Container)`
+const Wrapper = styled.div<{ breakpoint?: HeaderProps['breakpoint'] }>`
   display: flex;
-  height: 120px;
+  height: 60px;
   align-items: center;
   justify-content: space-between;
+
+  @media (min-width: ${({ breakpoint }) => breakpoint}px) {
+    height: 120px;
+  }
 `;
 
 const Left = styled.div`
@@ -66,6 +70,20 @@ const Line3 = styled(MobileTriggerLine)`
   left: 2px;
 `;
 
+export interface HeaderMobileGroup {
+  name?: string;
+  maxItems?: number;
+  openByDefault?: boolean;
+  toggle?: boolean;
+  content: {
+    title: string;
+    href: string;
+    icon?: IconType;
+    iconColor?: keyof typeof color;
+    customIcon?: ReactNode;
+  }[];
+}
+
 export interface HeaderProps {
   theme?: 'light' | 'dark';
   logo?: 'chromatic' | 'storybook';
@@ -98,18 +116,7 @@ export interface HeaderProps {
       backgroundColor?: keyof typeof color;
     }[];
   }[];
-  navMobile: {
-    name?: string;
-    maxItems?: number;
-    openByDefault?: boolean;
-    content: {
-      title: string;
-      href: string;
-      icon?: IconType;
-      iconColor?: keyof typeof color;
-      customIcon?: ReactNode;
-    }[];
-  }[];
+  navMobile: HeaderMobileGroup[];
 }
 
 export const Header: FC<HeaderProps> = ({
@@ -138,39 +145,43 @@ export const Header: FC<HeaderProps> = ({
         setMobileMenuOpen,
       }}
     >
-      <Wrapper>
-        <Left>
-          <Logo name={logo} width={140} theme={theme} />
-          {isDesktop && <NavDesktop />}
-          {!isDesktop && <NavMobile />}
-        </Left>
-        {isDesktop && <Right>{right}</Right>}
-        {!isDesktop && (
-          <MobileTrigger onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            <Line1
-              headerTheme={theme}
-              animate={{
-                rotate: mobileMenuOpen ? '-45deg' : 0,
-                y: mobileMenuOpen ? 7 : 0,
-              }}
-            />
-            <Line2
-              headerTheme={theme}
-              animate={{
-                opacity: mobileMenuOpen ? 0 : 1,
-                x: mobileMenuOpen ? 4 : 0,
-              }}
-            />
-            <Line3
-              headerTheme={theme}
-              animate={{
-                rotate: mobileMenuOpen ? '45deg' : 0,
-                y: mobileMenuOpen ? -7 : 0,
-              }}
-            />
-          </MobileTrigger>
-        )}
-      </Wrapper>
+      <Container>
+        <Wrapper breakpoint={breakpoint}>
+          <Left>
+            <Logo name={logo} width={140} theme={theme} />
+            {isDesktop && <NavDesktop />}
+            <AnimatePresence>
+              {!isDesktop && mobileMenuOpen && <NavMobile />}
+            </AnimatePresence>
+          </Left>
+          {isDesktop && <Right>{right}</Right>}
+          {!isDesktop && (
+            <MobileTrigger onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              <Line1
+                headerTheme={theme}
+                animate={{
+                  rotate: mobileMenuOpen ? '-45deg' : 0,
+                  y: mobileMenuOpen ? 7 : 0,
+                }}
+              />
+              <Line2
+                headerTheme={theme}
+                animate={{
+                  opacity: mobileMenuOpen ? 0 : 1,
+                  x: mobileMenuOpen ? 4 : 0,
+                }}
+              />
+              <Line3
+                headerTheme={theme}
+                animate={{
+                  rotate: mobileMenuOpen ? '45deg' : 0,
+                  y: mobileMenuOpen ? -7 : 0,
+                }}
+              />
+            </MobileTrigger>
+          )}
+        </Wrapper>
+      </Container>
     </HeaderContext.Provider>
   );
 };

@@ -1,48 +1,42 @@
 import { styled } from '@storybook/theming';
 import React, { FC } from 'react';
-import { spacing } from '../_tokens';
+import { color, spacing } from '../_tokens';
 import { useHeaderContext } from './HeaderContext';
-import { NavDesktopContent } from './NavDesktopContent';
-import { NavDesktopLink } from './NavDesktopLink';
+import { motion } from 'framer-motion';
+import { NavMobileGroup } from './NavMobileGroup';
 
-const NavigationMenu = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  z-index: 1;
+const NavigationMenu = styled(motion.div)`
+  position: fixed;
+  background-color: ${color.white};
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  left: ${spacing[5]};
+  right: ${spacing[5]};
+  top: 60px;
+  border-radius: 6px;
 `;
 
 const List = styled.div`
-  display: flex;
-  gap: ${spacing[1]};
-  justify-content: center;
-  padding: 0;
-  border-radius: 6px;
-  list-style: none;
-  margin: 0;
+  padding: ${spacing[3]} ${spacing[5]};
 `;
 
 export const NavMobile: FC = () => {
-  const { navDesktop, active, setActive } = useHeaderContext();
+  const { navMobile } = useHeaderContext();
 
   return (
-    <NavigationMenu onMouseLeave={() => setActive('')}>
-      {/* <List>
-        {navDesktop &&
-          navDesktop.map((item) => (
-            <NavDesktopLink
-              isActive={active === item.name}
-              name={item.name}
-              isMenu={!!item.menu}
-              key={item.name}
-              onMouseEnter={() =>
-                item.menu ? setActive(item.name) : setActive('')
-              }
-            />
-          ))}
-        ;
+    <NavigationMenu
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ ease: 'easeOut', duration: 0.14 }}
+    >
+      <List>
+        {navMobile &&
+          navMobile.map((group, i) => {
+            const isLast = navMobile.indexOf(group) === navMobile.length - 1;
+            return <NavMobileGroup key={i} group={group} isLast={isLast} />;
+          })}
       </List>
-      <NavDesktopContent /> */}
     </NavigationMenu>
   );
 };

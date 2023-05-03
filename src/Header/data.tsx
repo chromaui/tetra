@@ -478,6 +478,7 @@ export const navMobile: HeaderProps['navMobile'] = [
     name: 'Features',
     maxItems: 3,
     openByDefault: true,
+    toggle: false,
     content: [
       {
         title: 'UI Tests',
@@ -527,8 +528,8 @@ export const navMobile: HeaderProps['navMobile'] = [
     content: [
       {
         title: 'Pricing',
-        icon: 'contrast',
-        iconColor: 'teal500',
+        icon: 'starhollow',
+        iconColor: 'yellow500',
         href: '#',
       },
       {
