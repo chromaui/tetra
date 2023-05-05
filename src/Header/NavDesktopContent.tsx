@@ -72,6 +72,9 @@ export const NavDesktopContent: FC = () => {
                   exit={{ opacity: 0, x: 0 }}
                   transition={{ duration: 0.2 }}
                   key={activeNav[0].name}
+                  id={`tab-${activeNav[0].name}`}
+                  aria-label={activeNav[0].name}
+                  // role="menu"
                   ref={ref}
                 >
                   {activeNav[0].menu?.map((column, i) => (
@@ -79,6 +82,7 @@ export const NavDesktopContent: FC = () => {
                       key={i}
                       bg={column?.backgroundColor || 'white'}
                       index={i}
+                      role="menu"
                     >
                       {column.content.map((content, i) => (
                         <Fragment key={i}>

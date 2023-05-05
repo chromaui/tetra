@@ -128,7 +128,7 @@ export const Header: FC<HeaderProps> = ({
   triggerType = 'hover',
 }) => {
   const isDesktop = useMediaQuery({ min: breakpoint || 1024 });
-  const [active, setActive] = useState<string | null>('');
+  const [active, setActive] = useState<string | null>('Features');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   return (

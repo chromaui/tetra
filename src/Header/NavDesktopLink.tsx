@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, KeyboardEvent } from 'react';
 import { styled } from '@storybook/theming';
-import { color, spacing } from '../_tokens';
+import { spacing } from '../_tokens';
 import { Icon } from '../Icon/Icon';
 import { Text } from '../Text';
 import { useHeaderContext } from './HeaderContext';
@@ -59,18 +59,27 @@ export const NavDesktopLink: FC<DesktopItemProps> = ({
   onClick,
   onMouseEnter,
 }) => {
-  const { theme } = useHeaderContext();
+  const { theme, setActive, active } = useHeaderContext();
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLLIElement>) => {
+    if (e.key === 'Enter') {
+      if (active === name) setActive('');
+      else setActive(name);
+    }
+  };
 
   return (
     <NavigationMenuContainer
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       role="none"
+      onKeyDown={handleKeyDown}
     >
       <NavigationButton
         role="menuitem"
         aria-haspopup={isMenu ? 'true' : 'false'}
-        aria-expanded="false"
+        aria-expanded={active === name ? 'true' : 'false'}
+        aria-controls={`tab-${name}`}
       >
         <Text
           as="div"

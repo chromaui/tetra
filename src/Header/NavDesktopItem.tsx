@@ -23,6 +23,14 @@ const Container = styled.div`
   border-radius: ${spacing[1]};
   cursor: pointer;
 
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  }
+
   &:hover {
     background-color: ${color.blue100};
 
@@ -62,7 +70,7 @@ export const NavDesktopItem: FC<DesktopItemProps> = ({
   description,
 }) => {
   return (
-    <Container>
+    <Container role="menuitem" tabIndex={0}>
       <ArrowWrapper className="arrow">
         <Icon name="arrowrightalt" color="gray400" />
       </ArrowWrapper>

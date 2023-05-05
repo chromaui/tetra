@@ -27,9 +27,7 @@ export const NavDesktop: FC = () => {
 
   return (
     <NavigationMenu
-      onMouseLeave={() => triggerType === 'hover' && setActive('')}
-      aria-label="Chromatic"
-      role="menubar"
+    // onMouseLeave={() => triggerType === 'hover' && setActive('')}
     >
       <List role="menubar" aria-label="Chromatic">
         {navDesktop &&
