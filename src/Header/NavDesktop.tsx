@@ -74,6 +74,7 @@ export const NavDesktop: FC = () => {
             <NavigationMenu.Item
               key={item.name}
               onMouseEnter={() => setActive(item.name)}
+              onMouseLeave={() => setActive('')}
               onFocus={() => setActive(item.name)}
               onBlur={() => setActive('')}
             >
@@ -84,6 +85,10 @@ export const NavDesktop: FC = () => {
       <ViewportPosition
         animate={{
           x: leftPosition,
+        }}
+        transition={{
+          duration: 0.2,
+          bounce: 0.2,
         }}
       >
         <NavigationMenuViewport />

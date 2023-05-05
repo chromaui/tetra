@@ -75,16 +75,12 @@ export const NavDesktopItem = React.forwardRef<
     { icon, iconColor, customIcon, title, description, ...props },
     forwardedRef
   ) => {
-    const [isFocused, setIsFocused] = useState(false);
-
     return (
       <NavigationMenu.Link asChild>
         <Container
           {...props}
           ref={forwardedRef}
           href="/docs/primitives/overview/introduction"
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
         >
           <ArrowWrapper className="arrow">
             <Icon name="arrowrightalt" color="gray400" />

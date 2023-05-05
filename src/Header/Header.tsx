@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react';
+import React, { FC, useState } from 'react';
 import HeaderContext from './HeaderContext';
 import { styled } from '@storybook/theming';
 import { Logo } from '../Logo';
@@ -28,6 +28,7 @@ const Wrapper = styled.div<{ breakpoint?: HeaderProps['breakpoint'] }>`
 
 const Left = styled.div`
   display: flex;
+  align-items: center;
   gap: ${spacing[10]};
 `;
 
@@ -83,6 +84,18 @@ export const Header: FC<HeaderProps> = ({
   const [active, setActive] = useState<string | null>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
+  const LogoLink = styled.a`
+    display: block;
+    padding: ${spacing[2]};
+    font-size: 0;
+    border-radius: 6px;
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+      outline: none;
+    }
+  `;
+
   return (
     <HeaderContext.Provider
       value={{
@@ -98,8 +111,10 @@ export const Header: FC<HeaderProps> = ({
     >
       <Container>
         <Wrapper breakpoint={breakpoint}>
-          <Left>
-            <Logo name={logo} width={16} theme={theme} />
+          <Left role="none">
+            <LogoLink href="" aria-label="Logo">
+              <Logo name={logo} width={140} theme={theme} />
+            </LogoLink>
             {isDesktop && <NavDesktop />}
             <AnimatePresence>
               {!isDesktop && mobileMenuOpen && <NavMobile />}

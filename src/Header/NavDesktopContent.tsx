@@ -21,10 +21,10 @@ const NavigationMenuContent = styled(NavigationMenu.Content)`
   top: 0;
   left: 0;
   width: auto;
-  animation-duration: 250ms;
-  animation-timing-function: ease;
   display: flex;
   flex-direction: row;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
 
   &[data-motion='from-start'] {
     animation-name: ${enterFromLeft};

@@ -36,7 +36,7 @@ interface ContainerProps {
   children: ReactNode;
 }
 
-export const Container: FC<ContainerProps> = ({ type, children }) => {
+const Container: FC<ContainerProps> = ({ type, children }) => {
   if (type === 'link')
     return <NavigationMenuLink>{children}</NavigationMenuLink>;
   return <NavigationMenuTrigger>{children}</NavigationMenuTrigger>;
@@ -49,7 +49,7 @@ export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
 
   return (
     <>
-      <NavigationMenuTrigger>
+      <Container type={isMenu ? 'trigger' : 'link'}>
         <Text
           as="div"
           lineHeightAuto
@@ -69,8 +69,8 @@ export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
             />
           </CaretDown>
         )}
-      </NavigationMenuTrigger>
-      <NavDesktopContent item={item} />
+      </Container>
+      {isMenu && <NavDesktopContent item={item} />}
     </>
   );
 };
