@@ -12,12 +12,15 @@ import { HeaderProps } from './types';
 
 // TODO
 // - [ ] Add gridalt icon for the use cases
-// - [ ] Find a way to make items clickable
 // - [x] Add new link component to the header
 // - [x] Add active state + a story for active state
 // - [x] Add height to logo
 // - [ ] Add story for mobile menu with Chromatic values
+// - [ ] Make the mobile nav accessible with Radix
+
+// - [ ] Find a way to make items clickable
 // - [x] Add linkContext
+// - [x] Add linkWithWrapper
 
 const Wrapper = styled.div<{ breakpoint?: HeaderProps['breakpoint'] }>`
   display: flex;
