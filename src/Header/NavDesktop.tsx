@@ -1,7 +1,6 @@
 import { styled } from '@storybook/theming';
 import React, { FC, useEffect, useState } from 'react';
 import { useHeaderContext } from './HeaderContext';
-import { NavDesktopLink } from './NavDesktopLink';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
 import { motion } from 'framer-motion';
@@ -17,9 +16,9 @@ const NavigationMenuRoot = styled(NavigationMenu.Root)`
 const NavigationMenuList = styled(NavigationMenu.List)`
   display: flex;
   justify-content: center;
-  padding: 4px;
   list-style: none;
   margin: 0;
+  padding: 0;
 `;
 
 const ViewportPosition = styled(motion.div)`
@@ -56,8 +55,6 @@ const NavigationMenuViewport = styled(NavigationMenu.Viewport)`
   }
 `;
 
-const NavigationMenuItem = styled(NavigationMenu.Item)``;
-
 export const NavDesktop: FC = () => {
   const { navDesktop, active, setActive } = useHeaderContext();
   const [leftPosition, setLeftPosition] = useState(0);
@@ -74,15 +71,14 @@ export const NavDesktop: FC = () => {
       <NavigationMenuList>
         {navDesktop &&
           navDesktop.map((item) => (
-            <NavigationMenuItem
+            <NavigationMenu.Item
               key={item.name}
               onMouseEnter={() => setActive(item.name)}
+              onFocus={() => setActive(item.name)}
+              onBlur={() => setActive('')}
             >
-              {item.menu && <NavDesktopTrigger key={item.name} item={item} />}
-              {!item.menu && (
-                <NavDesktopLink key={item.name} name={item.name} />
-              )}
-            </NavigationMenuItem>
+              <NavDesktopTrigger key={item.name} item={item} />
+            </NavigationMenu.Item>
           ))}
       </NavigationMenuList>
       <ViewportPosition

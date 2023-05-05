@@ -4,7 +4,7 @@ import { color, spacing } from '../_tokens';
 import { NavDesktopItem } from './NavDesktopItem';
 import { NavDesktopSeparator } from './NavDesktopSeparator';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { HeaderDesktopItem } from './Header';
+import { HeaderDesktopItem } from './types';
 import {
   enterFromLeft,
   enterFromRight,

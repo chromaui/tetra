@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Text } from '../Text';
 import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
-import { HeaderMobileGroup } from './Header';
+import { HeaderMobileGroup } from './types';
 
 interface Props {
   group: HeaderMobileGroup;

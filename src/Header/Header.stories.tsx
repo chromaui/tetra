@@ -2,7 +2,6 @@ import React, { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header';
 import { Button } from '../Button';
 import { navDesktop, navMobile } from './data';
-import { NavDesktopLink } from './NavDesktopLink';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -57,7 +56,6 @@ export const Dark: Story = {
         breakpoint={980}
         right={
           <>
-            <NavDesktopLink name="Sign in" />
             <Button size="sm" variant="outline" color="white">
               Sign up
             </Button>

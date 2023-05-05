@@ -9,6 +9,7 @@ import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
 import { useMediaQuery } from '../_hooks/useMediaQuery';
 import { AnimatePresence, motion } from 'framer-motion';
+import { HeaderProps } from './types';
 
 // TODO
 // - [ ] Add gridalt icon for the use cases
@@ -69,55 +70,6 @@ const Line3 = styled(MobileTriggerLine)`
   left: 2px;
 `;
 
-export interface HeaderMobileGroup {
-  name?: string;
-  maxItems?: number;
-  openByDefault?: boolean;
-  toggle?: boolean;
-  content: {
-    title: string;
-    href: string;
-    icon?: IconType;
-    iconColor?: keyof typeof color;
-    customIcon?: ReactNode;
-  }[];
-}
-
-export interface HeaderDesktopItem {
-  name: string;
-  menuLeftPosition?: number;
-  href?: string;
-  menu?: {
-    content: (
-      | {
-          type: 'separator';
-          title: string;
-          href: string;
-        }
-      | {
-          type: 'link';
-          title: string;
-          description: string;
-          href: string;
-          icon?: IconType;
-          iconColor?: keyof typeof color;
-          customIcon?: ReactNode;
-        }
-    )[];
-    backgroundColor?: keyof typeof color;
-  }[];
-}
-
-export interface HeaderProps {
-  theme?: 'light' | 'dark';
-  logo?: 'chromatic' | 'storybook';
-  right?: ReactNode;
-  triggerType?: 'click' | 'hover';
-  breakpoint?: number;
-  navDesktop: HeaderDesktopItem[];
-  navMobile: HeaderMobileGroup[];
-}
-
 export const Header: FC<HeaderProps> = ({
   theme = 'light',
   logo = 'chromatic',
@@ -128,7 +80,7 @@ export const Header: FC<HeaderProps> = ({
   triggerType = 'hover',
 }) => {
   const isDesktop = useMediaQuery({ min: breakpoint || 1024 });
-  const [active, setActive] = useState<string | null>('Features');
+  const [active, setActive] = useState<string | null>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   return (
@@ -147,7 +99,7 @@ export const Header: FC<HeaderProps> = ({
       <Container>
         <Wrapper breakpoint={breakpoint}>
           <Left>
-            <Logo name={logo} width={140} theme={theme} />
+            <Logo name={logo} width={16} theme={theme} />
             {isDesktop && <NavDesktop />}
             <AnimatePresence>
               {!isDesktop && mobileMenuOpen && <NavMobile />}

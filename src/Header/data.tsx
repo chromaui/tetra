@@ -3,7 +3,7 @@ import { BBCIcon } from './icons/bbc';
 import { CollectiveIcon } from './icons/collective';
 import { FigmaIcon } from './icons/figma';
 import { MondayIcon } from './icons/monday';
-import { HeaderProps } from './Header';
+import { HeaderProps } from './types';
 
 export const navDesktop: HeaderProps['navDesktop'] = [
   {

@@ -1,5 +1,5 @@
 import { css, keyframes } from '@storybook/theming';
-import { color, spacing } from '../_tokens';
+import { spacing } from '../_tokens';
 
 export const NavigationMenuItem = css`
   display: flex;
@@ -14,9 +14,11 @@ export const NavigationMenuItem = css`
   background: transparent;
   gap: 8px;
   text-decoration: none;
+  cursor: pointer;
 
   &:focus {
-    box-shadow: 0 0 0 2px ${color.blue400};
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+    background-color: rgba(30, 167, 253, 0.14);
   }
 
   &:hover {

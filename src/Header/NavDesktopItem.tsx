@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { styled } from '@storybook/theming';
 import { color, spacing } from '../_tokens';
 import { Icon, IconType } from '../Icon/Icon';
@@ -23,13 +23,17 @@ const Container = styled.a`
   gap: ${spacing[3]};
   border-radius: ${spacing[1]};
   cursor: pointer;
+  text-decoration: none;
 
   &:focus {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+    box-shadow: inset 0 0 0 2px rgba(30, 167, 253, 0.3);
+    background-color: ${color.blue100};
+    outline: 2px solid crimson;
+    outline: none;
   }
 
   &:hover {
@@ -71,12 +75,16 @@ export const NavDesktopItem = React.forwardRef<
     { icon, iconColor, customIcon, title, description, ...props },
     forwardedRef
   ) => {
+    const [isFocused, setIsFocused] = useState(false);
+
     return (
       <NavigationMenu.Link asChild>
         <Container
           {...props}
           ref={forwardedRef}
           href="/docs/primitives/overview/introduction"
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         >
           <ArrowWrapper className="arrow">
             <Icon name="arrowrightalt" color="gray400" />

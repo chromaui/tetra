@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { HeaderProps } from './Header';
+import { HeaderProps } from './types';
 
 interface HeaderContextType {
   theme?: HeaderProps['theme'];
