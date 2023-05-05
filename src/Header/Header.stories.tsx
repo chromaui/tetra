@@ -3,6 +3,8 @@ import { Header } from './Header';
 import { Button } from '../Button';
 import { navDesktop, navMobile } from './data';
 import { Link } from '../Link';
+import { LinksContextProvider } from '../_contexts/linkContexts';
+import { FC, ReactNode } from 'react';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -11,6 +13,23 @@ const meta: Meta<typeof Header> = {
 
 export default meta;
 type Story = StoryObj<typeof Header>;
+
+const Wrapper: FC<{ children: ReactNode }> = ({ children }) => (
+  <div>{children}</div>
+);
+
+const navLinks = {
+  home: { url: '/', linkWrapper: Wrapper },
+  whyStorybook: {
+    url: '/docs/react/get-started/why-storybook',
+    linkWrapper: Wrapper,
+  },
+  guides: { url: '/docs', linkWrapper: Wrapper },
+  changelog: { url: '/releases', linkWrapper: Wrapper },
+  telemetry: { url: '/telemetry/', linkWrapper: Wrapper },
+  integrations: { url: '/integrations/', linkWrapper: Wrapper },
+  getInvolved: { url: '/community/', linkWrapper: Wrapper },
+};
 
 export const Light: Story = {
   args: {
@@ -31,15 +50,17 @@ export const Light: Story = {
   render: (props) => <Header {...props} />,
   decorators: [
     (Story) => (
-      <div
-        style={{
-          backgroundColor: '#fff',
-          width: '100vw',
-          height: '100vh',
-        }}
-      >
-        <Story />
-      </div>
+      <LinksContextProvider value={navLinks}>
+        <div
+          style={{
+            backgroundColor: '#fff',
+            width: '100vw',
+            height: '100vh',
+          }}
+        >
+          <Story />
+        </div>
+      </LinksContextProvider>
     ),
   ],
   parameters: {

@@ -4,6 +4,7 @@ import { color, spacing } from '../_tokens';
 import { Icon, IconType } from '../Icon/Icon';
 import { Text } from '../Text';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { LinkWithWrapper } from '../LinkWithWrapper';
 
 export interface DesktopItemProps {
   icon?: IconType;
@@ -13,7 +14,7 @@ export interface DesktopItemProps {
   description: string;
 }
 
-const Container = styled.a`
+const Container = styled(LinkWithWrapper)`
   position: relative;
   display: flex;
   flex-direction: row;
