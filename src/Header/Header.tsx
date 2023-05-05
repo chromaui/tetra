@@ -83,38 +83,38 @@ export interface HeaderMobileGroup {
   }[];
 }
 
+export interface HeaderDesktopItem {
+  name: string;
+  menuLeftPosition?: number;
+  href?: string;
+  menu?: {
+    content: (
+      | {
+          type: 'separator';
+          title: string;
+          href: string;
+        }
+      | {
+          type: 'link';
+          title: string;
+          description: string;
+          href: string;
+          icon?: IconType;
+          iconColor?: keyof typeof color;
+          customIcon?: ReactNode;
+        }
+    )[];
+    backgroundColor?: keyof typeof color;
+  }[];
+}
+
 export interface HeaderProps {
   theme?: 'light' | 'dark';
   logo?: 'chromatic' | 'storybook';
   right?: ReactNode;
   triggerType?: 'click' | 'hover';
   breakpoint?: number;
-  navDesktop: {
-    name: string;
-    menuWidth?: number;
-    menuHeight?: number;
-    menuLeftPosition?: number;
-    href?: string;
-    menu?: {
-      content: (
-        | {
-            type: 'separator';
-            title: string;
-            href: string;
-          }
-        | {
-            type: 'link';
-            title: string;
-            description: string;
-            href: string;
-            icon?: IconType;
-            iconColor?: keyof typeof color;
-            customIcon?: ReactNode;
-          }
-      )[];
-      backgroundColor?: keyof typeof color;
-    }[];
-  }[];
+  navDesktop: HeaderDesktopItem[];
   navMobile: HeaderMobileGroup[];
 }
 

@@ -1,37 +1,43 @@
 import { styled } from '@storybook/theming';
-import React, { FC, Fragment, useRef } from 'react';
-import { useHeaderContext } from './HeaderContext';
-import { AnimatePresence, motion } from 'framer-motion';
+import React, { FC, Fragment } from 'react';
 import { color, spacing } from '../_tokens';
 import { NavDesktopItem } from './NavDesktopItem';
 import { NavDesktopSeparator } from './NavDesktopSeparator';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { HeaderDesktopItem } from './Header';
+import {
+  enterFromLeft,
+  enterFromRight,
+  exitToLeft,
+  exitToRight,
+} from './styles';
 
-const MenuContainer = styled(motion.div)`
+interface Props {
+  item: HeaderDesktopItem;
+}
+
+const NavigationMenuContent = styled(NavigationMenu.Content)`
   position: absolute;
-  width: 100%;
-  top: 100%;
+  top: 0;
   left: 0;
-  padding-top: ${spacing[2]};
-`;
-
-const MenuWrapper = styled(motion.div)`
-  position: relative;
-  background-color: ${color.white};
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
-    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
-  border-radius: 6px;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-`;
-
-const MenuItem = styled(motion.div)`
-  position: absolute;
-  left: 0;
+  width: auto;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
   display: flex;
   flex-direction: row;
-  border-radius: 6px;
-  overflow: hidden;
+
+  &[data-motion='from-start'] {
+    animation-name: ${enterFromLeft};
+  }
+  &[data-motion='from-end'] {
+    animation-name: ${enterFromRight};
+  }
+  &[data-motion='to-start'] {
+    animation-name: ${exitToLeft};
+  }
+  &[data-motion='to-end'] {
+    animation-name: ${exitToRight};
+  }
 `;
 
 const Column = styled.div<{ bg: keyof typeof color; index: number }>`
@@ -44,70 +50,29 @@ const Column = styled.div<{ bg: keyof typeof color; index: number }>`
     index > 0 ? `1px solid ${color.gray200}` : 'none'};
 `;
 
-export const NavDesktopContent: FC = () => {
-  const { navDesktop, active } = useHeaderContext();
-  const ref = useRef<HTMLDivElement>(null);
-  const navWithMenu = navDesktop?.filter((item) => item.menu);
-  const activeNav = navWithMenu?.filter((item) => item.name === active);
-  const isActive = activeNav && activeNav.length > 0;
-  const width = isActive ? activeNav[0].menuWidth : 0;
-  const height = isActive ? activeNav[0].menuHeight : 324;
-  const leftPos = isActive ? activeNav[0].menuLeftPosition : 0;
-
+export const NavDesktopContent: FC<Props> = ({ item }) => {
   return (
-    <AnimatePresence>
-      {active && (
-        <MenuContainer
-          initial={{ opacity: 0, x: leftPos, y: -8, width, height }}
-          animate={{ opacity: 1, x: leftPos, y: 0, width, height }}
-          exit={{ opacity: 0, x: leftPos, y: -8, width, height }}
-          transition={{ duration: 0.2 }}
-        >
-          <MenuWrapper>
-            <AnimatePresence>
-              {isActive && (
-                <MenuItem
-                  initial={{ opacity: 0, x: 0 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 0 }}
-                  transition={{ duration: 0.2 }}
-                  key={activeNav[0].name}
-                  id={`tab-${activeNav[0].name}`}
-                  aria-label={activeNav[0].name}
-                  // role="menu"
-                  ref={ref}
-                >
-                  {activeNav[0].menu?.map((column, i) => (
-                    <Column
-                      key={i}
-                      bg={column?.backgroundColor || 'white'}
-                      index={i}
-                      role="menu"
-                    >
-                      {column.content.map((content, i) => (
-                        <Fragment key={i}>
-                          {content.type === 'separator' && (
-                            <NavDesktopSeparator title={content.title} />
-                          )}
-                          {content.type === 'link' && (
-                            <NavDesktopItem
-                              icon={content.icon}
-                              iconColor={content.iconColor}
-                              customIcon={content.customIcon}
-                              title={content.title}
-                              description={content.description}
-                            />
-                          )}
-                        </Fragment>
-                      ))}
-                    </Column>
-                  ))}
-                </MenuItem>
+    <NavigationMenuContent>
+      {item.menu?.map((column, i) => (
+        <Column key={i} bg={column?.backgroundColor || 'white'} index={i}>
+          {column.content.map((content, i) => (
+            <Fragment key={i}>
+              {content.type === 'separator' && (
+                <NavDesktopSeparator title={content.title} />
               )}
-            </AnimatePresence>
-          </MenuWrapper>
-        </MenuContainer>
-      )}
-    </AnimatePresence>
+              {content.type === 'link' && (
+                <NavDesktopItem
+                  icon={content.icon}
+                  iconColor={content.iconColor}
+                  customIcon={content.customIcon}
+                  title={content.title}
+                  description={content.description}
+                />
+              )}
+            </Fragment>
+          ))}
+        </Column>
+      ))}
+    </NavigationMenuContent>
   );
 };

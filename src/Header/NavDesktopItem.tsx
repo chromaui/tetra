@@ -3,6 +3,7 @@ import { styled } from '@storybook/theming';
 import { color, spacing } from '../_tokens';
 import { Icon, IconType } from '../Icon/Icon';
 import { Text } from '../Text';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 export interface DesktopItemProps {
   icon?: IconType;
@@ -12,7 +13,7 @@ export interface DesktopItemProps {
   description: string;
 }
 
-const Container = styled.div`
+const Container = styled.a`
   position: relative;
   display: flex;
   flex-direction: row;
@@ -62,32 +63,40 @@ const ArrowWrapper = styled.div`
   transition: right 250ms ease, opacity 0.2s ease;
 `;
 
-export const NavDesktopItem: FC<DesktopItemProps> = ({
-  icon,
-  iconColor,
-  customIcon,
-  title,
-  description,
-}) => {
-  return (
-    <Container role="menuitem" tabIndex={0}>
-      <ArrowWrapper className="arrow">
-        <Icon name="arrowrightalt" color="gray400" />
-      </ArrowWrapper>
-      <IconWrapper>
-        {!customIcon && icon && (
-          <Icon name={icon} size={16} color={iconColor} />
-        )}
-        {customIcon}
-      </IconWrapper>
-      <TextWrapper>
-        <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
-          {title}
-        </Text>
-        <Text as="div" variant="bodySm" color="gray500">
-          {description}
-        </Text>
-      </TextWrapper>
-    </Container>
-  );
-};
+export const NavDesktopItem = React.forwardRef<
+  HTMLAnchorElement,
+  DesktopItemProps
+>(
+  (
+    { icon, iconColor, customIcon, title, description, ...props },
+    forwardedRef
+  ) => {
+    return (
+      <NavigationMenu.Link asChild>
+        <Container
+          {...props}
+          ref={forwardedRef}
+          href="/docs/primitives/overview/introduction"
+        >
+          <ArrowWrapper className="arrow">
+            <Icon name="arrowrightalt" color="gray400" />
+          </ArrowWrapper>
+          <IconWrapper>
+            {!customIcon && icon && (
+              <Icon name={icon} size={16} color={iconColor} />
+            )}
+            {customIcon}
+          </IconWrapper>
+          <TextWrapper>
+            <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
+              {title}
+            </Text>
+            <Text as="div" variant="bodySm" color="gray500">
+              {description}
+            </Text>
+          </TextWrapper>
+        </Container>
+      </NavigationMenu.Link>
+    );
+  }
+);

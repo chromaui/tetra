@@ -8,8 +8,6 @@ import { HeaderProps } from './Header';
 export const navDesktop: HeaderProps['navDesktop'] = [
   {
     name: 'Features',
-    menuWidth: 648,
-    menuHeight: 411,
     menuLeftPosition: 0,
     menu: [
       {
@@ -105,8 +103,6 @@ export const navDesktop: HeaderProps['navDesktop'] = [
   },
   {
     name: 'Customers',
-    menuWidth: 648,
-    menuHeight: 411,
     menuLeftPosition: 24,
     menu: [
       {
@@ -198,9 +194,7 @@ export const navDesktop: HeaderProps['navDesktop'] = [
   },
   {
     name: 'Company',
-    menuWidth: 324,
-    menuHeight: 279,
-    menuLeftPosition: 400,
+    menuLeftPosition: 300,
     menu: [
       {
         content: [
