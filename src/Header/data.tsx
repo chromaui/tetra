@@ -8,7 +8,6 @@ import { HeaderProps } from './types';
 export const navDesktop: HeaderProps['navDesktop'] = [
   {
     name: 'Features',
-    menuLeftPosition: 0,
     menu: [
       {
         content: [
@@ -103,7 +102,6 @@ export const navDesktop: HeaderProps['navDesktop'] = [
   },
   {
     name: 'Customers',
-    menuLeftPosition: 24,
     menu: [
       {
         content: [
@@ -194,7 +192,6 @@ export const navDesktop: HeaderProps['navDesktop'] = [
   },
   {
     name: 'Company',
-    menuLeftPosition: 300,
     menu: [
       {
         content: [

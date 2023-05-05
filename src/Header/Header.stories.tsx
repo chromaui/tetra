@@ -24,7 +24,7 @@ export const Light: Story = {
         theme="light"
         navDesktop={navDesktop}
         navMobile={navMobile}
-        breakpoint={980}
+        breakpoint={1024}
         right={
           <>
             <Button size="sm" variant="outline" color="blue">

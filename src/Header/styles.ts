@@ -12,7 +12,7 @@ export const NavigationMenuItem = css`
   border: none;
   height: ${spacing[8]};
   background: transparent;
-  gap: 8px;
+  gap: 6px;
   text-decoration: none;
   cursor: pointer;
 

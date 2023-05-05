@@ -18,7 +18,6 @@ export interface HeaderMobileGroup {
 
 export interface HeaderDesktopItem {
   name: string;
-  menuLeftPosition?: number;
   href?: string;
   menu?: {
     content: (

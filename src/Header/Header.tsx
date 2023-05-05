@@ -14,6 +14,9 @@ import { HeaderProps } from './types';
 // TODO
 // - [ ] Add gridalt icon for the use cases
 // - [ ] Find a way to make items clickable
+// - [ ] Add active state + a story for active state
+// - [ ] Add height to logo
+// - [ ] Add story for mobile menu with Chromatic values
 
 const Wrapper = styled.div<{ breakpoint?: HeaderProps['breakpoint'] }>`
   display: flex;
@@ -29,7 +32,7 @@ const Wrapper = styled.div<{ breakpoint?: HeaderProps['breakpoint'] }>`
 const Left = styled.div`
   display: flex;
   align-items: center;
-  gap: ${spacing[10]};
+  gap: ${spacing[6]};
 `;
 
 const Right = styled.div`
@@ -89,6 +92,7 @@ export const Header: FC<HeaderProps> = ({
     padding: ${spacing[2]};
     font-size: 0;
     border-radius: 6px;
+    margin-top: -4px;
 
     &:focus-visible {
       box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
@@ -113,7 +117,7 @@ export const Header: FC<HeaderProps> = ({
         <Wrapper breakpoint={breakpoint}>
           <Left role="none">
             <LogoLink href="" aria-label="Logo">
-              <Logo name={logo} width={140} theme={theme} />
+              <Logo name={logo} width={122} theme={theme} />
             </LogoLink>
             {isDesktop && <NavDesktop />}
             <AnimatePresence>

@@ -5,14 +5,7 @@ import { NavDesktopItem } from './NavDesktopItem';
 import { NavDesktopSeparator } from './NavDesktopSeparator';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { HeaderDesktopItem } from './types';
-import {
-  enterFromLeft,
-  enterFromRight,
-  exitToLeft,
-  exitToRight,
-  slideIn,
-  slideOut,
-} from './styles';
+import { slideIn, slideOut } from './styles';
 
 interface Props {
   item: HeaderDesktopItem;
@@ -38,25 +31,12 @@ const NavigationMenuContent = styled(NavigationMenu.Content)`
   &[data-state='closed'] {
     animation: ${slideOut} 200ms ease;
   }
-
-  /* &[data-motion='from-start'] {
-    animation-name: ${enterFromLeft};
-  }
-  &[data-motion='from-end'] {
-    animation-name: ${enterFromRight};
-  }
-  &[data-motion='to-start'] {
-    animation-name: ${exitToLeft};
-  }
-  &[data-motion='to-end'] {
-    animation-name: ${exitToRight};
-  } */
 `;
 
 const Column = styled.div<{ bg: keyof typeof color; index: number }>`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 280px;
   padding: ${spacing[3]};
   background-color: ${({ bg }) => (bg ? color[bg] : 'white')};
   border-left: ${({ index }) =>
