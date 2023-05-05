@@ -28,3 +28,6 @@ export { Icon } from './Icon';
 export { IntegrationImage } from './IntegrationImage';
 export { Text } from './Text';
 export { Stack } from './Stack';
+export { Link } from './Link';
+export { Header } from './Header';
+export { Logo } from './Logo';

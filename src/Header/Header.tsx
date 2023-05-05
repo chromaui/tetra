@@ -36,7 +36,7 @@ const Left = styled.div`
 
 const Right = styled.div`
   display: flex;
-  gap: ${spacing[4]};
+  gap: ${spacing[6]};
   align-items: center;
 `;
 

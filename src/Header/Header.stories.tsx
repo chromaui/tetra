@@ -2,6 +2,7 @@ import React, { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header';
 import { Button } from '../Button';
 import { navDesktop, navMobile } from './data';
+import { Link } from '../Link';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -14,12 +15,13 @@ type Story = StoryObj<typeof Header>;
 export const Light: Story = {
   args: {
     theme: 'light',
-    activeSection: 'Features',
+    activeSection: undefined,
     navDesktop: navDesktop,
     navMobile: navMobile,
     breakpoint: 1024,
     right: (
       <>
+        <Link>Sign in</Link>
         <Button size="sm" variant="outline" color="blue">
           Sign up
         </Button>
