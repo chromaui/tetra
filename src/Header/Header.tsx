@@ -117,7 +117,7 @@ export const Header: FC<HeaderProps> = ({
         <Wrapper breakpoint={breakpoint}>
           <Left role="none">
             <LogoLink href="" aria-label="Logo">
-              <Logo name={logo} width={122} theme={theme} />
+              <Logo name={logo} height={24} theme={theme} />
             </LogoLink>
             {isDesktop && <NavDesktop />}
             <AnimatePresence>

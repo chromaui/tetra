@@ -5,13 +5,15 @@ interface LogoProps {
   theme?: 'light' | 'dark';
   variant?: 'default' | 'monochrome';
   width?: number;
+  height?: number;
 }
 
 export const Logo: FC<LogoProps> = ({
   name,
   theme = 'light',
   variant = 'default',
-  width = 120,
+  width,
+  height,
 }) => {
   const textColor = theme === 'light' ? '#2E3438' : '#FFFFFF';
   const logomarkColorChromatic = () => {
@@ -29,11 +31,19 @@ export const Logo: FC<LogoProps> = ({
     return '#FFFFFF';
   };
 
+  const logoDimensions = () => {
+    if (width && height) return [width, height];
+    if (width && !height) return [width, width / 5];
+    if (!width && height) return [height * 5, height];
+    return [120, 24];
+  };
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
-      width={width}
+      width={logoDimensions()[0]}
+      height={logoDimensions()[1]}
       viewBox="0 0 120 24"
     >
       {name === 'chromatic' && (
