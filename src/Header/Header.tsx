@@ -17,6 +17,7 @@ import { HeaderProps } from './types';
 // - [x] Add active state + a story for active state
 // - [x] Add height to logo
 // - [ ] Add story for mobile menu with Chromatic values
+// - [x] Add linkContext
 
 const Wrapper = styled.div<{ breakpoint?: HeaderProps['breakpoint'] }>`
   display: flex;
