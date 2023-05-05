@@ -70,25 +70,25 @@ export const exitToLeft = keyframes`
   }
 `;
 
-export const scaleIn = keyframes`
+export const slideIn = keyframes`
    from {
     opacity: 0;
-    transform: rotateX(-30deg) scale(0.9);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
-    transform: rotateX(0deg) scale(1);
+    transform: translateY(0);
   }
 `;
 
-export const scaleOut = keyframes`
+export const slideOut = keyframes`
    from {
     opacity: 1;
-    transform: rotateX(0deg) scale(1);
+    transform: translateY(0);
   }
   to {
     opacity: 0;
-    transform: rotateX(-10deg) scale(0.95);
+    transform: translateY(-8px);
   }
 `;
 

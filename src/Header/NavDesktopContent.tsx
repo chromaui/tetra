@@ -10,6 +10,8 @@ import {
   enterFromRight,
   exitToLeft,
   exitToRight,
+  slideIn,
+  slideOut,
 } from './styles';
 
 interface Props {
@@ -18,15 +20,26 @@ interface Props {
 
 const NavigationMenuContent = styled(NavigationMenu.Content)`
   position: absolute;
-  top: 0;
+  top: calc(100% + 8px);
   left: 0;
   width: auto;
   display: flex;
   flex-direction: row;
-  animation-duration: 250ms;
+  animation-duration: 2000ms;
   animation-timing-function: ease;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  border-radius: 6px;
+  overflow: hidden;
 
-  &[data-motion='from-start'] {
+  &[data-state='open'] {
+    animation: ${slideIn} 200ms ease;
+  }
+  &[data-state='closed'] {
+    animation: ${slideOut} 200ms ease;
+  }
+
+  /* &[data-motion='from-start'] {
     animation-name: ${enterFromLeft};
   }
   &[data-motion='from-end'] {
@@ -37,7 +50,7 @@ const NavigationMenuContent = styled(NavigationMenu.Content)`
   }
   &[data-motion='to-end'] {
     animation-name: ${exitToRight};
-  }
+  } */
 `;
 
 const Column = styled.div<{ bg: keyof typeof color; index: number }>`

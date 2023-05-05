@@ -13,6 +13,8 @@ export interface DesktopItemProps {
 }
 
 const NavigationMenuTrigger = styled(NavigationMenu.Trigger)`
+  position: relative;
+
   ${NavigationMenuItem}
 
   &[data-state='open'] > .CaretDown {
