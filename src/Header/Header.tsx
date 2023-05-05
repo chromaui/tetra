@@ -4,7 +4,6 @@ import { styled } from '@storybook/theming';
 import { Logo } from '../Logo';
 import { color, spacing } from '../_tokens';
 import { Container } from '../Container';
-import { IconType } from '../Icon/Icon';
 import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
 import { useMediaQuery } from '../_hooks/useMediaQuery';
@@ -15,7 +14,7 @@ import { HeaderProps } from './types';
 // - [ ] Add gridalt icon for the use cases
 // - [ ] Find a way to make items clickable
 // - [ ] Add active state + a story for active state
-// - [ ] Add height to logo
+// - [x] Add height to logo
 // - [ ] Add story for mobile menu with Chromatic values
 
 const Wrapper = styled.div<{ breakpoint?: HeaderProps['breakpoint'] }>`
@@ -82,6 +81,7 @@ export const Header: FC<HeaderProps> = ({
   breakpoint,
   right,
   triggerType = 'hover',
+  activeSection,
 }) => {
   const isDesktop = useMediaQuery({ min: breakpoint || 1024 });
   const [active, setActive] = useState<string | null>('');
@@ -111,6 +111,7 @@ export const Header: FC<HeaderProps> = ({
         setActive,
         mobileMenuOpen,
         setMobileMenuOpen,
+        activeSection,
       }}
     >
       <Container>

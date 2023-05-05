@@ -10,6 +10,7 @@ interface HeaderContextType {
   setActive: (id: string | null) => void;
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (value: boolean) => void;
+  activeSection: HeaderProps['activeSection'];
 }
 
 const HeaderContext = createContext<HeaderContextType | null>(null);

@@ -48,4 +48,5 @@ export interface HeaderProps {
   breakpoint?: number;
   navDesktop: HeaderDesktopItem[];
   navMobile: HeaderMobileGroup[];
+  activeSection?: string;
 }

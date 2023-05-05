@@ -2,8 +2,8 @@ import { styled } from '@storybook/theming';
 import React, { FC } from 'react';
 import { useHeaderContext } from './HeaderContext';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { NavDesktopTrigger } from './NavDesktopTrigger';
 import { NavDesktopLink } from './NavDesktopLink';
+import { NavDesktopContent } from './NavDesktopContent';
 
 const NavigationMenuRoot = styled(NavigationMenu.Root)`
   position: relative;
@@ -40,8 +40,8 @@ export const NavDesktop: FC = () => {
               onFocus={() => setActive(item.name)}
               onBlur={() => setActive('')}
             >
-              {item.menu && <NavDesktopTrigger key={item.name} item={item} />}
-              {!item.menu && <NavDesktopLink key={item.name} item={item} />}
+              <NavDesktopLink key={item.name} item={item} />
+              <NavDesktopContent item={item} />
             </NavigationMenuItem>
           ))}
       </NavigationMenuList>
