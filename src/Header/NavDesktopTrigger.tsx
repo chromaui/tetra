@@ -1,6 +1,5 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
-import { spacing } from '../_tokens';
 import { Icon } from '../Icon/Icon';
 import { Text } from '../Text';
 import { useHeaderContext } from './HeaderContext';
@@ -21,35 +20,19 @@ const NavigationMenuTrigger = styled(NavigationMenu.Trigger)`
   }
 `;
 
-const NavigationMenuLink = styled(NavigationMenu.Link)`
-  ${NavigationMenuItem}
-`;
-
 const CaretDown = styled.div`
   position: relative;
   transform: translateY(2px);
   transition: transform 250ms ease;
 `;
 
-interface ContainerProps {
-  type: 'trigger' | 'link';
-  children: ReactNode;
-}
-
-const Container: FC<ContainerProps> = ({ type, children }) => {
-  if (type === 'link')
-    return <NavigationMenuLink>{children}</NavigationMenuLink>;
-  return <NavigationMenuTrigger>{children}</NavigationMenuTrigger>;
-};
-
 export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
   const { theme, active } = useHeaderContext();
   const isActive = active === item.name;
-  const isMenu = item.menu && item.menu.length > 0;
 
   return (
     <>
-      <Container type={isMenu ? 'trigger' : 'link'}>
+      <NavigationMenuTrigger>
         <Text
           as="div"
           lineHeightAuto
@@ -59,18 +42,16 @@ export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
         >
           {item.name}
         </Text>
-        {isMenu && (
-          <CaretDown>
-            <Icon
-              name="arrowdown"
-              aria-hidden
-              size={12}
-              color={isActive ? 'blue500' : 'gray400'}
-            />
-          </CaretDown>
-        )}
-      </Container>
-      {isMenu && <NavDesktopContent item={item} />}
+        <CaretDown>
+          <Icon
+            name="arrowdown"
+            aria-hidden
+            size={12}
+            color={isActive ? 'blue500' : 'gray400'}
+          />
+        </CaretDown>
+      </NavigationMenuTrigger>
+      <NavDesktopContent item={item} />
     </>
   );
 };

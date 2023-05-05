@@ -5,6 +5,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
 import { motion } from 'framer-motion';
 import { scaleIn, scaleOut } from './styles';
+import { NavDesktopLink } from './NavDesktopLink';
 
 const NavigationMenuRoot = styled(NavigationMenu.Root)`
   position: relative;
@@ -78,7 +79,8 @@ export const NavDesktop: FC = () => {
               onFocus={() => setActive(item.name)}
               onBlur={() => setActive('')}
             >
-              <NavDesktopTrigger key={item.name} item={item} />
+              {item.menu && <NavDesktopTrigger key={item.name} item={item} />}
+              {!item.menu && <NavDesktopLink key={item.name} item={item} />}
             </NavigationMenu.Item>
           ))}
       </NavigationMenuList>
