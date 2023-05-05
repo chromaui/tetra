@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { IconType } from '../Icon/Icon';
 import { color } from '../_tokens';
 
@@ -16,26 +16,23 @@ export interface HeaderMobileGroup {
   }[];
 }
 
+export interface HeaderDesktopItemContent {
+  type: 'link' | 'separator';
+  title: string;
+  description?: string;
+  href?: string;
+  linkWrapper?: FC<{ children: ReactNode }>;
+  icon?: IconType;
+  iconColor?: keyof typeof color;
+  customIcon?: ReactNode;
+}
+
 export interface HeaderDesktopItem {
   name: string;
   href?: string;
+  linkWrapper?: FC<{ children: ReactNode }>;
   menu?: {
-    content: (
-      | {
-          type: 'separator';
-          title: string;
-          href: string;
-        }
-      | {
-          type: 'link';
-          title: string;
-          description: string;
-          href: string;
-          icon?: IconType;
-          iconColor?: keyof typeof color;
-          customIcon?: ReactNode;
-        }
-    )[];
+    content: HeaderDesktopItemContent[];
     backgroundColor?: keyof typeof color;
   }[];
 }

@@ -4,9 +4,9 @@ import { Icon } from '../Icon/Icon';
 import { Text } from '../Text';
 import { useHeaderContext } from './HeaderContext';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { NavDesktopContent } from './NavDesktopContent';
 import { HeaderDesktopItem } from './types';
 import { spacing } from '../_tokens';
+import { LinkWithWrapper } from '../LinkWithWrapper';
 
 export interface DesktopItemProps {
   item: HeaderDesktopItem;
@@ -49,7 +49,7 @@ const NavigationMenuTrigger = styled(NavigationMenu.Trigger)<{
   }
 `;
 
-const NavigationMenuLink = styled(NavigationMenu.Link)<{
+const NavigationMenuLink = styled(LinkWithWrapper)<{
   isactive: string;
 }>`
   ${NavigationMenuItem}
@@ -91,16 +91,22 @@ export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
     );
 
   return (
-    <NavigationMenuLink href="#" isactive={isActive.toString()}>
-      <Text
-        as="div"
-        lineHeightAuto
-        color={isActive ? 'blue500' : theme === 'light' ? 'gray800' : 'white'}
-        variant="bodySm"
-        fontWeight="bold"
+    <NavigationMenu.Link asChild>
+      <NavigationMenuLink
+        isactive={isActive.toString()}
+        href={item.href || ''}
+        LinkWrapper={item.linkWrapper}
       >
-        {item.name}
-      </Text>
-    </NavigationMenuLink>
+        <Text
+          as="div"
+          lineHeightAuto
+          color={isActive ? 'blue500' : theme === 'light' ? 'gray800' : 'white'}
+          variant="bodySm"
+          fontWeight="bold"
+        >
+          {item.name}
+        </Text>
+      </NavigationMenuLink>
+    </NavigationMenu.Link>
   );
 };

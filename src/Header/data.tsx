@@ -14,7 +14,6 @@ export const navDesktop: HeaderProps['navDesktop'] = [
           {
             type: 'separator',
             title: 'Test',
-            href: '#',
           },
           {
             type: 'link',
@@ -98,7 +97,7 @@ export const navDesktop: HeaderProps['navDesktop'] = [
   },
   {
     name: 'Pricing',
-    href: '#',
+    href: '/pricing',
   },
   {
     name: 'Customers',

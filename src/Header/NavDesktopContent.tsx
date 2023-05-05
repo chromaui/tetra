@@ -2,10 +2,10 @@ import { styled } from '@storybook/theming';
 import React, { FC, Fragment } from 'react';
 import { color, spacing } from '../_tokens';
 import { NavDesktopItem } from './NavDesktopItem';
-import { NavDesktopSeparator } from './NavDesktopSeparator';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { HeaderDesktopItem } from './types';
 import { slideIn, slideOut } from './styles';
+import { Text } from '../Text';
 
 interface Props {
   item: HeaderDesktopItem;
@@ -43,6 +43,13 @@ const Column = styled.div<{ bg: keyof typeof color; index: number }>`
     index > 0 ? `1px solid ${color.gray200}` : 'none'};
 `;
 
+const Separator = styled.div`
+  padding-top: ${spacing[5]};
+  padding-left: ${spacing[3]};
+  padding-right: ${spacing[3]};
+  padding-bottom: ${spacing[3]};
+`;
+
 export const NavDesktopContent: FC<Props> = ({ item }) => {
   return (
     <NavigationMenuContent>
@@ -51,17 +58,13 @@ export const NavDesktopContent: FC<Props> = ({ item }) => {
           {column.content.map((content, i) => (
             <Fragment key={i}>
               {content.type === 'separator' && (
-                <NavDesktopSeparator title={content.title} />
+                <Separator>
+                  <Text variant="subheading" color="gray400">
+                    {content.title}
+                  </Text>
+                </Separator>
               )}
-              {content.type === 'link' && (
-                <NavDesktopItem
-                  icon={content.icon}
-                  iconColor={content.iconColor}
-                  customIcon={content.customIcon}
-                  title={content.title}
-                  description={content.description}
-                />
-              )}
+              {content.type === 'link' && <NavDesktopItem content={content} />}
             </Fragment>
           ))}
         </Column>

@@ -1,17 +1,14 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode } from 'react';
 import { styled } from '@storybook/theming';
 import { color, spacing } from '../_tokens';
 import { Icon, IconType } from '../Icon/Icon';
 import { Text } from '../Text';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { LinkWithWrapper } from '../LinkWithWrapper';
+import { HeaderDesktopItemContent } from './types';
 
 export interface DesktopItemProps {
-  icon?: IconType;
-  iconColor?: keyof typeof color;
-  customIcon?: ReactNode;
-  title: string;
-  description: string;
+  content: HeaderDesktopItemContent;
 }
 
 const Container = styled(LinkWithWrapper)`
@@ -71,37 +68,33 @@ const ArrowWrapper = styled.div`
 export const NavDesktopItem = React.forwardRef<
   HTMLAnchorElement,
   DesktopItemProps
->(
-  (
-    { icon, iconColor, customIcon, title, description, ...props },
-    forwardedRef
-  ) => {
-    return (
-      <NavigationMenu.Link asChild>
-        <Container
-          {...props}
-          ref={forwardedRef}
-          href="/docs/primitives/overview/introduction"
-        >
-          <ArrowWrapper className="arrow">
-            <Icon name="arrowrightalt" color="gray400" />
-          </ArrowWrapper>
-          <IconWrapper>
-            {!customIcon && icon && (
-              <Icon name={icon} size={16} color={iconColor} />
-            )}
-            {customIcon}
-          </IconWrapper>
-          <TextWrapper>
-            <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
-              {title}
-            </Text>
-            <Text as="div" variant="bodySm" color="gray500">
-              {description}
-            </Text>
-          </TextWrapper>
-        </Container>
-      </NavigationMenu.Link>
-    );
-  }
-);
+>(({ content, ...props }, forwardedRef) => {
+  return (
+    <NavigationMenu.Link asChild>
+      <Container
+        {...props}
+        ref={forwardedRef}
+        href={content.href || ''}
+        LinkWrapper={content.linkWrapper}
+      >
+        <ArrowWrapper className="arrow">
+          <Icon name="arrowrightalt" color="gray400" />
+        </ArrowWrapper>
+        <IconWrapper>
+          {!content.customIcon && content.icon && (
+            <Icon name={content.icon} size={16} color={content.iconColor} />
+          )}
+          {content.customIcon}
+        </IconWrapper>
+        <TextWrapper>
+          <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
+            {content.title}
+          </Text>
+          <Text as="div" variant="bodySm" color="gray500">
+            {content.description}
+          </Text>
+        </TextWrapper>
+      </Container>
+    </NavigationMenu.Link>
+  );
+});
