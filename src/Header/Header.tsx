@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { HeaderProvider, useHeaderContext } from './context';
 import { styled } from '@storybook/theming';
 import { Logo } from '../Logo';
-import { color, spacing } from '../_tokens';
+import { spacing } from '../_tokens';
 import { Container } from '../Container';
 import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
@@ -11,6 +11,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { HeaderProps } from './types';
 import * as Popover from '@radix-ui/react-popover';
 import { minSm } from '../_helpers';
+import { NavMobileTrigger } from './NavMobileTrigger';
 
 // TODO
 // - [x] Add new link component to the header
@@ -24,9 +25,11 @@ import { minSm } from '../_helpers';
 // - [ ] Add gridalt icon for the use cases
 // - [ ] Burger menu - Try to fit into 18px
 
-const Wrapper = styled.div<{
+interface WrapperProps {
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
-}>`
+}
+
+const Wrapper = styled.div<WrapperProps>`
   display: flex;
   height: 60px;
   align-items: center;
@@ -67,45 +70,6 @@ const Right = styled.div`
   align-items: center;
 `;
 
-const MobileTrigger = styled(Popover.Trigger)`
-  all: unset;
-  position: relative;
-  display: flex;
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-
-  &:focus {
-    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
-  }
-`;
-
-const MobileTriggerLine = styled(motion.div)<{
-  headerTheme?: HeaderProps['theme'];
-}>`
-  position: absolute;
-  width: ${spacing[5]};
-  height: ${spacing[0.5]};
-  border-radius: 6px;
-  background-color: ${({ headerTheme }) =>
-    headerTheme === 'light' ? color.gray800 : color.white};
-`;
-
-const Line1 = styled(MobileTriggerLine)`
-  top: 12px;
-  left: 10px;
-`;
-
-const Line2 = styled(MobileTriggerLine)`
-  top: 19px;
-  left: 10px;
-`;
-
-const Line3 = styled(MobileTriggerLine)`
-  top: 26px;
-  left: 10px;
-`;
-
 export const Header: FC<HeaderProps> = ({
   theme = 'light',
   logo,
@@ -121,33 +85,24 @@ export const Header: FC<HeaderProps> = ({
       navDesktop={navDesktop}
       navMobile={navMobile}
       activeSection={activeSection}
+      desktopBreakpoint={desktopBreakpoint}
+      logo={logo}
+      right={right}
     >
-      <HeaderWithProvider
-        desktopBreakpoint={desktopBreakpoint}
-        logo={logo}
-        right={right}
-      />
+      <HeaderWithProvider />
     </HeaderProvider>
   );
 };
 
-interface HeaderWithProviderProps {
-  desktopBreakpoint: HeaderProps['desktopBreakpoint'];
-  logo: HeaderProps['logo'];
-  right: HeaderProps['right'];
-}
-
-const HeaderWithProvider: FC<HeaderWithProviderProps> = ({
-  desktopBreakpoint,
-  logo,
-  right,
-}) => {
+const HeaderWithProvider: FC = () => {
   const {
     navMobile,
     theme,
     mobileMenuOpen,
-    setMobileMenuOpen,
     setMobileValue,
+    desktopBreakpoint,
+    logo,
+    right,
   } = useHeaderContext();
   const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
 
@@ -173,32 +128,7 @@ const HeaderWithProvider: FC<HeaderWithProviderProps> = ({
         {isDesktop && <Right>{right}</Right>}
         {!isDesktop && (
           <Popover.Root>
-            <MobileTrigger
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle Menu"
-            >
-              <Line1
-                headerTheme={theme}
-                animate={{
-                  rotate: mobileMenuOpen ? '-45deg' : 0,
-                  y: mobileMenuOpen ? 7 : 0,
-                }}
-              />
-              <Line2
-                headerTheme={theme}
-                animate={{
-                  opacity: mobileMenuOpen ? 0 : 1,
-                  x: mobileMenuOpen ? 4 : 0,
-                }}
-              />
-              <Line3
-                headerTheme={theme}
-                animate={{
-                  rotate: mobileMenuOpen ? '45deg' : 0,
-                  y: mobileMenuOpen ? -7 : 0,
-                }}
-              />
-            </MobileTrigger>
+            <NavMobileTrigger />
             <AnimatePresence>
               {mobileMenuOpen && (
                 <Popover.Portal forceMount>

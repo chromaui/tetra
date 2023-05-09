@@ -18,6 +18,9 @@ interface HeaderContextType {
   mobileValue: string[];
   setMobileValue: (value: string[]) => void;
   activeSection: HeaderProps['activeSection'];
+  desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
+  logo?: HeaderProps['logo'];
+  right?: HeaderProps['right'];
 }
 
 export const HeaderContext = createContext<HeaderContextType | null>(null);
@@ -35,6 +38,9 @@ interface HeaderProviderProps {
   navDesktop: HeaderProps['navDesktop'];
   navMobile: HeaderProps['navMobile'];
   activeSection: HeaderProps['activeSection'];
+  desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
+  logo?: HeaderProps['logo'];
+  right?: HeaderProps['right'];
 }
 
 export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
@@ -43,6 +49,9 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
   navMobile,
   navDesktop,
   activeSection,
+  desktopBreakpoint,
+  logo,
+  right,
 }) => {
   const [active, setActive] = useState<string | null>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -61,6 +70,9 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
         activeSection,
         mobileValue,
         setMobileValue,
+        desktopBreakpoint,
+        logo,
+        right,
       }}
     >
       {children}

@@ -1,9 +1,10 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
 import { color, spacing } from '../_tokens';
 import { motion } from 'framer-motion';
 import { HeaderProps } from './types';
 import * as Popover from '@radix-ui/react-popover';
+import { useHeaderContext } from './context';
 
 const MobileTrigger = styled(Popover.Trigger)`
   all: unset;
@@ -44,8 +45,8 @@ const Line3 = styled(MobileTriggerLine)`
   left: 10px;
 `;
 
-export const NavMobileTrigger: FC<HeaderProps> = ({ theme = 'light' }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+export const NavMobileTrigger: FC = () => {
+  const { theme, mobileMenuOpen, setMobileMenuOpen } = useHeaderContext();
 
   return (
     <MobileTrigger
