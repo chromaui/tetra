@@ -6,6 +6,7 @@ import { Text } from '../Text';
 import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
 import { HeaderMobileGroup } from './types';
+import * as Collapsible from '@radix-ui/react-collapsible';
 
 interface Props {
   group: HeaderMobileGroup;
@@ -31,14 +32,23 @@ const Container = styled(motion.div)`
 `;
 
 const MoreContainer = styled(motion.div)`
-  overflow: hidden;
+  /* overflow: hidden; */
 `;
 
-const More = styled.div`
+const MoreTrigger = styled(Collapsible.Trigger)`
+  all: unset;
   display: flex;
   align-items: center;
   gap: ${spacing[3]};
-  margin-top: ${spacing[2]};
+  padding: 0 ${spacing[2]};
+  margin-left: -${spacing[2]};
+  width: 100%;
+  height: ${spacing[8]};
+  border-radius: 6px;
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  }
 `;
 
 const CaretDown = styled(motion.div)`
@@ -110,47 +120,41 @@ export const NavMobileGroup: FC<Props> = ({ group, isLast }) => {
                 title={item.title}
               />
             ))}
-            <AnimatePresence initial={false}>
-              {group.maxItems && !viewMoreOpen && (
-                <MoreContainer
-                  onClick={() => setViewMoreOpen(true)}
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                >
-                  <More>
-                    <Icon name="plus" color="gray400" size={16} />
-                    <Text
-                      as="div"
-                      lineHeightAuto
-                      color="gray400"
-                      variant="bodySm"
-                    >
-                      View more
-                    </Text>
-                  </More>
-                </MoreContainer>
-              )}
-            </AnimatePresence>
-            <AnimatePresence initial={false}>
-              {group.maxItems && viewMoreOpen && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                >
-                  {listMore.map((item) => (
-                    <NavMobileItem
-                      key={item.title}
-                      icon={item.icon}
-                      customIcon={item.customIcon}
-                      iconColor={item.iconColor}
-                      title={item.title}
-                    />
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <Collapsible.Root>
+              <AnimatePresence initial={false}>
+                {group.maxItems && !viewMoreOpen && (
+                  <MoreContainer
+                    onClick={() => setViewMoreOpen(true)}
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                  >
+                    <MoreTrigger>
+                      <Icon name="plus" color="gray400" size={16} />
+                      <Text
+                        as="div"
+                        lineHeightAuto
+                        color="gray400"
+                        variant="bodySm"
+                      >
+                        View more
+                      </Text>
+                    </MoreTrigger>
+                  </MoreContainer>
+                )}
+              </AnimatePresence>
+              <Collapsible.Content>
+                {listMore.map((item) => (
+                  <NavMobileItem
+                    key={item.title}
+                    icon={item.icon}
+                    customIcon={item.customIcon}
+                    iconColor={item.iconColor}
+                    title={item.title}
+                  />
+                ))}
+              </Collapsible.Content>
+            </Collapsible.Root>
           </Container>
         )}
       </AnimatePresence>
