@@ -19,9 +19,6 @@ export {
 // Hooks
 export { useMediaQuery } from './_hooks/useMediaQuery';
 
-// Contexts
-export * from './_contexts/linkContexts';
-
 // Components
 export { Container } from './Container';
 export { Button } from './Button';

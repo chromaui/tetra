@@ -9,6 +9,8 @@ import { NavMobile } from './NavMobile';
 import { useMediaQuery } from '../_hooks/useMediaQuery';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HeaderProps } from './types';
+import * as Popover from '@radix-ui/react-popover';
+import { minSm } from '../_helpers';
 
 // TODO
 // - [ ] Add gridalt icon for the use cases
@@ -34,9 +36,27 @@ const Wrapper = styled.div<{ breakpoint?: HeaderProps['breakpoint'] }>`
 `;
 
 const Left = styled.div`
-  display: flex;
-  align-items: center;
-  gap: ${spacing[6]};
+  ${minSm} {
+    display: flex;
+    align-items: center;
+    gap: ${spacing[6]};
+  }
+`;
+
+const LogoLink = styled.a`
+  display: block;
+  padding: ${spacing[2]};
+  font-size: 0;
+  border-radius: 6px;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+    outline: none;
+  }
+
+  ${minSm} {
+    margin-top: -4px;
+  }
 `;
 
 const Right = styled.div`
@@ -45,11 +65,17 @@ const Right = styled.div`
   align-items: center;
 `;
 
-const MobileTrigger = styled.div`
+const MobileTrigger = styled(Popover.Trigger)`
+  all: unset;
   position: relative;
   display: flex;
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  }
 `;
 
 const MobileTriggerLine = styled(motion.div)<{
@@ -64,18 +90,18 @@ const MobileTriggerLine = styled(motion.div)<{
 `;
 
 const Line1 = styled(MobileTriggerLine)`
-  top: 4px;
-  left: 2px;
+  top: 12px;
+  left: 10px;
 `;
 
 const Line2 = styled(MobileTriggerLine)`
-  top: 11px;
-  left: 2px;
+  top: 19px;
+  left: 10px;
 `;
 
 const Line3 = styled(MobileTriggerLine)`
-  top: 18px;
-  left: 2px;
+  top: 26px;
+  left: 10px;
 `;
 
 export const Header: FC<HeaderProps> = ({
@@ -91,19 +117,6 @@ export const Header: FC<HeaderProps> = ({
   const isDesktop = useMediaQuery({ min: breakpoint || 1024 });
   const [active, setActive] = useState<string | null>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-
-  const LogoLink = styled.a`
-    display: block;
-    padding: ${spacing[2]};
-    font-size: 0;
-    border-radius: 6px;
-    margin-top: -4px;
-
-    &:focus-visible {
-      box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
-      outline: none;
-    }
-  `;
 
   return (
     <HeaderContext.Provider
@@ -121,40 +134,46 @@ export const Header: FC<HeaderProps> = ({
     >
       <Container>
         <Wrapper breakpoint={breakpoint}>
-          <Left role="none">
-            <LogoLink href="" aria-label="Logo">
+          <Left>
+            <LogoLink href="" aria-label="Home">
               <Logo name={logo} height={24} theme={theme} />
             </LogoLink>
             {isDesktop && <NavDesktop />}
-            <AnimatePresence>
-              {!isDesktop && mobileMenuOpen && <NavMobile />}
-            </AnimatePresence>
           </Left>
           {isDesktop && <Right>{right}</Right>}
           {!isDesktop && (
-            <MobileTrigger onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <Line1
-                headerTheme={theme}
-                animate={{
-                  rotate: mobileMenuOpen ? '-45deg' : 0,
-                  y: mobileMenuOpen ? 7 : 0,
-                }}
-              />
-              <Line2
-                headerTheme={theme}
-                animate={{
-                  opacity: mobileMenuOpen ? 0 : 1,
-                  x: mobileMenuOpen ? 4 : 0,
-                }}
-              />
-              <Line3
-                headerTheme={theme}
-                animate={{
-                  rotate: mobileMenuOpen ? '45deg' : 0,
-                  y: mobileMenuOpen ? -7 : 0,
-                }}
-              />
-            </MobileTrigger>
+            <Popover.Root>
+              <MobileTrigger onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                <Line1
+                  headerTheme={theme}
+                  animate={{
+                    rotate: mobileMenuOpen ? '-45deg' : 0,
+                    y: mobileMenuOpen ? 7 : 0,
+                  }}
+                />
+                <Line2
+                  headerTheme={theme}
+                  animate={{
+                    opacity: mobileMenuOpen ? 0 : 1,
+                    x: mobileMenuOpen ? 4 : 0,
+                  }}
+                />
+                <Line3
+                  headerTheme={theme}
+                  animate={{
+                    rotate: mobileMenuOpen ? '45deg' : 0,
+                    y: mobileMenuOpen ? -7 : 0,
+                  }}
+                />
+              </MobileTrigger>
+              <AnimatePresence>
+                {mobileMenuOpen && (
+                  <Popover.Portal forceMount>
+                    <NavMobile />
+                  </Popover.Portal>
+                )}
+              </AnimatePresence>
+            </Popover.Root>
           )}
         </Wrapper>
       </Container>

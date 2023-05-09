@@ -75,6 +75,7 @@
   },
   "dependencies": {
     "@radix-ui/react-navigation-menu": "1.1.2",
+    "@radix-ui/react-popover": "1.0.5",
     "@storybook/design-system": "7.15.9",
     "@storybook/theming": "7.0.7",
     "framer-motion": "10.12.4"
