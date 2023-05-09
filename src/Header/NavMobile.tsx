@@ -8,6 +8,7 @@ import { minSm } from '../_helpers';
 import * as Popover from '@radix-ui/react-popover';
 
 const NavigationMenu = styled(motion.div)`
+  position: relative;
   background-color: ${color.white};
   box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
     hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
@@ -22,12 +23,31 @@ const NavigationMenu = styled(motion.div)`
   }
 `;
 
+const PopoverClose = styled(Popover.Close)`
+  all: unset;
+  position: absolute;
+  right: 4px;
+  top: -48px;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  }
+
+  ${minSm} {
+    right: 8px;
+    top: -48px;
+  }
+`;
+
 const List = styled.div`
   padding: ${spacing[3]} ${spacing[5]};
 `;
 
 export const NavMobile: FC = () => {
-  const { navMobile } = useHeaderContext();
+  const { navMobile, setMobileMenuOpen, mobileMenuOpen } = useHeaderContext();
 
   return (
     <Popover.Content asChild>
@@ -44,6 +64,7 @@ export const NavMobile: FC = () => {
               return <NavMobileGroup key={i} group={group} isLast={isLast} />;
             })}
         </List>
+        <PopoverClose onClick={() => setMobileMenuOpen(!mobileMenuOpen)} />
       </NavigationMenu>
     </Popover.Content>
   );

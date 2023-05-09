@@ -11,23 +11,19 @@ export interface DesktopItemProps {
   title: string;
 }
 
-const Container = styled.div`
+const Container = styled.button`
+  all: unset;
   display: flex;
   flex-direction: row;
   gap: ${spacing[3]};
   height: ${spacing[8]};
   align-items: center;
-`;
+  padding: 0 ${spacing[2]};
+  border-radius: 6px;
 
-const IconWrapper = styled.div`
-  width: ${spacing[4]};
-  padding-top: ${spacing[0.25]};
-`;
-
-const TextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${spacing[0.5]};
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  }
 `;
 
 export const NavMobileItem: FC<DesktopItemProps> = ({
@@ -38,17 +34,11 @@ export const NavMobileItem: FC<DesktopItemProps> = ({
 }) => {
   return (
     <Container>
-      <IconWrapper>
-        {!customIcon && icon && (
-          <Icon name={icon} size={16} color={iconColor} />
-        )}
-        {customIcon}
-      </IconWrapper>
-      <TextWrapper>
-        <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
-          {title}
-        </Text>
-      </TextWrapper>
+      {!customIcon && icon && <Icon name={icon} size={16} color={iconColor} />}
+      {customIcon}
+      <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
+        {title}
+      </Text>
     </Container>
   );
 };

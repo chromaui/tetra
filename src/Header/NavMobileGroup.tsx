@@ -25,7 +25,9 @@ const ListTitleContainer = styled.div`
 `;
 
 const Container = styled(motion.div)`
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: ${spacing[1]};
 `;
 
 const MoreContainer = styled(motion.div)`
