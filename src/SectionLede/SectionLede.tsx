@@ -2,6 +2,7 @@ import React, { FC, ReactNode } from 'react';
 import { color, spacing } from '../_tokens';
 import { minLg, minMd } from '../_helpers';
 
+import { Stack } from '../Stack/Stack';
 import { Text } from '../Text/Text';
 import { styled } from '@storybook/theming';
 
@@ -11,18 +12,8 @@ const ContentContainer = styled.div`
   flex-direction: column;
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled(Stack)`
   align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-
-  & > * + * {
-    margin-top: ${spacing[5]};
-
-    ${minMd} {
-      margin-top: ${spacing[8]};
-    }
-  }
 `;
 
 const SectionHeading = styled(Text)<{
@@ -34,18 +25,9 @@ const SectionHeading = styled(Text)<{
   min-width: 0;
 `;
 
-const InnerWrapper = styled.div`
+const InnerWrapper = styled(Stack)`
   ${minMd} {
-    text-align: left;
     max-width: 66%;
-  }
-
-  & > * + * {
-    margin-top: ${spacing[5]};
-
-    ${minMd} {
-      margin-top: ${spacing[8]};
-    }
   }
 `;
 
@@ -79,11 +61,11 @@ export const SectionLede: FC<SectionLedeProps> = ({
   ...rest
 }) => (
   <ContentContainer {...rest}>
-    <ContentWrapper>
+    <ContentWrapper direction="column" gap={8}>
       <Text as={headingWrapper} variant={headingVariant}>
         {heading}
       </Text>
-      <InnerWrapper>
+      <InnerWrapper direction="column" gap={8}>
         <Text variant={ledeParagraphVariant}>{copy}</Text>
         {actions && <Actions>{actions}</Actions>}
       </InnerWrapper>
