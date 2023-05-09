@@ -47,7 +47,6 @@ const Box = styled.div<{ width: string }>`
 `;
 
 export const Spacings: FC<Props> = ({ list }) => {
-  console.log(list);
   return (
     <Container>
       <Line>
