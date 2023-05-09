@@ -4,7 +4,7 @@ import { color, spacing } from '../_tokens';
 import { Icon, IconType } from '../Icon/Icon';
 import { Text } from '../Text';
 
-export interface DesktopItemProps {
+export interface MobileItemProps {
   icon?: IconType;
   iconColor?: keyof typeof color;
   customIcon?: ReactNode;
@@ -27,7 +27,7 @@ const Container = styled.button`
   }
 `;
 
-export const NavMobileItem: FC<DesktopItemProps> = ({
+export const NavMobileItem: FC<MobileItemProps> = ({
   icon,
   iconColor,
   customIcon,
