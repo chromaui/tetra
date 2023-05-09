@@ -37,34 +37,3 @@ export const Base: Story = {
     <CustomerStoryHero items={items} />
   ),
 };
-
-export const OneByTwo: Story = {
-  args: {
-    items: [
-      {
-        imgPath: 'https://placehold.co/552x400',
-        imgAlt: 'placeholder image',
-        caption: 'Caption 1',
-        position: 'first',
-      },
-      {
-        imgPath: 'https://placehold.co/260x400',
-        imgAlt: 'placeholder image',
-        caption: 'Caption 2',
-        position: 'last',
-      },
-      {
-        imgPath: 'https://placehold.co/260x400',
-        imgAlt: 'placeholder image',
-        caption: 'Caption 3',
-        position: 'last',
-      },
-    ]
-  },
-  parameters: {
-    layout: 'centered',
-  },
-  render: ({ items }) => (
-    <CustomerStoryHero items={items} />
-  ),
-};
