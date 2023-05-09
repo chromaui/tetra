@@ -41,7 +41,7 @@ export const NavDesktop: FC = () => {
               onBlur={() => setActive('')}
             >
               <NavDesktopLink key={item.name} item={item} />
-              <NavDesktopContent item={item} />
+              {item.menu && <NavDesktopContent item={item} />}
             </NavigationMenuItem>
           ))}
       </NavigationMenuList>

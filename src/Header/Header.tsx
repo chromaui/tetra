@@ -13,24 +13,26 @@ import * as Popover from '@radix-ui/react-popover';
 import { minSm } from '../_helpers';
 
 // TODO
-// - [ ] Add gridalt icon for the use cases
 // - [x] Add new link component to the header
 // - [x] Add active state + a story for active state
 // - [x] Add height to logo
-// - [ ] Add story for mobile menu with Chromatic values
-// - [ ] Make the mobile nav accessible with Radix
-
-// - [ ] Find a way to make items clickable
+// - [x] Make the mobile nav accessible with Radix
 // - [x] Add linkContext
 // - [x] Add linkWithWrapper
+// - [ ] Add story for mobile menu with Chromatic values
+// - [ ] Make the logo clickage with LinkWithWrapper
+// - [ ] Add gridalt icon for the use cases
+// - [ ] Burger menu - Try to fit into 18px
 
-const Wrapper = styled.div<{ breakpoint?: HeaderProps['breakpoint'] }>`
+const Wrapper = styled.div<{
+  desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
+}>`
   display: flex;
   height: 60px;
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: ${({ breakpoint }) => breakpoint}px) {
+  @media (min-width: ${({ desktopBreakpoint }) => desktopBreakpoint}px) {
     height: 120px;
   }
 `;
@@ -109,12 +111,12 @@ export const Header: FC<HeaderProps> = ({
   logo = 'chromatic',
   navDesktop,
   navMobile,
-  breakpoint,
+  desktopBreakpoint,
   right,
   triggerType = 'hover',
   activeSection,
 }) => {
-  const isDesktop = useMediaQuery({ min: breakpoint || 1024 });
+  const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
   const [active, setActive] = useState<string | null>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [mobileValue, setMobileValue] = useState<string[]>([]);
@@ -146,7 +148,7 @@ export const Header: FC<HeaderProps> = ({
       }}
     >
       <Container>
-        <Wrapper breakpoint={breakpoint}>
+        <Wrapper desktopBreakpoint={desktopBreakpoint}>
           <Left>
             <LogoLink href="" aria-label="Home">
               <Logo name={logo} height={24} theme={theme} />

@@ -3,7 +3,6 @@ import { Header } from './Header';
 import { Button } from '../Button';
 import { navDesktop, navMobile } from './data';
 import { Link } from '../Link';
-import { FC, ReactNode } from 'react';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -19,7 +18,7 @@ export const Light: Story = {
     activeSection: undefined,
     navDesktop: navDesktop,
     navMobile: navMobile,
-    breakpoint: 1024,
+    desktopBreakpoint: 940,
     right: (
       <>
         <Link>Sign in</Link>
