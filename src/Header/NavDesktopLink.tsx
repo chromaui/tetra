@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { css, styled } from '@storybook/theming';
 import { Icon } from '../Icon/Icon';
 import { Text } from '../Text';
-import { useHeaderContext } from './HeaderContext';
+import { useHeaderContext } from './context';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { HeaderDesktopItem } from './types';
 import { spacing } from '../_tokens';

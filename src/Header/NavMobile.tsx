@@ -1,7 +1,7 @@
 import { styled } from '@storybook/theming';
 import React, { FC, useEffect } from 'react';
 import { color, spacing } from '../_tokens';
-import { useHeaderContext } from './HeaderContext';
+import { useHeaderContext } from './context';
 import { motion } from 'framer-motion';
 import { NavMobileGroup } from './NavMobileGroup';
 import { minSm } from '../_helpers';
@@ -57,7 +57,7 @@ export const NavMobile: FC = () => {
   } = useHeaderContext();
 
   return (
-    <Popover.Content asChild>
+    <Popover.Content asChild aria-label="Menu">
       <NavigationMenu
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -80,7 +80,10 @@ export const NavMobile: FC = () => {
             })}
           </AccordionRoot>
         )}
-        <PopoverClose onClick={() => setMobileMenuOpen(!mobileMenuOpen)} />
+        <PopoverClose
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Close Menu"
+        />
       </NavigationMenu>
     </Popover.Content>
   );

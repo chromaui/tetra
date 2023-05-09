@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import HeaderContext from './HeaderContext';
+import { HeaderProvider, useHeaderContext } from './context';
 import { styled } from '@storybook/theming';
 import { Logo } from '../Logo';
 import { color, spacing } from '../_tokens';
@@ -108,18 +108,48 @@ const Line3 = styled(MobileTriggerLine)`
 
 export const Header: FC<HeaderProps> = ({
   theme = 'light',
-  logo = 'chromatic',
+  logo,
   navDesktop,
   navMobile,
   desktopBreakpoint,
   right,
-  triggerType = 'hover',
   activeSection,
 }) => {
+  return (
+    <HeaderProvider
+      theme={theme}
+      navDesktop={navDesktop}
+      navMobile={navMobile}
+      activeSection={activeSection}
+    >
+      <HeaderWithProvider
+        desktopBreakpoint={desktopBreakpoint}
+        logo={logo}
+        right={right}
+      />
+    </HeaderProvider>
+  );
+};
+
+interface HeaderWithProviderProps {
+  desktopBreakpoint: HeaderProps['desktopBreakpoint'];
+  logo: HeaderProps['logo'];
+  right: HeaderProps['right'];
+}
+
+const HeaderWithProvider: FC<HeaderWithProviderProps> = ({
+  desktopBreakpoint,
+  logo,
+  right,
+}) => {
+  const {
+    navMobile,
+    theme,
+    mobileMenuOpen,
+    setMobileMenuOpen,
+    setMobileValue,
+  } = useHeaderContext();
   const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
-  const [active, setActive] = useState<string | null>('');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [mobileValue, setMobileValue] = useState<string[]>([]);
 
   useEffect(() => {
     const mobileOpebByDefaultList = navMobile?.filter(
@@ -132,66 +162,53 @@ export const Header: FC<HeaderProps> = ({
   }, []);
 
   return (
-    <HeaderContext.Provider
-      value={{
-        theme,
-        triggerType,
-        navDesktop,
-        navMobile,
-        active,
-        setActive,
-        mobileMenuOpen,
-        setMobileMenuOpen,
-        activeSection,
-        mobileValue,
-        setMobileValue,
-      }}
-    >
-      <Container>
-        <Wrapper desktopBreakpoint={desktopBreakpoint}>
-          <Left>
-            <LogoLink href="" aria-label="Home">
-              <Logo name={logo} height={24} theme={theme} />
-            </LogoLink>
-            {isDesktop && <NavDesktop />}
-          </Left>
-          {isDesktop && <Right>{right}</Right>}
-          {!isDesktop && (
-            <Popover.Root>
-              <MobileTrigger onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                <Line1
-                  headerTheme={theme}
-                  animate={{
-                    rotate: mobileMenuOpen ? '-45deg' : 0,
-                    y: mobileMenuOpen ? 7 : 0,
-                  }}
-                />
-                <Line2
-                  headerTheme={theme}
-                  animate={{
-                    opacity: mobileMenuOpen ? 0 : 1,
-                    x: mobileMenuOpen ? 4 : 0,
-                  }}
-                />
-                <Line3
-                  headerTheme={theme}
-                  animate={{
-                    rotate: mobileMenuOpen ? '45deg' : 0,
-                    y: mobileMenuOpen ? -7 : 0,
-                  }}
-                />
-              </MobileTrigger>
-              <AnimatePresence>
-                {mobileMenuOpen && (
-                  <Popover.Portal forceMount>
-                    <NavMobile />
-                  </Popover.Portal>
-                )}
-              </AnimatePresence>
-            </Popover.Root>
-          )}
-        </Wrapper>
-      </Container>
-    </HeaderContext.Provider>
+    <Container>
+      <Wrapper desktopBreakpoint={desktopBreakpoint}>
+        <Left>
+          <LogoLink href="" aria-label="Home">
+            <Logo name={logo || 'chromatic'} height={24} theme={theme} />
+          </LogoLink>
+          {isDesktop && <NavDesktop />}
+        </Left>
+        {isDesktop && <Right>{right}</Right>}
+        {!isDesktop && (
+          <Popover.Root>
+            <MobileTrigger
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Menu"
+            >
+              <Line1
+                headerTheme={theme}
+                animate={{
+                  rotate: mobileMenuOpen ? '-45deg' : 0,
+                  y: mobileMenuOpen ? 7 : 0,
+                }}
+              />
+              <Line2
+                headerTheme={theme}
+                animate={{
+                  opacity: mobileMenuOpen ? 0 : 1,
+                  x: mobileMenuOpen ? 4 : 0,
+                }}
+              />
+              <Line3
+                headerTheme={theme}
+                animate={{
+                  rotate: mobileMenuOpen ? '45deg' : 0,
+                  y: mobileMenuOpen ? -7 : 0,
+                }}
+              />
+            </MobileTrigger>
+            <AnimatePresence>
+              {mobileMenuOpen && (
+                <Popover.Portal forceMount>
+                  <NavMobile />
+                </Popover.Portal>
+              )}
+            </AnimatePresence>
+          </Popover.Root>
+        )}
+      </Wrapper>
+    </Container>
   );
 };

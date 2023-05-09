@@ -42,7 +42,6 @@ export interface HeaderProps {
   theme?: 'light' | 'dark';
   logo?: 'chromatic' | 'storybook';
   right?: ReactNode;
-  triggerType?: 'click' | 'hover';
   desktopBreakpoint?: number;
   navDesktop: HeaderDesktopItem[];
   navMobile: HeaderMobileGroup[];

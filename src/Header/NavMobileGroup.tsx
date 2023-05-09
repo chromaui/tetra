@@ -8,7 +8,7 @@ import { Icon } from '../Icon';
 import { HeaderMobileGroup } from './types';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import * as Accordion from '@radix-ui/react-accordion';
-import { useHeaderContext } from './HeaderContext';
+import { useHeaderContext } from './context';
 import { slideDown, slideUp } from './styles';
 
 interface Props {
