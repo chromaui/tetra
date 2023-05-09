@@ -35,8 +35,7 @@ const AccordionTrigger = styled(Accordion.Trigger)`
   height: ${spacing[8]};
   padding: 0 ${spacing[2]};
   border-radius: 6px;
-  margin-left: -${spacing[2]};
-  width: 100%;
+  width: calc(100% - ${spacing[4]});
 
   &:focus {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
@@ -45,6 +44,7 @@ const AccordionTrigger = styled(Accordion.Trigger)`
 
 const AccordionContent = styled(Accordion.Content)`
   overflow: hidden;
+  padding: ${spacing[0.5]} ${spacing[0.5]};
 
   &[data-state='open'] {
     animation: ${slideDown} 300ms ease-out;
@@ -61,8 +61,7 @@ const MoreTrigger = styled(Collapsible.Trigger)`
   align-items: center;
   gap: ${spacing[3]};
   padding: 0 ${spacing[2]};
-  margin-left: -${spacing[2]};
-  width: 100%;
+  width: calc(100% - ${spacing[4]});
   height: ${spacing[8]};
   border-radius: 6px;
 

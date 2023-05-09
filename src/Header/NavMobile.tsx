@@ -44,7 +44,7 @@ const PopoverClose = styled(Popover.Close)`
 `;
 
 const AccordionRoot = styled(Accordion.Root)`
-  padding: ${spacing[3]} ${spacing[5]};
+  padding: ${spacing[3]} ${spacing[3]};
 `;
 
 export const NavMobile: FC = () => {
