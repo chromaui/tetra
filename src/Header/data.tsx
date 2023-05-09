@@ -279,7 +279,9 @@ export const navMobile: HeaderProps['navMobile'] = [
     ],
   },
   {
+    name: 'Other Stuff',
     openByDefault: true,
+    hideHeader: true,
     content: [
       {
         title: 'Pricing',

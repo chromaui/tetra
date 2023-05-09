@@ -4,6 +4,7 @@ import { color } from '../_tokens';
 
 export interface HeaderMobileGroup {
   name?: string;
+  hideHeader?: boolean;
   maxItems?: number;
   openByDefault?: boolean;
   toggle?: boolean;

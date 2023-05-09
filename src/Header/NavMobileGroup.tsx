@@ -7,6 +7,9 @@ import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
 import { HeaderMobileGroup } from './types';
 import * as Collapsible from '@radix-ui/react-collapsible';
+import * as Accordion from '@radix-ui/react-accordion';
+import { useHeaderContext } from './HeaderContext';
+import { slideDown, slideUp } from './styles';
 
 interface Props {
   group: HeaderMobileGroup;
@@ -18,21 +21,38 @@ const NavItem = styled(motion.div)`
   border-bottom-style: solid;
 `;
 
-const ListTitleContainer = styled.div`
+const AccordionHeader = styled(Accordion.Header)`
+  all: unset;
+  display: block;
+`;
+
+const AccordionTrigger = styled(Accordion.Trigger)`
+  all: unset;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: ${spacing[8]};
+  padding: 0 ${spacing[2]};
+  border-radius: 6px;
+  margin-left: -${spacing[2]};
+  width: 100%;
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  }
 `;
 
-const Container = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  gap: ${spacing[1]};
-`;
+const AccordionContent = styled(Accordion.Content)`
+  overflow: hidden;
 
-const MoreContainer = styled(motion.div)`
-  /* overflow: hidden; */
+  &[data-state='open'] {
+    animation: ${slideDown} 300ms ease-out;
+  }
+
+  &[data-state='closed'] {
+    animation: ${slideUp} 300ms ease-out;
+  }
 `;
 
 const MoreTrigger = styled(Collapsible.Trigger)`
@@ -58,19 +78,13 @@ const CaretDown = styled(motion.div)`
 `;
 
 export const NavMobileGroup: FC<Props> = ({ group, isLast }) => {
-  const [isOpen, setIsOpen] = useState(group.openByDefault || false);
+  const { mobileValue } = useHeaderContext();
   const [viewMoreOpen, setViewMoreOpen] = useState(false);
   const list = group.maxItems
     ? group.content.slice(0, group.maxItems)
     : group.content;
   const listMore = group.content.slice(group.maxItems);
-
-  const close = () => {
-    if (group.toggle !== false) {
-      setIsOpen(!isOpen);
-      setViewMoreOpen(false);
-    }
-  };
+  const isOpen = mobileValue.find((item) => item === group.name);
 
   return (
     <NavItem
@@ -85,33 +99,62 @@ export const NavMobileGroup: FC<Props> = ({ group, isLast }) => {
           : color.white,
       }}
     >
-      {group.name && (
-        <ListTitleContainer onClick={close}>
-          <Text variant="subheading" color="gray400">
-            {group.name}
-          </Text>
-          {group.toggle !== false && (
-            <CaretDown
-              initial={false}
-              animate={{ rotate: isOpen ? -180 : 0 }}
-              transition={{
-                duration: 0.12,
-                ease: 'easeInOut',
-              }}
-            >
-              <Icon name="arrowdown" aria-hidden size={12} color="gray400" />
-            </CaretDown>
-          )}
-        </ListTitleContainer>
+      {!group.hideHeader && (
+        <AccordionHeader>
+          <AccordionTrigger>
+            <Text variant="subheading" color="gray400">
+              {group.name}
+            </Text>
+            {group.toggle !== false && (
+              <CaretDown
+                initial={false}
+                animate={{ rotate: isOpen ? -180 : 0 }}
+                transition={{
+                  duration: 0.12,
+                  ease: 'easeInOut',
+                }}
+              >
+                <Icon name="arrowdown" aria-hidden size={12} color="gray400" />
+              </CaretDown>
+            )}
+          </AccordionTrigger>
+        </AccordionHeader>
       )}
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <Container
-            initial={{ height: 0 }}
-            animate={{ height: 'auto' }}
-            exit={{ height: 0 }}
-          >
-            {list.map((item) => (
+      <AccordionContent>
+        {list.map((item) => (
+          <NavMobileItem
+            key={item.title}
+            icon={item.icon}
+            customIcon={item.customIcon}
+            iconColor={item.iconColor}
+            title={item.title}
+          />
+        ))}
+        <Collapsible.Root>
+          <AnimatePresence initial={false}>
+            {group.maxItems && !viewMoreOpen && (
+              <motion.div
+                onClick={() => setViewMoreOpen(true)}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+              >
+                <MoreTrigger>
+                  <Icon name="plus" color="gray400" size={16} />
+                  <Text
+                    as="div"
+                    lineHeightAuto
+                    color="gray400"
+                    variant="bodySm"
+                  >
+                    View more
+                  </Text>
+                </MoreTrigger>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <Collapsible.Content>
+            {listMore.map((item) => (
               <NavMobileItem
                 key={item.title}
                 icon={item.icon}
@@ -120,44 +163,9 @@ export const NavMobileGroup: FC<Props> = ({ group, isLast }) => {
                 title={item.title}
               />
             ))}
-            <Collapsible.Root>
-              <AnimatePresence initial={false}>
-                {group.maxItems && !viewMoreOpen && (
-                  <MoreContainer
-                    onClick={() => setViewMoreOpen(true)}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                  >
-                    <MoreTrigger>
-                      <Icon name="plus" color="gray400" size={16} />
-                      <Text
-                        as="div"
-                        lineHeightAuto
-                        color="gray400"
-                        variant="bodySm"
-                      >
-                        View more
-                      </Text>
-                    </MoreTrigger>
-                  </MoreContainer>
-                )}
-              </AnimatePresence>
-              <Collapsible.Content>
-                {listMore.map((item) => (
-                  <NavMobileItem
-                    key={item.title}
-                    icon={item.icon}
-                    customIcon={item.customIcon}
-                    iconColor={item.iconColor}
-                    title={item.title}
-                  />
-                ))}
-              </Collapsible.Content>
-            </Collapsible.Root>
-          </Container>
-        )}
-      </AnimatePresence>
+          </Collapsible.Content>
+        </Collapsible.Root>
+      </AccordionContent>
     </NavItem>
   );
 };

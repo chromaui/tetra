@@ -1,11 +1,12 @@
 import { styled } from '@storybook/theming';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { color, spacing } from '../_tokens';
 import { useHeaderContext } from './HeaderContext';
 import { motion } from 'framer-motion';
 import { NavMobileGroup } from './NavMobileGroup';
 import { minSm } from '../_helpers';
 import * as Popover from '@radix-ui/react-popover';
+import * as Accordion from '@radix-ui/react-accordion';
 
 const NavigationMenu = styled(motion.div)`
   position: relative;
@@ -42,12 +43,18 @@ const PopoverClose = styled(Popover.Close)`
   }
 `;
 
-const List = styled.div`
+const AccordionRoot = styled(Accordion.Root)`
   padding: ${spacing[3]} ${spacing[5]};
 `;
 
 export const NavMobile: FC = () => {
-  const { navMobile, setMobileMenuOpen, mobileMenuOpen } = useHeaderContext();
+  const {
+    navMobile,
+    setMobileMenuOpen,
+    mobileMenuOpen,
+    mobileValue,
+    setMobileValue,
+  } = useHeaderContext();
 
   return (
     <Popover.Content asChild>
@@ -57,13 +64,22 @@ export const NavMobile: FC = () => {
         exit={{ opacity: 0, y: -8 }}
         transition={{ ease: 'easeOut', duration: 0.14 }}
       >
-        <List>
-          {navMobile &&
-            navMobile.map((group, i) => {
+        {navMobile && (
+          <AccordionRoot
+            type="multiple"
+            value={mobileValue}
+            onValueChange={setMobileValue}
+          >
+            {navMobile.map((group, i) => {
               const isLast = navMobile.indexOf(group) === navMobile.length - 1;
-              return <NavMobileGroup key={i} group={group} isLast={isLast} />;
+              return (
+                <Accordion.Item value={group.name || i.toString()}>
+                  <NavMobileGroup key={i} group={group} isLast={isLast} />
+                </Accordion.Item>
+              );
             })}
-        </List>
+          </AccordionRoot>
+        )}
         <PopoverClose onClick={() => setMobileMenuOpen(!mobileMenuOpen)} />
       </NavigationMenu>
     </Popover.Content>

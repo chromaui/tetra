@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import HeaderContext from './HeaderContext';
 import { styled } from '@storybook/theming';
 import { Logo } from '../Logo';
@@ -117,6 +117,17 @@ export const Header: FC<HeaderProps> = ({
   const isDesktop = useMediaQuery({ min: breakpoint || 1024 });
   const [active, setActive] = useState<string | null>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [mobileValue, setMobileValue] = useState<string[]>([]);
+
+  useEffect(() => {
+    const mobileOpebByDefaultList = navMobile?.filter(
+      (item) => item.openByDefault === true
+    );
+    const mobileDefaultNames = mobileOpebByDefaultList?.map(
+      (item) => item.name || ''
+    );
+    setMobileValue(mobileDefaultNames || []);
+  }, []);
 
   return (
     <HeaderContext.Provider
@@ -130,6 +141,8 @@ export const Header: FC<HeaderProps> = ({
         mobileMenuOpen,
         setMobileMenuOpen,
         activeSection,
+        mobileValue,
+        setMobileValue,
       }}
     >
       <Container>

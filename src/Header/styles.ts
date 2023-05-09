@@ -109,3 +109,21 @@ export const fadeOut = keyframes`
     opacity: 0;
   }
 `;
+
+export const slideDown = keyframes`
+   from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+`;
+
+export const slideUp = keyframes`
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+`;

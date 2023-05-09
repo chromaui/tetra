@@ -10,6 +10,8 @@ interface HeaderContextType {
   setActive: (id: string | null) => void;
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (value: boolean) => void;
+  mobileValue: string[];
+  setMobileValue: (value: string[]) => void;
   activeSection: HeaderProps['activeSection'];
 }
 

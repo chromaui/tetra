@@ -2,7 +2,13 @@ import React, { FC } from 'react';
 
 export const MondayIcon: FC = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      width={16}
+      height={16}
+      viewBox="0 0 16 16"
+    >
       <path
         fill="#F62B54"
         d="M1.99 12.593a1.998 1.998 0 0 1-1.74-1.01 1.932 1.932 0 0 1 .054-1.99l3.586-5.63A2 2 0 0 1 5.66 3a1.996 1.996 0 0 1 1.713 1.056 1.93 1.93 0 0 1-.108 1.986l-3.584 5.63a1.999 1.999 0 0 1-1.69.92Z"
