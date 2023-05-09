@@ -7,7 +7,6 @@ import { IconType } from '../Icon/Icon';
 export interface LinkProps {
   children: String;
   size?: 'sm' | 'md' | 'lg';
-  variant?: 'solid' | 'outline';
   color?: keyof typeof tokenColor;
   leftIcon?: IconType;
   rightIcon?: IconType;
@@ -19,7 +18,6 @@ export interface LinkProps {
 
 const Container = styled.a<{
   size: LinkProps['size'];
-  variant: LinkProps['variant'];
   color: LinkProps['color'];
 }>`
   border: 0;
@@ -48,7 +46,6 @@ const Container = styled.a<{
 export const Link: FC<LinkProps> = ({
   children,
   size = 'md',
-  variant = 'solid',
   color = 'blue500',
   leftIcon,
   rightIcon,
@@ -69,7 +66,6 @@ export const Link: FC<LinkProps> = ({
   return (
     <Container
       size={size}
-      variant={variant}
       color={color}
       onClick={onClick}
       as={asContainer}
