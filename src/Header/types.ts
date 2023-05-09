@@ -43,7 +43,7 @@ export interface HeaderProps {
   logo?: 'chromatic' | 'storybook';
   right?: ReactNode;
   triggerType?: 'click' | 'hover';
-  breakpoint?: number;
+  desktopBreakpoint?: number;
   navDesktop: HeaderDesktopItem[];
   navMobile: HeaderMobileGroup[];
   activeSection?: string;
