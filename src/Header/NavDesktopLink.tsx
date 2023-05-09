@@ -37,24 +37,16 @@ export const NavigationMenuItem = css`
   }
 `;
 
-const NavigationMenuTrigger = styled(NavigationMenu.Trigger)<{
-  isactive: string;
-}>`
+const NavigationMenuTrigger = styled(NavigationMenu.Trigger)`
   ${NavigationMenuItem}
-  background-color: ${(props) =>
-    props.isactive === 'true' ? 'rgba(30, 167, 253, 0.07)' : 'transparent'};
 
   &[data-state='open'] > .CaretDown {
     transform: rotate(-180deg) translateY(0px);
   }
 `;
 
-const NavigationMenuLink = styled(LinkWithWrapper)<{
-  isactive: string;
-}>`
+const NavigationMenuLink = styled(LinkWithWrapper)`
   ${NavigationMenuItem}
-  background-color: ${(props) =>
-    props.isactive === 'true' ? 'rgba(30, 167, 253, 0.07)' : 'transparent'};
 `;
 
 const CaretDown = styled.div`
@@ -66,10 +58,11 @@ const CaretDown = styled.div`
 export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
   const { theme, active, activeSection } = useHeaderContext();
   const isActive = active === item.name || activeSection === item.name;
+  const bgColor = isActive ? 'rgba(30, 167, 253, 0.07)' : 'transparent';
 
   if (item.menu)
     return (
-      <NavigationMenuTrigger isactive={isActive.toString()}>
+      <NavigationMenuTrigger style={{ backgroundColor: bgColor }}>
         <Text
           as="div"
           lineHeightAuto
@@ -93,9 +86,9 @@ export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
   return (
     <NavigationMenu.Link asChild>
       <NavigationMenuLink
-        isactive={isActive.toString()}
         href={item.href || ''}
         LinkWrapper={item.linkWrapper}
+        style={{ backgroundColor: bgColor }}
       >
         <Text
           as="div"
