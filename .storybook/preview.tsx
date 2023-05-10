@@ -1,8 +1,5 @@
-import React from 'react';
-import type { Preview, Decorator } from '@storybook/react';
+import type { Preview } from '@storybook/react';
 import { loadFontsForStorybook } from '@storybook/design-system';
-
-const withGlobalStyle: Decorator = (storyFn) => <>{storyFn()}</>;
 
 const preview: Preview = {
   parameters: {
@@ -17,41 +14,11 @@ const preview: Preview = {
     },
     viewport: {
       viewports: {
-        smallMobile: {
-          name: 'Mobile (Small)',
-          styles: {
-            width: '320px',
-            height: '100%',
-          },
-        },
-        mobile: {
-          name: 'Mobile',
-          styles: {
-            width: '440px',
-            height: '100%',
-          },
-        },
-        tablet: {
-          name: 'Tablet',
-          styles: {
-            width: '600px',
-            height: '100%',
-          },
-        },
-        desktop: {
-          name: 'Desktop',
-          styles: {
-            width: '900px',
-            height: '100%',
-          },
-        },
-        desktopXL: {
-          name: 'DesktopXL',
-          styles: {
-            width: '1200px',
-            height: '100%',
-          },
-        },
+        sm: { name: 'Small', styles: { width: '640px', height: '100%' } },
+        md: { name: 'Medium', styles: { width: '768px', height: '100%' } },
+        lg: { name: 'Large', styles: { width: '1024px', height: '100%' } },
+        xl: { name: 'XL', styles: { width: '1280px', height: '100%' } },
+        '2xl': { name: '2XL', styles: { width: '1536px', height: '100%' } },
       },
     },
     controls: {
@@ -61,7 +28,6 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [withGlobalStyle],
 };
 
 loadFontsForStorybook();

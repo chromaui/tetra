@@ -38,7 +38,6 @@ export const Light: Story = {
       </div>
     ),
   },
-  render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [320, 440, 600, 900] },
@@ -50,7 +49,6 @@ export const Dark: Story = {
     ...Light.args,
     theme: 'dark',
   },
-  render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [320, 440, 600, 900] },
@@ -63,7 +61,6 @@ export const ActiveLight: Story = {
     ...Light.args,
     desktopActive: 'Customers',
   },
-  render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [320, 440, 600, 900] },
@@ -76,7 +73,6 @@ export const ActiveDark: Story = {
     theme: 'dark',
     desktopActive: 'Customers',
   },
-  render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [320, 440, 600, 900] },
@@ -88,7 +84,6 @@ export const MobileLight: Story = {
   args: {
     ...Light.args,
   },
-  render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
@@ -103,7 +98,6 @@ export const MobileDark: Story = {
     ...Light.args,
     theme: 'dark',
   },
-  render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
@@ -118,7 +112,6 @@ export const TabletLight: Story = {
   args: {
     ...Light.args,
   },
-  render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [834] },
@@ -133,7 +126,6 @@ export const TabletDark: Story = {
     ...Light.args,
     theme: 'dark',
   },
-  render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [834] },
@@ -149,7 +141,6 @@ export const MobileOpen: Story = {
     ...Light.args,
     mobileOpen: true,
   },
-  render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
@@ -164,7 +155,6 @@ export const TabletOpen: Story = {
     ...Light.args,
     mobileOpen: true,
   },
-  render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [834] },
