@@ -17,6 +17,8 @@ const NavigationMenu = styled(motion.div)`
   margin-top: ${spacing[2]};
   min-width: calc(100vw - ${spacing[8]});
   margin-right: ${spacing[4]};
+  max-height: calc(100vh - 72px);
+  overflow-y: scroll;
 
   ${minSm} {
     margin-right: ${spacing[8]};
@@ -47,12 +49,20 @@ const AccordionRoot = styled(Accordion.Root)`
   padding: ${spacing[3]} ${spacing[3]};
 `;
 
+const Bottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 ${spacing[5]} ${spacing[5]};
+  gap: ${spacing[3]};
+`;
+
 export const NavMobile: FC = () => {
   const {
     mobileData,
-    setMobileMenuOpen,
     mobileMenuOpen,
     mobileGroupOpen,
+    mobileBottom,
+    setMobileMenuOpen,
     setMobileGroupOpen,
   } = useHeaderContext();
 
@@ -85,6 +95,7 @@ export const NavMobile: FC = () => {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Close Menu"
         />
+        {mobileBottom && <Bottom>{mobileBottom}</Bottom>}
       </NavigationMenu>
     </Popover.Content>
   );

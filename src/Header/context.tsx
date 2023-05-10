@@ -24,6 +24,8 @@ interface HeaderContextType {
   mobileData?: HeaderProps['mobileData']; // The mobile navigation data (array of objects)
   mobileMenuOpen: boolean; // Is the menu on mobile open or not
   mobileGroupOpen: string[]; // The list of accordion values that are open
+  mobileTop?: HeaderProps['mobileTop']; // The content to display at the top of the mobile menu
+  mobileBottom?: HeaderProps['mobileBottom']; // The content to display at the bottom of the mobile menu
   setMobileMenuOpen: (value: boolean) => void; // To open or close the mobile menu
   setMobileGroupOpen: (value: string[]) => void; // To open or close the accordion on mobile
 }
@@ -47,6 +49,8 @@ interface HeaderProviderProps {
   desktopRight?: HeaderProps['desktopRight'];
   mobileData: HeaderProps['mobileData'];
   mobileOpen: HeaderProps['mobileOpen'];
+  mobileTop?: HeaderProps['mobileTop'];
+  mobileBottom?: HeaderProps['mobileBottom'];
 }
 
 export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
@@ -59,6 +63,8 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
   desktopRight,
   mobileData,
   mobileOpen,
+  mobileTop,
+  mobileBottom,
 }) => {
   const [desktopHover, setDesktopHover] = useState<string | null>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(
@@ -80,6 +86,8 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
         mobileData,
         mobileMenuOpen,
         mobileGroupOpen,
+        mobileTop,
+        mobileBottom,
         setMobileMenuOpen,
         setMobileGroupOpen,
       }}

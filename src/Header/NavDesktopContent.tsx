@@ -6,6 +6,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { HeaderDesktopItem } from './types';
 import { slideIn, slideOut } from './styles';
 import { Text } from '../Text';
+import { useHeaderContext } from './context';
 
 interface Props {
   item: HeaderDesktopItem;

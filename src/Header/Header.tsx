@@ -26,6 +26,8 @@ import { NavMobileTrigger } from './NavMobileTrigger';
 // - [x] Give some space on top of the mobile header
 // - [ ] Make the logo clickage with LinkWithWrapper
 // - [ ] Add gridalt icon for the use cases
+// - [ ] Add mobileBottom
+// - [ ] Add mobileTop
 
 interface WrapperProps {
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
@@ -81,6 +83,8 @@ export const Header: FC<HeaderProps> = ({
   desktopRight,
   desktopActive,
   mobileOpen,
+  mobileBottom,
+  mobileTop,
 }) => {
   return (
     <HeaderProvider
@@ -92,6 +96,8 @@ export const Header: FC<HeaderProps> = ({
       logo={logo}
       desktopRight={desktopRight}
       mobileOpen={mobileOpen}
+      mobileTop={mobileTop}
+      mobileBottom={mobileBottom}
     >
       <HeaderWithProvider />
     </HeaderProvider>

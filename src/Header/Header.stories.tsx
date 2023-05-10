@@ -27,6 +27,16 @@ export const Light: Story = {
         </Button>
       </>
     ),
+    mobileBottom: (
+      <>
+        <Button size="sm" variant="solid" color="blue">
+          Sign up
+        </Button>
+        <Button size="sm" variant="outline" color="blue">
+          Sign In
+        </Button>
+      </>
+    ),
   },
   render: (props) => <Header {...props} />,
   parameters: {
