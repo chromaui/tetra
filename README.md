@@ -12,8 +12,8 @@ yarn add @chromaui/tetra
 
 ## Preview
 
-You can preview this library on Chromatic  
-https://642d765a7e8afcfb104268dc-murpazadzf.chromatic.com/
+You can view the published Storybook at:
+https://main--642d765a7e8afcfb104268dc.chromatic.com
 
 ## Developing
 
@@ -55,7 +55,7 @@ To release a new version of the package simply run the following command:
 yarn release
 ```
 
-This command will build the package using [tsup](https://tsup.egoist.dev/#code-splitting), create a new version, a new tag and publish on NPM. Learn more about how to use the `release-it` command [here](https://github.com/release-it/release-it).
+This command will build the package using [tsup](https://tsup.egoist.dev/#code-splitting), create a new version, a new tag and publish on NPM. Learn more about how to use the `auto` command [here](https://intuit.github.io/auto/docs/welcome/getting-started).
 
 ## PostCSS
 
