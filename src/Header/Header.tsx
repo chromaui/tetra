@@ -20,10 +20,12 @@ import { NavMobileTrigger } from './NavMobileTrigger';
 // - [x] Make the mobile nav accessible with Radix
 // - [x] Add linkContext
 // - [x] Add linkWithWrapper
-// - [ ] Add story for mobile menu with Chromatic values
+// - [x] Add story for mobile menu with Chromatic values
+// - [x] Add more padding to the top of the header
+// - [x] Burger menu - Try to fit into 18px
+// - [x] Give some space on top of the mobile header
 // - [ ] Make the logo clickage with LinkWithWrapper
 // - [ ] Add gridalt icon for the use cases
-// - [ ] Burger menu - Try to fit into 18px
 
 interface WrapperProps {
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
@@ -78,6 +80,7 @@ export const Header: FC<HeaderProps> = ({
   desktopBreakpoint,
   desktopRight,
   desktopActive,
+  mobileOpen,
 }) => {
   return (
     <HeaderProvider
@@ -88,6 +91,7 @@ export const Header: FC<HeaderProps> = ({
       desktopBreakpoint={desktopBreakpoint}
       logo={logo}
       desktopRight={desktopRight}
+      mobileOpen={mobileOpen}
     >
       <HeaderWithProvider />
     </HeaderProvider>
