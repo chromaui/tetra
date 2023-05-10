@@ -8,8 +8,8 @@ import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
 import { useMediaQuery } from '../_hooks/useMediaQuery';
 import { HeaderProps } from './types';
-import * as Popover from '@radix-ui/react-popover';
 import { minSm } from '../_helpers';
+import { LinkWithWrapper } from '../LinkWithWrapper';
 
 // TODO
 // - [x] Add new link component to the header
@@ -24,8 +24,8 @@ import { minSm } from '../_helpers';
 // - [x] Give some space on top of the mobile header
 // - [x] Add mobileBottom
 // - [x] Add mobileTop
-// - [ ] Separate NavTrigger from NavLink on mobile
-// - [ ] Make the logo clickage with LinkWithWrapper
+// - [x] Make the logo clickage with LinkWithWrapper
+// - [x] Separate NavTrigger from NavLink on mobile
 // - [ ] Add gridalt icon for the use cases
 
 interface WrapperProps {
@@ -51,7 +51,7 @@ const Left = styled.div`
   }
 `;
 
-const LogoLink = styled.a`
+const LogoLink = styled(LinkWithWrapper)`
   display: block;
   padding: ${spacing[2]};
   font-size: 0;
@@ -76,6 +76,7 @@ const Right = styled.div`
 export const Header: FC<HeaderProps> = ({
   theme = 'light',
   logo,
+  logoHref,
   desktopData,
   mobileData,
   desktopBreakpoint,
@@ -88,12 +89,13 @@ export const Header: FC<HeaderProps> = ({
   return (
     <HeaderProvider
       theme={theme}
+      logo={logo}
+      logoHref={logoHref}
       desktopData={desktopData}
-      mobileData={mobileData}
       desktopActive={desktopActive}
       desktopBreakpoint={desktopBreakpoint}
-      logo={logo}
       desktopRight={desktopRight}
+      mobileData={mobileData}
       mobileOpen={mobileOpen}
       mobileTop={mobileTop}
       mobileBottom={mobileBottom}
@@ -110,6 +112,7 @@ const HeaderWithProvider: FC = () => {
     setMobileGroupOpen,
     desktopBreakpoint,
     logo,
+    logoHref,
     desktopRight,
   } = useHeaderContext();
   const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
@@ -128,7 +131,7 @@ const HeaderWithProvider: FC = () => {
     <Container>
       <Wrapper desktopBreakpoint={desktopBreakpoint}>
         <Left>
-          <LogoLink href="" aria-label="Home">
+          <LogoLink href={logoHref || '/'} aria-label="Home">
             <Logo name={logo || 'chromatic'} height={24} theme={theme} />
           </LogoLink>
           {isDesktop && <NavDesktop />}

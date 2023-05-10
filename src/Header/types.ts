@@ -41,6 +41,7 @@ export interface HeaderDesktopItem {
 export interface HeaderProps {
   theme?: 'light' | 'dark';
   logo?: 'chromatic' | 'storybook';
+  logoHref?: string;
   desktopBreakpoint?: number;
   desktopData: HeaderDesktopItem[];
   desktopActive?: string;

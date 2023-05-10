@@ -11,6 +11,7 @@ interface HeaderContextType {
   // Both Desktop and Mobile
   theme?: HeaderProps['theme']; // To switch between light and dark theme
   logo?: HeaderProps['logo']; // The logo to display on the left
+  logoHref?: HeaderProps['logoHref']; // The link to redirect to when clicking on the logo
 
   // Desktop
   desktopData?: HeaderProps['desktopData']; // The desktop navigation data (array of objects)
@@ -43,6 +44,7 @@ export function useHeaderContext() {
 interface HeaderProviderProps {
   theme: HeaderProps['theme'];
   logo?: HeaderProps['logo'];
+  logoHref?: HeaderProps['logoHref'];
   desktopData: HeaderProps['desktopData'];
   desktopActive: HeaderProps['desktopActive'];
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
@@ -57,6 +59,7 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
   children,
   theme,
   logo,
+  logoHref,
   desktopData,
   desktopActive,
   desktopBreakpoint,
@@ -77,6 +80,7 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
       value={{
         theme,
         logo,
+        logoHref,
         desktopData,
         desktopHover,
         desktopActive,

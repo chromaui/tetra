@@ -41,7 +41,7 @@ export const Light: Story = {
   render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
-    chromatic: { viewports: [390, 1200] },
+    chromatic: { viewports: [320, 440, 600, 900] },
   },
 };
 
@@ -53,7 +53,7 @@ export const Dark: Story = {
   render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
-    chromatic: { viewports: [390, 1200] },
+    chromatic: { viewports: [320, 440, 600, 900] },
     backgrounds: { default: 'dark' },
   },
 };
@@ -66,7 +66,7 @@ export const ActiveLight: Story = {
   render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
-    chromatic: { viewports: [390, 1200] },
+    chromatic: { viewports: [320, 440, 600, 900] },
   },
 };
 
@@ -79,7 +79,7 @@ export const ActiveDark: Story = {
   render: (props) => <Header {...props} />,
   parameters: {
     layout: 'fullscreen',
-    chromatic: { viewports: [390, 1200] },
+    chromatic: { viewports: [320, 440, 600, 900] },
     backgrounds: { default: 'dark' },
   },
 };
