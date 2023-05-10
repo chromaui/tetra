@@ -1,3 +1,4 @@
+import { SectionLede } from './SectionLede/SectionLede';
 // Tokens
 export * from './_tokens';
 
@@ -26,5 +27,7 @@ export { Divider } from './Divider';
 export { Grid } from './Grid';
 export { Icon } from './Icon';
 export { IntegrationImage } from './IntegrationImage';
+export { CustomerStoryHero } from './CustomerStoryHero';
+export { SectionLede } from './SectionLede';
 export { Text } from './Text';
 export { Stack } from './Stack';
