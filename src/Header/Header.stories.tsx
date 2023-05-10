@@ -47,7 +47,7 @@ export const Light: Story = {
     desktopData: desktopData,
     mobileData: mobileData,
     desktopBreakpoint: 940,
-    right: (
+    desktopRight: (
       <>
         <Link>Sign in</Link>
         <Button size="sm" variant="outline" color="blue">
@@ -125,7 +125,7 @@ export const MobileLight: Story = {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
     viewport: {
-      defaultViewport: 'mobile1',
+      defaultViewport: 'mobile2',
     },
   },
 };
@@ -141,7 +141,7 @@ export const MobileDark: Story = {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
     viewport: {
-      defaultViewport: 'mobile1',
+      defaultViewport: 'mobile2',
     },
   },
 };
@@ -168,6 +168,38 @@ export const TabletDark: Story = {
   },
   render: (props) => <Header {...props} />,
   decorators: [DarkDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: { viewports: [834] },
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+  },
+};
+
+export const MobileOpen: Story = {
+  args: {
+    ...Light.args,
+    mobileOpen: true,
+  },
+  render: (props) => <Header {...props} />,
+  decorators: [LightDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: { viewports: [390] },
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
+  },
+};
+
+export const TabletOpen: Story = {
+  args: {
+    ...Light.args,
+    mobileOpen: true,
+  },
+  render: (props) => <Header {...props} />,
+  decorators: [LightDecorator],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [834] },

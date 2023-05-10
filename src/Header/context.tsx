@@ -46,6 +46,7 @@ interface HeaderProviderProps {
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
   desktopRight?: HeaderProps['desktopRight'];
   mobileData: HeaderProps['mobileData'];
+  mobileOpen: HeaderProps['mobileOpen'];
 }
 
 export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
@@ -57,9 +58,12 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
   desktopBreakpoint,
   desktopRight,
   mobileData,
+  mobileOpen,
 }) => {
   const [desktopHover, setDesktopHover] = useState<string | null>('');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(
+    mobileOpen || false
+  );
   const [mobileGroupOpen, setMobileGroupOpen] = useState<string[]>([]);
 
   return (

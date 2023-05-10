@@ -46,4 +46,5 @@ export interface HeaderProps {
   desktopActive?: string;
   desktopRight?: ReactNode;
   mobileData: HeaderMobileGroup[];
+  mobileOpen?: boolean;
 }

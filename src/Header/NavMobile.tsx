@@ -74,7 +74,7 @@ export const NavMobile: FC = () => {
               const isLast =
                 mobileData.indexOf(group) === mobileData.length - 1;
               return (
-                <Accordion.Item value={group.name || i.toString()}>
+                <Accordion.Item key={i} value={group.name || i.toString()}>
                   <NavMobileGroup key={i} group={group} isLast={isLast} />
                 </Accordion.Item>
               );
