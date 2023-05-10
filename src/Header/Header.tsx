@@ -7,7 +7,7 @@ import { Container } from '../Container';
 import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
 import { useMediaQuery } from '../_hooks/useMediaQuery';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { HeaderProps } from './types';
 import * as Popover from '@radix-ui/react-popover';
 import { minSm } from '../_helpers';
@@ -73,21 +73,21 @@ const Right = styled.div`
 export const Header: FC<HeaderProps> = ({
   theme = 'light',
   logo,
-  navDesktop,
-  navMobile,
+  desktopData,
+  mobileData,
   desktopBreakpoint,
-  right,
-  activeSection,
+  desktopRight,
+  desktopActive,
 }) => {
   return (
     <HeaderProvider
       theme={theme}
-      navDesktop={navDesktop}
-      navMobile={navMobile}
-      activeSection={activeSection}
+      desktopData={desktopData}
+      mobileData={mobileData}
+      desktopActive={desktopActive}
       desktopBreakpoint={desktopBreakpoint}
       logo={logo}
-      right={right}
+      desktopRight={desktopRight}
     >
       <HeaderWithProvider />
     </HeaderProvider>
@@ -96,24 +96,24 @@ export const Header: FC<HeaderProps> = ({
 
 const HeaderWithProvider: FC = () => {
   const {
-    navMobile,
+    mobileData,
     theme,
     mobileMenuOpen,
-    setMobileValue,
+    setMobileGroupOpen,
     desktopBreakpoint,
     logo,
-    right,
+    desktopRight,
   } = useHeaderContext();
   const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
 
   useEffect(() => {
-    const mobileOpebByDefaultList = navMobile?.filter(
+    const mobileOpebByDefaultList = mobileData?.filter(
       (item) => item.openByDefault === true
     );
     const mobileDefaultNames = mobileOpebByDefaultList?.map(
       (item) => item.name || ''
     );
-    setMobileValue(mobileDefaultNames || []);
+    setMobileGroupOpen(mobileDefaultNames || []);
   }, []);
 
   return (
@@ -125,7 +125,7 @@ const HeaderWithProvider: FC = () => {
           </LogoLink>
           {isDesktop && <NavDesktop />}
         </Left>
-        {isDesktop && <Right>{right}</Right>}
+        {isDesktop && <Right>{desktopRight}</Right>}
         {!isDesktop && (
           <Popover.Root>
             <NavMobileTrigger />

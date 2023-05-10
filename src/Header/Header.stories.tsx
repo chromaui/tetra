@@ -1,7 +1,7 @@
 import React, { Decorator, Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header';
 import { Button } from '../Button';
-import { navDesktop, navMobile } from './data';
+import { desktopData, mobileData } from './data';
 import { Link } from '../Link';
 
 const meta: Meta<typeof Header> = {
@@ -43,9 +43,9 @@ const DarkDecorator: Decorator = (Story, options) => {
 export const Light: Story = {
   args: {
     theme: 'light',
-    activeSection: undefined,
-    navDesktop: navDesktop,
-    navMobile: navMobile,
+    desktopActive: undefined,
+    desktopData: desktopData,
+    mobileData: mobileData,
     desktopBreakpoint: 940,
     right: (
       <>
@@ -91,7 +91,7 @@ export const Dark: Story = {
 export const ActiveLight: Story = {
   args: {
     ...Light.args,
-    activeSection: 'Customers',
+    desktopActive: 'Customers',
   },
   render: (props) => <Header {...props} />,
   decorators: [LightDecorator],
@@ -105,7 +105,7 @@ export const ActiveDark: Story = {
   args: {
     ...Light.args,
     theme: 'dark',
-    activeSection: 'Customers',
+    desktopActive: 'Customers',
   },
   render: (props) => <Header {...props} />,
   decorators: [DarkDecorator],

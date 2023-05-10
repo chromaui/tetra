@@ -77,13 +77,13 @@ const CaretDown = styled(motion.div)`
 `;
 
 export const NavMobileGroup: FC<Props> = ({ group, isLast }) => {
-  const { mobileValue } = useHeaderContext();
+  const { mobileGroupOpen } = useHeaderContext();
   const [viewMoreOpen, setViewMoreOpen] = useState(false);
   const list = group.maxItems
     ? group.content.slice(0, group.maxItems)
     : group.content;
   const listMore = group.content.slice(group.maxItems);
-  const isOpen = mobileValue.find((item) => item === group.name);
+  const isOpen = mobileGroupOpen.find((item) => item === group.name);
 
   return (
     <NavItem

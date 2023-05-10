@@ -8,19 +8,24 @@ import React, {
 import { HeaderProps } from './types';
 
 interface HeaderContextType {
-  theme?: HeaderProps['theme'];
-  navDesktop?: HeaderProps['navDesktop'];
-  navMobile?: HeaderProps['navMobile'];
-  active: string | null;
-  setActive: (id: string | null) => void;
-  mobileMenuOpen: boolean;
-  setMobileMenuOpen: (value: boolean) => void;
-  mobileValue: string[];
-  setMobileValue: (value: string[]) => void;
-  activeSection: HeaderProps['activeSection'];
-  desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
-  logo?: HeaderProps['logo'];
-  right?: HeaderProps['right'];
+  // Both Desktop and Mobile
+  theme?: HeaderProps['theme']; // To switch between light and dark theme
+  logo?: HeaderProps['logo']; // The logo to display on the left
+
+  // Desktop
+  desktopData?: HeaderProps['desktopData']; // The desktop navigation data (array of objects)
+  desktopBreakpoint?: HeaderProps['desktopBreakpoint']; // The breakpoint to switch from mobile to desktop
+  desktopHover: string | null; // Indicate what section is being hovered on Desktop
+  desktopActive: HeaderProps['desktopActive']; // Indicate what section is active on Desktop
+  desktopRight?: HeaderProps['desktopRight']; // The content to display on the right
+  setDesktopHover: (id: string | null) => void; // To set the active section on desktop
+
+  // Mobile
+  mobileData?: HeaderProps['mobileData']; // The mobile navigation data (array of objects)
+  mobileMenuOpen: boolean; // Is the menu on mobile open or not
+  mobileGroupOpen: string[]; // The list of accordion values that are open
+  setMobileMenuOpen: (value: boolean) => void; // To open or close the mobile menu
+  setMobileGroupOpen: (value: string[]) => void; // To open or close the accordion on mobile
 }
 
 export const HeaderContext = createContext<HeaderContextType | null>(null);
@@ -35,44 +40,44 @@ export function useHeaderContext() {
 
 interface HeaderProviderProps {
   theme: HeaderProps['theme'];
-  navDesktop: HeaderProps['navDesktop'];
-  navMobile: HeaderProps['navMobile'];
-  activeSection: HeaderProps['activeSection'];
-  desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
   logo?: HeaderProps['logo'];
-  right?: HeaderProps['right'];
+  desktopData: HeaderProps['desktopData'];
+  desktopActive: HeaderProps['desktopActive'];
+  desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
+  desktopRight?: HeaderProps['desktopRight'];
+  mobileData: HeaderProps['mobileData'];
 }
 
 export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
   children,
   theme,
-  navMobile,
-  navDesktop,
-  activeSection,
-  desktopBreakpoint,
   logo,
-  right,
+  desktopData,
+  desktopActive,
+  desktopBreakpoint,
+  desktopRight,
+  mobileData,
 }) => {
-  const [active, setActive] = useState<string | null>('');
+  const [desktopHover, setDesktopHover] = useState<string | null>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [mobileValue, setMobileValue] = useState<string[]>([]);
+  const [mobileGroupOpen, setMobileGroupOpen] = useState<string[]>([]);
 
   return (
     <HeaderContext.Provider
       value={{
         theme,
-        navDesktop,
-        navMobile,
-        active,
-        setActive,
-        mobileMenuOpen,
-        setMobileMenuOpen,
-        activeSection,
-        mobileValue,
-        setMobileValue,
-        desktopBreakpoint,
         logo,
-        right,
+        desktopData,
+        desktopHover,
+        desktopActive,
+        desktopBreakpoint,
+        desktopRight,
+        setDesktopHover,
+        mobileData,
+        mobileMenuOpen,
+        mobileGroupOpen,
+        setMobileMenuOpen,
+        setMobileGroupOpen,
       }}
     >
       {children}

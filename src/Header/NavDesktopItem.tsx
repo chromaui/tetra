@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { styled } from '@storybook/theming';
 import { color, spacing } from '../_tokens';
-import { Icon, IconType } from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
 import { Text } from '../Text';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { LinkWithWrapper } from '../LinkWithWrapper';

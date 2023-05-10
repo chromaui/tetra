@@ -41,9 +41,9 @@ export interface HeaderDesktopItem {
 export interface HeaderProps {
   theme?: 'light' | 'dark';
   logo?: 'chromatic' | 'storybook';
-  right?: ReactNode;
   desktopBreakpoint?: number;
-  navDesktop: HeaderDesktopItem[];
-  navMobile: HeaderMobileGroup[];
-  activeSection?: string;
+  desktopData: HeaderDesktopItem[];
+  desktopActive?: string;
+  desktopRight?: ReactNode;
+  mobileData: HeaderMobileGroup[];
 }

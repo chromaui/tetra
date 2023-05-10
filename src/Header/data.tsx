@@ -5,7 +5,7 @@ import { FigmaIcon } from './icons/figma';
 import { MondayIcon } from './icons/monday';
 import { HeaderProps } from './types';
 
-export const navDesktop: HeaderProps['navDesktop'] = [
+export const desktopData: HeaderProps['desktopData'] = [
   {
     name: 'Features',
     menu: [
@@ -228,7 +228,7 @@ export const navDesktop: HeaderProps['navDesktop'] = [
   },
 ];
 
-export const navMobile: HeaderProps['navMobile'] = [
+export const mobileData: HeaderProps['mobileData'] = [
   {
     name: 'Features',
     maxItems: 3,

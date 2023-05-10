@@ -56,8 +56,8 @@ const CaretDown = styled.div`
 `;
 
 export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
-  const { theme, active, activeSection } = useHeaderContext();
-  const isActive = active === item.name || activeSection === item.name;
+  const { theme, desktopHover, desktopActive } = useHeaderContext();
+  const isActive = desktopHover === item.name || desktopActive === item.name;
   const bgColor = isActive ? 'rgba(30, 167, 253, 0.07)' : 'transparent';
 
   if (item.menu)

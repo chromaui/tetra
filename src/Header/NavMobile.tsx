@@ -1,5 +1,5 @@
 import { styled } from '@storybook/theming';
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { color, spacing } from '../_tokens';
 import { useHeaderContext } from './context';
 import { motion } from 'framer-motion';
@@ -49,11 +49,11 @@ const AccordionRoot = styled(Accordion.Root)`
 
 export const NavMobile: FC = () => {
   const {
-    navMobile,
+    mobileData,
     setMobileMenuOpen,
     mobileMenuOpen,
-    mobileValue,
-    setMobileValue,
+    mobileGroupOpen,
+    setMobileGroupOpen,
   } = useHeaderContext();
 
   return (
@@ -64,14 +64,15 @@ export const NavMobile: FC = () => {
         exit={{ opacity: 0, y: -8 }}
         transition={{ ease: 'easeOut', duration: 0.14 }}
       >
-        {navMobile && (
+        {mobileData && (
           <AccordionRoot
             type="multiple"
-            value={mobileValue}
-            onValueChange={setMobileValue}
+            value={mobileGroupOpen}
+            onValueChange={setMobileGroupOpen}
           >
-            {navMobile.map((group, i) => {
-              const isLast = navMobile.indexOf(group) === navMobile.length - 1;
+            {mobileData.map((group, i) => {
+              const isLast =
+                mobileData.indexOf(group) === mobileData.length - 1;
               return (
                 <Accordion.Item value={group.name || i.toString()}>
                   <NavMobileGroup key={i} group={group} isLast={isLast} />
