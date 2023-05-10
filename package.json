@@ -18,7 +18,7 @@
     "lint:fix": "yarn lint --fix && prettier --write .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "yarn build && yarn release-it",
+    "release": "yarn build && auto shipit",
     "chromatic": "npx chromatic --project-token=b80523143ab2"
   },
   "types": "./dist/index.d.ts",
@@ -55,6 +55,7 @@
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
     "@vitejs/plugin-react": "3.1.0",
+    "auto": "10.46.0",
     "chromatic": "6.17.3",
     "concurrently": "8.0.1",
     "eslint": "8.36.0",
@@ -63,7 +64,6 @@
     "prettier": "2.8.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "release-it": "15.9.0",
     "storybook": "7.0.7",
     "tsup": "6.6.3",
     "typescript": "5.0.2",
@@ -84,5 +84,10 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
+  },
+  "auto": {
+    "plugins": [
+      "npm"
+    ]
   }
 }
