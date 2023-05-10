@@ -12,34 +12,6 @@ const meta: Meta<typeof Header> = {
 export default meta;
 type Story = StoryObj<typeof Header>;
 
-const LightDecorator: Decorator = (Story, options) => {
-  return (
-    <div
-      style={{
-        backgroundColor: '#fff',
-        width: '100vw',
-      }}
-      {...options.args}
-    >
-      <Story {...options} />
-    </div>
-  );
-};
-
-const DarkDecorator: Decorator = (Story, options) => {
-  return (
-    <div
-      style={{
-        backgroundColor: '#171C23',
-        width: '100vw',
-      }}
-      {...options.args}
-    >
-      <Story {...options} />
-    </div>
-  );
-};
-
 export const Light: Story = {
   args: {
     theme: 'light',
@@ -57,7 +29,6 @@ export const Light: Story = {
     ),
   },
   render: (props) => <Header {...props} />,
-  decorators: [LightDecorator],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [390, 1200] },
@@ -70,21 +41,10 @@ export const Dark: Story = {
     theme: 'dark',
   },
   render: (props) => <Header {...props} />,
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          backgroundColor: '#171C23',
-          width: '100vw',
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [390, 1200] },
+    backgrounds: { default: 'dark' },
   },
 };
 
@@ -94,7 +54,6 @@ export const ActiveLight: Story = {
     desktopActive: 'Customers',
   },
   render: (props) => <Header {...props} />,
-  decorators: [LightDecorator],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [390, 1200] },
@@ -108,10 +67,10 @@ export const ActiveDark: Story = {
     desktopActive: 'Customers',
   },
   render: (props) => <Header {...props} />,
-  decorators: [DarkDecorator],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [390, 1200] },
+    backgrounds: { default: 'dark' },
   },
 };
 
@@ -120,7 +79,6 @@ export const MobileLight: Story = {
     ...Light.args,
   },
   render: (props) => <Header {...props} />,
-  decorators: [LightDecorator],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
@@ -136,13 +94,13 @@ export const MobileDark: Story = {
     theme: 'dark',
   },
   render: (props) => <Header {...props} />,
-  decorators: [DarkDecorator],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
     viewport: {
       defaultViewport: 'mobile2',
     },
+    backgrounds: { default: 'dark' },
   },
 };
 
@@ -151,7 +109,6 @@ export const TabletLight: Story = {
     ...Light.args,
   },
   render: (props) => <Header {...props} />,
-  decorators: [LightDecorator],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [834] },
@@ -167,13 +124,13 @@ export const TabletDark: Story = {
     theme: 'dark',
   },
   render: (props) => <Header {...props} />,
-  decorators: [DarkDecorator],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [834] },
     viewport: {
       defaultViewport: 'tablet',
     },
+    backgrounds: { default: 'dark' },
   },
 };
 
@@ -183,7 +140,6 @@ export const MobileOpen: Story = {
     mobileOpen: true,
   },
   render: (props) => <Header {...props} />,
-  decorators: [LightDecorator],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
@@ -199,7 +155,6 @@ export const TabletOpen: Story = {
     mobileOpen: true,
   },
   render: (props) => <Header {...props} />,
-  decorators: [LightDecorator],
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [834] },
