@@ -121,10 +121,10 @@ const HeaderWithProvider: FC = () => {
   const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
 
   useEffect(() => {
-    const mobileOpebByDefaultList = mobileData?.filter(
+    const mobileOpenByDefaultList = mobileData?.filter(
       (item) => item.openByDefault === true
     );
-    const mobileDefaultNames = mobileOpebByDefaultList?.map(
+    const mobileDefaultNames = mobileOpenByDefaultList?.map(
       (item) => item.name || ''
     );
     setMobileGroupOpen(mobileDefaultNames || []);

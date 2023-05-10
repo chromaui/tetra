@@ -14,6 +14,7 @@ const preview: Preview = {
     },
     viewport: {
       viewports: {
+        xsm: { name: 'XSmall', styles: { width: '320px', height: '100%' } },
         sm: { name: 'Small', styles: { width: '640px', height: '100%' } },
         md: { name: 'Medium', styles: { width: '768px', height: '100%' } },
         lg: { name: 'Large', styles: { width: '1024px', height: '100%' } },
