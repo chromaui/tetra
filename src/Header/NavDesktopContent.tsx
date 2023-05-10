@@ -47,8 +47,8 @@ const Column = styled.div<{ bg: keyof typeof color; index: number }>`
     index > 0 ? `1px solid ${color.gray200}` : 'none'};
 `;
 
-const Separator = styled.div`
-  padding-top: ${spacing[5]};
+const Separator = styled.div<{ index: number }>`
+  padding-top: ${({ index }) => (index > 0 ? spacing[5] : spacing[3])};
   padding-left: ${spacing[3]};
   padding-right: ${spacing[3]};
   padding-bottom: ${spacing[3]};
@@ -63,7 +63,7 @@ export const NavDesktopContent: FC<Props> = ({ item }) => {
             {column.content.map((content, i) => (
               <Fragment key={i}>
                 {content.type === 'separator' && (
-                  <Separator>
+                  <Separator index={i}>
                     <Text variant="subheading" color="gray400">
                       {content.title}
                     </Text>
