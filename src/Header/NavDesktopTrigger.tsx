@@ -1,32 +1,39 @@
 import React, { FC } from 'react';
-import { styled } from '@storybook/theming';
+import { css, styled } from '@storybook/theming';
+import { Icon } from '../Icon/Icon';
 import { Text } from '../Text';
 import { useHeaderContext } from './context';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { HeaderDesktopItem } from './types';
-import { LinkWithWrapper } from '../LinkWithWrapper';
+import { NavDesktopContent } from './NavDesktopContent';
 import { NavigationMenuItem } from './styles';
 
 export interface DesktopItemProps {
   item: HeaderDesktopItem;
 }
 
-const NavigationMenuLink = styled(LinkWithWrapper)`
+const NavigationMenuTrigger = styled(NavigationMenu.Trigger)`
   ${NavigationMenuItem}
+
+  &[data-state='open'] > .CaretDown {
+    transform: rotate(-180deg) translateY(0px);
+  }
 `;
 
-export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
+const CaretDown = styled.div`
+  position: relative;
+  transform: translateY(2px);
+  transition: transform 250ms ease;
+`;
+
+export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
   const { theme, desktopHover, desktopActive } = useHeaderContext();
   const isActive = desktopHover === item.name || desktopActive === item.name;
   const bgColor = isActive ? 'rgba(30, 167, 253, 0.07)' : 'transparent';
 
   return (
-    <NavigationMenu.Link asChild>
-      <NavigationMenuLink
-        href={item.href || ''}
-        LinkWrapper={item.linkWrapper}
-        style={{ backgroundColor: bgColor }}
-      >
+    <>
+      <NavigationMenuTrigger style={{ backgroundColor: bgColor }}>
         <Text
           as="div"
           lineHeightAuto
@@ -36,7 +43,16 @@ export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
         >
           {item.name}
         </Text>
-      </NavigationMenuLink>
-    </NavigationMenu.Link>
+        <CaretDown>
+          <Icon
+            name="arrowdown"
+            aria-hidden
+            size={12}
+            color={isActive ? 'blue500' : 'gray400'}
+          />
+        </CaretDown>
+      </NavigationMenuTrigger>
+      <NavDesktopContent item={item} />
+    </>
   );
 };

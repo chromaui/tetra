@@ -7,11 +7,9 @@ import { Container } from '../Container';
 import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
 import { useMediaQuery } from '../_hooks/useMediaQuery';
-import { AnimatePresence } from 'framer-motion';
 import { HeaderProps } from './types';
 import * as Popover from '@radix-ui/react-popover';
 import { minSm } from '../_helpers';
-import { NavMobileTrigger } from './NavMobileTrigger';
 
 // TODO
 // - [x] Add new link component to the header
@@ -24,10 +22,11 @@ import { NavMobileTrigger } from './NavMobileTrigger';
 // - [x] Add more padding to the top of the header
 // - [x] Burger menu - Try to fit into 18px
 // - [x] Give some space on top of the mobile header
+// - [x] Add mobileBottom
+// - [x] Add mobileTop
+// - [ ] Separate NavTrigger from NavLink on mobile
 // - [ ] Make the logo clickage with LinkWithWrapper
 // - [ ] Add gridalt icon for the use cases
-// - [ ] Add mobileBottom
-// - [ ] Add mobileTop
 
 interface WrapperProps {
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
@@ -108,7 +107,6 @@ const HeaderWithProvider: FC = () => {
   const {
     mobileData,
     theme,
-    mobileMenuOpen,
     setMobileGroupOpen,
     desktopBreakpoint,
     logo,
@@ -136,18 +134,7 @@ const HeaderWithProvider: FC = () => {
           {isDesktop && <NavDesktop />}
         </Left>
         {isDesktop && <Right>{desktopRight}</Right>}
-        {!isDesktop && (
-          <Popover.Root>
-            <NavMobileTrigger />
-            <AnimatePresence>
-              {mobileMenuOpen && (
-                <Popover.Portal forceMount>
-                  <NavMobile />
-                </Popover.Portal>
-              )}
-            </AnimatePresence>
-          </Popover.Root>
-        )}
+        {!isDesktop && <NavMobile />}
       </Wrapper>
     </Container>
   );

@@ -2,11 +2,12 @@ import { styled } from '@storybook/theming';
 import React, { FC } from 'react';
 import { color, spacing } from '../_tokens';
 import { useHeaderContext } from './context';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { NavMobileGroup } from './NavMobileGroup';
 import { minSm } from '../_helpers';
 import * as Popover from '@radix-ui/react-popover';
 import * as Accordion from '@radix-ui/react-accordion';
+import { NavMobileTrigger } from './NavMobileTrigger';
 
 const NavigationMenu = styled(motion.div)`
   position: relative;
@@ -73,37 +74,53 @@ export const NavMobile: FC = () => {
   } = useHeaderContext();
 
   return (
-    <Popover.Content asChild aria-label="Menu">
-      <NavigationMenu
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -8 }}
-        transition={{ ease: 'easeOut', duration: 0.14 }}
-      >
-        {mobileTop && <Top>{mobileTop}</Top>}
-        {mobileData && (
-          <AccordionRoot
-            type="multiple"
-            value={mobileGroupOpen}
-            onValueChange={setMobileGroupOpen}
-          >
-            {mobileData.map((group, i) => {
-              const isLast =
-                mobileData.indexOf(group) === mobileData.length - 1;
-              return (
-                <Accordion.Item key={i} value={group.name || i.toString()}>
-                  <NavMobileGroup key={i} group={group} isLast={isLast} />
-                </Accordion.Item>
-              );
-            })}
-          </AccordionRoot>
+    <Popover.Root>
+      <NavMobileTrigger />
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <Popover.Portal forceMount>
+            <Popover.Content asChild aria-label="Menu">
+              <NavigationMenu
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ ease: 'easeOut', duration: 0.14 }}
+              >
+                {mobileTop && <Top>{mobileTop}</Top>}
+                {mobileData && (
+                  <AccordionRoot
+                    type="multiple"
+                    value={mobileGroupOpen}
+                    onValueChange={setMobileGroupOpen}
+                  >
+                    {mobileData.map((group, i) => {
+                      const isLast =
+                        mobileData.indexOf(group) === mobileData.length - 1;
+                      return (
+                        <Accordion.Item
+                          key={i}
+                          value={group.name || i.toString()}
+                        >
+                          <NavMobileGroup
+                            key={i}
+                            group={group}
+                            isLast={isLast}
+                          />
+                        </Accordion.Item>
+                      );
+                    })}
+                  </AccordionRoot>
+                )}
+                <PopoverClose
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  aria-label="Close Menu"
+                />
+                {mobileBottom && <Bottom>{mobileBottom}</Bottom>}
+              </NavigationMenu>
+            </Popover.Content>
+          </Popover.Portal>
         )}
-        <PopoverClose
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Close Menu"
-        />
-        {mobileBottom && <Bottom>{mobileBottom}</Bottom>}
-      </NavigationMenu>
-    </Popover.Content>
+      </AnimatePresence>
+    </Popover.Root>
   );
 };

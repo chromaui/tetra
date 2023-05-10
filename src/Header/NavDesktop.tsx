@@ -4,6 +4,7 @@ import { useHeaderContext } from './context';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopContent } from './NavDesktopContent';
+import { NavDesktopTrigger } from './NavDesktopTrigger';
 
 const NavigationMenuRoot = styled(NavigationMenu.Root)`
   position: relative;
@@ -40,8 +41,8 @@ export const NavDesktop: FC = () => {
               onFocus={() => setDesktopHover(item.name)}
               onBlur={() => setDesktopHover('')}
             >
-              <NavDesktopLink key={item.name} item={item} />
-              {item.menu && <NavDesktopContent item={item} />}
+              {item.menu && <NavDesktopTrigger key={item.name} item={item} />}
+              {!item.menu && <NavDesktopLink key={item.name} item={item} />}
             </NavigationMenuItem>
           ))}
       </NavigationMenuList>
