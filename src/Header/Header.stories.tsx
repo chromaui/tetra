@@ -159,7 +159,6 @@ export const TabletDark: Story = {
 export const TabletOpen: Story = {
   args: {
     ...DesktopLight.args,
-    mobileOpen: true,
   },
   parameters: {
     layout: 'fullscreen',
@@ -180,7 +179,6 @@ export const TabletOpen: Story = {
 export const TabletExpandSubMenu: Story = {
   args: {
     ...DesktopLight.args,
-    mobileOpen: true,
   },
   parameters: {
     layout: 'fullscreen',
