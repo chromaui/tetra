@@ -104,6 +104,7 @@ export const DesktopLightOpen: Story = {
   parameters: {
     ...DesktopLight.parameters,
   },
+  decorators: [(storyFn) => <div style={{ height: '800px' }}>{storyFn()}</div>],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.getByRole('button', {
@@ -121,6 +122,7 @@ export const DesktopDarkOpen: Story = {
     ...DesktopLight.parameters,
     backgrounds: { default: 'dark' },
   },
+  decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.getByRole('button', {
@@ -167,6 +169,7 @@ export const TabletOpen: Story = {
       defaultViewport: 'md',
     },
   },
+  decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.getByRole('button', {
@@ -187,6 +190,7 @@ export const TabletExpandSubMenu: Story = {
       defaultViewport: 'md',
     },
   },
+  decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.getByRole('button', {
