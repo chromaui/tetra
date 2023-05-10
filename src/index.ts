@@ -1,4 +1,3 @@
-import { SectionLede } from './SectionLede/SectionLede';
 // Tokens
 export * from './_tokens';
 
