@@ -26,6 +26,7 @@ import { LinkWithWrapper } from '../LinkWithWrapper';
 // - [x] Add mobileTop
 // - [x] Make the logo clickage with LinkWithWrapper
 // - [x] Separate NavTrigger from NavLink on mobile
+// - [x] Reduce padding top on separator desktop
 // - [ ] Add gridalt icon for the use cases
 
 interface WrapperProps {
@@ -34,11 +35,13 @@ interface WrapperProps {
 
 const Wrapper = styled.div<WrapperProps>`
   display: flex;
-  height: 60px;
+  height: calc(60px - ${spacing[3]});
+  padding-top: ${spacing[3]};
   align-items: center;
   justify-content: space-between;
 
   @media (min-width: ${({ desktopBreakpoint }) => desktopBreakpoint}px) {
+    padding-top: 0;
     height: 120px;
   }
 `;
