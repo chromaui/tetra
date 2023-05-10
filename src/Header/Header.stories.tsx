@@ -1,5 +1,5 @@
 import React, { Meta, StoryObj } from '@storybook/react';
-import { within, userEvent } from '@storybook/testing-library';
+import { within, userEvent, fireEvent } from '@storybook/testing-library';
 import { Header } from './Header';
 import { Button } from '../Button';
 import { desktopData, mobileData } from './data';
@@ -13,23 +13,8 @@ const meta: Meta<typeof Header> = {
 export default meta;
 type Story = StoryObj<typeof Header>;
 
-// Mock PointerEvent for play functions
 // Radix uses PointerEvent for all interactions
 // see: https://github.com/radix-ui/primitives/issues/1220
-class MockPointerEvent extends Event {
-  button: number;
-  ctrlKey: boolean;
-  pointerType: string;
-
-  constructor(type: string, props: PointerEventInit) {
-    super(type, props);
-    this.button = props.button || 0;
-    this.ctrlKey = props.ctrlKey || false;
-    this.pointerType = props.pointerType || 'mouse';
-  }
-}
-
-window.PointerEvent = MockPointerEvent as any;
 
 export const DesktopLight: Story = {
   args: {
@@ -110,7 +95,9 @@ export const DesktopLightOpen: Story = {
     const MenuButton = await canvas.getByRole('button', {
       name: 'Features',
     });
-    await userEvent.hover(MenuButton, {});
+    MenuButton.focus();
+    await userEvent.keyboard('{enter}');
+    await canvas.findByLabelText('Features');
   },
 };
 export const DesktopDarkOpen: Story = {
@@ -128,7 +115,8 @@ export const DesktopDarkOpen: Story = {
     const MenuButton = await canvas.getByRole('button', {
       name: 'Customers',
     });
-    await userEvent.hover(MenuButton, {});
+    await userEvent.click(MenuButton, { pointerType: 'mouse' } as any);
+    await canvas.findByLabelText('Customers');
   },
 };
 
