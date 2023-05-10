@@ -1,4 +1,4 @@
-import React, { Decorator, Meta, StoryObj } from '@storybook/react';
+import React, { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header';
 import { Button } from '../Button';
 import { desktopData, mobileData } from './data';
@@ -28,14 +28,14 @@ export const Light: Story = {
       </>
     ),
     mobileBottom: (
-      <>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
         <Button size="sm" variant="solid" color="blue">
           Sign up
         </Button>
         <Button size="sm" variant="outline" color="blue">
           Sign In
         </Button>
-      </>
+      </div>
     ),
   },
   render: (props) => <Header {...props} />,

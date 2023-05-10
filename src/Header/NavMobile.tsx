@@ -49,11 +49,16 @@ const AccordionRoot = styled(Accordion.Root)`
   padding: ${spacing[3]} ${spacing[3]};
 `;
 
+const Top = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: ${spacing[5]} ${spacing[5]} 0;
+`;
+
 const Bottom = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 ${spacing[5]} ${spacing[5]};
-  gap: ${spacing[3]};
 `;
 
 export const NavMobile: FC = () => {
@@ -61,6 +66,7 @@ export const NavMobile: FC = () => {
     mobileData,
     mobileMenuOpen,
     mobileGroupOpen,
+    mobileTop,
     mobileBottom,
     setMobileMenuOpen,
     setMobileGroupOpen,
@@ -74,6 +80,7 @@ export const NavMobile: FC = () => {
         exit={{ opacity: 0, y: -8 }}
         transition={{ ease: 'easeOut', duration: 0.14 }}
       >
+        {mobileTop && <Top>{mobileTop}</Top>}
         {mobileData && (
           <AccordionRoot
             type="multiple"
