@@ -83,7 +83,7 @@ export const MobileLight: Story = {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
     viewport: {
-      defaultViewport: 'mobile2',
+      defaultViewport: 'mobile',
     },
   },
 };
@@ -98,7 +98,7 @@ export const MobileDark: Story = {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
     viewport: {
-      defaultViewport: 'mobile2',
+      defaultViewport: 'mobile',
     },
     backgrounds: { default: 'dark' },
   },
@@ -144,7 +144,7 @@ export const MobileOpen: Story = {
     layout: 'fullscreen',
     chromatic: { viewports: [390] },
     viewport: {
-      defaultViewport: 'mobile2',
+      defaultViewport: 'mobile',
     },
   },
 };
