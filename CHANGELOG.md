@@ -1,3 +1,16 @@
+# v1.8.1 (Thu May 11 2023)
+
+#### 🐛 Bug Fix
+
+- Fixes TS errors in SectionLede & CustomerStoryHero [#24](https://github.com/chromaui/tetra/pull/24) ([@elseloop](https://github.com/elseloop))
+- Fixes exports from #20 & #21 [#23](https://github.com/chromaui/tetra/pull/23) ([@elseloop](https://github.com/elseloop))
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v1.8.0 (Wed May 10 2023)
 
 #### 🚀 Enhancement
