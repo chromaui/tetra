@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react';
+import { Text, TextProps } from '../Text/Text';
 import { color, spacing } from '../_tokens';
 import { minLg, minMd } from '../_helpers';
 
 import { Stack } from '../Stack/Stack';
-import { Text } from '../Text/Text';
 import { styled } from '@storybook/theming';
 
 const ContentContainer = styled.div`
@@ -16,11 +16,7 @@ const ContentWrapper = styled(Stack)`
   align-items: flex-start;
 `;
 
-const SectionHeading = styled(Text)<{
-  inverse?: boolean;
-  as?: React.ComponentType | string;
-}>`
-  color: ${(props) => (props.inverse ? color.lightest : color.darkest)};
+const SectionHeading = styled(Text)`
   flex: 1;
   min-width: 0;
 `;
@@ -45,9 +41,9 @@ interface SectionLedeProps {
   copy: string;
   actions?: React.ReactNode;
   inverse?: boolean;
-  headingWrapper?: React.ComponentType | string;
-  headingVariant?: string;
-  ledeParagraphVariant?: string;
+  headingWrapper?: TextProps['as'];
+  headingVariant?: TextProps['variant'];
+  ledeParagraphVariant?: TextProps['variant'];
 }
 
 export const SectionLede: FC<SectionLedeProps> = ({
@@ -78,5 +74,5 @@ SectionLede.defaultProps = {
   copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis ante.',
   headingWrapper: 'h2',
   headingVariant: 'heading4xl',
-  ledeParagraphVariant: 'BodyMd',
+  ledeParagraphVariant: 'bodyMd',
 };
