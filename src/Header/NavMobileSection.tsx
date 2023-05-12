@@ -14,20 +14,11 @@ interface Props {
   isLast: boolean;
 }
 
-const NavItem = styled(Collapsible.Root, {
-  shouldForwardProp: (propName) => propName !== 'isLast',
-})<{ isLast: 'true' | 'false' }>`
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: ${color.white};
-  transition: all 0.2s ease-in-out;
-
-  &[data-state='open'] {
-    margin-bottom: ${({ isLast }) => (isLast === 'true' ? 0 : 16)}px;
-    padding-bottom: ${({ isLast }) => (isLast === 'true' ? 0 : 16)}px;
-    border-bottom-color: ${({ isLast }) =>
-      isLast === 'true' ? color.white : color.gray200};
-  }
+const Divider = styled.div`
+  height: 1px;
+  background-color: ${color.gray200};
+  margin: ${spacing[4]} ${spacing[3]};
+  width: calc(100% - ${spacing[6]});
 `;
 
 const NonCollapsibleTrigger = styled.div`
@@ -147,11 +138,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
 
   if (section.collapsible)
     return (
-      <NavItem
-        open={open}
-        onOpenChange={setOpen}
-        isLast={isLast ? 'true' : 'false'}
-      >
+      <Collapsible.Root open={open} onOpenChange={setOpen}>
         <CollapsibleTrigger>
           <Text variant="subheading" color="gray400">
             {section.name}
@@ -168,9 +155,12 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
           </CaretDown>
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <CollapsibleInside>{content}</CollapsibleInside>
+          <CollapsibleInside>
+            {content}
+            {!isLast && <Divider />}
+          </CollapsibleInside>
         </CollapsibleContent>
-      </NavItem>
+      </Collapsible.Root>
     );
 
   return (
@@ -183,6 +173,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
         </NonCollapsibleTrigger>
       )}
       {content}
+      {!isLast && <Divider />}
     </>
   );
 };

@@ -36,7 +36,7 @@ const Top = styled.div`
 const Bottom = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 ${spacing[5]} ${spacing[5]};
+  padding: ${spacing[3]} ${spacing[2]} ${spacing[3]} ${spacing[2]};
 `;
 
 export const NavMobile: FC = () => {
