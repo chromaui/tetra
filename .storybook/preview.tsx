@@ -4,7 +4,6 @@ import { loadFontsForStorybook } from '@storybook/design-system';
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
-    layout: 'fullscreen',
     backgrounds: {
       default: 'light',
       values: [

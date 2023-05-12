@@ -1,5 +1,5 @@
 import React, { Meta, StoryObj } from '@storybook/react';
-import { within, userEvent, fireEvent } from '@storybook/testing-library';
+import { within, userEvent } from '@storybook/testing-library';
 import { Header } from './Header';
 import { Button } from '../Button';
 import { desktopData, mobileData } from './data';

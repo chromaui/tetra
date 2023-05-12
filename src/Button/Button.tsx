@@ -27,6 +27,7 @@ const Container = styled.a<{
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: ${({ size }) => {
     if (size === 'sm') return '0 1rem';
     if (size === 'md') return '0 1.5rem';

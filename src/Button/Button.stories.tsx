@@ -300,3 +300,32 @@ export const RightIcon: Story = {
     layout: 'fullscreen',
   },
 };
+
+export const FullWidth: Story = {
+  args: {
+    ...Base.args,
+  },
+  render: ({ children }) => (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '4rem',
+        gap: '1rem',
+      }}
+    >
+      <Button size="lg" rightIcon="facehappy">
+        {children}
+      </Button>
+      <Button size="lg" leftIcon="facehappy">
+        {children}
+      </Button>
+      <Button size="lg" leftIcon="facehappy" rightIcon="facehappy">
+        {children}
+      </Button>
+    </div>
+  ),
+  parameters: {
+    layout: 'fullscreen',
+  },
+};
