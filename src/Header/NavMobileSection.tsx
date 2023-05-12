@@ -7,7 +7,7 @@ import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
 import { HeaderMobileGroup } from './types';
 import { slideDown, slideUp } from './styles';
-import { bodySm } from '../_helpers';
+import { bodySm, subheading } from '../_helpers';
 
 interface Props {
   section: HeaderMobileGroup;
@@ -28,6 +28,8 @@ const NonCollapsibleTrigger = styled.div`
   padding: 0 ${spacing[2]};
   width: calc(100% - 20px);
   margin-left: 2px;
+  ${subheading}
+  color: ${color.gray400};
 `;
 
 const CollapsibleTrigger = styled(Collapsible.Trigger)`
@@ -40,6 +42,8 @@ const CollapsibleTrigger = styled(Collapsible.Trigger)`
   border-radius: 6px;
   width: calc(100% - 20px);
   margin-left: 2px;
+  ${subheading}
+  color: ${color.gray400};
 
   &[data-state='open'] > .CaretDown {
     transform: rotate(-180deg) translateY(0px);
@@ -116,7 +120,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
       <Collapsible.Root>
         {section.maxItems && (
           <MoreTrigger>
-            <Icon name="plus" color="gray400" size={16} />
+            <Icon name="plus" color="gray400" size={16} aria-hidden />
             View more
           </MoreTrigger>
         )}
@@ -140,9 +144,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
     return (
       <Collapsible.Root open={open} onOpenChange={setOpen}>
         <CollapsibleTrigger>
-          <Text variant="subheading" color="gray400">
-            {section.name}
-          </Text>
+          {section.name}
           <CaretDown className="CaretDown">
             <Icon name="arrowdown" aria-hidden size={12} color="gray400" />
           </CaretDown>
@@ -159,11 +161,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
   return (
     <>
       {section.name && (
-        <NonCollapsibleTrigger>
-          <Text variant="subheading" color="gray400">
-            {section.name}
-          </Text>
-        </NonCollapsibleTrigger>
+        <NonCollapsibleTrigger>{section.name}</NonCollapsibleTrigger>
       )}
       {content}
       {!isLast && <Divider />}
