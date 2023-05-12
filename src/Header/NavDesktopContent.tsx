@@ -33,7 +33,7 @@ const Separator = styled.div<{ index: number }>`
   padding-top: ${({ index }) => (index > 0 ? spacing[5] : spacing[3])};
   padding-left: ${spacing[3]};
   padding-right: ${spacing[3]};
-  padding-bottom: ${spacing[3]};
+  padding-bottom: ${spacing[2]};
 `;
 
 export const NavDesktopContent: FC<Props> = ({ item }) => {
