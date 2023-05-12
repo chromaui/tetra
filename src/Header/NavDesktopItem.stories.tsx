@@ -37,29 +37,29 @@ export const Base: Story = {
   ],
 };
 
-// export const Hover: Story = {
-//   args: {
-//     content: {
-//       type: 'link',
-//       title: 'UI Tests',
-//       description: 'Pinpoint UI bugs down to the pixel, viewport, and browser.',
-//       icon: 'contrast',
-//       iconColor: 'teal500',
-//       href: '#',
-//     },
-//   },
-//   decorators: [
-//     (storyFn) => (
-//       <NavigationMenu.Root>
-//         <List>{storyFn()}</List>
-//       </NavigationMenu.Root>
-//     ),
-//   ],
-//   play: async ({ canvasElement }) => {
-//     const canvas = within(canvasElement);
-//     const Link = await canvas.getByRole('link');
-//     // await userEvent.hover(Link);
-//     // await userEvent.keyboard('{enter}');
-//     // await canvas.findByLabelText('Features');
-//   },
-// };
+export const Focused: Story = {
+  args: {
+    content: {
+      type: 'link',
+      title: 'UI Tests',
+      description: 'Pinpoint UI bugs down to the pixel, viewport, and browser.',
+      icon: 'contrast',
+      iconColor: 'teal500',
+      href: '#',
+    },
+  },
+  decorators: [
+    (storyFn) => (
+      <NavigationMenu.Root>
+        <List>{storyFn()}</List>
+      </NavigationMenu.Root>
+    ),
+  ],
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement);
+    await step('Focus link', async () => {
+      const Link = await canvas.getByRole('link');
+      await Link.focus();
+    });
+  },
+};
