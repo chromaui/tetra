@@ -33,11 +33,11 @@ export const DesktopLight: Story = {
     ),
     mobileBottom: (
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <Button size="sm" variant="outline" color="blue">
+          Sign in
+        </Button>
         <Button size="sm" variant="solid" color="blue">
           Sign up
-        </Button>
-        <Button size="sm" variant="outline" color="blue">
-          Sign In
         </Button>
       </div>
     ),

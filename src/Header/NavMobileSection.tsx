@@ -44,6 +44,7 @@ const CollapsibleTrigger = styled(Collapsible.Trigger)`
   margin-left: 2px;
   ${subheading}
   color: ${color.gray400};
+  cursor: pointer;
 
   &[data-state='open'] > .CaretDown {
     transform: rotate(-180deg) translateY(1px);
@@ -82,6 +83,7 @@ const MoreTrigger = styled(Collapsible.Trigger)`
   border-radius: 6px;
   ${bodySm}
   color: ${color.gray400};
+  cursor: pointer;
 
   &[data-state='open'] {
     display: none;
