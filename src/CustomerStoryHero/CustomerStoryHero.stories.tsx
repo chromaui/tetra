@@ -8,6 +8,13 @@ const meta: Meta<typeof CustomerStoryHero> = {
   title: 'Components/CustomerStoryHero',
   component: CustomerStoryHero,
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <div style={{ minWidth: '90vw' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
