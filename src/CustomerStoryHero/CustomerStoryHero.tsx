@@ -26,7 +26,7 @@ const HeroContainer = styled.div`
   }
   `;
 
-  const HeroItem = styled.div`
+const HeroItem = styled.div<SharedHeroProps>`
   display: grid;
   grid-column: ${(props) => (props.position === 'first' ? '1 / span 1' : '1 / span 1')};
   grid-row: ${(props) => (props.position === 'first' ? '1' : '3')};
@@ -43,7 +43,7 @@ const HeroContainer = styled.div`
   }
 `;
 
-const HeroImage = styled.div`
+const HeroImage = styled.div<SharedHeroProps>`
   background-image: url(${(props) => props.imgPath});
   background-position: center;
   background-repeat: no-repeat;
@@ -61,7 +61,7 @@ const HeroImage = styled.div`
   }
 `;
 
-const HeroCaption = styled.div`
+const HeroCaption = styled.div<SharedHeroProps>`
   border-bottom: ${(props) => (props.position === 'first' ? `1px solid ${color.gray200}` : '0')};
   grid-column: ${(props) => (props.position === 'first' ? '1 / span 1' : '1 / span 1')};
   grid-row: ${(props) => (props.position === 'first' ? '2' : '3')};
@@ -77,12 +77,17 @@ const HeroCaption = styled.div`
   }
 `;
 
-interface CustomerStoryHeroProps {
+export interface SharedHeroProps {
+  imgPath?: string;
+  position?: 'first' | 'last';
+}
+
+export interface CustomerStoryHeroProps {
   items: [
     {
       imgPath: string;
       imgAlt: string;
-      caption: React.ComponentType | string;
+      caption: React.ReactNode | string;
       position?: 'first' | 'last';
     }
   ];
