@@ -20,6 +20,11 @@ const NavigationMenuTrigger = styled(NavigationMenu.Trigger, {
   isActive?: boolean;
 }>`
   ${NavigationMenuItem}
+  color: ${({ isActive, theTheme }) => {
+    if (isActive) return color.blue500;
+    if (theTheme === 'light') return color.gray800;
+    return color.white;
+  }};
 
   &[data-state='open'] {
     background-color: rgba(30, 167, 253, 0.14);
