@@ -1,3 +1,22 @@
+# v1.8.1 (Fri May 12 2023)
+
+#### 🐛 Bug Fix
+
+- Removes errant min-width from CustomerStoryHero [#25](https://github.com/chromaui/tetra/pull/25) ([@elseloop](https://github.com/elseloop))
+- Fixes TS errors in SectionLede & CustomerStoryHero [#24](https://github.com/chromaui/tetra/pull/24) ([@elseloop](https://github.com/elseloop))
+- Fixes exports from #20 & #21 [#23](https://github.com/chromaui/tetra/pull/23) ([@elseloop](https://github.com/elseloop))
+
+#### ⚠️ Pushed to `main`
+
+- Update README.md ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 2
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v1.8.0 (Wed May 10 2023)
 
 #### 🚀 Enhancement

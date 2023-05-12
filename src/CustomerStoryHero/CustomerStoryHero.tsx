@@ -13,7 +13,6 @@ const HeroContainer = styled.div`
   gap: ${spacing[8]};
   grid-template-rows: repeat(3, auto);
   grid-template-columns: 1fr;
-  min-width: 90vw;
   max-width: 100%;
   padding-bottom: ${spacing[6]};
   width: 100%;
