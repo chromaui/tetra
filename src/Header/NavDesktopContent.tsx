@@ -1,31 +1,13 @@
 import { styled } from '@storybook/theming';
 import React, { FC, Fragment } from 'react';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { color, spacing } from '../_tokens';
 import { NavDesktopItem } from './NavDesktopItem';
 import { HeaderDesktopItem } from './types';
-import { slideIn, slideOut } from './styles';
 import { Text } from '../Text';
-import { useHeaderContext } from './context';
 
 interface Props {
   item: HeaderDesktopItem;
 }
-
-const NavigationMenuContent = styled(NavigationMenu.Content)`
-  position: absolute;
-  top: calc(100% + 0px);
-  left: 0;
-  animation-duration: 2000ms;
-  animation-timing-function: ease;
-
-  &[data-state='open'] {
-    animation: ${slideIn} 200ms ease;
-  }
-  &[data-state='closed'] {
-    animation: ${slideOut} 200ms ease;
-  }
-`;
 
 const Inside = styled.div`
   display: flex;
@@ -56,27 +38,23 @@ const Separator = styled.div<{ index: number }>`
 
 export const NavDesktopContent: FC<Props> = ({ item }) => {
   return (
-    <NavigationMenuContent>
-      <Inside>
-        {item.menu?.map((column, i) => (
-          <Column key={i} bg={column?.backgroundColor || 'white'} index={i}>
-            {column.content.map((content, i) => (
-              <Fragment key={i}>
-                {content.type === 'separator' && (
-                  <Separator index={i}>
-                    <Text variant="subheading" color="gray400">
-                      {content.title}
-                    </Text>
-                  </Separator>
-                )}
-                {content.type === 'link' && (
-                  <NavDesktopItem content={content} />
-                )}
-              </Fragment>
-            ))}
-          </Column>
-        ))}
-      </Inside>
-    </NavigationMenuContent>
+    <Inside>
+      {item.menu?.map((column, i) => (
+        <Column key={i} bg={column?.backgroundColor || 'white'} index={i}>
+          {column.content.map((content, i) => (
+            <Fragment key={i}>
+              {content.type === 'separator' && (
+                <Separator index={i}>
+                  <Text variant="subheading" color="gray400">
+                    {content.title}
+                  </Text>
+                </Separator>
+              )}
+              {content.type === 'link' && <NavDesktopItem content={content} />}
+            </Fragment>
+          ))}
+        </Column>
+      ))}
+    </Inside>
   );
 };

@@ -5,7 +5,7 @@ import { Icon } from '../Icon/Icon';
 import { useHeaderContext } from './context';
 import { HeaderDesktopItem } from './types';
 import { NavDesktopContent } from './NavDesktopContent';
-import { NavigationMenuItem } from './styles';
+import { NavigationMenuItem, slideIn, slideOut } from './styles';
 import { color } from '../_tokens';
 
 export interface DesktopItemProps {
@@ -43,6 +43,21 @@ const CaretDown = styled.div`
   transition: transform 250ms ease;
 `;
 
+const NavigationMenuContent = styled(NavigationMenu.Content)`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  animation-duration: 2000ms;
+  animation-timing-function: ease;
+
+  &[data-state='open'] {
+    animation: ${slideIn} 200ms ease;
+  }
+  &[data-state='closed'] {
+    animation: ${slideOut} 200ms ease;
+  }
+`;
+
 export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
   const { theme, desktopActive } = useHeaderContext();
   const isActive = desktopActive === item.name;
@@ -55,7 +70,9 @@ export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
           <Icon name="arrowdown" aria-hidden size={12} />
         </CaretDown>
       </NavigationMenuTrigger>
-      <NavDesktopContent item={item} />
+      <NavigationMenuContent>
+        <NavDesktopContent item={item} />
+      </NavigationMenuContent>
     </>
   );
 };
