@@ -14,6 +14,18 @@ export {
   maxLg,
   maxXl,
   max2xl,
+  heading4xl,
+  heading3xl,
+  heading2xl,
+  headingXl,
+  headingLg,
+  headingMd,
+  headingSm,
+  headingXs,
+  bodyLg,
+  bodyMd,
+  bodySm,
+  subheading,
 } from './_helpers';
 
 // Hooks
