@@ -95,7 +95,6 @@ const CaretDown = styled.div`
 `;
 
 export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
-  const [viewMoreOpen, setViewMoreOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const list = section.maxItems
     ? section.content.slice(0, section.maxItems)
@@ -111,10 +110,11 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
           customIcon={item.customIcon}
           iconColor={item.iconColor}
           title={item.title}
+          href={item.href}
         />
       ))}
       <Collapsible.Root>
-        {section.maxItems && !viewMoreOpen && (
+        {section.maxItems && (
           <MoreTrigger>
             <Icon name="plus" color="gray400" size={16} />
             View more
@@ -128,6 +128,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
               customIcon={item.customIcon}
               iconColor={item.iconColor}
               title={item.title}
+              href={item.href}
             />
           ))}
         </Collapsible.Content>
