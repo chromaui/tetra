@@ -146,6 +146,7 @@ export const TabletDark: Story = {
     backgrounds: { default: 'dark' },
   },
 };
+
 export const TabletOpen: Story = {
   args: {
     ...DesktopLight.args,
@@ -177,6 +178,7 @@ export const TabletViewMore: Story = {
     await userEvent.keyboard('{enter}');
   },
 };
+
 export const TabletExpandSubMenu: Story = {
   ...TabletOpen,
   play: async ({ canvasElement }) => {
@@ -189,6 +191,28 @@ export const TabletExpandSubMenu: Story = {
     await userEvent.tab();
     await userEvent.tab();
     await userEvent.tab();
+    await userEvent.keyboard('{enter}');
+  },
+};
+
+export const MobileOpen: Story = {
+  args: {
+    ...DesktopLight.args,
+  },
+  parameters: {
+    layout: 'fullscreen',
+    chromatic: { viewports: [320, 640, 768, 939] },
+    viewport: {
+      defaultViewport: 'xsm',
+    },
+  },
+  decorators: DesktopLightOpen.decorators,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.getByRole('button', {
+      name: 'Toggle Menu',
+    });
+    await userEvent.click(MenuButton);
     await userEvent.keyboard('{enter}');
   },
 };

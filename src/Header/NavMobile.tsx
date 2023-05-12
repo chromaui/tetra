@@ -17,7 +17,7 @@ const NavigationMenu = styled(motion.div)`
   margin-top: ${spacing[2]};
   min-width: calc(100vw - ${spacing[8]});
   margin-right: ${spacing[4]};
-  max-height: calc(100vh - 72px);
+  max-height: calc(100vh - 112px);
   overflow-y: scroll;
   padding: 12px;
 
