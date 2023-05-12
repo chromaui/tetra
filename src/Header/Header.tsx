@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { HeaderProvider, useHeaderContext } from './context';
 import { styled } from '@storybook/theming';
+import { HeaderProvider, useHeaderContext } from './context';
 import { Logo } from '../Logo';
 import { spacing } from '../_tokens';
 import { Container } from '../Container';

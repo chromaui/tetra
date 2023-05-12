@@ -1,10 +1,10 @@
 import { styled } from '@storybook/theming';
 import React, { FC } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import * as Popover from '@radix-ui/react-popover';
 import { color, spacing } from '../_tokens';
 import { useHeaderContext } from './context';
-import { AnimatePresence, motion } from 'framer-motion';
 import { minSm } from '../_helpers';
-import * as Popover from '@radix-ui/react-popover';
 import { NavMobileTrigger } from './NavMobileTrigger';
 import { NavMobileSection } from './NavMobileSection';
 

@@ -1,8 +1,8 @@
 import { styled } from '@storybook/theming';
 import React, { FC, Fragment } from 'react';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { color, spacing } from '../_tokens';
 import { NavDesktopItem } from './NavDesktopItem';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { HeaderDesktopItem } from './types';
 import { slideIn, slideOut } from './styles';
 import { Text } from '../Text';

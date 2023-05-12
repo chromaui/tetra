@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { Icon } from '../Icon/Icon';
 import { useHeaderContext } from './context';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { HeaderDesktopItem } from './types';
 import { NavDesktopContent } from './NavDesktopContent';
 import { NavigationMenuItem } from './styles';

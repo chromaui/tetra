@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
-import { color } from '../_tokens';
 import { motion } from 'framer-motion';
-import { HeaderProps } from './types';
 import * as Popover from '@radix-ui/react-popover';
+import { color } from '../_tokens';
+import { HeaderProps } from './types';
 import { useHeaderContext } from './context';
 
 const MobileTrigger = styled(Popover.Trigger)`

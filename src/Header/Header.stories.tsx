@@ -20,8 +20,8 @@ export const DesktopLight: Story = {
   args: {
     theme: 'light',
     desktopActive: undefined,
-    desktopData: desktopData,
-    mobileData: mobileData,
+    desktopData,
+    mobileData,
     desktopBreakpoint: 940,
     desktopRight: (
       <>
