@@ -16,10 +16,8 @@ interface HeaderContextType {
   // Desktop
   desktopData?: HeaderProps['desktopData']; // The desktop navigation data (array of objects)
   desktopBreakpoint?: HeaderProps['desktopBreakpoint']; // The breakpoint to switch from mobile to desktop
-  desktopHover: string | null; // Indicate what section is being hovered on Desktop
   desktopActive: HeaderProps['desktopActive']; // Indicate what section is active on Desktop
   desktopRight?: HeaderProps['desktopRight']; // The content to display on the right
-  setDesktopHover: (id: string | null) => void; // To set the active section on desktop
 
   // Mobile
   mobileData?: HeaderProps['mobileData']; // The mobile navigation data (array of objects)
@@ -69,7 +67,6 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
   mobileTop,
   mobileBottom,
 }) => {
-  const [desktopHover, setDesktopHover] = useState<string | null>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(
     mobileOpen || false
   );
@@ -82,11 +79,9 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
         logo,
         logoHref,
         desktopData,
-        desktopHover,
         desktopActive,
         desktopBreakpoint,
         desktopRight,
-        setDesktopHover,
         mobileData,
         mobileMenuOpen,
         mobileGroupOpen,

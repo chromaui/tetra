@@ -26,20 +26,14 @@ const NavigationMenuItem = styled(NavigationMenu.Item)`
 `;
 
 export const NavDesktop: FC = () => {
-  const { desktopData, setDesktopHover } = useHeaderContext();
+  const { desktopData } = useHeaderContext();
 
   return (
     <NavigationMenuRoot>
       <NavigationMenuList>
         {desktopData &&
           desktopData.map((item) => (
-            <NavigationMenuItem
-              key={item.name}
-              onMouseEnter={() => setDesktopHover(item.name)}
-              onMouseLeave={() => setDesktopHover('')}
-              onFocus={() => setDesktopHover(item.name)}
-              onBlur={() => setDesktopHover('')}
-            >
+            <NavigationMenuItem key={item.name}>
               {item.menu ? (
                 <NavDesktopTrigger key={item.name} item={item} />
               ) : (

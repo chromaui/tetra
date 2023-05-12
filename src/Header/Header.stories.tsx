@@ -64,7 +64,7 @@ export const DesktopDark: Story = {
 export const DesktopLightActive: Story = {
   args: {
     ...DesktopLight.args,
-    desktopActive: 'Customers',
+    desktopActive: 'Pricing',
   },
   parameters: {
     ...DesktopLight.parameters,

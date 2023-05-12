@@ -1,7 +1,9 @@
 import { css, keyframes } from '@storybook/theming';
-import { spacing } from '../_tokens';
+import { color, fontWeight, spacing } from '../_tokens';
+import { bodySm } from '../_helpers';
 
 export const NavigationMenuItem = css`
+  all: unset;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +17,9 @@ export const NavigationMenuItem = css`
   gap: 6px;
   text-decoration: none;
   cursor: pointer;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  ${bodySm}
+  font-weight: ${fontWeight.bold};
 
   &:focus {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
@@ -23,6 +28,7 @@ export const NavigationMenuItem = css`
 
   &:hover {
     background-color: rgba(30, 167, 253, 0.14);
+    color: ${color.blue500};
   }
 `;
 
