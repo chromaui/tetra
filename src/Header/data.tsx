@@ -232,8 +232,6 @@ export const mobileData: HeaderProps['mobileData'] = [
   {
     name: 'Features',
     maxItems: 3,
-    openByDefault: true,
-    toggle: false,
     content: [
       {
         title: 'UI Tests',
@@ -279,9 +277,6 @@ export const mobileData: HeaderProps['mobileData'] = [
     ],
   },
   {
-    name: 'Other Stuff',
-    openByDefault: true,
-    hideHeader: true,
     content: [
       {
         title: 'Pricing',
@@ -305,6 +300,7 @@ export const mobileData: HeaderProps['mobileData'] = [
   },
   {
     name: 'Use Cases',
+    collapsible: true,
     content: [
       {
         title: 'Design Systems',
@@ -334,6 +330,7 @@ export const mobileData: HeaderProps['mobileData'] = [
   },
   {
     name: 'Customer Stories',
+    collapsible: true,
     content: [
       {
         title: 'monday.com',
@@ -354,6 +351,7 @@ export const mobileData: HeaderProps['mobileData'] = [
   },
   {
     name: 'Company',
+    collapsible: true,
     content: [
       {
         title: 'About Chromatic',

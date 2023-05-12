@@ -3,11 +3,10 @@ import React, { FC } from 'react';
 import { color, spacing } from '../_tokens';
 import { useHeaderContext } from './context';
 import { AnimatePresence, motion } from 'framer-motion';
-import { NavMobileGroup } from './NavMobileGroup';
 import { minSm } from '../_helpers';
 import * as Popover from '@radix-ui/react-popover';
-import * as Accordion from '@radix-ui/react-accordion';
 import { NavMobileTrigger } from './NavMobileTrigger';
+import { NavMobileSection } from './NavMobileSection';
 
 const NavigationMenu = styled(motion.div)`
   position: relative;
@@ -20,15 +19,12 @@ const NavigationMenu = styled(motion.div)`
   margin-right: ${spacing[4]};
   max-height: calc(100vh - 72px);
   overflow-y: scroll;
+  padding: 12px;
 
   ${minSm} {
     margin-right: ${spacing[8]};
     min-width: 320px;
   }
-`;
-
-const AccordionRoot = styled(Accordion.Root)`
-  padding: ${spacing[3]} ${spacing[3]};
 `;
 
 const Top = styled.div`
@@ -47,11 +43,9 @@ export const NavMobile: FC = () => {
   const {
     mobileData,
     mobileMenuOpen,
-    mobileGroupOpen,
     mobileTop,
     mobileBottom,
     setMobileMenuOpen,
-    setMobileGroupOpen,
   } = useHeaderContext();
 
   return (
@@ -68,30 +62,19 @@ export const NavMobile: FC = () => {
                 transition={{ ease: 'easeOut', duration: 0.14 }}
               >
                 {mobileTop && <Top>{mobileTop}</Top>}
-                {mobileData && (
-                  <AccordionRoot
-                    type="multiple"
-                    value={mobileGroupOpen}
-                    onValueChange={setMobileGroupOpen}
-                  >
-                    {mobileData.map((group, i) => {
-                      const isLast =
-                        mobileData.indexOf(group) === mobileData.length - 1;
-                      return (
-                        <Accordion.Item
-                          key={i}
-                          value={group.name || i.toString()}
-                        >
-                          <NavMobileGroup
-                            key={i}
-                            group={group}
-                            isLast={isLast}
-                          />
-                        </Accordion.Item>
-                      );
-                    })}
-                  </AccordionRoot>
-                )}
+                {mobileData &&
+                  mobileData.map((section, i) => {
+                    const index = mobileData.indexOf(section);
+                    const isLast = index === mobileData.length - 1;
+
+                    return (
+                      <NavMobileSection
+                        key={i}
+                        section={section}
+                        isLast={isLast}
+                      />
+                    );
+                  })}
                 {mobileBottom && <Bottom>{mobileBottom}</Bottom>}
               </NavigationMenu>
             </Popover.Content>

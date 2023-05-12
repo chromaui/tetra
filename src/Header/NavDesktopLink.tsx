@@ -27,10 +27,6 @@ const NavigationMenuLink = styled(LinkWithWrapper, {
     if (theTheme === 'light') return color.gray800;
     return color.white;
   }};
-
-  /* &[data-state='open'] {
-    color: red;
-  } */
 `;
 
 export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {

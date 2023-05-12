@@ -4,10 +4,8 @@ import { color } from '../_tokens';
 
 export interface HeaderMobileGroup {
   name?: string;
-  hideHeader?: boolean;
   maxItems?: number;
-  openByDefault?: boolean;
-  toggle?: boolean;
+  collapsible?: boolean;
   content: {
     title: string;
     href: string;
@@ -47,7 +45,6 @@ export interface HeaderProps {
   desktopActive?: string;
   desktopRight?: ReactNode;
   mobileData: HeaderMobileGroup[];
-  mobileOpen?: boolean;
   mobileTop?: ReactNode;
   mobileBottom?: ReactNode;
 }

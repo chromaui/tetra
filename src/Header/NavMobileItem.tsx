@@ -20,7 +20,8 @@ const Container = styled.button`
   align-items: center;
   padding: 0 ${spacing[2]};
   border-radius: 6px;
-  width: calc(100% - ${spacing[4]});
+  width: calc(100% - 20px);
+  margin-left: 2px;
 
   &:focus {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
