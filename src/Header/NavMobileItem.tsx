@@ -24,6 +24,7 @@ const Container = styled(LinkWithWrapper)`
   border-radius: 6px;
   width: calc(100% - 20px);
   margin-left: 2px;
+  cursor: pointer;
 
   &:focus {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);

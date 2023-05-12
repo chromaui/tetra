@@ -46,7 +46,7 @@ const CollapsibleTrigger = styled(Collapsible.Trigger)`
   color: ${color.gray400};
 
   &[data-state='open'] > .CaretDown {
-    transform: rotate(-180deg) translateY(0px);
+    transform: rotate(-180deg) translateY(1px);
   }
 
   &:focus {
@@ -94,7 +94,7 @@ const MoreTrigger = styled(Collapsible.Trigger)`
 
 const CaretDown = styled.div`
   position: relative;
-  transform: translateY(2px);
+  transform: translateY(1px);
   transition: transform 250ms ease;
 `;
 
