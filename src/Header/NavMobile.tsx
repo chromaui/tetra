@@ -27,25 +27,6 @@ const NavigationMenu = styled(motion.div)`
   }
 `;
 
-const PopoverClose = styled(Popover.Close)`
-  all: unset;
-  position: absolute;
-  right: 4px;
-  top: -48px;
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-
-  &:focus-visible {
-    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
-  }
-
-  ${minSm} {
-    right: 8px;
-    top: -48px;
-  }
-`;
-
 const AccordionRoot = styled(Accordion.Root)`
   padding: ${spacing[3]} ${spacing[3]};
 `;
@@ -74,7 +55,7 @@ export const NavMobile: FC = () => {
   } = useHeaderContext();
 
   return (
-    <Popover.Root>
+    <Popover.Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
       <NavMobileTrigger />
       <AnimatePresence>
         {mobileMenuOpen && (
@@ -111,10 +92,6 @@ export const NavMobile: FC = () => {
                     })}
                   </AccordionRoot>
                 )}
-                <PopoverClose
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  aria-label="Close Menu"
-                />
                 {mobileBottom && <Bottom>{mobileBottom}</Bottom>}
               </NavigationMenu>
             </Popover.Content>
