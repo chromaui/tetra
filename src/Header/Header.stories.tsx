@@ -50,6 +50,7 @@ export const DesktopLight: Story = {
     },
   },
 };
+
 export const DesktopDark: Story = {
   args: {
     ...DesktopLight.args,
@@ -70,6 +71,7 @@ export const DesktopLightActive: Story = {
     ...DesktopLight.parameters,
   },
 };
+
 export const DesktopDarkActive: Story = {
   args: {
     ...DesktopLight.args,
@@ -100,6 +102,7 @@ export const DesktopLightOpen: Story = {
     await canvas.findByLabelText('Features');
   },
 };
+
 export const DesktopDarkOpen: Story = {
   args: {
     ...DesktopLight.args,
@@ -132,6 +135,7 @@ export const TabletLight: Story = {
     },
   },
 };
+
 export const TabletDark: Story = {
   args: {
     ...DesktopLight.args,
@@ -167,6 +171,7 @@ export const TabletOpen: Story = {
     await userEvent.click(MenuButton);
   },
 };
+
 export const TabletViewMore: Story = {
   ...TabletOpen,
   play: async ({ canvasElement }) => {
