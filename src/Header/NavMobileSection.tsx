@@ -1,13 +1,13 @@
 import { styled } from '@storybook/theming';
 import React, { FC, useState } from 'react';
 import { color, spacing } from '../_tokens';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Text } from '../Text';
 import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
 import { HeaderMobileGroup } from './types';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import { slideDown, slideUp } from './styles';
+import { bodySm } from '../_helpers';
 
 interface Props {
   section: HeaderMobileGroup;
@@ -41,6 +41,10 @@ const CollapsibleTrigger = styled(Collapsible.Trigger)`
   width: calc(100% - 20px);
   margin-left: 2px;
 
+  &[data-state='open'] > .CaretDown {
+    transform: rotate(-180deg) translateY(0px);
+  }
+
   &:focus {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
   }
@@ -72,13 +76,19 @@ const MoreTrigger = styled(Collapsible.Trigger)`
   margin-left: 2px;
   height: ${spacing[8]};
   border-radius: 6px;
+  ${bodySm}
+  color: ${color.gray400};
+
+  &[data-state='open'] {
+    display: none;
+  }
 
   &:focus {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
   }
 `;
 
-const CaretDown = styled(motion.div)`
+const CaretDown = styled.div`
   position: relative;
   transform: translateY(2px);
   transition: transform 250ms ease;
@@ -104,24 +114,13 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
         />
       ))}
       <Collapsible.Root>
-        <AnimatePresence initial={false}>
-          {section.maxItems && !viewMoreOpen && (
-            <motion.div
-              onClick={() => setViewMoreOpen(true)}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-            >
-              <MoreTrigger>
-                <Icon name="plus" color="gray400" size={16} />
-                <Text as="div" lineHeightAuto color="gray400" variant="bodySm">
-                  View more
-                </Text>
-              </MoreTrigger>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <CollapsibleContent>
+        {section.maxItems && !viewMoreOpen && (
+          <MoreTrigger>
+            <Icon name="plus" color="gray400" size={16} />
+            View more
+          </MoreTrigger>
+        )}
+        <Collapsible.Content>
           {listMore.map((item) => (
             <NavMobileItem
               key={item.title}
@@ -131,7 +130,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
               title={item.title}
             />
           ))}
-        </CollapsibleContent>
+        </Collapsible.Content>
       </Collapsible.Root>
     </>
   );
@@ -143,14 +142,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
           <Text variant="subheading" color="gray400">
             {section.name}
           </Text>
-          <CaretDown
-            initial={false}
-            animate={{ rotate: open ? -180 : 0 }}
-            transition={{
-              duration: 0.12,
-              ease: 'easeInOut',
-            }}
-          >
+          <CaretDown className="CaretDown">
             <Icon name="arrowdown" aria-hidden size={12} color="gray400" />
           </CaretDown>
         </CollapsibleTrigger>
