@@ -11,150 +11,127 @@ import { minSm } from './helpers';
 export const heading4xl = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[36]};
-  line-height: ${lineHeight[44]};
   font-weight: ${fontWeight.semibold};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[60]};
-    line-height: ${lineHeight[68]};
   }
 `;
 
 export const heading3xl = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[36]};
-  line-height: ${lineHeight[44]};
   font-weight: ${fontWeight.semibold};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[48]};
-    line-height: ${lineHeight[60]};
   }
 `;
 
 export const heading2xl = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[30]};
-  line-height: ${lineHeight[38]};
   font-weight: ${fontWeight.semibold};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[36]};
-    line-height: ${lineHeight[52]};
   }
 `;
 
 export const headingXl = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[24]};
-  line-height: ${lineHeight[32]};
   font-weight: ${fontWeight.semibold};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[30]};
-    line-height: ${lineHeight[44]};
   }
 `;
 
 export const headingLg = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[24]};
-  line-height: ${lineHeight[32]};
   font-weight: ${fontWeight.semibold};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[24]};
-    line-height: ${lineHeight[32]};
   }
 `;
 
 export const headingMd = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[20]};
-  line-height: ${lineHeight[32]};
   font-weight: ${fontWeight.semibold};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[20]};
-    line-height: ${lineHeight[28]};
   }
 `;
 
 export const headingSm = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[18]};
-  line-height: ${lineHeight[28]};
   font-weight: ${fontWeight.semibold};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[18]};
-    line-height: ${lineHeight[24]};
   }
 `;
 
 export const headingXs = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[16]};
-  line-height: ${lineHeight[24]};
   font-weight: ${fontWeight.semibold};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[16]};
-    line-height: ${lineHeight[24]};
   }
 `;
 
 export const bodyLg = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[18]};
-  line-height: ${lineHeight[28]};
   font-weight: ${fontWeight.regular};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[18]};
-    line-height: ${lineHeight[28]};
   }
 `;
 
 export const bodyMd = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[16]};
-  line-height: ${lineHeight[28]};
   font-weight: ${fontWeight.regular};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[16]};
-    line-height: ${lineHeight[28]};
   }
 `;
 
 export const bodySm = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[14]};
-  line-height: ${lineHeight[20]};
   font-weight: ${fontWeight.regular};
   color: ${color.gray800};
 
   ${minSm} {
     font-size: ${fontSize[14]};
-    line-height: ${lineHeight[20]};
   }
 `;
 
 export const subheading = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[11]};
-  line-height: auto;
   font-weight: ${fontWeight.bold};
   letter-spacing: 0.35em;
   text-transform: uppercase;
