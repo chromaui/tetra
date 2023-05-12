@@ -157,7 +157,7 @@ export const TabletOpen: Story = {
       defaultViewport: 'md',
     },
   },
-  decorators: DesktopLightOpen.decorators,
+  decorators: [(storyFn) => <div style={{ height: '900px' }}>{storyFn()}</div>],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.getByRole('button', {
