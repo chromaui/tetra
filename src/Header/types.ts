@@ -30,6 +30,7 @@ export interface HeaderDesktopItem {
   name: string;
   href?: string;
   linkWrapper?: FC<{ children: ReactNode }>;
+  leftPosition?: number;
   menu?: {
     content: HeaderDesktopItemContent[];
     backgroundColor?: keyof typeof color;

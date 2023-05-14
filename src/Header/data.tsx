@@ -101,6 +101,7 @@ export const desktopData: HeaderProps['desktopData'] = [
   },
   {
     name: 'Customers',
+    leftPosition: -140,
     menu: [
       {
         content: [
@@ -191,6 +192,7 @@ export const desktopData: HeaderProps['desktopData'] = [
   },
   {
     name: 'Company',
+    leftPosition: -64,
     menu: [
       {
         content: [
