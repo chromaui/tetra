@@ -40,6 +40,8 @@ export interface HeaderDesktopItem {
 export interface HeaderProps {
   theme?: 'light' | 'dark';
   logo?: 'chromatic' | 'storybook';
+  logoHeightDesktop?: number;
+  logoHeightMobile?: number;
   logoHref?: string;
   desktopBreakpoint?: number;
   desktopData: HeaderDesktopItem[];

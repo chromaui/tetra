@@ -19,6 +19,8 @@ type Story = StoryObj<typeof Header>;
 export const DesktopLight: Story = {
   args: {
     theme: 'light',
+    logoHeightDesktop: 22,
+    logoHeightMobile: 24,
     desktopActive: undefined,
     desktopData,
     mobileData,

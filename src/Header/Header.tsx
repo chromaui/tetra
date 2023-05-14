@@ -61,6 +61,8 @@ const Right = styled.div`
 export const Header: FC<HeaderProps> = ({
   theme = 'light',
   logo,
+  logoHeightDesktop,
+  logoHeightMobile,
   logoHref,
   desktopData,
   mobileData,
@@ -74,6 +76,8 @@ export const Header: FC<HeaderProps> = ({
     <HeaderProvider
       theme={theme}
       logo={logo}
+      logoHeightDesktop={logoHeightDesktop}
+      logoHeightMobile={logoHeightMobile}
       logoHref={logoHref}
       desktopData={desktopData}
       desktopActive={desktopActive}
@@ -89,8 +93,15 @@ export const Header: FC<HeaderProps> = ({
 };
 
 const HeaderWithProvider: FC = () => {
-  const { theme, desktopBreakpoint, logo, logoHref, desktopRight } =
-    useHeaderContext();
+  const {
+    theme,
+    desktopBreakpoint,
+    logo,
+    logoHeightDesktop,
+    logoHeightMobile,
+    logoHref,
+    desktopRight,
+  } = useHeaderContext();
   const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
 
   return (
@@ -98,7 +109,11 @@ const HeaderWithProvider: FC = () => {
       <Wrapper desktopBreakpoint={desktopBreakpoint}>
         <Left>
           <LogoLink href={logoHref || '/'} aria-label="Home">
-            <Logo name={logo || 'chromatic'} height={24} theme={theme} />
+            <Logo
+              name={logo || 'chromatic'}
+              height={isDesktop ? logoHeightDesktop : logoHeightMobile}
+              theme={theme}
+            />
           </LogoLink>
           {isDesktop && <NavDesktop />}
         </Left>

@@ -11,6 +11,8 @@ interface HeaderContextType {
   // Both Desktop and Mobile
   theme?: HeaderProps['theme']; // To switch between light and dark theme
   logo?: HeaderProps['logo']; // The logo to display on the left
+  logoHeightDesktop?: HeaderProps['logoHeightDesktop']; // The height of the logo on desktop
+  logoHeightMobile?: HeaderProps['logoHeightMobile']; // The height of the logo on mobile
   logoHref?: HeaderProps['logoHref']; // The link to redirect to when clicking on the logo
 
   // Desktop
@@ -40,6 +42,8 @@ export function useHeaderContext() {
 interface HeaderProviderProps {
   theme: HeaderProps['theme'];
   logo?: HeaderProps['logo'];
+  logoHeightDesktop?: HeaderProps['logoHeightDesktop'];
+  logoHeightMobile?: HeaderProps['logoHeightMobile'];
   logoHref?: HeaderProps['logoHref'];
   desktopData: HeaderProps['desktopData'];
   desktopActive: HeaderProps['desktopActive'];
@@ -54,6 +58,8 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
   children,
   theme,
   logo,
+  logoHeightDesktop = 24,
+  logoHeightMobile = 24,
   logoHref,
   desktopData,
   desktopActive,
@@ -70,6 +76,8 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
       value={{
         theme,
         logo,
+        logoHeightDesktop,
+        logoHeightMobile,
         logoHref,
         desktopData,
         desktopActive,
