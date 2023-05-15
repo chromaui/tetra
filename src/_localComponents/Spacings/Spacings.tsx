@@ -46,11 +46,6 @@ const Box = styled.div<{ width: string }>`
   border-radius: 3px;
 `;
 
-const convertToPixels = (value: string) => {
-  if (value.endsWith('px')) return value;
-  return `${parseFloat(value) * 4}px`;
-};
-
 export const Spacings: FC<Props> = ({ list }) => {
   return (
     <Container>
@@ -77,7 +72,7 @@ export const Spacings: FC<Props> = ({ list }) => {
           return parseFloat(a.name) - parseFloat(b.name);
         })
         ?.map((s) => (
-          <Line>
+          <Line key={s.name}>
             <Col1>
               <Text
                 lineHeightAuto
@@ -95,7 +90,7 @@ export const Spacings: FC<Props> = ({ list }) => {
             </Col2>
             <Col3>
               <Text lineHeightAuto as="div" variant="bodySm" color="gray600">
-                {convertToPixels(s.value)}
+                {parseFloat(s.name) * 4}px
               </Text>
             </Col3>
             <Col4>

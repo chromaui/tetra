@@ -27,6 +27,7 @@ const Container = styled.a<{
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: ${({ size }) => {
     if (size === 'sm') return '0 1rem';
     if (size === 'md') return '0 1.5rem';
@@ -66,7 +67,7 @@ const Container = styled.a<{
   }};
   font-weight: 600;
   font-family: ${fontFamily.sans};
-  gap: 0.75rem;
+  gap: 0.375rem;
   transition: all 0.16s ease-in-out;
   text-decoration: none;
 

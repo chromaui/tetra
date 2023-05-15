@@ -57,6 +57,14 @@ export const Body: Story = {
   ),
 };
 
+export const Subheading: Story = {
+  args: {
+    ...Base.args,
+    children: 'Lorem ipsum dolor sit amet',
+  },
+  render: ({ children }) => <Text variant="subheading">{children}</Text>,
+};
+
 export const Alignments: Story = {
   args: {
     ...Base.args,

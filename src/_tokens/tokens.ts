@@ -50,6 +50,14 @@ export const color = {
   yellow300: '#FFCE66',
   yellow400: '#FFBE33',
   yellow500: '#FFAE00',
+
+  emerald50: '#F0FDF4',
+  emerald100: '#D1FAE5',
+  emerald200: '#A7F3D0',
+  emerald300: '#6EE7B7',
+  emerald400: '#34D399',
+  emerald500: '#10B981',
+  emerald600: '#059669',
 };
 
 export const fontFamily = {
@@ -65,6 +73,7 @@ export const fontWeight = {
 };
 
 export const fontSize = {
+  11: '0.6875rem', // 11px
   12: '0.75rem', // 12px
   14: '0.875rem', // 14px
   16: '1rem', // 16px
