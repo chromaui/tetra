@@ -1,3 +1,16 @@
+# v1.9.0 (Mon May 15 2023)
+
+#### 🚀 Enhancement
+
+- New Header Component [#19](https://github.com/chromaui/tetra/pull/19) ([@cdedreuille](https://github.com/cdedreuille) [@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 2
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.8.1 (Fri May 12 2023)
 
 #### 🐛 Bug Fix
