@@ -1,3 +1,15 @@
+# v1.9.1 (Mon May 15 2023)
+
+#### 🐛 Bug Fix
+
+- Export HeaderProps [#26](https://github.com/chromaui/tetra/pull/26) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.9.0 (Mon May 15 2023)
 
 #### 🚀 Enhancement
