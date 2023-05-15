@@ -9,7 +9,7 @@ const NavigationMenuRoot = styled(NavigationMenu.Root)`
   position: relative;
   display: flex;
   justify-content: center;
-  z-index: 1;
+  z-index: 100;
 `;
 
 const NavigationMenuList = styled(NavigationMenu.List)`
