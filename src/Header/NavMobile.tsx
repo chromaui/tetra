@@ -1,14 +1,12 @@
 import { styled } from '@storybook/theming';
 import React, { FC } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import ReactPopover from '@radix-ui/react-popover';
+import { Root, Portal, Content } from '@radix-ui/react-popover';
 import { color, spacing } from '../_tokens';
 import { useHeaderContext } from './context';
 import { minSm } from '../_helpers';
 import { NavMobileTrigger } from './NavMobileTrigger';
 import { NavMobileSection } from './NavMobileSection';
-
-const { Root, Portal, Content } = ReactPopover;
 
 const NavigationMenu = styled(motion.div)`
   position: relative;

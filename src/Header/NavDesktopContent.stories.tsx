@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import NavigationMenu from '@radix-ui/react-navigation-menu';
+import { Root, List as RadixList } from '@radix-ui/react-navigation-menu';
 import { styled } from '@storybook/theming';
 import { NavDesktopContent } from './NavDesktopContent';
 import { FigmaIcon } from './icons/figma';
-
-const { Root, List: RadixList } = NavigationMenu;
 
 const meta: Meta<typeof NavDesktopContent> = {
   title: 'Components/Header/NavDesktopContent',

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import NavigationMenu from '@radix-ui/react-navigation-menu';
+import { Root, List as RadixList } from '@radix-ui/react-navigation-menu';
 import { styled } from '@storybook/theming';
 import { within } from '@storybook/testing-library';
 import { NavDesktopItem } from './NavDesktopItem';
@@ -9,8 +9,6 @@ const meta: Meta<typeof NavDesktopItem> = {
   title: 'Components/Header/NavDesktopItem',
   component: NavDesktopItem,
 };
-
-const { Root, List: RadixList } = NavigationMenu;
 
 export default meta;
 type Story = StoryObj<typeof NavDesktopItem>;

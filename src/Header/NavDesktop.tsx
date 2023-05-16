@@ -1,11 +1,9 @@
 import { styled } from '@storybook/theming';
 import React, { FC } from 'react';
-import NavigationMenu from '@radix-ui/react-navigation-menu';
+import { Root, List, Item } from '@radix-ui/react-navigation-menu';
 import { useHeaderContext } from './context';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
-
-const { Root, List, Item } = NavigationMenu;
 
 const NavigationMenuRoot = styled(Root)`
   position: relative;

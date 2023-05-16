@@ -1,13 +1,11 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
-import NavigationMenu from '@radix-ui/react-navigation-menu';
+import { Link as RadixLink } from '@radix-ui/react-navigation-menu';
 import { useHeaderContext } from './context';
 import { HeaderDesktopItem } from './types';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { NavigationMenuItem } from './styles';
 import { color, fontWeight } from '../_tokens';
-
-const { Link: RadixLink } = NavigationMenu;
 
 export interface DesktopItemProps {
   item: HeaderDesktopItem;
