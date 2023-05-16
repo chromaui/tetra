@@ -1,7 +1,7 @@
 import { styled } from '@storybook/theming';
 import React, { FC } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Root, Portal, Content } from '@radix-ui/react-popover';
+import * as Popover from '@radix-ui/react-popover';
 import { color, spacing } from '../_tokens';
 import { useHeaderContext } from './context';
 import { minSm } from '../_helpers';
@@ -50,12 +50,12 @@ export const NavMobile: FC = () => {
   } = useHeaderContext();
 
   return (
-    <Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+    <Popover.Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
       <NavMobileTrigger />
       <AnimatePresence>
         {mobileMenuOpen && (
-          <Portal forceMount>
-            <Content
+          <Popover.Portal forceMount>
+            <Popover.Content
               asChild
               aria-label="Menu"
               onOpenAutoFocus={(e) => e.preventDefault()}
@@ -82,10 +82,10 @@ export const NavMobile: FC = () => {
                   })}
                 {mobileBottom && <Bottom>{mobileBottom}</Bottom>}
               </NavigationMenu>
-            </Content>
-          </Portal>
+            </Popover.Content>
+          </Popover.Portal>
         )}
       </AnimatePresence>
-    </Root>
+    </Popover.Root>
   );
 };

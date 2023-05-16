@@ -1,6 +1,6 @@
 import { styled } from '@storybook/theming';
 import React, { FC } from 'react';
-import NavigationMenu from '@radix-ui/react-navigation-menu';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { useHeaderContext } from './context';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopTrigger } from './NavDesktopTrigger';

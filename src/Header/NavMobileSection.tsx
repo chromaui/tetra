@@ -1,6 +1,6 @@
 import { styled } from '@storybook/theming';
 import React, { FC, useState } from 'react';
-import Collapsible from '@radix-ui/react-collapsible';
+import * as Collapsible from '@radix-ui/react-collapsible';
 import { color, spacing } from '../_tokens';
 import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
