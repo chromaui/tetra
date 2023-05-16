@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
-import { Trigger, Content } from '@radix-ui/react-navigation-menu';
+import NavigationMenu from '@radix-ui/react-navigation-menu';
 import { Icon } from '../Icon/Icon';
 import { useHeaderContext } from './context';
 import { HeaderDesktopItem } from './types';
 import { NavDesktopContent } from './NavDesktopContent';
 import { NavigationMenuItem, slideIn, slideOut } from './styles';
 import { color } from '../_tokens';
+
+const { Trigger, Content } = NavigationMenu;
 
 export interface DesktopItemProps {
   item: HeaderDesktopItem;

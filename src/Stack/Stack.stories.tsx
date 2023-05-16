@@ -1,4 +1,5 @@
-import React, { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import { Stack } from './Stack';
 import { Placeholder } from '../_localComponents/Placeholder';
@@ -20,7 +21,11 @@ export const Base: Story = {
   render: () => {
     return (
       <>
-        <Stack marginX={10} marginTop={10}>
+        <Stack
+          marginX={{ base: 4, sm: 4, md: 8 }}
+          marginTop={10}
+          gap={{ base: 4, sm: 4, md: 8 }}
+        >
           <Placeholder height={300} color="orange100" />
           <Placeholder height={300} color="blue100" />
           <Placeholder height={300} color="yellow100" />

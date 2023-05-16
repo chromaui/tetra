@@ -1,12 +1,14 @@
 import { styled } from '@storybook/theming';
 import React, { FC, useState } from 'react';
-import { Root, Trigger, Content } from '@radix-ui/react-collapsible';
+import ReactCollapsible from '@radix-ui/react-collapsible';
 import { color, spacing } from '../_tokens';
 import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
 import { HeaderMobileGroup } from './types';
 import { slideDown, slideUp } from './styles';
 import { bodySm, subheading } from '../_helpers';
+
+const { Root, Trigger, Content } = ReactCollapsible;
 
 interface Props {
   section: HeaderMobileGroup;
