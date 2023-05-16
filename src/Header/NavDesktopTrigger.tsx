@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import {
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+} from '@radix-ui/react-navigation-menu';
 import { Icon } from '../Icon/Icon';
 import { useHeaderContext } from './context';
 import { HeaderDesktopItem } from './types';
@@ -12,7 +15,7 @@ export interface DesktopItemProps {
   item: HeaderDesktopItem;
 }
 
-const NavigationMenuTrigger = styled(NavigationMenu.Trigger, {
+const NavigationMenuTriggerStyled = styled(NavigationMenuTrigger, {
   shouldForwardProp: (propName) =>
     propName !== 'theTheme' && propName !== 'isActive',
 })<{
@@ -43,7 +46,7 @@ const CaretDown = styled.div`
   transition: transform 250ms ease;
 `;
 
-const NavigationMenuContent = styled(NavigationMenu.Content)<{
+const NavigationMenuContentStyled = styled(NavigationMenuContent)<{
   leftPosition?: number;
 }>`
   position: absolute;
@@ -66,15 +69,15 @@ export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
 
   return (
     <>
-      <NavigationMenuTrigger theTheme={theme} isActive={isActive}>
+      <NavigationMenuTriggerStyled theTheme={theme} isActive={isActive}>
         {item.name}
         <CaretDown className="CaretDown">
           <Icon name="arrowdown" aria-hidden size={12} />
         </CaretDown>
-      </NavigationMenuTrigger>
-      <NavigationMenuContent leftPosition={item.leftPosition}>
+      </NavigationMenuTriggerStyled>
+      <NavigationMenuContentStyled leftPosition={item.leftPosition}>
         <NavDesktopContent item={item} />
-      </NavigationMenuContent>
+      </NavigationMenuContentStyled>
     </>
   );
 };
