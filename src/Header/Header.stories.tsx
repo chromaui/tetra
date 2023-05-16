@@ -25,7 +25,7 @@ export const DesktopLight: Story = {
     desktopActive: undefined,
     desktopData,
     mobileData,
-    desktopBreakpoint: 940,
+    desktopBreakpoint: 992,
     desktopRight: (
       <>
         <Link href="/">Sign in</Link>
