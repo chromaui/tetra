@@ -41,6 +41,7 @@ const LogoLink = styled(LinkWithWrapper)`
   padding: ${spacing[2]};
   font-size: 0;
   border-radius: 6px;
+  margin-left: -${spacing[2]};
 
   &:focus-visible {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
