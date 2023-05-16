@@ -1,3 +1,15 @@
+# v1.9.2 (Tue May 16 2023)
+
+#### 🐛 Bug Fix
+
+- Bring back breakpoint tokens + container margins [#27](https://github.com/chromaui/tetra/pull/27) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.9.1 (Mon May 15 2023)
 
 #### 🐛 Bug Fix
