@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { NavDesktopItem } from './NavDesktopItem';
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { styled } from '@storybook/theming';
-import { within, userEvent } from '@storybook/testing-library';
+import { within } from '@storybook/testing-library';
+import { NavDesktopItem } from './NavDesktopItem';
 
 const meta: Meta<typeof NavDesktopItem> = {
   title: 'Components/Header/NavDesktopItem',

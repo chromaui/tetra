@@ -1,4 +1,5 @@
-import React, { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 import { Header } from './Header';
 import { Button } from '../Button';
@@ -24,10 +25,10 @@ export const DesktopLight: Story = {
     desktopActive: undefined,
     desktopData,
     mobileData,
-    desktopBreakpoint: 940,
+    desktopBreakpoint: 992,
     desktopRight: (
       <>
-        <Link>Sign in</Link>
+        <Link href="/">Sign in</Link>
         <Button size="sm" variant="outline" color="blue">
           Sign up
         </Button>

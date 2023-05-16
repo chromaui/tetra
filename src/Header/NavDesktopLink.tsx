@@ -5,7 +5,6 @@ import { useHeaderContext } from './context';
 import { HeaderDesktopItem } from './types';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { NavigationMenuItem } from './styles';
-import { bodySm } from '../_helpers';
 import { color, fontWeight } from '../_tokens';
 
 export interface DesktopItemProps {

@@ -16,6 +16,7 @@ module.exports = {
         'react/prop-types': 'off',
         'react/require-default-props': 'off',
         'react/default-props-match-prop-types': 'off',
+        'react/no-array-index-key': 'off',
         'jest/no-deprecated-functions': 'off',
       },
     },

@@ -101,11 +101,11 @@ export const lineHeight = {
 
 export const breakpoint = {
   base: 0,
-  sm: 640,
+  sm: 600,
   md: 768,
-  lg: 1024,
-  xl: 1280,
-  '2xl': 1536,
+  lg: 900,
+  xl: 1200,
+  '2xl': 1800,
 };
 
 export const spacing = {

@@ -98,3 +98,5 @@ export const NavDesktopItem = React.forwardRef<
     </NavigationMenu.Link>
   );
 });
+
+NavDesktopItem.displayName = 'NavDesktopItem';
