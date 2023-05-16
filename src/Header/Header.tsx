@@ -4,7 +4,7 @@ import { HeaderProvider, useHeaderContext } from './context';
 import { Logo } from '../Logo';
 import { spacing } from '../_tokens';
 import { Container } from '../Container';
-import { NavDesktop } from './NavDesktop';
+// import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
 import { useMediaQuery } from '../_hooks/useMediaQuery';
 import { HeaderProps } from './types';
@@ -116,7 +116,7 @@ const HeaderWithProvider: FC = () => {
               theme={theme}
             />
           </LogoLink>
-          {isDesktop && <NavDesktop />}
+          {/* {isDesktop && <NavDesktop />} */}
         </Left>
         {isDesktop && <Right>{desktopRight}</Right>}
         {!isDesktop && <NavMobile />}
