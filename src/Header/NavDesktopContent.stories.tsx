@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { List as RadixList, Root } from '@radix-ui/react-navigation-menu';
 import { styled } from '@storybook/theming';
 import { NavDesktopContent } from './NavDesktopContent';
 import { FigmaIcon } from './icons/figma';
@@ -13,7 +13,7 @@ const meta: Meta<typeof NavDesktopContent> = {
 export default meta;
 type Story = StoryObj<typeof NavDesktopContent>;
 
-const List = styled(NavigationMenu.List)`
+const List = styled(RadixList)`
   all: unset;
 `;
 
@@ -59,11 +59,11 @@ export const OneColumn: Story = {
   },
   decorators: [
     (storyFn) => (
-      <NavigationMenu.Root>
+      <Root>
         <List>
           <div style={{ display: 'flex' }}>{storyFn()}</div>
         </List>
-      </NavigationMenu.Root>
+      </Root>
     ),
   ],
 };
@@ -163,11 +163,11 @@ export const TwoColumn: Story = {
   },
   decorators: [
     (storyFn) => (
-      <NavigationMenu.Root>
+      <Root>
         <List>
           <div style={{ display: 'flex' }}>{storyFn()}</div>
         </List>
-      </NavigationMenu.Root>
+      </Root>
     ),
   ],
 };

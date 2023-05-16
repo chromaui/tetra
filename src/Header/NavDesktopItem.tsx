@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@storybook/theming';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { Link as RadixLink } from '@radix-ui/react-navigation-menu';
 import { color, spacing } from '../_tokens';
 import { Icon } from '../Icon/Icon';
 import { Text } from '../Text';
@@ -70,7 +70,7 @@ export const NavDesktopItem = React.forwardRef<
   DesktopItemProps
 >(({ content, ...props }, forwardedRef) => {
   return (
-    <NavigationMenu.Link asChild>
+    <RadixLink asChild>
       <Container
         {...props}
         ref={forwardedRef}
@@ -95,7 +95,7 @@ export const NavDesktopItem = React.forwardRef<
           </Text>
         </TextWrapper>
       </Container>
-    </NavigationMenu.Link>
+    </RadixLink>
   );
 });
 

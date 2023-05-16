@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { List as RadixList, Root } from '@radix-ui/react-navigation-menu';
 import { styled } from '@storybook/theming';
 import { within } from '@storybook/testing-library';
 import { NavDesktopItem } from './NavDesktopItem';
@@ -13,7 +13,7 @@ const meta: Meta<typeof NavDesktopItem> = {
 export default meta;
 type Story = StoryObj<typeof NavDesktopItem>;
 
-const List = styled(NavigationMenu.List)`
+const List = styled(RadixList)`
   all: unset;
 `;
 
@@ -30,9 +30,9 @@ export const Base: Story = {
   },
   decorators: [
     (storyFn) => (
-      <NavigationMenu.Root>
+      <Root>
         <List>{storyFn()}</List>
-      </NavigationMenu.Root>
+      </Root>
     ),
   ],
 };
@@ -50,9 +50,9 @@ export const Focused: Story = {
   },
   decorators: [
     (storyFn) => (
-      <NavigationMenu.Root>
+      <Root>
         <List>{storyFn()}</List>
-      </NavigationMenu.Root>
+      </Root>
     ),
   ],
   play: async ({ canvasElement, step }) => {

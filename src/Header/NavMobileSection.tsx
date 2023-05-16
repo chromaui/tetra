@@ -1,8 +1,7 @@
 import { styled } from '@storybook/theming';
 import React, { FC, useState } from 'react';
-import * as Collapsible from '@radix-ui/react-collapsible';
+import { Root, Trigger, Content } from '@radix-ui/react-collapsible';
 import { color, spacing } from '../_tokens';
-import { Text } from '../Text';
 import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
 import { HeaderMobileGroup } from './types';
@@ -32,7 +31,7 @@ const NonCollapsibleTrigger = styled.div`
   color: ${color.gray400};
 `;
 
-const CollapsibleTrigger = styled(Collapsible.Trigger)`
+const CollapsibleTrigger = styled(Trigger)`
   all: unset;
   display: flex;
   justify-content: space-between;
@@ -55,7 +54,7 @@ const CollapsibleTrigger = styled(Collapsible.Trigger)`
   }
 `;
 
-const CollapsibleContent = styled(Collapsible.Content)`
+const CollapsibleContent = styled(Content)`
   overflow: hidden;
 
   &[data-state='open'] {
@@ -71,7 +70,7 @@ const CollapsibleInside = styled.div`
   padding: ${spacing[0.5]} 0;
 `;
 
-const MoreTrigger = styled(Collapsible.Trigger)`
+const MoreTrigger = styled(Trigger)`
   all: unset;
   display: flex;
   align-items: center;
@@ -119,14 +118,14 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
           href={item.href}
         />
       ))}
-      <Collapsible.Root>
+      <Root>
         {section.maxItems && (
           <MoreTrigger>
             <Icon name="plus" color="gray400" size={16} aria-hidden />
             View more
           </MoreTrigger>
         )}
-        <Collapsible.Content>
+        <Content>
           {listMore.map((item) => (
             <NavMobileItem
               key={item.title}
@@ -137,14 +136,14 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
               href={item.href}
             />
           ))}
-        </Collapsible.Content>
-      </Collapsible.Root>
+        </Content>
+      </Root>
     </>
   );
 
   if (section.collapsible)
     return (
-      <Collapsible.Root open={open} onOpenChange={setOpen}>
+      <Root open={open} onOpenChange={setOpen}>
         <CollapsibleTrigger>
           {section.name}
           <CaretDown className="CaretDown">
@@ -157,7 +156,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
             {!isLast && <Divider />}
           </CollapsibleInside>
         </CollapsibleContent>
-      </Collapsible.Root>
+      </Root>
     );
 
   return (

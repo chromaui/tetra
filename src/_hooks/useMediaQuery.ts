@@ -76,10 +76,10 @@ export function useMediaQuery(
     }
   }
 
-  const getMatches = (query: string): boolean => {
+  const getMatches = (q: string): boolean => {
     // Prevents SSR issues
     if (typeof window !== 'undefined') {
-      return window.matchMedia(query).matches;
+      return window.matchMedia(q).matches;
     }
     return false;
   };
@@ -87,7 +87,7 @@ export function useMediaQuery(
   const [matches, setMatches] = useState<boolean>(getMatches(newQuery));
 
   function handleChange() {
-    setMatches(getMatches(newQuery));
+    if (typeof window !== 'undefined') setMatches(getMatches(newQuery));
   }
 
   useEffect(() => {
@@ -102,6 +102,7 @@ export function useMediaQuery(
     return () => {
       matchMedia.removeEventListener('change', handleChange);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newQuery]);
 
   return matches;

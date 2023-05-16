@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { Link as RadixLink } from '@radix-ui/react-navigation-menu';
 import { useHeaderContext } from './context';
 import { HeaderDesktopItem } from './types';
 import { LinkWithWrapper } from '../LinkWithWrapper';
@@ -33,7 +33,7 @@ export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
   const isActive = desktopActive === item.name;
 
   return (
-    <NavigationMenu.Link asChild>
+    <RadixLink asChild>
       <NavigationMenuLink
         href={item.href || ''}
         LinkWrapper={item.linkWrapper}
@@ -42,6 +42,6 @@ export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
       >
         {item.name}
       </NavigationMenuLink>
-    </NavigationMenu.Link>
+    </RadixLink>
   );
 };
