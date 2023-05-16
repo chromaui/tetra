@@ -34,11 +34,12 @@ export const NavDesktop: FC = () => {
         {desktopData &&
           desktopData.map((item) => (
             <NavigationMenuItem key={item.name}>
-              {item.menu ? (
+              Hello World
+              {/* {item.menu ? (
                 <NavDesktopTrigger key={item.name} item={item} />
               ) : (
                 <NavDesktopLink key={item.name} item={item} />
-              )}
+              )} */}
             </NavigationMenuItem>
           ))}
       </NavigationMenuList>
