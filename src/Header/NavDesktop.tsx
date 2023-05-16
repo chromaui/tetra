@@ -1,18 +1,18 @@
 import { styled } from '@storybook/theming';
 import React, { FC } from 'react';
-import { Root, List, Item } from '@radix-ui/react-navigation-menu';
+import NavigationMenu from '@radix-ui/react-navigation-menu';
 import { useHeaderContext } from './context';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
 
-const NavigationMenuRoot = styled(Root)`
+const NavigationMenuRoot = styled(NavigationMenu.Root)`
   position: relative;
   display: flex;
   justify-content: center;
   z-index: 1;
 `;
 
-const NavigationMenuList = styled(List)`
+const NavigationMenuList = styled(NavigationMenu.List)`
   display: flex;
   justify-content: center;
   list-style: none;
@@ -21,7 +21,7 @@ const NavigationMenuList = styled(List)`
   gap: 9px;
 `;
 
-const NavigationMenuItem = styled(Item)`
+const NavigationMenuItem = styled(NavigationMenu.Item)`
   position: relative;
 `;
 
