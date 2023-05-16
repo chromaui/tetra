@@ -41,8 +41,8 @@ export const NavDesktopContent: FC<Props> = ({ item }) => {
     <Inside>
       {item.menu?.map((column, i) => (
         <Column key={i} bg={column?.backgroundColor || 'white'} index={i}>
-          {column.content.map((content, i) => (
-            <Fragment key={i}>
+          {column.content.map((content) => (
+            <Fragment key={content.title}>
               {content.type === 'separator' && (
                 <Separator index={i}>
                   <Text variant="subheading" color="gray400">

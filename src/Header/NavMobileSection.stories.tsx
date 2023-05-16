@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { NavMobileSection } from './NavMobileSection';
 import React from 'react';
+import { NavMobileSection } from './NavMobileSection';
 import { FigmaIcon } from './icons/figma';
 
 const meta: Meta<typeof NavMobileSection> = {

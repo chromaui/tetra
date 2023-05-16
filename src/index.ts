@@ -37,7 +37,7 @@ export { Button } from './Button';
 export { CustomerStoryHero } from './CustomerStoryHero';
 export { Divider } from './Divider';
 export { Grid } from './Grid';
-export { HeaderProps, Header } from './Header';
+export { Header } from './Header';
 export { Icon } from './Icon';
 export { IntegrationImage } from './IntegrationImage';
 export { Link } from './Link';
