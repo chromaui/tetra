@@ -4,7 +4,7 @@ import { HeaderProvider, useHeaderContext } from './context';
 import { Logo } from '../Logo';
 import { spacing } from '../_tokens';
 import { Container } from '../Container';
-// import { NavDesktop } from './NavDesktop';
+import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
 import { useMediaQuery } from '../_hooks/useMediaQuery';
 import { HeaderProps } from './types';
@@ -59,6 +59,38 @@ const Right = styled.div`
   align-items: center;
 `;
 
+const HeaderWithProvider: FC = () => {
+  const {
+    theme,
+    desktopBreakpoint,
+    logo,
+    logoHeightDesktop,
+    logoHeightMobile,
+    logoHref,
+    desktopRight,
+  } = useHeaderContext();
+  const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
+
+  return (
+    <Container>
+      <Wrapper desktopBreakpoint={desktopBreakpoint}>
+        <Left>
+          <LogoLink href={logoHref || '/'} aria-label="Home">
+            <Logo
+              name={logo || 'chromatic'}
+              height={isDesktop ? logoHeightDesktop : logoHeightMobile}
+              theme={theme}
+            />
+          </LogoLink>
+          {isDesktop && <NavDesktop />}
+        </Left>
+        {isDesktop && <Right>{desktopRight}</Right>}
+        {!isDesktop && <NavMobile />}
+      </Wrapper>
+    </Container>
+  );
+};
+
 export const Header: FC<HeaderProps> = ({
   theme = 'light',
   logo,
@@ -90,37 +122,5 @@ export const Header: FC<HeaderProps> = ({
     >
       <HeaderWithProvider />
     </HeaderProvider>
-  );
-};
-
-const HeaderWithProvider: FC = () => {
-  const {
-    theme,
-    desktopBreakpoint,
-    logo,
-    logoHeightDesktop,
-    logoHeightMobile,
-    logoHref,
-    desktopRight,
-  } = useHeaderContext();
-  const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
-
-  return (
-    <Container>
-      <Wrapper desktopBreakpoint={desktopBreakpoint}>
-        <Left>
-          <LogoLink href={logoHref || '/'} aria-label="Home">
-            <Logo
-              name={logo || 'chromatic'}
-              height={isDesktop ? logoHeightDesktop : logoHeightMobile}
-              theme={theme}
-            />
-          </LogoLink>
-          {/* {isDesktop && <NavDesktop />} */}
-        </Left>
-        {isDesktop && <Right>{desktopRight}</Right>}
-        {!isDesktop && <NavMobile />}
-      </Wrapper>
-    </Container>
   );
 };
