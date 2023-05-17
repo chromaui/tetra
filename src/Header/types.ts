@@ -43,6 +43,7 @@ export interface HeaderProps {
   logoHeightDesktop?: number;
   logoHeightMobile?: number;
   logoHref?: string;
+  logoLinkWrapper?: any;
   desktopBreakpoint?: number;
   desktopData: HeaderDesktopItem[];
   desktopActive?: string;
