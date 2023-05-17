@@ -14,6 +14,7 @@ interface HeaderContextType {
   logoHeightDesktop?: HeaderProps['logoHeightDesktop']; // The height of the logo on desktop
   logoHeightMobile?: HeaderProps['logoHeightMobile']; // The height of the logo on mobile
   logoHref?: HeaderProps['logoHref']; // The link to redirect to when clicking on the logo
+  logoLinkWrapper?: HeaderProps['logoLinkWrapper']; // The wrapper to use for the logo link
 
   // Desktop
   desktopData?: HeaderProps['desktopData']; // The desktop navigation data (array of objects)
@@ -45,6 +46,7 @@ interface HeaderProviderProps {
   logoHeightDesktop?: HeaderProps['logoHeightDesktop'];
   logoHeightMobile?: HeaderProps['logoHeightMobile'];
   logoHref?: HeaderProps['logoHref'];
+  logoLinkWrapper?: HeaderProps['logoLinkWrapper'];
   desktopData: HeaderProps['desktopData'];
   desktopActive: HeaderProps['desktopActive'];
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
@@ -61,6 +63,7 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
   logoHeightDesktop = 24,
   logoHeightMobile = 24,
   logoHref,
+  logoLinkWrapper,
   desktopData,
   desktopActive,
   desktopBreakpoint,
@@ -78,6 +81,7 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
         logo,
         logoHeightDesktop,
         logoHeightMobile,
+        logoLinkWrapper,
         logoHref,
         desktopData,
         desktopActive,

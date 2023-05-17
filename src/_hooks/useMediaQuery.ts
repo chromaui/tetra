@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { breakpoint } from '../_tokens';
 
+// Good article to understand why we should return null first until hydration is done
+// https://observablehq.com/@werehamster/avoiding-hydration-mismatch-when-using-react-hooks
+
 export function useMediaQuery(
   query:
     | 'minBase'
@@ -25,7 +28,7 @@ export function useMediaQuery(
         min?: number;
         max?: number;
       }
-): boolean {
+): boolean | null {
   let newQuery = '';
   // Min
   if (query === 'minBase') newQuery = `(min-width: ${breakpoint.base}px)`;
@@ -76,21 +79,21 @@ export function useMediaQuery(
     }
   }
 
-  const getMatches = (query: string): boolean => {
-    // Prevents SSR issues
-    if (typeof window !== 'undefined') {
-      return window.matchMedia(query).matches;
-    }
-    return false;
-  };
-
-  const [matches, setMatches] = useState<boolean>(getMatches(newQuery));
-
-  function handleChange() {
-    setMatches(getMatches(newQuery));
-  }
+  const [matches, setMatches] = useState<boolean | null>(null);
 
   useEffect(() => {
+    const getMatches = (q: string): boolean => {
+      // Prevents SSR issues
+      if (typeof window !== 'undefined') {
+        return window.matchMedia(q).matches;
+      }
+      return false;
+    };
+
+    function handleChange() {
+      setMatches(getMatches(newQuery));
+    }
+
     const matchMedia = window.matchMedia(newQuery);
 
     // Triggered at the first client-side load and if query changes

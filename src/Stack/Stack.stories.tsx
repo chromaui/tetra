@@ -1,4 +1,5 @@
-import React, { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import { Stack } from './Stack';
 import { Placeholder } from '../_localComponents/Placeholder';

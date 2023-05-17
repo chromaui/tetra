@@ -65,6 +65,7 @@ export const Header: FC<HeaderProps> = ({
   logoHeightDesktop,
   logoHeightMobile,
   logoHref,
+  logoLinkWrapper,
   desktopData,
   mobileData,
   desktopBreakpoint,
@@ -80,6 +81,7 @@ export const Header: FC<HeaderProps> = ({
       logoHeightDesktop={logoHeightDesktop}
       logoHeightMobile={logoHeightMobile}
       logoHref={logoHref}
+      logoLinkWrapper={logoLinkWrapper}
       desktopData={desktopData}
       desktopActive={desktopActive}
       desktopBreakpoint={desktopBreakpoint}
@@ -101,6 +103,7 @@ const HeaderWithProvider: FC = () => {
     logoHeightDesktop,
     logoHeightMobile,
     logoHref,
+    logoLinkWrapper,
     desktopRight,
   } = useHeaderContext();
   const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
@@ -109,7 +112,11 @@ const HeaderWithProvider: FC = () => {
     <Container>
       <Wrapper desktopBreakpoint={desktopBreakpoint}>
         <Left>
-          <LogoLink href={logoHref || '/'} aria-label="Home">
+          <LogoLink
+            href={logoHref || '/'}
+            LinkWrapper={logoLinkWrapper}
+            aria-label="Home"
+          >
             <Logo
               name={logo || 'chromatic'}
               height={isDesktop ? logoHeightDesktop : logoHeightMobile}

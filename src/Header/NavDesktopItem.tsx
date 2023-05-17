@@ -12,16 +12,9 @@ export interface DesktopItemProps {
 }
 
 const Container = styled(LinkWithWrapper)`
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  width: calc(100% - ${spacing[3] + spacing[8]});
-  padding: ${spacing[3]};
-  padding-right: ${spacing[12]};
-  gap: ${spacing[3]};
-  border-radius: ${spacing[1]};
   cursor: pointer;
   text-decoration: none;
+  border-radius: ${spacing[1]};
 
   &:focus {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
@@ -33,6 +26,17 @@ const Container = styled(LinkWithWrapper)`
     outline: 2px solid crimson;
     outline: none;
   }
+`;
+
+const Inside = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - ${spacing[3] + spacing[8]});
+  padding: ${spacing[3]};
+  padding-right: ${spacing[12]};
+  gap: ${spacing[3]};
+  border-radius: ${spacing[1]};
 
   &:hover {
     background-color: ${color.blue100};
@@ -72,28 +76,30 @@ export const NavDesktopItem = React.forwardRef<
   return (
     <NavigationMenu.Link asChild>
       <Container
-        {...props}
-        ref={forwardedRef}
         href={content.href || ''}
         LinkWrapper={content.linkWrapper}
+        ref={forwardedRef}
+        {...props}
       >
-        <ArrowWrapper className="arrow">
-          <Icon name="arrowrightalt" color="gray400" />
-        </ArrowWrapper>
-        <IconWrapper>
-          {!content.customIcon && content.icon && (
-            <Icon name={content.icon} size={16} color={content.iconColor} />
-          )}
-          {content.customIcon}
-        </IconWrapper>
-        <TextWrapper>
-          <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
-            {content.title}
-          </Text>
-          <Text as="div" variant="bodySm" color="gray500">
-            {content.description}
-          </Text>
-        </TextWrapper>
+        <Inside>
+          <ArrowWrapper className="arrow">
+            <Icon name="arrowrightalt" color="gray400" />
+          </ArrowWrapper>
+          <IconWrapper>
+            {!content.customIcon && content.icon && (
+              <Icon name={content.icon} size={16} color={content.iconColor} />
+            )}
+            {content.customIcon}
+          </IconWrapper>
+          <TextWrapper>
+            <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
+              {content.title}
+            </Text>
+            <Text as="div" variant="bodySm" color="gray500">
+              {content.description}
+            </Text>
+          </TextWrapper>
+        </Inside>
       </Container>
     </NavigationMenu.Link>
   );

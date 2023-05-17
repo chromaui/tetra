@@ -11,9 +11,21 @@ export interface MobileItemProps {
   customIcon?: ReactNode;
   title: string;
   href: string;
+  linkWrapper?: any;
 }
 
 const Container = styled(LinkWithWrapper)`
+  all: unset;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  }
+`;
+
+const Inside = styled.div`
   all: unset;
   display: flex;
   flex-direction: row;
@@ -25,10 +37,6 @@ const Container = styled(LinkWithWrapper)`
   width: calc(100% - 20px);
   margin-left: 2px;
   cursor: pointer;
-
-  &:focus {
-    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
-  }
 `;
 
 export const NavMobileItem: FC<MobileItemProps> = ({
@@ -37,16 +45,19 @@ export const NavMobileItem: FC<MobileItemProps> = ({
   customIcon,
   title,
   href,
+  linkWrapper,
 }) => {
   return (
-    <Container href={href || ''}>
-      {!customIcon && icon && (
-        <Icon name={icon} size={16} color={iconColor} aria-hidden />
-      )}
-      {customIcon}
-      <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
-        {title}
-      </Text>
+    <Container href={href || ''} LinkWrapper={linkWrapper}>
+      <Inside>
+        {!customIcon && icon && (
+          <Icon name={icon} size={16} color={iconColor} aria-hidden />
+        )}
+        {customIcon}
+        <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
+          {title}
+        </Text>
+      </Inside>
     </Container>
   );
 };

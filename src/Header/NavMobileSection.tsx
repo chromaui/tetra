@@ -2,15 +2,14 @@ import { styled } from '@storybook/theming';
 import React, { FC, useState } from 'react';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import { color, spacing } from '../_tokens';
-import { Text } from '../Text';
 import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
-import { HeaderMobileGroup } from './types';
+import { HeaderMobileSection } from './types';
 import { slideDown, slideUp } from './styles';
 import { bodySm, subheading } from '../_helpers';
 
 interface Props {
-  section: HeaderMobileGroup;
+  section: HeaderMobileSection;
   isLast: boolean;
 }
 
@@ -117,6 +116,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
           iconColor={item.iconColor}
           title={item.title}
           href={item.href}
+          linkWrapper={item.linkWrapper}
         />
       ))}
       <Collapsible.Root>
@@ -135,6 +135,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
               iconColor={item.iconColor}
               title={item.title}
               href={item.href}
+              linkWrapper={item.linkWrapper}
             />
           ))}
         </Collapsible.Content>
