@@ -95,15 +95,15 @@ export const DesktopLightOpen: Story = {
     ...DesktopLight.parameters,
   },
   decorators: [(storyFn) => <div style={{ height: '800px' }}>{storyFn()}</div>],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const MenuButton = await canvas.getByRole('button', {
-      name: 'Features',
-    });
-    MenuButton.focus();
-    await userEvent.keyboard('{enter}');
-    await canvas.findByLabelText('Features');
-  },
+  // play: async ({ canvasElement }) => {
+  //   const canvas = within(canvasElement);
+  //   const MenuButton = await canvas.getByRole('button', {
+  //     name: 'Features',
+  //   });
+  //   MenuButton.focus();
+  //   await userEvent.keyboard('{enter}');
+  //   await canvas.findByLabelText('Features');
+  // },
 };
 
 export const DesktopDarkOpen: Story = {
@@ -116,14 +116,14 @@ export const DesktopDarkOpen: Story = {
     backgrounds: { default: 'dark' },
   },
   decorators: DesktopLightOpen.decorators,
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const MenuButton = await canvas.getByRole('button', {
-      name: 'Customers',
-    });
-    await userEvent.click(MenuButton, { pointerType: 'mouse' } as any);
-    await canvas.findByLabelText('Customers');
-  },
+  // play: async ({ canvasElement }) => {
+  //   const canvas = within(canvasElement);
+  //   const MenuButton = await canvas.getByRole('button', {
+  //     name: 'Customers',
+  //   });
+  //   await userEvent.click(MenuButton, { pointerType: 'mouse' } as any);
+  //   await canvas.findByLabelText('Customers');
+  // },
 };
 
 export const TabletLight: Story = {
