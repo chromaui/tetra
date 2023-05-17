@@ -103,7 +103,7 @@ const HeaderWithProvider: FC = () => {
     logoHref,
     desktopRight,
   } = useHeaderContext();
-  const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
+  // const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
 
   return (
     <Container>
@@ -112,14 +112,14 @@ const HeaderWithProvider: FC = () => {
           <LogoLink href={logoHref || '/'} aria-label="Home">
             <Logo
               name={logo || 'chromatic'}
-              height={isDesktop ? logoHeightDesktop : logoHeightMobile}
+              height={logoHeightDesktop}
               theme={theme}
             />
           </LogoLink>
-          {isDesktop && <NavDesktop />}
+          <NavDesktop />
         </Left>
-        {isDesktop && <Right>{desktopRight}</Right>}
-        {!isDesktop && <NavMobile />}
+        <Right>{desktopRight}</Right>
+        <NavMobile />
       </Wrapper>
     </Container>
   );

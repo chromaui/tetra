@@ -87,7 +87,7 @@ export function useMediaQuery(
   const [matches, setMatches] = useState<boolean>(getMatches(newQuery));
 
   function handleChange() {
-    if (typeof window !== 'undefined') setMatches(getMatches(newQuery));
+    setMatches(getMatches(newQuery));
   }
 
   useEffect(() => {
