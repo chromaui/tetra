@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
@@ -10,4 +11,9 @@ export default defineConfig({
   splitting: false,
   format: ['cjs', 'esm'],
   external: ['react'],
+  noExternal: [
+    '@radix-ui/react-navigation-menu',
+    '@radix-ui/react-popover',
+    '@radix-ui/react-collapsible',
+  ],
 });
