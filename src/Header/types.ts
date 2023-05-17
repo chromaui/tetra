@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { IconType } from '../Icon/Icon';
 import { color } from '../_tokens';
 
@@ -20,7 +20,7 @@ export interface HeaderDesktopItemContent {
   title: string;
   description?: string;
   href?: string;
-  linkWrapper?: FC<{ children: ReactNode }>;
+  linkWrapper?: any;
   icon?: IconType;
   iconColor?: keyof typeof color;
   customIcon?: ReactNode;
@@ -29,7 +29,7 @@ export interface HeaderDesktopItemContent {
 export interface HeaderDesktopItem {
   name: string;
   href?: string;
-  linkWrapper?: FC<{ children: ReactNode }>;
+  linkWrapper?: any;
   leftPosition?: number;
   menu?: {
     content: HeaderDesktopItemContent[];
