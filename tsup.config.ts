@@ -11,6 +11,9 @@ export default defineConfig({
   splitting: false,
   format: ['cjs', 'esm'],
   external: ['react'],
+
+  // There is a bug in Radix - https://github.com/radix-ui/primitives/issues/1848
+  // Remove this one when it's fixed
   noExternal: [
     '@radix-ui/react-navigation-menu',
     '@radix-ui/react-popover',

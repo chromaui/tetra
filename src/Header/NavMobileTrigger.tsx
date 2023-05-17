@@ -31,7 +31,10 @@ const MobileIcon = styled.div`
   }
 `;
 
-const Line = styled(motion.div)<{
+const Line = styled(motion.div, {
+  shouldForwardProp: (propName) =>
+    propName !== 'headerTheme' && propName !== 'top',
+})<{
   headerTheme?: HeaderProps['theme'];
   top: number;
 }>`
