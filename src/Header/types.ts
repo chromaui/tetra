@@ -2,13 +2,14 @@ import { ReactNode } from 'react';
 import { IconType } from '../Icon/Icon';
 import { color } from '../_tokens';
 
-export interface HeaderMobileGroup {
+export interface HeaderMobileSection {
   name?: string;
   maxItems?: number;
   collapsible?: boolean;
   content: {
     title: string;
     href: string;
+    linkWrapper?: any;
     icon?: IconType;
     iconColor?: keyof typeof color;
     customIcon?: ReactNode;
@@ -48,7 +49,7 @@ export interface HeaderProps {
   desktopData: HeaderDesktopItem[];
   desktopActive?: string;
   desktopRight?: ReactNode;
-  mobileData: HeaderMobileGroup[];
+  mobileData: HeaderMobileSection[];
   mobileTop?: ReactNode;
   mobileBottom?: ReactNode;
 }
