@@ -77,23 +77,25 @@ export const NavDesktopItem = React.forwardRef<
         href={content.href || ''}
         LinkWrapper={content.linkWrapper}
       >
-        <ArrowWrapper className="arrow">
-          <Icon name="arrowrightalt" color="gray400" />
-        </ArrowWrapper>
-        <IconWrapper>
-          {!content.customIcon && content.icon && (
-            <Icon name={content.icon} size={16} color={content.iconColor} />
-          )}
-          {content.customIcon}
-        </IconWrapper>
-        <TextWrapper>
-          <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
-            {content.title}
-          </Text>
-          <Text as="div" variant="bodySm" color="gray500">
-            {content.description}
-          </Text>
-        </TextWrapper>
+        <>
+          <ArrowWrapper className="arrow">
+            <Icon name="arrowrightalt" color="gray400" />
+          </ArrowWrapper>
+          <IconWrapper>
+            {!content.customIcon && content.icon && (
+              <Icon name={content.icon} size={16} color={content.iconColor} />
+            )}
+            {content.customIcon}
+          </IconWrapper>
+          <TextWrapper>
+            <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
+              {content.title}
+            </Text>
+            <Text as="div" variant="bodySm" color="gray500">
+              {content.description}
+            </Text>
+          </TextWrapper>
+        </>
       </Container>
     </NavigationMenu.Link>
   );
