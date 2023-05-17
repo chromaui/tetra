@@ -1,3 +1,15 @@
+# v1.9.3 (Wed May 17 2023)
+
+#### 🐛 Bug Fix
+
+- Header - Update Radix import + Fixing all bugs on Chromatic [#28](https://github.com/chromaui/tetra/pull/28) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.9.2 (Tue May 16 2023)
 
 #### 🐛 Bug Fix
