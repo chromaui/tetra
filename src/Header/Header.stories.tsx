@@ -22,7 +22,6 @@ export const DesktopLight: Story = {
     theme: 'light',
     logoHeightDesktop: 24,
     logoHeightMobile: 22,
-    desktopActive: undefined,
     desktopData,
     mobileData,
     desktopBreakpoint: 992,
