@@ -47,9 +47,9 @@ export interface HeaderProps {
   logoLinkWrapper?: any;
   desktopBreakpoint?: number;
   desktopData: HeaderDesktopItem[];
-  desktopActive?: string;
   desktopRight?: ReactNode;
   mobileData: HeaderMobileSection[];
   mobileTop?: ReactNode;
   mobileBottom?: ReactNode;
+  activePathname?: string;
 }

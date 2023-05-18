@@ -5,7 +5,7 @@ import { Icon } from '../Icon';
 import { IconType } from '../Icon/Icon';
 
 export interface ButtonProps {
-  children: String;
+  children: string;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'solid' | 'outline';
   color?: 'blue' | 'white' | 'gray';
@@ -51,6 +51,7 @@ const Container = styled.a<{
     if (size === 'sm') return '1.75rem';
     if (size === 'md') return '2.5rem';
     if (size === 'lg') return '3rem';
+    return '2.5rem';
   }};
   box-shadow: ${({ color, variant }) => {
     if (variant === 'outline' && color === 'blue')
