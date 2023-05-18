@@ -19,13 +19,13 @@ export const NotCollapsible: Story = {
         {
           title: 'UI Tests',
           icon: 'contrast',
-          iconColor: 'teal500',
+          iconColor: 'cyan500',
           href: '/features/ui-tests',
         },
         {
           title: 'UI Review',
           icon: 'batchaccept',
-          iconColor: 'emerald500',
+          iconColor: 'green500',
           href: '/',
         },
         {
@@ -74,13 +74,13 @@ export const Max3items: Story = {
         {
           title: 'UI Tests',
           icon: 'contrast',
-          iconColor: 'teal500',
+          iconColor: 'cyan500',
           href: '/features/ui-tests',
         },
         {
           title: 'UI Review',
           icon: 'batchaccept',
-          iconColor: 'emerald500',
+          iconColor: 'green500',
           href: '/',
         },
         {
@@ -128,13 +128,13 @@ export const Collapsible: Story = {
         {
           title: 'UI Tests',
           icon: 'contrast',
-          iconColor: 'teal500',
+          iconColor: 'cyan500',
           href: '/features/ui-tests',
         },
         {
           title: 'UI Review',
           icon: 'batchaccept',
-          iconColor: 'emerald500',
+          iconColor: 'green500',
           href: '/',
         },
         {

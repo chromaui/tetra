@@ -9,5 +9,5 @@ interface StackProps extends BlockWithOptionsProps {
 export const Divider = styled(BlockWithOptions)<StackProps>`
   height: ${spacing[0.25]};
   background-color: ${({ color }) =>
-    color ? tokenColor[color] : tokenColor['gray200']};
+    color ? tokenColor[color] : tokenColor.slate300};
 `;

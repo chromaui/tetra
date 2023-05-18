@@ -40,7 +40,7 @@ export const Base: Story = {
       </Grid>
       <Grid mb={4}>
         <Grid.Column>
-          <Placeholder color="teal100" />
+          <Placeholder color="cyan100" />
         </Grid.Column>
       </Grid>
     </>

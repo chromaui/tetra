@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
+import { styled } from '@storybook/theming';
 import { color, spacing } from '../_tokens';
 
-import { Container } from '../Container/Container';
-import { Divider } from '../Divider/Divider';
 import { minLg } from '../_helpers';
-import { styled } from '@storybook/theming';
 
 const HeroContainer = styled.div`
   align-items: center;
-  border-bottom: 1px solid ${color.gray200};
+  border-bottom: 1px solid ${color.slate300};
   display: grid;
   gap: ${spacing[8]};
   grid-template-rows: repeat(3, auto);
@@ -23,13 +21,15 @@ const HeroContainer = styled.div`
     grid-template-columns: repeat(4, 1fr);
     padding-bottom: ${spacing[10]};
   }
-  `;
+`;
 
 const HeroItem = styled.div<SharedHeroProps>`
   display: grid;
-  grid-column: ${(props) => (props.position === 'first' ? '1 / span 1' : '1 / span 1')};
+  grid-column: ${(props) =>
+    props.position === 'first' ? '1 / span 1' : '1 / span 1'};
   grid-row: ${(props) => (props.position === 'first' ? '1' : '3')};
-  grid-template-rows: ${(props) => (props.position === 'first' ? '280px' : spacing[20])};
+  grid-template-rows: ${(props) =>
+    props.position === 'first' ? '280px' : spacing[20]};
   grid-template-columns: 1fr;
   margin: 0;
   padding: 0;
@@ -37,7 +37,8 @@ const HeroItem = styled.div<SharedHeroProps>`
 
   ${minLg} {
     grid-template-rows: 400px;
-    grid-column: ${(props) => (props.position === 'first' ? '1 / span 3' : '4 / span 1')};
+    grid-column: ${(props) =>
+      props.position === 'first' ? '1 / span 3' : '4 / span 1'};
     grid-row: 1;
   }
 `;
@@ -61,15 +62,19 @@ const HeroImage = styled.div<SharedHeroProps>`
 `;
 
 const HeroCaption = styled.div<SharedHeroProps>`
-  border-bottom: ${(props) => (props.position === 'first' ? `1px solid ${color.gray200}` : '0')};
-  grid-column: ${(props) => (props.position === 'first' ? '1 / span 1' : '1 / span 1')};
+  border-bottom: ${(props) =>
+    props.position === 'first' ? `1px solid ${color.slate300}` : '0'};
+  grid-column: ${(props) =>
+    props.position === 'first' ? '1 / span 1' : '1 / span 1'};
   grid-row: ${(props) => (props.position === 'first' ? '2' : '3')};
-  padding-bottom: ${(props) => (props.position === 'first' ? `${spacing[6]}` : '0')};
+  padding-bottom: ${(props) =>
+    props.position === 'first' ? `${spacing[6]}` : '0'};
   padding-left: ${(props) => (props.position === 'first' ? '0' : spacing[24])};
 
   ${minLg} {
     border-bottom: 0;
-    grid-column: ${(props) => (props.position === 'first' ? '1 / span 3' : '4 / span 1')};
+    grid-column: ${(props) =>
+      props.position === 'first' ? '1 / span 3' : '4 / span 1'};
     grid-row: 2;
     padding-bottom: 0;
     padding-left: 0;
@@ -103,7 +108,12 @@ export const CustomerStoryHero: FC<CustomerStoryHeroProps> = ({
       return (
         <React.Fragment key="index">
           <HeroItem position={position}>
-            <HeroImage position={position} imgPath={imgPath} role="img" aria-label={imgAlt} />
+            <HeroImage
+              position={position}
+              imgPath={imgPath}
+              role="img"
+              aria-label={imgAlt}
+            />
           </HeroItem>
           <HeroCaption position={position}>{caption}</HeroCaption>
         </React.Fragment>

@@ -25,7 +25,7 @@ const LogoContainer = styled.div<{ bg?: string }>`
   width: ${spacing[10]};
   height: ${spacing[10]};
   border-radius: 8px;
-  background-color: ${({ bg }) => bg || color.gray100};
+  background-color: ${({ bg }) => bg || color.slate100};
 
   > * {
     transform: scale(0.7);

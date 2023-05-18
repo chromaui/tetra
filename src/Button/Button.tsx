@@ -8,7 +8,7 @@ export interface ButtonProps {
   children: string;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'solid' | 'outline';
-  color?: 'blue' | 'white' | 'gray';
+  color?: 'blue' | 'white' | 'slate';
   leftIcon?: IconType;
   rightIcon?: IconType;
   href?: string;
@@ -37,15 +37,15 @@ const Container = styled.a<{
   background: ${({ variant, color }) => {
     if (variant === 'solid' && color === 'blue') return tokenColor.blue500;
     if (variant === 'solid' && color === 'white') return tokenColor.white;
-    if (variant === 'solid' && color === 'gray') return tokenColor.gray100;
+    if (variant === 'solid' && color === 'slate') return tokenColor.slate100;
     return 'transparent';
   }};
   color: ${({ variant, color }) => {
     if (variant === 'solid' && color === 'blue') return tokenColor.white;
     if (variant === 'solid' && color === 'white') return tokenColor.blue500;
-    if (variant === 'solid' && color === 'gray') return tokenColor.gray500;
+    if (variant === 'solid' && color === 'slate') return tokenColor.slate500;
     if (variant === 'outline' && color === 'white') return tokenColor.white;
-    if (variant === 'outline' && color === 'gray') return tokenColor.gray500;
+    if (variant === 'outline' && color === 'slate') return tokenColor.slate500;
     return tokenColor.blue500;
   }};
   height: ${({ size }) => {
@@ -59,8 +59,8 @@ const Container = styled.a<{
       return `0 0 0 1px ${tokenColor.blue500}`;
     if (variant === 'outline' && color === 'white')
       return `0 0 0 1px ${tokenColor.white}`;
-    if (variant === 'outline' && color === 'gray')
-      return `0 0 0 1px ${tokenColor.gray300}`;
+    if (variant === 'outline' && color === 'slate')
+      return `0 0 0 1px ${tokenColor.slate300}`;
     return `0 0 0 1px ${tokenColor.blue500}`;
   }};
   font-size: ${({ size }) => {
@@ -79,11 +79,12 @@ const Container = styled.a<{
     background: ${({ variant, color }) => {
       if (variant === 'solid' && color === 'blue') return tokenColor.blue600;
       if (variant === 'solid' && color === 'white') return tokenColor.blue100;
-      if (variant === 'solid' && color === 'gray') return tokenColor.gray200;
+      if (variant === 'solid' && color === 'slate') return tokenColor.slate300;
       if (variant === 'outline' && color === 'blue') return tokenColor.blue100;
       if (variant === 'outline' && color === 'white')
         return 'rgba(255, 255, 255, 0.1)';
-      if (variant === 'outline' && color === 'gray') return tokenColor.gray100;
+      if (variant === 'outline' && color === 'slate')
+        return tokenColor.slate100;
       return 'transparent';
     }};
   }
@@ -106,7 +107,7 @@ export const Button: FC<ButtonProps> = ({
   if (size === 'sm') iconSize = 12;
   if (size === 'lg') iconSize = 16;
 
-  let iconColor: keyof typeof tokenColor = 'gray500';
+  let iconColor: keyof typeof tokenColor = 'slate500';
   if (variant === 'solid' && color === 'blue') iconColor = 'white';
   if (variant === 'solid' && color === 'white') iconColor = 'blue500';
   if (variant === 'outline' && color === 'blue') iconColor = 'blue500';

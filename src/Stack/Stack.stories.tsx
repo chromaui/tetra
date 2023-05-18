@@ -27,7 +27,7 @@ export const Base: Story = {
           <Placeholder height={300} color="yellow100" />
           <Placeholder height={300} color="purple100" />
           <Placeholder height={300} color="pink100" />
-          <Placeholder height={300} color="teal100" />
+          <Placeholder height={300} color="cyan100" />
         </Stack>
         <Stack marginY={10} marginX={10}>
           <Placeholder height={300} color="yellow100" />
@@ -35,7 +35,7 @@ export const Base: Story = {
           <Placeholder height={300} color="orange100" />
         </Stack>
         <Stack marginY={10} marginX={10}>
-          <Placeholder height={300} color="teal100" />
+          <Placeholder height={300} color="cyan100" />
           <Placeholder height={300} color="pink100" />
         </Stack>
       </>

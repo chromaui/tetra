@@ -14,9 +14,9 @@ const Container = styled.div<{
   color: PlaceholderProps['color'];
 }>`
   width: ${({ width }) => (width ? `${width}px` : '100%')};
-  height: ${({ height }) => (height ? height : 400)}px;
+  height: ${({ height }) => height || 400}px;
   background-color: ${({ color }) =>
-    color ? tokenColor[color] : tokenColor.gray100};
+    color ? tokenColor[color] : tokenColor.slate100};
 `;
 
 export const Placeholder: FC<PlaceholderProps> = ({ width, height, color }) => {

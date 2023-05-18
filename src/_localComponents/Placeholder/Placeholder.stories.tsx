@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Placeholder } from './Placeholder';
 
@@ -14,6 +14,6 @@ type Story = StoryObj<typeof Placeholder>;
 export const Base: Story = {
   args: {
     height: 400,
-    color: 'gray100',
+    color: 'slate100',
   },
 };

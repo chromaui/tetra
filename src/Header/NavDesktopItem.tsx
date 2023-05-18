@@ -83,7 +83,7 @@ export const NavDesktopItem = React.forwardRef<
       >
         <Inside>
           <ArrowWrapper className="arrow">
-            <Icon name="arrowrightalt" color="gray400" />
+            <Icon name="arrowrightalt" color="slate400" />
           </ArrowWrapper>
           <IconWrapper>
             {!content.customIcon && content.icon && (
@@ -95,7 +95,7 @@ export const NavDesktopItem = React.forwardRef<
             <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
               {content.title}
             </Text>
-            <Text as="div" variant="bodySm" color="gray500">
+            <Text as="div" variant="bodySm" color="slate500">
               {content.description}
             </Text>
           </TextWrapper>

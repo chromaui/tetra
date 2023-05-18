@@ -85,7 +85,7 @@ export const TwoColumn: Story = {
               description:
                 'Pinpoint UI bugs down to the pixel, viewport, and browser.',
               icon: 'contrast',
-              iconColor: 'teal500',
+              iconColor: 'cyan500',
               href: '#',
             },
             {
@@ -131,7 +131,7 @@ export const TwoColumn: Story = {
               description:
                 'Streamline team sign-off and track change requests.',
               icon: 'batchaccept',
-              iconColor: 'emerald500',
+              iconColor: 'green500',
               href: '#',
             },
             {
