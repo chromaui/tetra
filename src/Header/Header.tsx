@@ -23,8 +23,8 @@ const Wrapper = styled.div<WrapperProps>`
   justify-content: space-between;
 
   @media (min-width: ${({ desktopBreakpoint }) => desktopBreakpoint}px) {
-    padding-top: 0;
-    height: 120px;
+    padding-top: 36px;
+    height: 48px;
   }
 `;
 
