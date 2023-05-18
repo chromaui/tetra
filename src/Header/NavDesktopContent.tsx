@@ -45,7 +45,7 @@ export const NavDesktopContent: FC<Props> = ({ item }) => {
             <Fragment key={content.title}>
               {content.type === 'separator' && (
                 <Separator index={i}>
-                  <Text variant="subheading" color="slate400">
+                  <Text variant="subheading" color="slate500">
                     {content.title}
                   </Text>
                 </Separator>

@@ -83,7 +83,7 @@ export const NavDesktopItem = React.forwardRef<
       >
         <Inside>
           <ArrowWrapper className="arrow">
-            <Icon name="arrowrightalt" color="slate400" />
+            <Icon name="arrowrightalt" color="blue300" />
           </ArrowWrapper>
           <IconWrapper>
             {!content.customIcon && content.icon && (

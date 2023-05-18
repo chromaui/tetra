@@ -28,7 +28,7 @@ const NonCollapsibleTrigger = styled.div`
   width: calc(100% - 20px);
   margin-left: 2px;
   ${subheading}
-  color: ${color.slate400};
+  color: ${color.slate500};
 `;
 
 const CollapsibleTrigger = styled(Collapsible.Trigger)`
@@ -42,7 +42,7 @@ const CollapsibleTrigger = styled(Collapsible.Trigger)`
   width: calc(100% - 20px);
   margin-left: 2px;
   ${subheading}
-  color: ${color.slate400};
+  color: ${color.slate500};
   cursor: pointer;
 
   &[data-state='open'] > .CaretDown {
@@ -81,7 +81,7 @@ const MoreTrigger = styled(Collapsible.Trigger)`
   height: ${spacing[8]};
   border-radius: 6px;
   ${bodySm}
-  color: ${color.slate400};
+  color: ${color.slate500};
   cursor: pointer;
 
   &[data-state='open'] {
@@ -122,7 +122,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
       <Collapsible.Root>
         {section.maxItems && (
           <MoreTrigger>
-            <Icon name="plus" color="slate400" size={16} aria-hidden />
+            <Icon name="plus" color="slate500" size={16} aria-hidden />
             View more
           </MoreTrigger>
         )}
@@ -149,7 +149,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
         <CollapsibleTrigger>
           {section.name}
           <CaretDown className="CaretDown">
-            <Icon name="arrowdown" aria-hidden size={12} color="slate400" />
+            <Icon name="arrowdown" aria-hidden size={12} color="slate500" />
           </CaretDown>
         </CollapsibleTrigger>
         <CollapsibleContent>
