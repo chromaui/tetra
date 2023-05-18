@@ -15,11 +15,11 @@ interface HeaderContextType {
   logoHeightMobile?: HeaderProps['logoHeightMobile']; // The height of the logo on mobile
   logoHref?: HeaderProps['logoHref']; // The link to redirect to when clicking on the logo
   logoLinkWrapper?: HeaderProps['logoLinkWrapper']; // The wrapper to use for the logo link
+  activePathname?: HeaderProps['activePathname']; // The pathname of the current page
 
   // Desktop
   desktopData?: HeaderProps['desktopData']; // The desktop navigation data (array of objects)
   desktopBreakpoint?: HeaderProps['desktopBreakpoint']; // The breakpoint to switch from mobile to desktop
-  desktopActive: HeaderProps['desktopActive']; // Indicate what section is active on Desktop
   desktopRight?: HeaderProps['desktopRight']; // The content to display on the right
 
   // Mobile
@@ -48,12 +48,12 @@ interface HeaderProviderProps {
   logoHref?: HeaderProps['logoHref'];
   logoLinkWrapper?: HeaderProps['logoLinkWrapper'];
   desktopData: HeaderProps['desktopData'];
-  desktopActive: HeaderProps['desktopActive'];
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
   desktopRight?: HeaderProps['desktopRight'];
   mobileData: HeaderProps['mobileData'];
   mobileTop?: HeaderProps['mobileTop'];
   mobileBottom?: HeaderProps['mobileBottom'];
+  activePathname?: HeaderProps['activePathname'];
 }
 
 export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
@@ -65,12 +65,12 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
   logoHref,
   logoLinkWrapper,
   desktopData,
-  desktopActive,
   desktopBreakpoint,
   desktopRight,
   mobileData,
   mobileTop,
   mobileBottom,
+  activePathname,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
@@ -84,7 +84,6 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
         logoLinkWrapper,
         logoHref,
         desktopData,
-        desktopActive,
         desktopBreakpoint,
         desktopRight,
         mobileData,
@@ -92,6 +91,7 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
         mobileTop,
         mobileBottom,
         setMobileMenuOpen,
+        activePathname,
       }}
     >
       {children}

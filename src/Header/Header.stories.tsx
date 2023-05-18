@@ -22,7 +22,6 @@ export const DesktopLight: Story = {
     theme: 'light',
     logoHeightDesktop: 24,
     logoHeightMobile: 22,
-    desktopActive: undefined,
     desktopData,
     mobileData,
     desktopBreakpoint: 992,
@@ -44,6 +43,7 @@ export const DesktopLight: Story = {
         </Button>
       </div>
     ),
+    activePathname: '/pricing',
   },
   parameters: {
     layout: 'fullscreen',
@@ -68,7 +68,7 @@ export const DesktopDark: Story = {
 export const DesktopLightActive: Story = {
   args: {
     ...DesktopLight.args,
-    desktopActive: 'Pricing',
+    activePathname: '/pricing',
   },
   parameters: {
     ...DesktopLight.parameters,
@@ -79,7 +79,7 @@ export const DesktopDarkActive: Story = {
   args: {
     ...DesktopLight.args,
     theme: 'dark',
-    desktopActive: 'Customers',
+    activePathname: '/pricing',
   },
   parameters: {
     ...DesktopLight.parameters,

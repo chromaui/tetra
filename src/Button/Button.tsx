@@ -5,7 +5,7 @@ import { Icon } from '../Icon';
 import { IconType } from '../Icon/Icon';
 
 export interface ButtonProps {
-  children: String;
+  children: string;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'solid' | 'outline';
   color?: 'blue' | 'white' | 'gray';
@@ -32,6 +32,7 @@ const Container = styled.a<{
     if (size === 'sm') return '0 1rem';
     if (size === 'md') return '0 1.5rem';
     if (size === 'lg') return '0 2rem';
+    return '0 1.5rem';
   }};
   background: ${({ variant, color }) => {
     if (variant === 'solid' && color === 'blue') return tokenColor.blue500;
@@ -51,6 +52,7 @@ const Container = styled.a<{
     if (size === 'sm') return '1.75rem';
     if (size === 'md') return '2.5rem';
     if (size === 'lg') return '3rem';
+    return '2.5rem';
   }};
   box-shadow: ${({ color, variant }) => {
     if (variant === 'outline' && color === 'blue')
@@ -59,11 +61,13 @@ const Container = styled.a<{
       return `0 0 0 1px ${tokenColor.white}`;
     if (variant === 'outline' && color === 'gray')
       return `0 0 0 1px ${tokenColor.gray300}`;
+    return `0 0 0 1px ${tokenColor.blue500}`;
   }};
   font-size: ${({ size }) => {
     if (size === 'sm') return '0.75rem';
     if (size === 'md') return '0.875rem';
     if (size === 'lg') return '1rem';
+    return '0.875rem';
   }};
   font-weight: 600;
   font-family: ${fontFamily.sans};
