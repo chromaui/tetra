@@ -1,3 +1,15 @@
+# v1.9.4 (Thu May 18 2023)
+
+#### 🐛 Bug Fix
+
+- Improve active state [#29](https://github.com/chromaui/tetra/pull/29) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.9.3 (Wed May 17 2023)
 
 #### 🐛 Bug Fix
