@@ -1,3 +1,15 @@
+# v1.9.5 (Thu May 18 2023)
+
+#### 🐛 Bug Fix
+
+- Update Text default [#31](https://github.com/chromaui/tetra/pull/31) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.9.4 (Thu May 18 2023)
 
 #### 🐛 Bug Fix
