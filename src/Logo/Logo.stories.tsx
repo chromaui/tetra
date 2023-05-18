@@ -1,4 +1,5 @@
-import React, { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 import { Logo } from './Logo';
 import { color } from '../_tokens';
 
@@ -47,7 +48,7 @@ export const Chromatic: Story = {
           flex: 1,
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: color.gray800,
+          backgroundColor: color.slate800,
           padding: '4rem 0',
           gap: 48,
           flexDirection: 'column',
@@ -88,7 +89,7 @@ export const Storybook: Story = {
           flex: 1,
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: color.gray800,
+          backgroundColor: color.slate800,
           padding: '4rem 0',
           gap: 48,
           flexDirection: 'column',

@@ -45,7 +45,7 @@ const Line = styled(motion.div, {
   top: ${({ top }) => top}px;
   left: 1px;
   background-color: ${({ headerTheme }) =>
-    headerTheme === 'light' ? color.gray800 : color.white};
+    headerTheme === 'light' ? color.slate800 : color.white};
 `;
 
 export const NavMobileTrigger: FC = () => {

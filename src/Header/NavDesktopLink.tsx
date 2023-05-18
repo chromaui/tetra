@@ -23,7 +23,7 @@ const NavigationMenuLink = styled(LinkWithWrapper, {
   font-weight: ${fontWeight.bold};
   color: ${({ isActive, theTheme }) => {
     if (isActive) return color.blue500;
-    if (theTheme === 'light') return color.gray800;
+    if (theTheme === 'light') return color.slate800;
     return color.white;
   }};
 `;

@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const Line = styled.div`
   display: flex;
-  border-bottom: 1px solid ${color.gray200};
+  border-bottom: 1px solid ${color.slate300};
   padding: ${spacing[3]} 0;
 `;
 
@@ -65,10 +65,10 @@ export const Spacings: FC<Props> = ({ list }) => {
             Pixels
           </Text>
         </Col3>
-        <Col4></Col4>
+        <Col4 />
       </Line>
       {list
-        ?.sort(function (a, b) {
+        ?.sort((a, b) => {
           return parseFloat(a.name) - parseFloat(b.name);
         })
         ?.map((s) => (
@@ -84,12 +84,12 @@ export const Spacings: FC<Props> = ({ list }) => {
               </Text>
             </Col1>
             <Col2>
-              <Text lineHeightAuto as="div" variant="bodySm" color="gray600">
+              <Text lineHeightAuto as="div" variant="bodySm" color="slate600">
                 {s.value}
               </Text>
             </Col2>
             <Col3>
-              <Text lineHeightAuto as="div" variant="bodySm" color="gray600">
+              <Text lineHeightAuto as="div" variant="bodySm" color="slate600">
                 {parseFloat(s.name) * 4}px
               </Text>
             </Col3>

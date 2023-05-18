@@ -1,4 +1,5 @@
-import React, { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import { Button } from './Button';
 import { color } from '../_tokens/tokens';
@@ -73,7 +74,7 @@ export const Variants: Story = {
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
-          backgroundColor: color.gray800,
+          backgroundColor: color.slate800,
           padding: '2rem 0',
           gap: '1rem',
         }}
@@ -111,15 +112,15 @@ export const Colors: Story = {
       >
         <Button color="blue">{`Blue - ${children}`}</Button>
         <Button color="white">{`White - ${children}`}</Button>
-        <Button color="gray">{`Gray - ${children}`}</Button>
+        <Button color="slate">{`Slate - ${children}`}</Button>
         <Button color="blue" variant="outline">
           {`Blue - ${children}`}
         </Button>
         <Button color="white" variant="outline">
           {`White - ${children}`}
         </Button>
-        <Button color="gray" variant="outline">
-          {`Gray - ${children}`}
+        <Button color="slate" variant="outline">
+          {`Slate - ${children}`}
         </Button>
       </div>
       <div
@@ -127,7 +128,7 @@ export const Colors: Story = {
           flex: 1,
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: color.gray800,
+          backgroundColor: color.slate800,
           padding: '4rem 0',
           gap: 20,
           flexDirection: 'column',
@@ -135,13 +136,13 @@ export const Colors: Story = {
       >
         <Button color="blue">{`Blue - ${children}`}</Button>
         <Button color="white">{`White - ${children}`}</Button>
-        <Button color="gray">{`Gray - ${children}`}</Button>
+        <Button color="slate">{`Slate - ${children}`}</Button>
         <Button color="blue" variant="outline">{`Blue - ${children}`}</Button>
         <Button color="white" variant="outline">
           {`White - ${children}`}
         </Button>
-        <Button color="gray" variant="outline">
-          {`Gray - ${children}`}
+        <Button color="slate" variant="outline">
+          {`Slate - ${children}`}
         </Button>
       </div>
     </div>
@@ -195,7 +196,7 @@ export const LeftIcon: Story = {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: color.gray800,
+          backgroundColor: color.slate800,
           padding: '4rem 0',
           gap: '1rem',
         }}
@@ -270,7 +271,7 @@ export const RightIcon: Story = {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: color.gray800,
+          backgroundColor: color.slate800,
           padding: '4rem 0',
           gap: '1rem',
         }}

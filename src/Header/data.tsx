@@ -21,7 +21,7 @@ export const desktopData: HeaderProps['desktopData'] = [
             description:
               'Pinpoint UI bugs down to the pixel, viewport, and browser.',
             icon: 'contrast',
-            iconColor: 'teal500',
+            iconColor: 'cyan500',
             href: '#',
           },
           {
@@ -66,7 +66,7 @@ export const desktopData: HeaderProps['desktopData'] = [
             title: 'UI Review',
             description: 'Streamline team sign-off and track change requests.',
             icon: 'batchaccept',
-            iconColor: 'emerald500',
+            iconColor: 'green500',
             href: '#',
           },
           {
@@ -116,7 +116,7 @@ export const desktopData: HeaderProps['desktopData'] = [
             description:
               'Pinpoint UI bugs down to the pixel, viewport, and browser.',
             icon: 'contrast',
-            iconColor: 'teal500',
+            iconColor: 'cyan500',
             href: '#',
           },
           {
@@ -238,13 +238,13 @@ export const mobileData: HeaderProps['mobileData'] = [
       {
         title: 'UI Tests',
         icon: 'contrast',
-        iconColor: 'teal500',
+        iconColor: 'cyan500',
         href: '/features/ui-tests',
       },
       {
         title: 'UI Review',
         icon: 'batchaccept',
-        iconColor: 'emerald500',
+        iconColor: 'green500',
         href: '/',
       },
       {
@@ -307,7 +307,7 @@ export const mobileData: HeaderProps['mobileData'] = [
       {
         title: 'Design Systems',
         icon: 'contrast',
-        iconColor: 'teal500',
+        iconColor: 'cyan500',
         href: '/',
       },
       {

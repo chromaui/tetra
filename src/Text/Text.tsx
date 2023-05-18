@@ -161,7 +161,7 @@ export const Text: FC<TextProps> = ({
   variant = 'bodyMd',
   alignment = 'start',
   fontWeight,
-  color = 'gray800',
+  color = 'slate800',
   lineHeightAuto = false,
   as = 'p',
   ...rest

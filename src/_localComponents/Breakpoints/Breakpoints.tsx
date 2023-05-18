@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const Line = styled.div`
   display: flex;
-  border-bottom: 1px solid ${color.gray200};
+  border-bottom: 1px solid ${color.slate300};
   padding: ${spacing[3]} 0;
 `;
 
@@ -56,11 +56,11 @@ export const Breakpoints: FC<Props> = ({ list }) => {
         </Col3>
       </Line>
       {list
-        ?.sort(function (a, b) {
+        ?.sort((a, b) => {
           return a.value - b.value;
         })
         ?.map((s) => (
-          <Line>
+          <Line key={s.name}>
             <Col1>
               <Text
                 lineHeightAuto
@@ -72,7 +72,7 @@ export const Breakpoints: FC<Props> = ({ list }) => {
               </Text>
             </Col1>
             <Col2>
-              <Text lineHeightAuto as="div" color="gray600" variant="bodySm">
+              <Text lineHeightAuto as="div" color="slate600" variant="bodySm">
                 {s.value}px
               </Text>
             </Col2>
@@ -81,7 +81,7 @@ export const Breakpoints: FC<Props> = ({ list }) => {
                 lineHeightAuto
                 as="div"
                 variant="bodySm"
-                color="gray600"
+                color="slate600"
               >{`@media (min-width: ${s.value}px) { ... }`}</Text>
             </Col3>
           </Line>
