@@ -1,3 +1,15 @@
+# v1.10.1 (Thu May 18 2023)
+
+#### 🐛 Bug Fix
+
+- Fix subheading color [#32](https://github.com/chromaui/tetra/pull/32) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.0 (Thu May 18 2023)
 
 #### 🚀 Enhancement
