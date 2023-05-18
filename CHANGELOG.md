@@ -1,3 +1,15 @@
+# v1.10.0 (Thu May 18 2023)
+
+#### 🚀 Enhancement
+
+- Update color palette [#30](https://github.com/chromaui/tetra/pull/30) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.9.5 (Thu May 18 2023)
 
 #### 🐛 Bug Fix
