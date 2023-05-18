@@ -32,7 +32,7 @@ const Container = styled.a<{
     if (size === 'sm') return '0 1rem';
     if (size === 'md') return '0 1.5rem';
     if (size === 'lg') return '0 2rem';
-    return '0 1.5rem';
+    return null;
   }};
   background: ${({ variant, color }) => {
     if (variant === 'solid' && color === 'blue') return tokenColor.blue500;
@@ -44,15 +44,16 @@ const Container = styled.a<{
     if (variant === 'solid' && color === 'blue') return tokenColor.white;
     if (variant === 'solid' && color === 'white') return tokenColor.blue500;
     if (variant === 'solid' && color === 'slate') return tokenColor.slate500;
+    if (variant === 'outline' && color === 'blue') return tokenColor.blue500;
     if (variant === 'outline' && color === 'white') return tokenColor.white;
     if (variant === 'outline' && color === 'slate') return tokenColor.slate500;
-    return tokenColor.blue500;
+    return null;
   }};
   height: ${({ size }) => {
     if (size === 'sm') return '1.75rem';
     if (size === 'md') return '2.5rem';
     if (size === 'lg') return '3rem';
-    return '2.5rem';
+    return null;
   }};
   box-shadow: ${({ color, variant }) => {
     if (variant === 'outline' && color === 'blue')
@@ -60,8 +61,8 @@ const Container = styled.a<{
     if (variant === 'outline' && color === 'white')
       return `0 0 0 1px ${tokenColor.white}`;
     if (variant === 'outline' && color === 'slate')
-      return `0 0 0 1px ${tokenColor.slate300}`;
-    return `0 0 0 1px ${tokenColor.blue500}`;
+      return `0 0 0 1px ${tokenColor.slate400}`;
+    return null;
   }};
   font-size: ${({ size }) => {
     if (size === 'sm') return '0.75rem';
@@ -80,11 +81,11 @@ const Container = styled.a<{
       if (variant === 'solid' && color === 'blue') return tokenColor.blue600;
       if (variant === 'solid' && color === 'white') return tokenColor.blue100;
       if (variant === 'solid' && color === 'slate') return tokenColor.slate300;
-      if (variant === 'outline' && color === 'blue') return tokenColor.blue100;
+      if (variant === 'outline' && color === 'blue') return tokenColor.blueTr10;
       if (variant === 'outline' && color === 'white')
         return 'rgba(255, 255, 255, 0.1)';
       if (variant === 'outline' && color === 'slate')
-        return tokenColor.slate100;
+        return 'rgba(255, 255, 255, 0.1)';
       return 'transparent';
     }};
   }
