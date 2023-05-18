@@ -67,7 +67,6 @@ const Container = styled.div<{
     if (variant === 'bodyMd') return tokenFontSize[16];
     if (variant === 'bodySm') return tokenFontSize[14];
     if (variant === 'subheading') return tokenFontSize[11];
-    return tokenFontSize[20];
   }};
   line-height: ${({ variant, lineHeightAuto }) => {
     if (lineHeightAuto) return 'auto';
@@ -83,13 +82,11 @@ const Container = styled.div<{
     if (variant === 'bodyMd') return tokenLineHeight[28];
     if (variant === 'bodySm') return tokenLineHeight[20];
     if (variant === 'subheading') return 'auto';
-    return tokenLineHeight[32];
   }};
   margin-bottom: ${({ variant, as }) => {
     if (as === 'p' && variant === 'bodyLg') return '1.5rem';
     if (as === 'p' && variant === 'bodyMd') return '1.25rem';
     if (as === 'p' && variant === 'bodySm') return '1rem';
-    return '1.25rem';
   }};
   font-weight: ${({ variant, fontWeight }) => {
     if (fontWeight) return tokenFontWeight[fontWeight];
@@ -105,14 +102,12 @@ const Container = styled.div<{
     if (variant === 'bodyMd') return tokenFontWeight.regular;
     if (variant === 'bodySm') return tokenFontWeight.regular;
     if (variant === 'subheading') return tokenFontWeight.bold;
-    return tokenFontWeight.semibold;
   }};
   text-align: ${({ alignment }) => {
     if (alignment === 'start') return 'left';
     if (alignment === 'center') return 'center';
     if (alignment === 'end') return 'right';
     if (alignment === 'justify') return 'justify';
-    return 'left';
   }};
   letter-spacing: ${({ variant }) => {
     if (variant === 'subheading') return '0.35em';
@@ -136,7 +131,6 @@ const Container = styled.div<{
       if (variant === 'bodyLg') return tokenFontSize[18];
       if (variant === 'bodyMd') return tokenFontSize[16];
       if (variant === 'bodySm') return tokenFontSize[14];
-      return tokenFontSize[20];
     }};
     line-height: ${({ variant, lineHeightAuto }) => {
       if (lineHeightAuto) return 'auto';
@@ -151,7 +145,6 @@ const Container = styled.div<{
       if (variant === 'bodyLg') return tokenLineHeight[28];
       if (variant === 'bodyMd') return tokenLineHeight[28];
       if (variant === 'bodySm') return tokenLineHeight[20];
-      return tokenLineHeight[28];
     }};
   }
 `;
