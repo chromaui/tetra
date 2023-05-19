@@ -7,15 +7,18 @@ import { useHeaderContext } from './context';
 import { minSm } from '../_helpers';
 import { NavMobileTrigger } from './NavMobileTrigger';
 import { NavMobileSection } from './NavMobileSection';
+import { resetCSS } from '../_helpers/resetCSS';
 
 const NavigationMenu = styled(motion.div)`
+  ${resetCSS}
+
   position: relative;
   background-color: ${color.white};
   box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
     hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   border-radius: 6px;
   margin-top: ${spacing[2]};
-  min-width: calc(100vw - 56px);
+  min-width: calc(100vw - 32px);
   margin-left: ${spacing[4]};
   margin-right: ${spacing[4]};
   max-height: calc(100vh - 112px);
@@ -24,7 +27,7 @@ const NavigationMenu = styled(motion.div)`
   z-index: 100;
 
   ${minSm} {
-    margin-right: ${spacing[8]};
+    margin-right: ${spacing[12]};
     min-width: 320px;
   }
 `;
