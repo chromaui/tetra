@@ -95,18 +95,21 @@ export const DesktopLightOpen: Story = {
     ...DesktopLight.args,
   },
   parameters: {
-    ...DesktopLight.parameters,
+    layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'lg',
+    },
   },
   decorators: [(storyFn) => <div style={{ height: '800px' }}>{storyFn()}</div>],
-  // play: async ({ canvasElement }) => {
-  //   const canvas = within(canvasElement);
-  //   const MenuButton = await canvas.getByRole('button', {
-  //     name: 'Features',
-  //   });
-  //   MenuButton.focus();
-  //   await userEvent.keyboard('{enter}');
-  //   await canvas.findByLabelText('Features');
-  // },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Features',
+    });
+    MenuButton.focus();
+    await userEvent.keyboard('{enter}');
+    await canvas.findByLabelText('Features');
+  },
 };
 
 export const DesktopDarkOpen: Story = {
@@ -115,18 +118,21 @@ export const DesktopDarkOpen: Story = {
     theme: 'dark',
   },
   parameters: {
-    ...DesktopLight.parameters,
+    layout: 'fullscreen',
     backgrounds: { default: 'dark' },
+    viewport: {
+      defaultViewport: 'lg',
+    },
   },
   decorators: DesktopLightOpen.decorators,
-  // play: async ({ canvasElement }) => {
-  //   const canvas = within(canvasElement);
-  //   const MenuButton = await canvas.getByRole('button', {
-  //     name: 'Customers',
-  //   });
-  //   await userEvent.click(MenuButton, { pointerType: 'mouse' } as any);
-  //   await canvas.findByLabelText('Customers');
-  // },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Customers',
+    });
+    await userEvent.click(MenuButton, { pointerType: 'mouse' } as any);
+    await canvas.findByLabelText('Customers');
+  },
 };
 
 export const TabletLight: Story = {

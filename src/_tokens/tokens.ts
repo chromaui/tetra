@@ -113,7 +113,7 @@ export const lineHeight = {
 export const breakpoint = {
   base: 0,
   sm: 600,
-  md: 768,
+  md: 800,
   lg: 900,
   xl: 1200,
   '2xl': 1800,
