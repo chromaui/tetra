@@ -2,14 +2,14 @@ import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
 import { color as tokenColor, fontFamily } from '../_tokens';
 import { Icon } from '../Icon';
-import { IconType } from '../Icon/Icon';
+import type { Icons } from '../Icon/Icon';
 
 export interface LinkProps {
-  children: String;
+  children: string;
   size?: 'sm' | 'md' | 'lg';
   color?: keyof typeof tokenColor;
-  leftIcon?: IconType;
-  rightIcon?: IconType;
+  leftIcon?: Icons;
+  rightIcon?: Icons;
   href?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
   onClick?: () => void;
@@ -35,6 +35,7 @@ const Container = styled.a<{
     if (size === 'sm') return '0.75rem';
     if (size === 'md') return '0.875rem';
     if (size === 'lg') return '1rem';
+    return null;
   }};
   font-weight: 600;
   font-family: ${fontFamily.sans};

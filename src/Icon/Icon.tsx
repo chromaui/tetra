@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import { icons } from './iconPaths';
 import { color as tokenColor } from '../_tokens';
 
-export type IconType = keyof typeof icons;
+export type Icons = keyof typeof icons;
 
 export interface IconProps {
-  name: IconType;
+  name: Icons;
   size?: number;
   color?: keyof typeof tokenColor;
 }
