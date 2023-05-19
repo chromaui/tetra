@@ -20,9 +20,10 @@ const Inside = styled.div`
 `;
 
 const Column = styled.div<{ bg: keyof typeof color; index: number }>`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 304px;
   padding: ${spacing[3]};
   background-color: ${({ bg }) => (bg ? color[bg] : 'white')};
   border-left: ${({ index }) =>

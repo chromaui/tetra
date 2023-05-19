@@ -62,7 +62,7 @@ const NavigationMenuContent = styled(NavigationMenu.Content)<{
 
 export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
   const { theme, activePathname } = useHeaderContext();
-  const isActive = activePathname === item.href;
+  const isActive = activePathname ? activePathname === item.href : false;
 
   return (
     <>
