@@ -96,7 +96,7 @@ export const DesktopLightOpen: Story = {
   },
   parameters: {
     layout: 'fullscreen',
-    chromatic: { delay: 4000 },
+    chromatic: { pauseAnimationAtEnd: true, delay: 600 },
     viewport: {
       defaultViewport: 'lg',
     },
@@ -120,7 +120,7 @@ export const DesktopDarkOpen: Story = {
   parameters: {
     layout: 'fullscreen',
     backgrounds: { default: 'dark' },
-    chromatic: { delay: 4000 },
+    chromatic: { pauseAnimationAtEnd: true, delay: 600 },
     viewport: {
       defaultViewport: 'lg',
     },
