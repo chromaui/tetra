@@ -30,7 +30,7 @@ const NavigationMenuLink = styled(LinkWithWrapper, {
 
 export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
   const { theme, activePathname } = useHeaderContext();
-  const isActive = activePathname === item.href;
+  const isActive = activePathname ? activePathname === item.href : false;
 
   return (
     <NavigationMenu.Link asChild>
