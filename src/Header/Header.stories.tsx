@@ -95,7 +95,10 @@ export const DesktopLightOpen: Story = {
     ...DesktopLight.args,
   },
   parameters: {
-    ...DesktopLight.parameters,
+    layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'lg',
+    },
   },
   decorators: [(storyFn) => <div style={{ height: '800px' }}>{storyFn()}</div>],
   play: async ({ canvasElement }) => {
@@ -115,8 +118,11 @@ export const DesktopDarkOpen: Story = {
     theme: 'dark',
   },
   parameters: {
-    ...DesktopLight.parameters,
+    layout: 'fullscreen',
     backgrounds: { default: 'dark' },
+    viewport: {
+      defaultViewport: 'lg',
+    },
   },
   decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {
