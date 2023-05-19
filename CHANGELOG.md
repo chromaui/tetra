@@ -1,3 +1,15 @@
+# v1.10.7 (Fri May 19 2023)
+
+#### 🐛 Bug Fix
+
+- Fix header stories [#38](https://github.com/chromaui/tetra/pull/38) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.6 (Fri May 19 2023)
 
 #### 🐛 Bug Fix
