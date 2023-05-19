@@ -1,11 +1,12 @@
 import React from 'react';
-import { BBCIcon } from './icons/bbc';
-import { CollectiveIcon } from './icons/collective';
-import { FigmaIcon } from './icons/figma';
-import { MondayIcon } from './icons/monday';
-import { HeaderProps } from './types';
 
-export const desktopData: HeaderProps['desktopData'] = [
+// import { BBCIcon } from './icons/bbc';
+// import { CollectiveIcon } from './icons/collective';
+import { FigmaIcon } from './icons/figma';
+import { HeaderProps } from './types';
+// import { MondayIcon } from './icons/monday';
+
+export const desktopDataChromaticV1: HeaderProps['desktopData'] = [
   {
     name: 'Features',
     menu: [
@@ -22,16 +23,8 @@ export const desktopData: HeaderProps['desktopData'] = [
               'Pinpoint UI bugs down to the pixel, viewport, and browser.',
             icon: 'contrast',
             iconColor: 'cyan500',
-            href: '/',
-          },
-          {
-            type: 'link',
-            title: 'Visual Test',
-            description:
-              'Pinpoint UI bugs down to the pixel, viewport, and browser.',
-            icon: 'eye',
-            iconColor: 'purple500',
-            href: '/',
+            href: '/features/test',
+            // linkWrapper: Link,
           },
           {
             type: 'link',
@@ -40,7 +33,7 @@ export const desktopData: HeaderProps['desktopData'] = [
               'Test user behavior like click, type, keyboard, and hover.',
             icon: 'pointerhand',
             iconColor: 'orange500',
-            href: '/',
+            href: '/docs/interactions',
           },
           {
             type: 'link',
@@ -49,7 +42,7 @@ export const desktopData: HeaderProps['desktopData'] = [
               "Track changed components to only test what's necessary.",
             icon: 'dashboard',
             iconColor: 'blue500',
-            href: '/',
+            href: '/docs/turbosnap',
           },
         ],
         backgroundColor: 'white',
@@ -59,7 +52,6 @@ export const desktopData: HeaderProps['desktopData'] = [
           {
             type: 'separator',
             title: 'Review',
-            href: '/',
           },
           {
             type: 'link',
@@ -67,28 +59,16 @@ export const desktopData: HeaderProps['desktopData'] = [
             description: 'Streamline team sign-off and track change requests.',
             icon: 'batchaccept',
             iconColor: 'green500',
-            href: '/',
+            href: '/features/publish',
+            // linkWrapper: Link,
           },
           {
             type: 'link',
             title: 'Figma Plugin',
             description: 'Embed your stories right next to designs in Figma.',
             customIcon: <FigmaIcon />,
-            href: '/',
-          },
-          {
-            type: 'separator',
-            title: 'Publish',
-            href: '/',
-          },
-          {
-            type: 'link',
-            title: 'Publish Storybook',
-            description:
-              'Pinpoint UI bugs down to the pixel, viewport, and browser.',
-            icon: 'globe',
-            iconColor: 'blue500',
-            href: '/',
+            href: '/features/figma-plugin',
+            // linkWrapper: Link,
           },
         ],
         backgroundColor: 'blue50',
@@ -98,97 +78,98 @@ export const desktopData: HeaderProps['desktopData'] = [
   {
     name: 'Pricing',
     href: '/pricing',
+    // linkWrapper: Link,
   },
   {
-    name: 'Customers',
+    // name: 'Customers',
+    name: 'Use Cases',
     leftPosition: -140,
     menu: [
       {
         content: [
-          {
-            type: 'separator',
-            title: 'Use Cases',
-            href: '/',
-          },
+          // {
+          //   type: 'separator',
+          //   title: 'Use Cases',
+          //   href: '#',
+          // },
           {
             type: 'link',
-            title: 'Design Systems',
-            description:
-              'Pinpoint UI bugs down to the pixel, viewport, and browser.',
+            title: 'Made for Storybook',
+            description: 'Ship UI components with less manual work',
             icon: 'contrast',
             iconColor: 'cyan500',
-            href: '/',
+            href: '/solutions/storybook',
+            // linkWrapper: Link,
           },
           {
             type: 'link',
-            title: 'Web Apps',
-            description:
-              'Test user behavior like click, type, keyboard, and hover.',
+            title: 'Frontend teams',
+            description: 'Boost efficiency by streamlining review and QA',
             icon: 'browser',
             iconColor: 'orange500',
-            href: '/',
+            href: '/solutions/frontend',
+            // linkWrapper: Link,
           },
           {
             type: 'link',
-            title: 'Microfrontends',
-            description: 'Check for accessibility compliance and regressions.',
+            title: 'Design systems',
+            description: 'Ensure UI consistency and quality every commit',
             icon: 'grow',
             iconColor: 'purple500',
-            href: '/',
+            href: '/solutions/design-systems',
+            // linkWrapper: Link,
           },
           {
             type: 'link',
-            title: 'Component Libraries',
-            description:
-              "Track changed components to only test what's necessary",
+            title: 'Digital agencies',
+            description: 'Improve margins by automating UI review and test',
             icon: 'component',
             iconColor: 'blue500',
-            href: '/',
+            href: '/solutions/agencies',
+            // linkWrapper: Link,
           },
         ],
       },
-      {
-        content: [
-          {
-            type: 'separator',
-            title: 'Customer Stories',
-            href: '/',
-          },
-          {
-            type: 'link',
-            title: 'monday.com',
-            description: 'How 300 developers speed up their frontend velocity.',
-            customIcon: <MondayIcon />,
-            href: '/',
-          },
-          {
-            type: 'link',
-            title: 'Collective.work',
-            description:
-              'How a global business creates  personalized customer UX.',
-            customIcon: <CollectiveIcon />,
-            href: '/',
-          },
-          {
-            type: 'link',
-            title: 'BBC',
-            description:
-              'How to build a new site for 400 million readers in 77 countries.',
-            customIcon: <BBCIcon />,
-            href: '/',
-          },
-        ],
-        backgroundColor: 'blue50',
-      },
+      // {
+      //   content: [
+      //     {
+      //       type: 'separator',
+      //       title: 'Customer Stories',
+      //       href: '#',
+      //     },
+      //     {
+      //       type: 'link',
+      //       title: 'monday.com',
+      //       description: 'How 300 developers speed up their frontend velocity.',
+      //       customIcon: <MondayIcon />,
+      //       href: '#',
+      //     },
+      //     {
+      //       type: 'link',
+      //       title: 'Collective.work',
+      //       description: 'How a global business creates  personalized customer UX.',
+      //       customIcon: <CollectiveIcon />,
+      //       href: '#',
+      //     },
+      //     {
+      //       type: 'link',
+      //       title: 'BBC',
+      //       description: 'How to build a new site for 400 million readers in 77 countries.',
+      //       customIcon: <BBCIcon />,
+      //       href: '#',
+      //     },
+      //   ],
+      //   backgroundColor: 'blue50',
+      // },
     ],
   },
   {
     name: 'Docs',
-    href: '/',
+    href: '/docs',
   },
   {
     name: 'Changelog',
-    href: '/',
+    href: '/blog/releases',
   },
   {
     name: 'Company',
@@ -203,7 +184,8 @@ export const desktopData: HeaderProps['desktopData'] = [
               'Pinpoint UI bugs down to the pixel, viewport, and browser.',
             icon: 'chromatic',
             iconColor: 'orange500',
-            href: '/',
+            href: '/company/about',
+            // linkWrapper: Link,
           },
           {
             type: 'link',
@@ -212,7 +194,7 @@ export const desktopData: HeaderProps['desktopData'] = [
               'Pinpoint UI bugs down to the pixel, viewport, and browser.',
             icon: 'star',
             iconColor: 'blue500',
-            href: '/',
+            href: '/blog',
           },
           {
             type: 'link',
@@ -221,7 +203,8 @@ export const desktopData: HeaderProps['desktopData'] = [
               'Pinpoint UI bugs down to the pixel, viewport, and browser.',
             icon: 'user',
             iconColor: 'purple500',
-            href: '/',
+            href: '/company/careers',
+            // linkWrapper: Link,
           },
         ],
         backgroundColor: 'white',
@@ -230,7 +213,7 @@ export const desktopData: HeaderProps['desktopData'] = [
   },
 ];
 
-export const mobileData: HeaderProps['mobileData'] = [
+export const mobileDataChromaticV1: HeaderProps['mobileData'] = [
   {
     name: 'Features',
     maxItems: 3,
@@ -239,42 +222,34 @@ export const mobileData: HeaderProps['mobileData'] = [
         title: 'UI Tests',
         icon: 'contrast',
         iconColor: 'cyan500',
-        href: '/features/ui-tests',
+        href: '/features/test',
+        // linkWrapper: Link,
       },
       {
         title: 'UI Review',
         icon: 'batchaccept',
         iconColor: 'green500',
-        href: '/',
-      },
-      {
-        title: 'Publish Storybook',
-        icon: 'globe',
-        iconColor: 'blue500',
-        href: '/',
-      },
-      {
-        title: 'Visual Test',
-        icon: 'eye',
-        iconColor: 'purple500',
-        href: '/',
+        href: '/features/publish',
+        // linkWrapper: Link,
       },
       {
         title: 'Interaction Test',
         icon: 'pointerhand',
         iconColor: 'orange500',
-        href: '/',
+        href: '/features/test',
+        // linkWrapper: Link,
       },
       {
         title: 'TurboSnap',
         icon: 'dashboard',
         iconColor: 'blue500',
-        href: '/',
+        href: '/docs/turbosnap',
       },
       {
         title: 'Figma Plugin',
         customIcon: <FigmaIcon />,
-        href: '/',
+        href: '/features/figma-plugin',
+        // linkWrapper: Link,
       },
     ],
   },
@@ -284,19 +259,20 @@ export const mobileData: HeaderProps['mobileData'] = [
         title: 'Pricing',
         icon: 'starhollow',
         iconColor: 'yellow500',
-        href: '/',
+        href: '/pricing',
+        // linkWrapper: Link,
       },
       {
         title: 'Docs',
         icon: 'browser',
         iconColor: 'orange500',
-        href: '/',
+        href: '/docs',
       },
       {
         title: 'Changelog',
         icon: 'grow',
         iconColor: 'purple500',
-        href: '/',
+        href: '/blog/releases',
       },
     ],
   },
@@ -305,52 +281,56 @@ export const mobileData: HeaderProps['mobileData'] = [
     collapsible: true,
     content: [
       {
-        title: 'Design Systems',
+        title: 'Made for Storybook',
         icon: 'contrast',
         iconColor: 'cyan500',
-        href: '/',
+        href: '/solutions/storybook',
+        // linkWrapper: Link,
       },
       {
-        title: 'Web Apps',
+        title: 'Frontend teams',
         icon: 'browser',
         iconColor: 'orange500',
-        href: '/',
+        href: '/solutions/frontend',
+        // linkWrapper: Link,
       },
       {
-        title: 'Microfrontends',
+        title: 'Design systems',
         icon: 'grow',
         iconColor: 'purple500',
-        href: '/',
+        href: '/solutions/design-systems',
+        // linkWrapper: Link,
       },
       {
-        title: 'Component Libraries',
+        title: 'Digital agencies',
         icon: 'component',
         iconColor: 'blue500',
-        href: '/',
+        href: '/solutions/agencies',
+        // linkWrapper: Link,
       },
     ],
   },
-  {
-    name: 'Customer Stories',
-    collapsible: true,
-    content: [
-      {
-        title: 'monday.com',
-        customIcon: <MondayIcon />,
-        href: '/',
-      },
-      {
-        title: 'Collective.work',
-        customIcon: <CollectiveIcon />,
-        href: '/',
-      },
-      {
-        title: 'BBC',
-        customIcon: <BBCIcon />,
-        href: '/',
-      },
-    ],
-  },
+  // {
+  //   name: 'Customer Stories',
+  //   collapsible: true,
+  //   content: [
+  //     {
+  //       title: 'monday.com',
+  //       customIcon: <MondayIcon />,
+  //       href: '/',
+  //     },
+  //     {
+  //       title: 'Collective.work',
+  //       customIcon: <CollectiveIcon />,
+  //       href: '/',
+  //     },
+  //     {
+  //       title: 'BBC',
+  //       customIcon: <BBCIcon />,
+  //       href: '/',
+  //     },
+  //   ],
+  // },
   {
     name: 'Company',
     collapsible: true,
@@ -359,19 +339,21 @@ export const mobileData: HeaderProps['mobileData'] = [
         title: 'About Chromatic',
         icon: 'chromatic',
         iconColor: 'orange500',
-        href: '/',
+        href: '/company/about',
+        // linkWrapper: Link,
       },
       {
         title: 'Blog',
         icon: 'star',
         iconColor: 'blue500',
-        href: '/',
+        href: '/blog',
       },
       {
         title: 'Careers',
         icon: 'user',
         iconColor: 'purple500',
-        href: '/',
+        href: '/company/careers',
+        // linkWrapper: Link,
       },
     ],
   },

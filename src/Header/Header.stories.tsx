@@ -4,6 +4,10 @@ import { within, userEvent } from '@storybook/testing-library';
 import { Header } from './Header';
 import { Button } from '../Button';
 import { desktopData, mobileData } from './data';
+import {
+  desktopDataChromaticV1,
+  mobileDataChromaticV1,
+} from './data-chromatic-v1';
 import { Link } from '../Link';
 
 const meta: Meta<typeof Header> = {
@@ -43,7 +47,6 @@ export const DesktopLight: Story = {
         </Button>
       </div>
     ),
-    activePathname: '/pricing',
   },
   parameters: {
     layout: 'fullscreen',
@@ -222,5 +225,16 @@ export const MobileOpen: Story = {
     });
     await userEvent.click(MenuButton);
     await userEvent.keyboard('{enter}');
+  },
+};
+
+export const DesktopChromaticV1: Story = {
+  args: {
+    ...DesktopLight.args,
+    desktopData: desktopDataChromaticV1,
+    mobileData: mobileDataChromaticV1,
+  },
+  parameters: {
+    ...DesktopLight.parameters,
   },
 };
