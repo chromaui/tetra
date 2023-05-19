@@ -1,3 +1,15 @@
+# v1.10.5 (Fri May 19 2023)
+
+#### 🐛 Bug Fix
+
+- Update NavMobile.tsx [#36](https://github.com/chromaui/tetra/pull/36) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.4 (Fri May 19 2023)
 
 #### 🐛 Bug Fix
