@@ -70,12 +70,12 @@ export const Header: FC<HeaderProps> = ({
   logoHref,
   logoLinkWrapper,
   desktopData,
-  mobileData,
   desktopBreakpoint,
   desktopRight,
+  desktopActiveId,
+  mobileData,
   mobileBottom,
   mobileTop,
-  activePathname,
 }) => {
   return (
     <HeaderProvider
@@ -88,10 +88,10 @@ export const Header: FC<HeaderProps> = ({
       desktopData={desktopData}
       desktopBreakpoint={desktopBreakpoint}
       desktopRight={desktopRight}
+      desktopActiveId={desktopActiveId}
       mobileData={mobileData}
       mobileTop={mobileTop}
       mobileBottom={mobileBottom}
-      activePathname={activePathname}
     >
       <HeaderWithProvider />
     </HeaderProvider>

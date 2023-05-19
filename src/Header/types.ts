@@ -28,6 +28,7 @@ export interface HeaderDesktopItemContent {
 }
 
 export interface HeaderDesktopItem {
+  id: string;
   name: string;
   href?: string;
   linkWrapper?: any;
@@ -48,8 +49,8 @@ export interface HeaderProps {
   desktopBreakpoint?: number;
   desktopData: HeaderDesktopItem[];
   desktopRight?: ReactNode;
+  desktopActiveId?: string;
   mobileData: HeaderMobileSection[];
   mobileTop?: ReactNode;
   mobileBottom?: ReactNode;
-  activePathname?: string;
 }
