@@ -1,3 +1,16 @@
+# v1.10.8 (Fri May 19 2023)
+
+#### 🐛 Bug Fix
+
+- Improve desktopActive to allow for triggers [#40](https://github.com/chromaui/tetra/pull/40) ([@cdedreuille](https://github.com/cdedreuille))
+- Export Icons type [#39](https://github.com/chromaui/tetra/pull/39) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.7 (Fri May 19 2023)
 
 #### 🐛 Bug Fix
