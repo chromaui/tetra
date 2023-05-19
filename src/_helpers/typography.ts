@@ -1,12 +1,6 @@
 import { css } from '@storybook/theming';
-import {
-  fontSize,
-  lineHeight,
-  fontWeight,
-  fontFamily,
-  color,
-} from '../_tokens/tokens';
-import { minSm } from './helpers';
+import { fontSize, fontWeight, fontFamily, color } from '../_tokens/tokens';
+import { minSm } from './breakpointsMinMax';
 
 export const heading4xl = css`
   font-family: ${fontFamily.sans};

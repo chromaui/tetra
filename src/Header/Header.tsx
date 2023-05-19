@@ -10,21 +10,24 @@ import { useMediaQuery } from '../_hooks/useMediaQuery';
 import { HeaderProps } from './types';
 import { minSm } from '../_helpers';
 import { LinkWithWrapper } from '../LinkWithWrapper';
+import { resetCSS } from '../_helpers/resetCSS';
 
 interface WrapperProps {
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
 }
 
 const Wrapper = styled.div<WrapperProps>`
+  ${resetCSS}
+
   display: flex;
-  height: calc(60px - ${spacing[3]});
+  height: 60px;
   padding-top: ${spacing[3]};
   align-items: center;
   justify-content: space-between;
 
   @media (min-width: ${({ desktopBreakpoint }) => desktopBreakpoint}px) {
     padding-top: 36px;
-    height: 48px;
+    height: calc(48px + 36px);
   }
 `;
 

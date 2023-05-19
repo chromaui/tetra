@@ -20,7 +20,6 @@ const Inside = styled.div`
 `;
 
 const Column = styled.div<{ bg: keyof typeof color; index: number }>`
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 304px;
