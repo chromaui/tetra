@@ -29,8 +29,8 @@ const NavigationMenuLink = styled(LinkWithWrapper, {
 `;
 
 export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
-  const { theme, activePathname } = useHeaderContext();
-  const isActive = activePathname ? activePathname === item.href : false;
+  const { theme, desktopActiveId } = useHeaderContext();
+  const isActive = desktopActiveId ? desktopActiveId === item.id : false;
 
   return (
     <NavigationMenu.Link asChild>

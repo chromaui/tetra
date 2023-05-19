@@ -71,7 +71,7 @@ export const DesktopDark: Story = {
 export const DesktopLightActive: Story = {
   args: {
     ...DesktopLight.args,
-    activePathname: '/pricing',
+    desktopActiveId: 'features',
   },
   parameters: {
     ...DesktopLight.parameters,
@@ -82,7 +82,7 @@ export const DesktopDarkActive: Story = {
   args: {
     ...DesktopLight.args,
     theme: 'dark',
-    activePathname: '/pricing',
+    desktopActiveId: 'pricing',
   },
   parameters: {
     ...DesktopLight.parameters,

@@ -7,6 +7,7 @@ import { HeaderProps } from './types';
 
 export const desktopData: HeaderProps['desktopData'] = [
   {
+    id: 'features',
     name: 'Features',
     menu: [
       {
@@ -96,10 +97,12 @@ export const desktopData: HeaderProps['desktopData'] = [
     ],
   },
   {
+    id: 'pricing',
     name: 'Pricing',
     href: '/pricing',
   },
   {
+    id: 'customers',
     name: 'Customers',
     leftPosition: -140,
     menu: [
@@ -183,14 +186,17 @@ export const desktopData: HeaderProps['desktopData'] = [
     ],
   },
   {
+    id: 'docs',
     name: 'Docs',
     href: '/',
   },
   {
+    id: 'changelog',
     name: 'Changelog',
     href: '/',
   },
   {
+    id: 'company',
     name: 'Company',
     leftPosition: -64,
     menu: [

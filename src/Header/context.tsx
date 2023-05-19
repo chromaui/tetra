@@ -15,12 +15,12 @@ interface HeaderContextType {
   logoHeightMobile?: HeaderProps['logoHeightMobile']; // The height of the logo on mobile
   logoHref?: HeaderProps['logoHref']; // The link to redirect to when clicking on the logo
   logoLinkWrapper?: HeaderProps['logoLinkWrapper']; // The wrapper to use for the logo link
-  activePathname?: HeaderProps['activePathname']; // The pathname of the current page
 
   // Desktop
   desktopData?: HeaderProps['desktopData']; // The desktop navigation data (array of objects)
   desktopBreakpoint?: HeaderProps['desktopBreakpoint']; // The breakpoint to switch from mobile to desktop
   desktopRight?: HeaderProps['desktopRight']; // The content to display on the right
+  desktopActiveId?: HeaderProps['desktopActiveId']; // The content to display when the menu is open
 
   // Mobile
   mobileData?: HeaderProps['mobileData']; // The mobile navigation data (array of objects)
@@ -50,10 +50,10 @@ interface HeaderProviderProps {
   desktopData: HeaderProps['desktopData'];
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
   desktopRight?: HeaderProps['desktopRight'];
+  desktopActiveId?: HeaderProps['desktopActiveId'];
   mobileData: HeaderProps['mobileData'];
   mobileTop?: HeaderProps['mobileTop'];
   mobileBottom?: HeaderProps['mobileBottom'];
-  activePathname?: HeaderProps['activePathname'];
 }
 
 export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
@@ -67,10 +67,10 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
   desktopData,
   desktopBreakpoint,
   desktopRight,
+  desktopActiveId,
   mobileData,
   mobileTop,
   mobileBottom,
-  activePathname,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
@@ -86,12 +86,12 @@ export const HeaderProvider: FC<PropsWithChildren<HeaderProviderProps>> = ({
         desktopData,
         desktopBreakpoint,
         desktopRight,
+        desktopActiveId,
         mobileData,
         mobileMenuOpen,
         mobileTop,
         mobileBottom,
         setMobileMenuOpen,
-        activePathname,
       }}
     >
       {children}
