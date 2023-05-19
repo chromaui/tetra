@@ -16,8 +16,8 @@ interface Props {
 const Divider = styled.div`
   height: 1px;
   background-color: ${color.slate300};
-  margin: ${spacing[4]} ${spacing[3]};
-  width: calc(100% - ${spacing[6]});
+  margin: ${spacing[4]} ${spacing[2]};
+  width: calc(100% - ${spacing[4]});
 `;
 
 const NonCollapsibleTrigger = styled.div`
@@ -67,7 +67,7 @@ const CollapsibleContent = styled(Collapsible.Content)`
 `;
 
 const CollapsibleInside = styled.div`
-  padding: ${spacing[0.5]} 0;
+  padding: ${spacing[0.5]} ${spacing[0.5]};
 `;
 
 const MoreTrigger = styled(Collapsible.Trigger)`

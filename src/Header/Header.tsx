@@ -20,7 +20,7 @@ const Wrapper = styled.div<WrapperProps>`
   ${resetCSS}
 
   display: flex;
-  height: calc(60px - ${spacing[3]});
+  height: 60px;
   padding-top: ${spacing[3]};
   align-items: center;
   justify-content: space-between;
