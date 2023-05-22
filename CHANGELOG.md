@@ -1,3 +1,15 @@
+# v1.10.9 (Mon May 22 2023)
+
+#### 🐛 Bug Fix
+
+- Downgrade @storybook/theming to 7.0.2 [#41](https://github.com/chromaui/tetra/pull/41) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.8 (Fri May 19 2023)
 
 #### 🐛 Bug Fix
