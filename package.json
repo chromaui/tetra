@@ -1,6 +1,6 @@
 {
   "name": "@chromaui/tetra",
-  "version": "1.10.8",
+  "version": "1.10.7",
   "description": "Style Guide + UI library for Chromatic and Storybook marketing sites and docs",
   "author": {
     "name": "cdedreuille"
@@ -81,7 +81,7 @@
     "@radix-ui/react-popover": "1.0.5",
     "@storybook/addon-a11y": "7.0.12",
     "@storybook/design-system": "7.15.10",
-    "@storybook/theming": "7.0.12",
+    "@storybook/theming": "7.0.2",
     "framer-motion": "10.12.4"
   },
   "bugs": {
