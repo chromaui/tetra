@@ -109,7 +109,9 @@ const HeaderWithProvider: FC = () => {
     logoLinkWrapper,
     desktopRight,
   } = useHeaderContext();
-  const isDesktop = useMediaQuery({ min: desktopBreakpoint || 1024 });
+  const breakpoint = useMediaQuery({ min: desktopBreakpoint || 1024 });
+  const isDesktop = breakpoint === true;
+  const isMobile = breakpoint === false;
 
   return (
     <Container>
@@ -129,7 +131,7 @@ const HeaderWithProvider: FC = () => {
           {isDesktop && <NavDesktop />}
         </Left>
         {isDesktop && <Right>{desktopRight}</Right>}
-        {!isDesktop && <NavMobile />}
+        {isMobile && <NavMobile />}
       </Wrapper>
     </Container>
   );
