@@ -1,3 +1,15 @@
+# v1.10.11 (Tue May 23 2023)
+
+#### 🐛 Bug Fix
+
+- Move addon to dev dependencies [#44](https://github.com/chromaui/tetra/pull/44) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.10 (Tue May 23 2023)
 
 #### 🐛 Bug Fix
