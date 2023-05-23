@@ -178,22 +178,10 @@ export const TabletOpen: Story = {
   decorators: [(storyFn) => <div style={{ height: '900px' }}>{storyFn()}</div>],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const MenuButton = await canvas.getByRole('button', {
+    const MenuButton = await canvas.findByRole('button', {
       name: 'Toggle Menu',
     });
     await userEvent.click(MenuButton);
-  },
-};
-
-export const TabletViewMore: Story = {
-  ...TabletOpen,
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const MenuButton = await canvas.getByRole('button', {
-      name: 'Toggle Menu',
-    });
-    await userEvent.click(MenuButton);
-    await userEvent.keyboard('{enter}');
   },
 };
 
@@ -201,7 +189,7 @@ export const TabletExpandSubMenu: Story = {
   ...TabletOpen,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const MenuButton = await canvas.getByRole('button', {
+    const MenuButton = await canvas.findByRole('button', {
       name: 'Toggle Menu',
     });
     await userEvent.click(MenuButton);
@@ -227,21 +215,9 @@ export const MobileOpen: Story = {
   decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const MenuButton = await canvas.getByRole('button', {
+    const MenuButton = await canvas.findByRole('button', {
       name: 'Toggle Menu',
     });
     await userEvent.click(MenuButton);
-    await userEvent.keyboard('{enter}');
-  },
-};
-
-export const DesktopChromaticV1: Story = {
-  args: {
-    ...DesktopLight.args,
-    desktopData: desktopDataChromaticV1,
-    mobileData: mobileDataChromaticV1,
-  },
-  parameters: {
-    ...DesktopLight.parameters,
   },
 };

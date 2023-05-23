@@ -53,10 +53,10 @@ const NavigationMenuContent = styled(NavigationMenu.Content)<{
   animation-timing-function: ease;
 
   &[data-state='open'] {
-    animation: ${slideIn} 200ms ease;
+    animation: ${slideIn} 100ms ease;
   }
   &[data-state='closed'] {
-    animation: ${slideOut} 200ms ease;
+    animation: ${slideOut} 100ms ease;
   }
 `;
 
