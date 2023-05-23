@@ -42,6 +42,7 @@
     "node": ">=14.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "7.0.14",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-interactions": "^7.0.12",
     "@storybook/addon-mdx-gfm": "7.0.12",
@@ -79,7 +80,6 @@
     "@radix-ui/react-collapsible": "1.0.2",
     "@radix-ui/react-navigation-menu": "1.1.2",
     "@radix-ui/react-popover": "1.0.5",
-    "@storybook/addon-a11y": "7.0.12",
     "@storybook/design-system": "7.15.10",
     "@storybook/theming": "7.0.2",
     "framer-motion": "10.12.4"
