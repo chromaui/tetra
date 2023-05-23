@@ -1,3 +1,15 @@
+# v1.10.10 (Tue May 23 2023)
+
+#### 🐛 Bug Fix
+
+- Header improvements [#42](https://github.com/chromaui/tetra/pull/42) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.9 (Mon May 22 2023)
 
 #### 🐛 Bug Fix
