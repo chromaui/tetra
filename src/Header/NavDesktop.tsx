@@ -29,7 +29,7 @@ export const NavDesktop: FC = () => {
   const { desktopData } = useHeaderContext();
 
   return (
-    <NavigationMenuRoot>
+    <NavigationMenuRoot delayDuration={100}>
       <NavigationMenuList>
         {desktopData &&
           desktopData.map((item) => (

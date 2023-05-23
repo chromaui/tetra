@@ -32,50 +32,6 @@ export const NavigationMenuItem = css`
   }
 `;
 
-export const enterFromRight = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(200px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
-
-export const enterFromLeft = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-200px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
-
-export const exitToRight = keyframes`
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(200px);
-  }
-`;
-
-export const exitToLeft = keyframes`
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-200px);
-  }
-`;
-
 export const slideIn = keyframes`
    from {
     opacity: 0;
@@ -95,24 +51,6 @@ export const slideOut = keyframes`
   to {
     opacity: 0;
     transform: translateY(-8px);
-  }
-`;
-
-export const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-export const fadeOut = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 `;
 
