@@ -219,17 +219,5 @@ export const MobileOpen: Story = {
       name: 'Toggle Menu',
     });
     await userEvent.click(MenuButton);
-    await userEvent.keyboard('{enter}');
-  },
-};
-
-export const DesktopChromaticV1: Story = {
-  args: {
-    ...DesktopLight.args,
-    desktopData: desktopDataChromaticV1,
-    mobileData: mobileDataChromaticV1,
-  },
-  parameters: {
-    ...DesktopLight.parameters,
   },
 };
