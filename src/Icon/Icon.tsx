@@ -13,7 +13,7 @@ export const Icon: FC<Props> = ({ name, size = 14, color, ...props }) => {
   return (
     <ChromaIcon
       name={name}
-      color={color ? tokenColor[color] : undefined}
+      color={color ? tokenColor[color] : 'currentColor'}
       size={size}
       {...props}
     />
