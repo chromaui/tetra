@@ -2,15 +2,15 @@ import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
 import { color as tokenColor, fontFamily } from '../_tokens';
 import { Icon } from '../Icon';
-import type { Icons } from '../Icon/Icon';
+import type { IconProps } from '../Icon';
 
 export interface ButtonProps {
   children: string;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'solid' | 'outline';
   color?: 'blue' | 'white' | 'slate';
-  leftIcon?: Icons;
-  rightIcon?: Icons;
+  leftIcon?: IconProps;
+  rightIcon?: IconProps;
   href?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
   onClick?: () => void;

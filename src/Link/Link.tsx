@@ -2,14 +2,14 @@ import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
 import { color as tokenColor, fontFamily } from '../_tokens';
 import { Icon } from '../Icon';
-import type { Icons } from '../Icon/Icon';
+import type { IconProps } from '../Icon';
 
 export interface LinkProps {
   children: string;
   size?: 'sm' | 'md' | 'lg';
   color?: keyof typeof tokenColor;
-  leftIcon?: Icons;
-  rightIcon?: Icons;
+  leftIcon?: IconProps;
+  rightIcon?: IconProps;
   href?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
   onClick?: () => void;

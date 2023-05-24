@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
 import { color as tokenColor, spacing } from '../../_tokens';
 import { Text } from '../../Text';
-import { Icon } from '../../Icon/Icon';
-import type { Icons } from '../../Icon/Icon';
+import { Icon } from '../../Icon';
+import type { IconProps } from '../../Icon';
 
 export interface InfoBoxProps {
   children: string;
   backgroundColor?: keyof typeof tokenColor;
-  icon?: Icons;
+  icon?: IconProps;
 }
 
 const Container = styled.div<{
