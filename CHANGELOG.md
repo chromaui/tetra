@@ -1,3 +1,15 @@
+# v1.10.13 (Wed May 24 2023)
+
+#### 🐛 Bug Fix
+
+- Clean up dependencies to reduce bundle size [#47](https://github.com/chromaui/tetra/pull/47) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.10.12 (Wed May 24 2023)
 
 #### 🐛 Bug Fix
