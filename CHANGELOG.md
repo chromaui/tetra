@@ -1,3 +1,15 @@
+# v1.10.12 (Wed May 24 2023)
+
+#### 🐛 Bug Fix
+
+- Cleaning unused files [#45](https://github.com/chromaui/tetra/pull/45) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.11 (Tue May 23 2023)
 
 #### 🐛 Bug Fix
