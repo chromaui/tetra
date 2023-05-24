@@ -20,6 +20,7 @@ const List = styled(NavigationMenu.List)`
 export const OneColumn: Story = {
   args: {
     item: {
+      id: 'features',
       name: 'Features',
       menu: [
         {
@@ -71,6 +72,7 @@ export const OneColumn: Story = {
 export const TwoColumn: Story = {
   args: {
     item: {
+      id: 'features',
       name: 'Features',
       menu: [
         {
