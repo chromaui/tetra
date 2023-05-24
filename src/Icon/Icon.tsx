@@ -1,26 +1,21 @@
 import React, { FC } from 'react';
-import { icons } from './iconPaths';
+import { Icon as ChromaIcon } from '@chromaui/icons';
+import type { IconProps } from '@chromaui/icons';
 import { color as tokenColor } from '../_tokens';
 
-export type Icons = keyof typeof icons;
-
-export interface IconProps {
-  name: Icons;
+export interface Props {
+  name: IconProps;
   size?: number;
   color?: keyof typeof tokenColor;
 }
 
-export const Icon: FC<IconProps> = ({ name, size = 14, color, ...props }) => {
+export const Icon: FC<Props> = ({ name, size = 14, color, ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 14 14"
-      fill={color ? tokenColor[color] : 'currentColor'}
+    <ChromaIcon
+      name={name}
+      color={color ? tokenColor[color] : undefined}
+      size={size}
       {...props}
-    >
-      {icons[name]}
-    </svg>
+    />
   );
 };

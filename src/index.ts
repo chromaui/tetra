@@ -38,7 +38,7 @@ export { CustomerStoryHero } from './CustomerStoryHero';
 export { Divider } from './Divider';
 export { Grid } from './Grid';
 export { Header, HeaderProps } from './Header';
-export { Icon, Icons } from './Icon';
+export { Icon, IconProps } from './Icon';
 export { IntegrationImage } from './IntegrationImage';
 export { Link } from './Link';
 export { LinkWithWrapper } from './LinkWithWrapper';
