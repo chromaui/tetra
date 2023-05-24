@@ -47,10 +47,12 @@
     "@storybook/addon-interactions": "^7.0.14",
     "@storybook/addon-mdx-gfm": "7.0.14",
     "@storybook/blocks": "^7.0.14",
+    "@storybook/design-system": "7.15.10",
     "@storybook/eslint-config-storybook": "3.1.2",
     "@storybook/react": "^7.0.14",
     "@storybook/react-vite": "^7.0.14",
     "@storybook/testing-library": "^0.1.0",
+    "@storybook/theming": "7.0.14",
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -63,6 +65,7 @@
     "eslint": "8.36.0",
     "eslint-plugin-jest": "27.2.1",
     "eslint-plugin-storybook": "0.6.12",
+    "framer-motion": "10.12.16",
     "lint-staged": "13.2.0",
     "prettier": "2.8.4",
     "react": "18.2.0",
@@ -73,16 +76,15 @@
     "vite": "4.2.1"
   },
   "peerDependencies": {
+    "@storybook/theming": "7.0.14",
+    "framer-motion": "10.12.16",
     "react": ">=17",
     "react-dom": ">=17"
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "1.0.2",
     "@radix-ui/react-navigation-menu": "1.1.2",
-    "@radix-ui/react-popover": "1.0.5",
-    "@storybook/design-system": "7.15.10",
-    "@storybook/theming": "7.0.14",
-    "framer-motion": "10.12.4"
+    "@radix-ui/react-popover": "1.0.5"
   },
   "bugs": {
     "url": "https://github.com/chromaui/tetra/issues"

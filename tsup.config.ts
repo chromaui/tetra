@@ -18,5 +18,6 @@ export default defineConfig({
     '@radix-ui/react-navigation-menu',
     '@radix-ui/react-popover',
     '@radix-ui/react-collapsible',
+    'framer-motion',
   ],
 });

@@ -2366,6 +2366,13 @@
   dependencies:
     "@storybook/global" "^5.0.0"
 
+"@storybook/client-logger@7.0.17":
+  version "7.0.17"
+  resolved "https://registry.npmjs.org/@storybook/client-logger/-/client-logger-7.0.17.tgz#7acd3d0e467d6a69f3fc6fbd5b157a32d475c11d"
+  integrity sha512-1u313wdESQqN08DLfdB1tNMdsk3JExWU1ZlViCwK8cFPZaWgjts1vLcilWtYJBK28yEO/vS4H+lgwSm+oVQXVA==
+  dependencies:
+    "@storybook/global" "^5.0.0"
+
 "@storybook/codemod@7.0.14":
   version "7.0.14"
   resolved "https://registry.npmjs.org/@storybook/codemod/-/codemod-7.0.14.tgz#5272d081973228c21f93175c7b74c0e2b793bd50"
@@ -2760,13 +2767,23 @@
     "@testing-library/user-event" "^13.2.1"
     ts-dedent "^2.2.0"
 
-"@storybook/theming@7.0.14", "@storybook/theming@^7.0.2":
+"@storybook/theming@7.0.14":
   version "7.0.14"
   resolved "https://registry.npmjs.org/@storybook/theming/-/theming-7.0.14.tgz#e52244057894f4f566ce50f776113eeda883c6af"
   integrity sha512-ijf9ttzLaDMy1ExhD+i8JioSlDYP1sONUYUrKqJd/PHiJyC3+gzPRzQlE8IT++E4TlP+G19DwFchw9vk1HN1SA==
   dependencies:
     "@emotion/use-insertion-effect-with-fallbacks" "^1.0.0"
     "@storybook/client-logger" "7.0.14"
+    "@storybook/global" "^5.0.0"
+    memoizerific "^1.11.3"
+
+"@storybook/theming@^7.0.2":
+  version "7.0.17"
+  resolved "https://registry.npmjs.org/@storybook/theming/-/theming-7.0.17.tgz#2bb6154f558b08c21d924cd80cdf0c170e93c6c4"
+  integrity sha512-I0MrZorCGJ1kQmwhsxAsNy02gXRiUmQKuoLNQwitwx8ridzA+ukkkBIr6M38jwA2URaO53AvlGfD/664ZdM4XA==
+  dependencies:
+    "@emotion/use-insertion-effect-with-fallbacks" "^1.0.0"
+    "@storybook/client-logger" "7.0.17"
     "@storybook/global" "^5.0.0"
     memoizerific "^1.11.3"
 
@@ -5948,10 +5965,10 @@ fp-ts@^2.5.3:
   resolved "https://registry.npmjs.org/fp-ts/-/fp-ts-2.15.0.tgz#ed1ff6fc9a072176ec2310e20e814077bb391545"
   integrity sha512-3o6EllAvGuCsDgjM+frscLKDRPR9pqbrg13tJ13z86F4eni913kBV8h85rM6zpu2fEvJ8RWA0ouYlUWwHEmxTg==
 
-framer-motion@10.12.4:
-  version "10.12.4"
-  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-10.12.4.tgz#905fdfa5b63dae53a63d2549b29aef6193eb78c7"
-  integrity sha512-9gLtv8T6dui0tujHROR+VM3kdJyKiFCFiD94IQE+0OuX6LaIyXtdVpviokVdrHSb1giWhmmX4yzoucALMx6mtw==
+framer-motion@10.12.16:
+  version "10.12.16"
+  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-10.12.16.tgz#ccba11d216ac370c6bc65fcd9953a61deb54f071"
+  integrity sha512-w/SfWEIWJkYSgRHYBmln7EhcNo31ao8Xexol8lGXf1pR/tlnBtf1HcxoUmEiEh6pacB4/geku5ami53AAQWHMQ==
   dependencies:
     tslib "^2.4.0"
   optionalDependencies:
