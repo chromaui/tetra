@@ -1,3 +1,15 @@
+# v1.10.15 (Thu May 25 2023)
+
+#### 🐛 Bug Fix
+
+- Adjust Storybook version [#48](https://github.com/chromaui/tetra/pull/48) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.14 (Thu May 25 2023)
 
 #### ⚠️ Pushed to `main`
