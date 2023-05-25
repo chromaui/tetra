@@ -1,3 +1,15 @@
+# v1.10.14 (Thu May 25 2023)
+
+#### ⚠️ Pushed to `main`
+
+- Bring back @storybook/theming to 7.0.2 ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.13 (Wed May 24 2023)
 
 #### 🐛 Bug Fix
