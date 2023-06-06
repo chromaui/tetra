@@ -1,5 +1,24 @@
 import type { Preview } from '@storybook/react';
-import { loadFontsForStorybook } from '@storybook/design-system';
+
+// Allow design system consumers to access font settings but control how and
+// where they load the font.
+export const fontUrl =
+  'https://fonts.googleapis.com/css?family=Nunito+Sans:400,700,800&display=swap';
+
+// Load the font and avoid re-loading it when components change
+const fontLinkId = 'storybook-font-link-tag';
+
+export const loadFontsForStorybook = () => {
+  if (!document.getElementById(fontLinkId)) {
+    const fontLink = document.createElement('link');
+
+    fontLink.id = fontLinkId;
+    fontLink.href = fontUrl;
+    fontLink.rel = 'stylesheet';
+
+    document.head.appendChild(fontLink);
+  }
+};
 
 const preview: Preview = {
   parameters: {
