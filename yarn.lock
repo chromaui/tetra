@@ -2729,7 +2729,7 @@
     "@testing-library/user-event" "^13.2.1"
     ts-dedent "^2.2.0"
 
-"@storybook/theming@7.0.18", "@storybook/theming@^7.0.18":
+"@storybook/theming@7.0.18", "@storybook/theming@^7.0.2":
   version "7.0.18"
   resolved "https://registry.npmjs.org/@storybook/theming/-/theming-7.0.18.tgz#566f5f42c9324b734f8aa9be4d16221278054734"
   integrity sha512-P1gMKa/mKQHIMq0sxBIwTzAcF6v/6hrc62YmkuV62vXu+8zNV2YWbRwywqm3Q6faZEadmb/bL9+z8whaKhCL/g==
