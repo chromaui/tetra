@@ -19,18 +19,14 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "release": "yarn build && auto shipit",
-    "chromatic": "npx chromatic --project-token=b80523143ab2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint-staged"
-    }
+    "chromatic": "npx chromatic --project-token=b80523143ab2",
+    "prepare": "node ./prepare.js"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
       "eslint --ignore-path .gitignore --fix"
     ],
-    "*": "prettier --write"
+    "*.{js,jsx,json,md}": "prettier --write"
   },
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
@@ -72,7 +68,7 @@
     "eslint-plugin-jest": "27.2.1",
     "eslint-plugin-storybook": "0.6.12",
     "framer-motion": "10.12.16",
-    "husky": "8.0.3",
+    "husky": "^8.0.0",
     "lint-staged": "13.2.2",
     "prettier": "2.8.4",
     "react": "18.2.0",
