@@ -103,6 +103,7 @@ const doubleOptions = (
 });
 
 const getFullStyles = ({ array, props }: { array: any; props: any }) => {
+  // eslint-disable-next-line array-callback-return, consistent-return
   return array.map((option: string) => {
     // Special Margins
     if (props[option] && option === 'marginX')
@@ -185,10 +186,10 @@ const listOfOptions = [
   'paddingBottom',
 ] as const;
 
-type listOfOptionsArrayProps = (typeof listOfOptions)[number];
+type ListOfOptionsArrayProps = (typeof listOfOptions)[number];
 export type BlockWithOptionsForContainerProps = Pick<
   BlockWithOptionsProps,
-  listOfOptionsArrayProps
+  ListOfOptionsArrayProps
 >;
 
 export const BlockWithOptionsForContainer = styled.div<BlockWithOptionsForContainerProps>`

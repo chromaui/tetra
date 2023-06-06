@@ -26,4 +26,7 @@ module.exports = {
       version: 'latest',
     },
   },
+  rules: {
+    'import/named': 'off',
+  },
 };

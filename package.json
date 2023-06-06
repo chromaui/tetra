@@ -19,7 +19,13 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "release": "yarn build && auto shipit",
-    "chromatic": "npx chromatic --project-token=b80523143ab2"
+    "prepare": "node ./prepare.js"
+  },
+  "lint-staged": {
+    "./src/**/*.{ts,js,jsx,tsx}": [
+      "eslint --ignore-path .gitignore --fix"
+    ],
+    "*.{js,jsx,json,md}": "prettier --write"
   },
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
@@ -32,25 +38,18 @@
   "files": [
     "dist"
   ],
-  "lint-staged": {
-    "./src/**/*.{ts,js,jsx,tsx}": [
-      "eslint --ignore-path .gitignore --fix"
-    ],
-    "*": "prettier --write"
-  },
   "engines": {
     "node": ">=14.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^7.0.2",
-    "@storybook/addon-essentials": "^7.0.2",
-    "@storybook/addon-interactions": "^7.0.2",
-    "@storybook/addon-mdx-gfm": "7.0.2",
-    "@storybook/blocks": "^7.0.2",
-    "@storybook/design-system": "7.15.10",
+    "@storybook/addon-a11y": "^7.0.18",
+    "@storybook/addon-essentials": "^7.0.18",
+    "@storybook/addon-interactions": "^7.0.18",
+    "@storybook/addon-mdx-gfm": "7.0.18",
+    "@storybook/blocks": "^7.0.18",
     "@storybook/eslint-config-storybook": "3.1.2",
-    "@storybook/react": "^7.0.2",
-    "@storybook/react-vite": "^7.0.2",
+    "@storybook/react": "^7.0.18",
+    "@storybook/react-vite": "^7.0.18",
     "@storybook/testing-library": "^0.1.0",
     "@storybook/theming": "^7.0.2",
     "@types/node": "18.15.3",
@@ -60,17 +59,18 @@
     "@typescript-eslint/parser": "5.55.0",
     "@vitejs/plugin-react": "3.1.0",
     "auto": "10.46.0",
-    "chromatic": "6.17.3",
     "concurrently": "8.0.1",
     "eslint": "8.36.0",
+    "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jest": "27.2.1",
     "eslint-plugin-storybook": "0.6.12",
     "framer-motion": "10.12.16",
-    "lint-staged": "13.2.0",
+    "husky": "^8.0.0",
+    "lint-staged": "13.2.2",
     "prettier": "2.8.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "storybook": "^7.0.2",
+    "storybook": "^7.0.18",
     "tsup": "6.6.3",
     "typescript": "5.0.2",
     "vite": "4.2.1"

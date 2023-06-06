@@ -1,8 +1,5 @@
 import React, { Meta, StoryObj } from '@storybook/react';
-
-import { Button } from '../Button/Button';
 import { CustomerStoryHero } from './CustomerStoryHero';
-import { Icon } from '../Icon/Icon';
 
 const meta: Meta<typeof CustomerStoryHero> = {
   title: 'Components/CustomerStoryHero',
@@ -34,13 +31,11 @@ export const Base: Story = {
         imgAlt: 'placeholder image',
         caption: 'Caption 2',
         position: 'last',
-      }
-    ]
+      },
+    ],
   },
   parameters: {
     layout: 'centered',
   },
-  render: ({ items }) => (
-    <CustomerStoryHero items={items} />
-  ),
+  render: ({ items }) => <CustomerStoryHero items={items} />,
 };

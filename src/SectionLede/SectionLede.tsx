@@ -1,10 +1,9 @@
 import React, { FC, ReactNode } from 'react';
+import { styled } from '@storybook/theming';
 import { Text, TextProps } from '../Text/Text';
-import { color, spacing } from '../_tokens';
-import { minLg, minMd } from '../_helpers';
+import { minMd } from '../_helpers';
 
 import { Stack } from '../Stack/Stack';
-import { styled } from '@storybook/theming';
 
 const ContentContainer = styled.div`
   display: flex;
@@ -14,11 +13,6 @@ const ContentContainer = styled.div`
 
 const ContentWrapper = styled(Stack)`
   align-items: flex-start;
-`;
-
-const SectionHeading = styled(Text)`
-  flex: 1;
-  min-width: 0;
 `;
 
 const InnerWrapper = styled(Stack)`
