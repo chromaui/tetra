@@ -4,10 +4,6 @@ import { within, userEvent } from '@storybook/testing-library';
 import { Header } from './Header';
 import { Button } from '../Button';
 import { desktopData, mobileData } from './data';
-import {
-  desktopDataChromaticV1,
-  mobileDataChromaticV1,
-} from './data-chromatic-v1';
 import { Link } from '../Link';
 
 const meta: Meta<typeof Header> = {

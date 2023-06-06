@@ -15,7 +15,6 @@ export const Base: Story = {
   args: {
     children: 'Hello World',
     size: 'md',
-    variant: 'solid',
     color: 'blue500',
     leftIcon: undefined,
     rightIcon: undefined,
@@ -30,9 +29,15 @@ export const Sizes: Story = {
   },
   render: ({ children }) => (
     <>
-      <Link size="sm">{children}</Link>
-      <Link size="md">{children}</Link>
-      <Link size="lg">{children}</Link>
+      <Link href="#sm" size="sm">
+        {children}
+      </Link>
+      <Link href="#md" size="md">
+        {children}
+      </Link>
+      <Link href="#lg" size="lg">
+        {children}
+      </Link>
     </>
   ),
   decorators: [
