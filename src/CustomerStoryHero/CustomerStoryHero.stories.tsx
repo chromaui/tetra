@@ -34,13 +34,11 @@ export const Base: Story = {
         imgAlt: 'placeholder image',
         caption: 'Caption 2',
         position: 'last',
-      }
-    ]
+      },
+    ],
   },
   parameters: {
     layout: 'centered',
   },
-  render: ({ items }) => (
-    <CustomerStoryHero items={items} />
-  ),
+  render: ({ items }) => <CustomerStoryHero items={items} />,
 };
