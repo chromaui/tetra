@@ -19,7 +19,6 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "release": "yarn build && auto shipit",
-    "chromatic": "npx chromatic --project-token=b80523143ab2",
     "prepare": "node ./prepare.js"
   },
   "lint-staged": {
@@ -61,7 +60,6 @@
     "@typescript-eslint/parser": "5.55.0",
     "@vitejs/plugin-react": "3.1.0",
     "auto": "10.46.0",
-    "chromatic": "6.17.3",
     "concurrently": "8.0.1",
     "eslint": "8.36.0",
     "eslint-plugin-import": "2.27.5",
