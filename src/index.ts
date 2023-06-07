@@ -25,6 +25,8 @@ export {
   bodyLg, // To be removed
   bodyMd, // To be removed
   bodySm, // To be removed
+  heading56,
+  heading40,
   heading36,
   heading30,
   heading24,
