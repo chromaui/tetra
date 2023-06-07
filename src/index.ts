@@ -14,18 +14,18 @@ export {
   maxLg,
   maxXl,
   max2xl,
-  heading4xl,
-  heading3xl,
-  heading2xl,
-  headingXl,
-  headingLg,
-  headingMd,
-  headingSm,
-  headingXs,
-  bodyLg,
-  bodyMd,
-  bodySm,
-  subheading,
+  heading4xl, // To be removed
+  heading3xl, // To be removed
+  heading2xl, // To be removed
+  headingXl, // To be removed
+  headingLg, // To be removed
+  headingMd, // To be removed
+  headingSm, // To be removed
+  headingXs, // To be removed
+  bodyLg, // To be removed
+  bodyMd, // To be removed
+  bodySm, // To be removed
+  type,
 } from './_helpers';
 
 // Hooks
@@ -44,5 +44,4 @@ export { Link } from './Link';
 export { LinkWithWrapper } from './LinkWithWrapper';
 export { Logo } from './Logo';
 export { Text } from './Text';
-export { SectionLede } from './SectionLede';
 export { Stack } from './Stack';
