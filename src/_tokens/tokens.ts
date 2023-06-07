@@ -93,8 +93,9 @@ export const fontSize = {
   24: '1.5rem', // 24px
   30: '1.875rem', // 30px
   36: '2.25rem', // 36px
+  40: '2.5rem', // 40px
   48: '3rem', // 48px
-  60: '3.75rem', // 60px
+  56: '3.5rem', // 56px
 };
 
 export const lineHeight = {
@@ -107,7 +108,7 @@ export const lineHeight = {
   48: '3rem', // 48px
   52: '3.25rem', // 52px
   60: '3.75rem', // 60px
-  68: '4.25rem', // 68px
+  70: '4.375rem', // 70px
 };
 
 export const breakpoint = {

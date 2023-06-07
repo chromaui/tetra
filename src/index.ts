@@ -25,18 +25,7 @@ export {
   bodyLg, // To be removed
   bodyMd, // To be removed
   bodySm, // To be removed
-  heading56,
-  heading40,
-  heading36,
-  heading30,
-  heading24,
-  heading20,
-  heading18,
-  heading16,
-  body18,
-  body16,
-  body14,
-  subheading,
+  type,
 } from './_helpers';
 
 // Hooks

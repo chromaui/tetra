@@ -129,84 +129,84 @@ export const bodySm = css`
   }
 `;
 
-export const heading56 = css`
+const heading56 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[56]};
   line-height: ${lineHeight[70]};
   font-weight: ${fontWeight.semibold};
 `;
 
-export const heading40 = css`
+const heading40 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[40]};
   line-height: ${lineHeight[48]};
   font-weight: ${fontWeight.semibold};
 `;
 
-export const heading36 = css`
+const heading36 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[36]};
   line-height: ${lineHeight[44]};
   font-weight: ${fontWeight.semibold};
 `;
 
-export const heading30 = css`
+const heading30 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[30]};
   line-height: ${lineHeight[38]};
   font-weight: ${fontWeight.semibold};
 `;
 
-export const heading24 = css`
+const heading24 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[24]};
   line-height: ${lineHeight[32]};
   font-weight: ${fontWeight.semibold};
 `;
 
-export const heading20 = css`
+const heading20 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[20]};
   line-height: ${lineHeight[32]};
   font-weight: ${fontWeight.semibold};
 `;
 
-export const heading18 = css`
+const heading18 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[18]};
   line-height: ${lineHeight[28]};
   font-weight: ${fontWeight.semibold};
 `;
 
-export const heading16 = css`
+const heading16 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[16]};
   line-height: ${lineHeight[24]};
   font-weight: ${fontWeight.semibold};
 `;
 
-export const body18 = css`
+const body18 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[18]};
   line-height: ${lineHeight[28]};
   font-weight: ${fontWeight.regular};
 `;
 
-export const body16 = css`
+const body16 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[16]};
   line-height: ${lineHeight[24]};
   font-weight: ${fontWeight.regular};
 `;
 
-export const body14 = css`
+const body14 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[14]};
   line-height: ${lineHeight[20]};
   font-weight: ${fontWeight.regular};
 `;
 
-export const subheading = css`
+const subheading = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[11]};
   font-weight: ${fontWeight.bold};
@@ -214,3 +214,18 @@ export const subheading = css`
   text-transform: uppercase;
   color: ${color.slate800};
 `;
+
+export const type = {
+  heading56,
+  heading40,
+  heading36,
+  heading30,
+  heading24,
+  heading20,
+  heading18,
+  heading16,
+  body18,
+  body16,
+  body14,
+  subheading,
+};
