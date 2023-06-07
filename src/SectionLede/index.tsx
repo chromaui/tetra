@@ -1,1 +1,0 @@
-export { SectionLede } from './SectionLede';

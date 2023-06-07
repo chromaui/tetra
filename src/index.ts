@@ -44,5 +44,4 @@ export { Link } from './Link';
 export { LinkWithWrapper } from './LinkWithWrapper';
 export { Logo } from './Logo';
 export { Text } from './Text';
-export { SectionLede } from './SectionLede';
 export { Stack } from './Stack';
