@@ -1,3 +1,17 @@
+# v1.10.16 (Wed Jun 07 2023)
+
+#### 🐛 Bug Fix
+
+- add new typography styles [#50](https://github.com/chromaui/tetra/pull/50) ([@winkerVSbecks](https://github.com/winkerVSbecks) [@cdedreuille](https://github.com/cdedreuille))
+- Clean up [#49](https://github.com/chromaui/tetra/pull/49) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 2
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.10.15 (Thu May 25 2023)
 
 #### 🐛 Bug Fix
