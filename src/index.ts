@@ -14,17 +14,26 @@ export {
   maxLg,
   maxXl,
   max2xl,
-  heading4xl,
-  heading3xl,
-  heading2xl,
-  headingXl,
-  headingLg,
-  headingMd,
-  headingSm,
-  headingXs,
-  bodyLg,
-  bodyMd,
-  bodySm,
+  heading4xl, // To be removed
+  heading3xl, // To be removed
+  heading2xl, // To be removed
+  headingXl, // To be removed
+  headingLg, // To be removed
+  headingMd, // To be removed
+  headingSm, // To be removed
+  headingXs, // To be removed
+  bodyLg, // To be removed
+  bodyMd, // To be removed
+  bodySm, // To be removed
+  heading36,
+  heading30,
+  heading24,
+  heading20,
+  heading18,
+  heading16,
+  body18,
+  body16,
+  body14,
   subheading,
 } from './_helpers';
 

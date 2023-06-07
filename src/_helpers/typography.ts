@@ -1,5 +1,11 @@
 import { css } from '@storybook/theming';
-import { fontSize, fontWeight, fontFamily, color } from '../_tokens/tokens';
+import {
+  fontSize,
+  fontWeight,
+  fontFamily,
+  color,
+  lineHeight,
+} from '../_tokens/tokens';
 import { minSm } from './breakpointsMinMax';
 
 export const heading4xl = css`
@@ -123,6 +129,69 @@ export const bodySm = css`
   }
 `;
 
+export const heading36 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[36]};
+  line-height: ${lineHeight[44]};
+  font-weight: ${fontWeight.semibold};
+`;
+
+export const heading30 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[30]};
+  line-height: ${lineHeight[38]};
+  font-weight: ${fontWeight.semibold};
+`;
+
+export const heading24 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[24]};
+  line-height: ${lineHeight[32]};
+  font-weight: ${fontWeight.semibold};
+`;
+
+export const heading20 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[20]};
+  line-height: ${lineHeight[32]};
+  font-weight: ${fontWeight.semibold};
+`;
+
+export const heading18 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[18]};
+  line-height: ${lineHeight[28]};
+  font-weight: ${fontWeight.semibold};
+`;
+
+export const heading16 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[16]};
+  line-height: ${lineHeight[24]};
+  font-weight: ${fontWeight.semibold};
+`;
+
+export const body18 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[18]};
+  line-height: ${lineHeight[28]};
+  font-weight: ${fontWeight.regular};
+`;
+
+export const body16 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[16]};
+  line-height: ${lineHeight[24]};
+  font-weight: ${fontWeight.regular};
+`;
+
+export const body14 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[14]};
+  line-height: ${lineHeight[20]};
+  font-weight: ${fontWeight.regular};
+`;
+
 export const subheading = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[11]};
@@ -131,56 +200,3 @@ export const subheading = css`
   text-transform: uppercase;
   color: ${color.slate800};
 `;
-
-export const typeStyles = {
-  heading36: css({
-    fontFamily: fontFamily.sans,
-    fontSize: fontSize[36],
-    fontWeight: fontWeight.semibold,
-  }),
-  heading30: css({
-    fontFamily: fontFamily.sans,
-    fontSize: fontSize[30],
-    fontWeight: fontWeight.semibold,
-  }),
-  heading24: css({
-    fontFamily: fontFamily.sans,
-    fontSize: fontSize[24],
-    fontWeight: fontWeight.semibold,
-  }),
-  heading20: css({
-    fontFamily: fontFamily.sans,
-    fontSize: fontSize[20],
-    fontWeight: fontWeight.semibold,
-  }),
-  heading18: css({
-    fontFamily: fontFamily.sans,
-    fontSize: fontSize[18],
-    fontWeight: fontWeight.semibold,
-  }),
-  heading16: css({
-    fontFamily: fontFamily.sans,
-    fontSize: fontSize[36],
-    fontWeight: fontWeight.semibold,
-  }),
-  body18: css({
-    fontFamily: fontFamily.sans,
-    fontSize: fontSize[18],
-    fontWeight: fontWeight.regular,
-  }),
-  body16: css({
-    fontFamily: fontFamily.sans,
-    fontSize: fontSize[16],
-    fontWeight: fontWeight.regular,
-  }),
-  body14: css({
-    fontFamily: fontFamily.sans,
-    fontSize: fontSize[14],
-    fontWeight: fontWeight.regular,
-  }),
-  subheading: css({
-    fontFamily: fontFamily.sans,
-    fontSize: fontSize[16],
-    fontWeight: fontWeight.bold,
-  }),
-};
