@@ -6,7 +6,7 @@ import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
 import { HeaderMobileSection } from './types';
 import { slideDown, slideUp } from './styles';
-import { bodySm, subheading } from '../_helpers';
+import { bodySm, type } from '../_helpers';
 
 interface Props {
   section: HeaderMobileSection;
@@ -27,7 +27,7 @@ const NonCollapsibleTrigger = styled.div`
   padding: 0 ${spacing[2]};
   width: calc(100% - 20px);
   margin-left: 2px;
-  ${subheading}
+  ${type.subheading}
   color: ${color.slate500};
 `;
 
@@ -41,7 +41,7 @@ const CollapsibleTrigger = styled(Collapsible.Trigger)`
   border-radius: 6px;
   width: calc(100% - 20px);
   margin-left: 2px;
-  ${subheading}
+  ${type.subheading}
   color: ${color.slate500};
   cursor: pointer;
 
