@@ -131,3 +131,56 @@ export const subheading = css`
   text-transform: uppercase;
   color: ${color.slate800};
 `;
+
+export const typeStyles = {
+  heading36: css({
+    fontFamily: fontFamily.sans,
+    fontSize: fontSize[36],
+    fontWeight: fontWeight.semibold,
+  }),
+  heading30: css({
+    fontFamily: fontFamily.sans,
+    fontSize: fontSize[30],
+    fontWeight: fontWeight.semibold,
+  }),
+  heading24: css({
+    fontFamily: fontFamily.sans,
+    fontSize: fontSize[24],
+    fontWeight: fontWeight.semibold,
+  }),
+  heading20: css({
+    fontFamily: fontFamily.sans,
+    fontSize: fontSize[20],
+    fontWeight: fontWeight.semibold,
+  }),
+  heading18: css({
+    fontFamily: fontFamily.sans,
+    fontSize: fontSize[18],
+    fontWeight: fontWeight.semibold,
+  }),
+  heading16: css({
+    fontFamily: fontFamily.sans,
+    fontSize: fontSize[36],
+    fontWeight: fontWeight.semibold,
+  }),
+  body18: css({
+    fontFamily: fontFamily.sans,
+    fontSize: fontSize[18],
+    fontWeight: fontWeight.regular,
+  }),
+  body16: css({
+    fontFamily: fontFamily.sans,
+    fontSize: fontSize[16],
+    fontWeight: fontWeight.regular,
+  }),
+  body14: css({
+    fontFamily: fontFamily.sans,
+    fontSize: fontSize[14],
+    fontWeight: fontWeight.regular,
+  }),
+  subheading: css({
+    fontFamily: fontFamily.sans,
+    fontSize: fontSize[16],
+    fontWeight: fontWeight.bold,
+  }),
+};
