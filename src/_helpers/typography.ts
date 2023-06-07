@@ -15,7 +15,7 @@ export const heading4xl = css`
   color: ${color.slate800};
 
   ${minSm} {
-    font-size: ${fontSize[60]};
+    font-size: ${fontSize[56]};
   }
 `;
 
@@ -129,17 +129,17 @@ export const bodySm = css`
   }
 `;
 
-export const heading60 = css`
+export const heading56 = css`
   font-family: ${fontFamily.sans};
-  font-size: ${fontSize[60]};
-  line-height: ${lineHeight[44]};
+  font-size: ${fontSize[56]};
+  line-height: ${lineHeight[70]};
   font-weight: ${fontWeight.semibold};
 `;
 
-export const heading48 = css`
+export const heading40 = css`
   font-family: ${fontFamily.sans};
-  font-size: ${fontSize[48]};
-  line-height: ${lineHeight[44]};
+  font-size: ${fontSize[40]};
+  line-height: ${lineHeight[48]};
   font-weight: ${fontWeight.semibold};
 `;
 
