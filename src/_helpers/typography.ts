@@ -129,6 +129,20 @@ export const bodySm = css`
   }
 `;
 
+export const heading60 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[60]};
+  line-height: ${lineHeight[44]};
+  font-weight: ${fontWeight.semibold};
+`;
+
+export const heading48 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[48]};
+  line-height: ${lineHeight[44]};
+  font-weight: ${fontWeight.semibold};
+`;
+
 export const heading36 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[36]};
