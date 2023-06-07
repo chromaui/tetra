@@ -43,5 +43,6 @@ export { IntegrationImage } from './IntegrationImage';
 export { Link } from './Link';
 export { LinkWithWrapper } from './LinkWithWrapper';
 export { Logo } from './Logo';
+export { NormalizeArea } from './NormalizeArea';
 export { Text } from './Text';
 export { Stack } from './Stack';
