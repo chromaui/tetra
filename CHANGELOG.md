@@ -1,3 +1,15 @@
+# v1.10.17 (Wed Jun 07 2023)
+
+#### 🐛 Bug Fix
+
+- NormalizeArea and AspectRatio utils [#51](https://github.com/chromaui/tetra/pull/51) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.10.16 (Wed Jun 07 2023)
 
 #### 🐛 Bug Fix
