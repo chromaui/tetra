@@ -2,7 +2,7 @@
 export * from './_tokens';
 
 // Typography
-export * from './_helpers/typography';
+export * from './_helpers';
 
 // Hooks
 export { useMediaQuery } from './_hooks/useMediaQuery';
