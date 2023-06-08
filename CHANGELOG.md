@@ -1,3 +1,15 @@
+# v1.10.19 (Thu Jun 08 2023)
+
+#### 🐛 Bug Fix
+
+- some helper exports  were removed in the previous PR, adding those ba… [#53](https://github.com/chromaui/tetra/pull/53) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.10.18 (Thu Jun 08 2023)
 
 #### 🐛 Bug Fix
