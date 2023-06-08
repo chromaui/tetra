@@ -1,32 +1,8 @@
 // Tokens
 export * from './_tokens';
 
-// Helpers
-export {
-  minBase,
-  minSm,
-  minMd,
-  minLg,
-  minXl,
-  min2xl,
-  maxSm,
-  maxMd,
-  maxLg,
-  maxXl,
-  max2xl,
-  heading4xl, // To be removed
-  heading3xl, // To be removed
-  heading2xl, // To be removed
-  headingXl, // To be removed
-  headingLg, // To be removed
-  headingMd, // To be removed
-  headingSm, // To be removed
-  headingXs, // To be removed
-  bodyLg, // To be removed
-  bodyMd, // To be removed
-  bodySm, // To be removed
-  type,
-} from './_helpers';
+// Typography
+export * from './_helpers/typography';
 
 // Hooks
 export { useMediaQuery } from './_hooks/useMediaQuery';

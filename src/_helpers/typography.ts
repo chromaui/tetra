@@ -181,7 +181,7 @@ const heading18 = css`
 const heading16 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[16]};
-  line-height: ${lineHeight[24]};
+  line-height: ${lineHeight[28]};
   font-weight: ${fontWeight.semibold};
 `;
 
@@ -195,7 +195,7 @@ const body18 = css`
 const body16 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[16]};
-  line-height: ${lineHeight[24]};
+  line-height: ${lineHeight[28]};
   font-weight: ${fontWeight.regular};
 `;
 
