@@ -1,3 +1,15 @@
+# v1.10.18 (Thu Jun 08 2023)
+
+#### 🐛 Bug Fix
+
+- Fix lineHeight on heading16 and body16 [#52](https://github.com/chromaui/tetra/pull/52) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.17 (Wed Jun 07 2023)
 
 #### 🐛 Bug Fix
