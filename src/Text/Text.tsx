@@ -45,10 +45,6 @@ const Container = styled.div<{
   lineHeightAuto: TextProps['lineHeightAuto'];
 }>`
   margin: 0; // Reset
-  color: ${({ color }) => {
-    if (color) return tokenColor[color];
-    return tokenColor.black;
-  }};
   text-align: ${({ alignment }) => {
     if (alignment === 'start') return 'left';
     if (alignment === 'center') return 'center';
@@ -85,6 +81,11 @@ const Container = styled.div<{
     }
 
     return null;
+  }};
+
+  color: ${({ color }) => {
+    if (color) return tokenColor[color];
+    return tokenColor.black;
   }};
 
   ${({ fontWeight }) => {
