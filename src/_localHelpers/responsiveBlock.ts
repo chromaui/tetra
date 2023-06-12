@@ -1,6 +1,12 @@
 import { styled } from '@storybook/theming';
 import { spacing, breakpoint } from '../_tokens/tokens';
-import { min2xl, minLg, minMd, minSm, minXl } from './breakpointsMinMax';
+import {
+  min2xl,
+  minLg,
+  minMd,
+  minSm,
+  minXl,
+} from '../_helpers/breakpointsMinMax';
 
 export interface ResponsiveObjTypes {
   base?: keyof typeof spacing;

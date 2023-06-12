@@ -1,17 +1,13 @@
 import { ReactNode } from 'react';
 import { styled } from '@storybook/theming';
+import { min2xl, minLg, minMd, minSm, minXl } from '../_helpers';
+import { spacing } from '../_tokens';
 import {
   ResponsiveObjTypes,
-  min2xl,
-  minLg,
-  minMd,
-  minSm,
-  minXl,
-  getResponsiveValue,
   BlockWithOptions,
   BlockWithOptionsProps,
-} from '../_helpers';
-import { spacing } from '../_tokens';
+  getResponsiveValue,
+} from '../_localHelpers';
 
 interface StackProps extends BlockWithOptionsProps {
   children: ReactNode;

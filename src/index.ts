@@ -2,8 +2,7 @@
 export * from './_tokens';
 
 // Helpers
-export * from './_helpers/breakpointsMinMax';
-export * from './_helpers/typography';
+export * from './_helpers';
 
 // Hooks
 export { useMediaQuery } from './_hooks/useMediaQuery';
