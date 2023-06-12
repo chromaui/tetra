@@ -13,9 +13,8 @@ type Story = StoryObj<typeof Text>;
 
 export const Base: Story = {
   args: {
-    children:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat, velit vel egestas rutrum, arcu ante suscipit mauris, eu eleifend mi ipsum et tellus.',
-    variant: 'body16',
+    children: 'Hello World',
+    variant: 'bodyMd',
     alignment: 'start',
     fontWeight: 'regular',
     as: 'p',
@@ -23,39 +22,22 @@ export const Base: Story = {
   },
 };
 
-export const Responsive: Story = {
-  args: {
-    ...Base.args,
-  },
-  render: ({ children }) => (
-    <Text
-      as="h1"
-      variant={{
-        base: 'body16',
-        sm: 'heading56',
-        md: 'body18',
-        xl: 'heading20',
-      }}
-    >
-      {children}
-    </Text>
-  ),
-};
-
 export const Heading: Story = {
   args: {
     ...Base.args,
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat, velit vel egestas rutrum, arcu ante suscipit mauris, eu eleifend mi ipsum et tellus.',
   },
   render: ({ children }) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-      <Text as="h1" variant="heading56">{`Heading 56 - ${children}`}</Text>
-      <Text as="h1" variant="heading40">{`Heading 40 - ${children}`}</Text>
-      <Text as="h1" variant="heading36">{`Heading 36 - ${children}`}</Text>
-      <Text as="h1" variant="heading30">{`Heading 30 - ${children}`}</Text>
-      <Text as="h1" variant="heading24">{`Heading 24 - ${children}`}</Text>
-      <Text as="h1" variant="heading20">{`Heading 20 - ${children}`}</Text>
-      <Text as="h1" variant="heading18">{`Heading 18 - ${children}`}</Text>
-      <Text as="h1" variant="heading16">{`Heading 16 - ${children}`}</Text>
+      <Text as="h1" variant="heading4xl">{`Heading 4Xl - ${children}`}</Text>
+      <Text as="h1" variant="heading3xl">{`Heading 3Xl - ${children}`}</Text>
+      <Text as="h1" variant="heading2xl">{`Heading 2Xl - ${children}`}</Text>
+      <Text as="h1" variant="headingXl">{`Heading Xl - ${children}`}</Text>
+      <Text as="h1" variant="headingLg">{`Heading Lg - ${children}`}</Text>
+      <Text as="h1" variant="headingMd">{`Heading Md - ${children}`}</Text>
+      <Text as="h1" variant="headingSm">{`Heading Sm - ${children}`}</Text>
+      <Text as="h1" variant="headingXs">{`Heading Xs - ${children}`}</Text>
     </div>
   ),
 };
@@ -68,9 +50,9 @@ export const Body: Story = {
   },
   render: ({ children }) => (
     <div>
-      <Text as="h1" variant="body18">{`Body 18 - ${children}`}</Text>
-      <Text as="h1" variant="body16">{`Body 16 - ${children}`}</Text>
-      <Text as="h1" variant="body14">{`Body 14 - ${children}`}</Text>
+      <Text variant="bodyLg">BodyLg — {children}</Text>
+      <Text variant="bodyMd">BodyMd — {children}</Text>
+      <Text variant="bodySm">BodySm — {children}</Text>
     </div>
   ),
 };
@@ -91,16 +73,16 @@ export const Alignments: Story = {
   },
   render: ({ children }) => (
     <div>
-      <Text variant="body16" alignment="start">
+      <Text variant="bodyMd" alignment="start">
         {children}
       </Text>
-      <Text variant="body16" alignment="center">
+      <Text variant="bodyMd" alignment="center">
         {children}
       </Text>
-      <Text variant="body16" alignment="end">
+      <Text variant="bodyMd" alignment="end">
         {children}
       </Text>
-      <Text variant="body16" alignment="justify">
+      <Text variant="bodyMd" alignment="justify">
         {children}
       </Text>
     </div>

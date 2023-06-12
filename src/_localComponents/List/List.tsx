@@ -36,12 +36,12 @@ export const List: FC<Props> = ({ list }) => {
     <Container>
       <Line>
         <Col1>
-          <Text fontWeight="semibold" as="div">
+          <Text fontWeight="semibold" as="div" lineHeightAuto>
             Name
           </Text>
         </Col1>
         <Col2>
-          <Text fontWeight="semibold" as="div">
+          <Text fontWeight="semibold" as="div" lineHeightAuto>
             Value
           </Text>
         </Col2>
@@ -53,12 +53,17 @@ export const List: FC<Props> = ({ list }) => {
         ?.map((s) => (
           <Line key={s.name}>
             <Col1>
-              <Text as="div" variant="body16" fontWeight="semibold">
+              <Text
+                lineHeightAuto
+                as="div"
+                variant="bodySm"
+                fontWeight="semibold"
+              >
                 {s.name}
               </Text>
             </Col1>
             <Col2>
-              <Text as="div" variant="body16" color="slate600">
+              <Text lineHeightAuto as="div" variant="bodySm" color="slate600">
                 {s.value}
               </Text>
             </Col2>
