@@ -92,10 +92,10 @@ export const NavDesktopItem = React.forwardRef<
             {content.customIcon}
           </IconWrapper>
           <TextWrapper>
-            <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
+            <Text as="div" variant="body16" fontWeight="bold">
               {content.title}
             </Text>
-            <Text as="div" variant="bodySm" color="slate500">
+            <Text as="div" variant="body16" color="slate500">
               {content.description}
             </Text>
           </TextWrapper>
