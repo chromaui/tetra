@@ -23,6 +23,7 @@ export interface TextProps {
   alignment?: 'start' | 'center' | 'end' | 'justify';
   fontWeight?: keyof typeof tokenFontWeight;
   color?: keyof typeof tokenColor;
+  lineHeightAuto?: boolean;
   as?:
     | 'h1'
     | 'h2'
@@ -41,6 +42,7 @@ const Container = styled.div<{
   color: TextProps['color'];
   alignment: TextProps['alignment'];
   fontWeight: TextProps['fontWeight'];
+  lineHeightAuto: TextProps['lineHeightAuto'];
 }>`
   margin: 0; // Reset
   color: ${({ color }) => {
@@ -84,6 +86,16 @@ const Container = styled.div<{
 
     return null;
   }};
+
+  ${({ fontWeight }) => {
+    if (fontWeight) return `font-weight: ${tokenFontWeight[fontWeight]};`;
+    return null;
+  }};
+
+  ${({ lineHeightAuto }) => {
+    if (lineHeightAuto) return `line-height: normal;`;
+    return null;
+  }};
 `;
 
 export const Text: FC<TextProps> = ({
@@ -91,6 +103,7 @@ export const Text: FC<TextProps> = ({
   variant = 'body16',
   alignment = 'start',
   fontWeight,
+  lineHeightAuto = false,
   color = 'slate800',
   as = 'p',
   ...rest
@@ -100,6 +113,7 @@ export const Text: FC<TextProps> = ({
       variant={variant}
       color={color}
       fontWeight={fontWeight}
+      lineHeightAuto={lineHeightAuto}
       alignment={alignment}
       as={as}
       {...rest}

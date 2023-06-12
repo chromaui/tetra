@@ -40,17 +40,17 @@ export const Breakpoints: FC<Props> = ({ list }) => {
     <Container>
       <Line>
         <Col1>
-          <Text fontWeight="semibold" as="div">
+          <Text fontWeight="semibold" as="div" lineHeightAuto>
             Breakpoint prefix
           </Text>
         </Col1>
         <Col2>
-          <Text fontWeight="semibold" as="div">
+          <Text fontWeight="semibold" as="div" lineHeightAuto>
             Minimum width
           </Text>
         </Col2>
         <Col3>
-          <Text fontWeight="semibold" as="div">
+          <Text fontWeight="semibold" as="div" lineHeightAuto>
             CSS
           </Text>
         </Col3>
@@ -62,17 +62,23 @@ export const Breakpoints: FC<Props> = ({ list }) => {
         ?.map((s) => (
           <Line key={s.name}>
             <Col1>
-              <Text as="div" fontWeight="semibold" variant="body16">
+              <Text
+                lineHeightAuto
+                as="div"
+                fontWeight="semibold"
+                variant="body16"
+              >
                 {s.name}
               </Text>
             </Col1>
             <Col2>
-              <Text as="div" color="slate600" variant="body16">
+              <Text lineHeightAuto as="div" color="slate600" variant="body16">
                 {s.value}px
               </Text>
             </Col2>
             <Col3>
               <Text
+                lineHeightAuto
                 as="div"
                 variant="body16"
                 color="slate600"
