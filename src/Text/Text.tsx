@@ -85,7 +85,7 @@ const Container = styled.div<{
 
   color: ${({ color }) => {
     if (color) return tokenColor[color];
-    return tokenColor.black;
+    return tokenColor.slate800;
   }};
 
   ${({ fontWeight }) => {
@@ -105,7 +105,7 @@ export const Text: FC<TextProps> = ({
   alignment = 'start',
   fontWeight,
   lineHeightAuto = false,
-  color = 'slate800',
+  color,
   as = 'p',
   ...rest
 }) => {

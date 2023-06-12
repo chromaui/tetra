@@ -212,7 +212,6 @@ const subheading = css`
   font-weight: ${fontWeight.bold};
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: ${color.slate800};
 `;
 
 export const typography = {
