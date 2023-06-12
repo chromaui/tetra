@@ -1,3 +1,15 @@
+# v1.10.22 (Mon Jun 12 2023)
+
+#### ⚠️ Pushed to `main`
+
+- Create responsive Text component ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.21 (Mon Jun 12 2023)
 
 #### 🐛 Bug Fix
