@@ -1,11 +1,7 @@
 import { styled } from '@storybook/theming';
-import {
-  BlockWithOptionsForContainer,
-  min2xl,
-  minSm,
-  minXl,
-} from '../_helpers';
 import { spacing } from '../_tokens';
+import { BlockWithOptionsForContainer } from '../_localHelpers';
+import { min2xl, minSm, minXl } from '../_helpers';
 
 export const pageMargin = 5.55555;
 

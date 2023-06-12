@@ -10,7 +10,7 @@ import { useMediaQuery } from '../_hooks/useMediaQuery';
 import { HeaderProps } from './types';
 import { minSm } from '../_helpers';
 import { LinkWithWrapper } from '../LinkWithWrapper';
-import { resetCSS } from '../_helpers/resetCSS';
+import { resetCSS } from '../_localHelpers/resetCSS';
 
 interface WrapperProps {
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];

@@ -7,7 +7,7 @@ import { useHeaderContext } from './context';
 import { minSm } from '../_helpers';
 import { NavMobileTrigger } from './NavMobileTrigger';
 import { NavMobileSection } from './NavMobileSection';
-import { resetCSS } from '../_helpers/resetCSS';
+import { resetCSS } from '../_localHelpers/resetCSS';
 
 const NavigationMenu = styled(motion.div)`
   ${resetCSS}

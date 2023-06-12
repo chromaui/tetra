@@ -1,5 +1,5 @@
 import { styled } from '@storybook/theming';
-import { BlockWithOptions, BlockWithOptionsProps } from '../_helpers';
+import { BlockWithOptions, BlockWithOptionsProps } from '../_localHelpers';
 import { spacing, color as tokenColor } from '../_tokens';
 
 interface StackProps extends BlockWithOptionsProps {
