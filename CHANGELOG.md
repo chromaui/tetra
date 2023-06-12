@@ -1,3 +1,19 @@
+# v1.10.20 (Mon Jun 12 2023)
+
+#### 🐛 Bug Fix
+
+- Move localHelpers to its own folder [#54](https://github.com/chromaui/tetra/pull/54) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### ⚠️ Pushed to `main`
+
+- Clarify the export of helpers ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.19 (Thu Jun 08 2023)
 
 #### 🐛 Bug Fix
