@@ -1,8 +1,9 @@
 // Tokens
 export * from './_tokens';
 
-// Typography
-export * from './_helpers';
+// Helpers
+export * from './_helpers/breakpointsMinMax';
+export * from './_helpers/typography';
 
 // Hooks
 export { useMediaQuery } from './_hooks/useMediaQuery';
