@@ -215,7 +215,7 @@ const subheading = css`
   color: ${color.slate800};
 `;
 
-export const type = {
+export const typography = {
   heading56,
   heading40,
   heading36,
