@@ -11,7 +11,7 @@ const heading56 = css`
 const heading48 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[48]};
-  line-height: ${lineHeight[52]};
+  line-height: ${lineHeight[60]};
   font-weight: ${fontWeight.semibold};
 `;
 
