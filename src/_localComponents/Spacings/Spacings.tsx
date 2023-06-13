@@ -51,17 +51,17 @@ export const Spacings: FC<Props> = ({ list }) => {
     <Container>
       <Line>
         <Col1>
-          <Text fontWeight="semibold" as="div" lineHeightAuto>
+          <Text fontWeight="semibold" as="div">
             Name
           </Text>
         </Col1>
         <Col2>
-          <Text fontWeight="semibold" as="div" lineHeightAuto>
+          <Text fontWeight="semibold" as="div">
             Size
           </Text>
         </Col2>
         <Col3>
-          <Text fontWeight="semibold" as="div" lineHeightAuto>
+          <Text fontWeight="semibold" as="div">
             Pixels
           </Text>
         </Col3>
@@ -74,22 +74,17 @@ export const Spacings: FC<Props> = ({ list }) => {
         ?.map((s) => (
           <Line key={s.name}>
             <Col1>
-              <Text
-                lineHeightAuto
-                as="div"
-                variant="bodySm"
-                fontWeight="semibold"
-              >
+              <Text as="div" variant="body16" fontWeight="semibold">
                 {s.name}
               </Text>
             </Col1>
             <Col2>
-              <Text lineHeightAuto as="div" variant="bodySm" color="slate600">
+              <Text as="div" variant="body16" color="slate600">
                 {s.value}
               </Text>
             </Col2>
             <Col3>
-              <Text lineHeightAuto as="div" variant="bodySm" color="slate600">
+              <Text as="div" variant="body16" color="slate600">
                 {parseFloat(s.name) * 4}px
               </Text>
             </Col3>

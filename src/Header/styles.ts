@@ -1,6 +1,6 @@
 import { css, keyframes } from '@storybook/theming';
 import { color, fontWeight, spacing } from '../_tokens';
-import { bodySm } from '../_helpers';
+import { typography } from '../_helpers';
 
 export const NavigationMenuItem = css`
   all: unset;
@@ -18,7 +18,7 @@ export const NavigationMenuItem = css`
   text-decoration: none;
   cursor: pointer;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-  ${bodySm}
+  ${typography.body14}
   font-weight: ${fontWeight.bold};
 
   &:focus {

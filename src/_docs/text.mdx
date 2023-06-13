@@ -1,0 +1,84 @@
+import { Meta, Source } from '@storybook/blocks';
+
+<Meta title="Core Concepts/Texts" />
+
+# Texts
+
+Typography helps establish hierarchy and communicate important content by creating clear visual patterns. We have multiples ways to display text in Tetra. You can use our `Text` component or our typography helpers. Both of them are linked to our design tokens and could be used responsively.
+
+## Text component
+
+The easiest way to display text is by using the `Text` component. It's a wrapper around our typography tokens and it's the most flexible way to display text. For all the available props, please check the [Text component](/docs/components-text--docs).
+
+<Source
+  dark
+  code={`import { Text } from '@chromaui/tetra';
+
+// By default the Text component doesn't require any props
+
+<Text>Hello World 👋</Text>
+
+// Customise almost everything
+
+<Text
+  variant="body16"
+  color="blue.500"
+  fontWeight="bold"
+  alignment="center"
+  lineHeightAuto={true}
+  as="h1"
+>
+  Hello World 👋
+</Text>
+`} />
+
+### Responsive sizes
+
+You can use our responsive object format to change the size of the text depending on the viewport size. You don't need to specify all the breakpoints, only the ones you need.
+
+<Source
+  dark
+  code={`import { Text } from '@chromaui/tetra';
+
+// Here, we are setting the size of the text to 16px on mobile,
+// 20px on tablet and 32px on desktop. Base is to tell what size
+// you want from 0px onwards.
+
+<Text variant={{ base: 'body16', lg: 'heading20', xl: 'heading32' }}>
+  Hello World 👋
+</Text>
+
+// Here, as we are only specifying the size for the xl breakpoint,
+// you'll get the default value "body16" until the XL breakpoint
+// where we switch to "heading32".
+
+<Text variant={{ xl: 'heading32' }}>Hello World 👋</Text>
+`} />
+
+## Typography helpers
+
+If you want more flexibility, you can use our style helpers to create your own text component. You can use the following props to customise your text:
+
+- `typography.heading56`
+- `typography.heading48`
+- `typography.heading40`
+- `typography.heading36`
+- `typography.heading24`
+- `typography.heading20`
+- `typography.heading18`
+- `typography.heading16`
+- `typography.body18`
+- `typography.body16`
+- `typography.body14`
+- `typography.subheading`
+
+<Source
+  dark
+  code={`import { typography } from '@chromaui/tetra';
+
+const Heading = styled.h1\`
+\${typography.heading32}
+\`
+
+<Heading>Hello World 👋</Heading>
+`} />

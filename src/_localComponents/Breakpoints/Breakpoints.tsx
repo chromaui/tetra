@@ -66,13 +66,13 @@ export const Breakpoints: FC<Props> = ({ list }) => {
                 lineHeightAuto
                 as="div"
                 fontWeight="semibold"
-                variant="bodySm"
+                variant="body16"
               >
                 {s.name}
               </Text>
             </Col1>
             <Col2>
-              <Text lineHeightAuto as="div" color="slate600" variant="bodySm">
+              <Text lineHeightAuto as="div" color="slate600" variant="body16">
                 {s.value}px
               </Text>
             </Col2>
@@ -80,7 +80,7 @@ export const Breakpoints: FC<Props> = ({ list }) => {
               <Text
                 lineHeightAuto
                 as="div"
-                variant="bodySm"
+                variant="body16"
                 color="slate600"
               >{`@media (min-width: ${s.value}px) { ... }`}</Text>
             </Col3>

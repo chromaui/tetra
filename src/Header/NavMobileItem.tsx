@@ -55,7 +55,7 @@ export const NavMobileItem: FC<MobileItemProps> = ({
           <Icon name={icon} size={16} color={iconColor} aria-hidden />
         )}
         {customIcon}
-        <Text as="div" lineHeightAuto variant="bodySm" fontWeight="bold">
+        <Text as="div" lineHeightAuto variant="body14" fontWeight="bold">
           {title}
         </Text>
       </Inside>

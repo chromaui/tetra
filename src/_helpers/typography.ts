@@ -1,138 +1,17 @@
 import { css } from '@storybook/theming';
-import {
-  fontSize,
-  fontWeight,
-  fontFamily,
-  color,
-  lineHeight,
-} from '../_tokens/tokens';
-import { minSm } from './breakpointsMinMax';
-
-export const heading4xl = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[36]};
-  font-weight: ${fontWeight.semibold};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[56]};
-  }
-`;
-
-export const heading3xl = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[36]};
-  font-weight: ${fontWeight.semibold};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[48]};
-  }
-`;
-
-export const heading2xl = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[30]};
-  font-weight: ${fontWeight.semibold};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[36]};
-  }
-`;
-
-export const headingXl = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[24]};
-  font-weight: ${fontWeight.semibold};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[30]};
-  }
-`;
-
-export const headingLg = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[24]};
-  font-weight: ${fontWeight.semibold};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[24]};
-  }
-`;
-
-export const headingMd = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[20]};
-  font-weight: ${fontWeight.semibold};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[20]};
-  }
-`;
-
-export const headingSm = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[18]};
-  font-weight: ${fontWeight.semibold};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[18]};
-  }
-`;
-
-export const headingXs = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[16]};
-  font-weight: ${fontWeight.semibold};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[16]};
-  }
-`;
-
-export const bodyLg = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[18]};
-  font-weight: ${fontWeight.regular};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[18]};
-  }
-`;
-
-export const bodyMd = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[16]};
-  font-weight: ${fontWeight.regular};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[16]};
-  }
-`;
-
-export const bodySm = css`
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[14]};
-  font-weight: ${fontWeight.regular};
-  color: ${color.slate800};
-
-  ${minSm} {
-    font-size: ${fontSize[14]};
-  }
-`;
+import { fontSize, fontWeight, fontFamily, lineHeight } from '../_tokens';
 
 const heading56 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[56]};
   line-height: ${lineHeight[70]};
+  font-weight: ${fontWeight.semibold};
+`;
+
+const heading48 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[48]};
+  line-height: ${lineHeight[52]};
   font-weight: ${fontWeight.semibold};
 `;
 
@@ -212,11 +91,11 @@ const subheading = css`
   font-weight: ${fontWeight.bold};
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: ${color.slate800};
 `;
 
 export const typography = {
   heading56,
+  heading48,
   heading40,
   heading36,
   heading30,

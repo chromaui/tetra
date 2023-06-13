@@ -54,16 +54,16 @@ export const List: FC<Props> = ({ list }) => {
           <Line key={s.name}>
             <Col1>
               <Text
-                lineHeightAuto
                 as="div"
-                variant="bodySm"
+                variant="body16"
                 fontWeight="semibold"
+                lineHeightAuto
               >
                 {s.name}
               </Text>
             </Col1>
             <Col2>
-              <Text lineHeightAuto as="div" variant="bodySm" color="slate600">
+              <Text as="div" variant="body16" color="slate600" lineHeightAuto>
                 {s.value}
               </Text>
             </Col2>
