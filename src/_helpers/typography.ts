@@ -136,6 +136,13 @@ const heading56 = css`
   font-weight: ${fontWeight.semibold};
 `;
 
+const heading48 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[48]};
+  line-height: ${lineHeight[52]};
+  font-weight: ${fontWeight.semibold};
+`;
+
 const heading40 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[40]};
@@ -216,6 +223,7 @@ const subheading = css`
 
 export const typography = {
   heading56,
+  heading48,
   heading40,
   heading36,
   heading30,
