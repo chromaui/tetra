@@ -46,6 +46,18 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    options: {
+      storySort: {
+        order: [
+          'Core Concepts',
+          'Tokens',
+          'Components',
+          'Layout',
+          'Actions',
+          'Utilities',
+        ],
+      },
+    },
   },
 };
 
