@@ -1,3 +1,20 @@
+# v1.11.0 (Tue Jun 13 2023)
+
+#### 🚀 Enhancement
+
+- Improve Text component to use responsive variants [#56](https://github.com/chromaui/tetra/pull/56) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of https://github.com/chromaui/tetra ([@cdedreuille](https://github.com/cdedreuille))
+- Revert "Create responsive Text component" ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.10.22 (Mon Jun 12 2023)
 
 #### ⚠️ Pushed to `main`
