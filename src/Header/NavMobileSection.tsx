@@ -6,7 +6,7 @@ import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
 import { HeaderMobileSection } from './types';
 import { slideDown, slideUp } from './styles';
-import { bodySm, typography } from '../_helpers';
+import { typography } from '../_helpers';
 
 interface Props {
   section: HeaderMobileSection;
@@ -80,7 +80,7 @@ const MoreTrigger = styled(Collapsible.Trigger)`
   margin-left: 2px;
   height: ${spacing[8]};
   border-radius: 6px;
-  ${bodySm}
+  ${typography.body14}
   color: ${color.slate500};
   cursor: pointer;
 
