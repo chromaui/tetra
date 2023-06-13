@@ -49,11 +49,13 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          'Core Concepts',
+          'Introduction',
+          'Responsive Design',
           'Tokens',
-          'Components',
+          'Typography',
           'Layout',
           'Actions',
+          'Components',
           'Utilities',
         ],
       },
