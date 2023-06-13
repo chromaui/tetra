@@ -109,6 +109,7 @@ export const lineHeight = {
   48: '3rem', // 48px
   52: '3.25rem', // 52px
   60: '3.75rem', // 60px
+  64: '4rem', // 64px
   68: '4.25rem', // 68px
   70: '4.375rem', // 70px
 };
