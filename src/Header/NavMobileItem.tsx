@@ -2,12 +2,12 @@ import React, { FC, ReactNode } from 'react';
 import { styled } from '@storybook/theming';
 import { color, spacing } from '../_tokens';
 import { Icon } from '../Icon/Icon';
-import type { Icons } from '../Icon/Icon';
+import type { IconProps } from '../Icon';
 import { Text } from '../Text';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 
 export interface MobileItemProps {
-  icon?: Icons;
+  icon?: IconProps;
   iconColor?: keyof typeof color;
   customIcon?: ReactNode;
   title: string;

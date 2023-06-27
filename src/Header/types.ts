@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import type { Icons } from '../Icon/Icon';
+import type { IconProps } from '../Icon';
 import { color } from '../_tokens';
 
 export interface HeaderMobileSection {
@@ -10,7 +10,7 @@ export interface HeaderMobileSection {
     title: string;
     href: string;
     linkWrapper?: any;
-    icon?: Icons;
+    icon?: IconProps;
     iconColor?: keyof typeof color;
     customIcon?: ReactNode;
   }[];
@@ -22,7 +22,7 @@ export interface HeaderDesktopItemContent {
   description?: string;
   href?: string;
   linkWrapper?: any;
-  icon?: Icons;
+  icon?: IconProps;
   iconColor?: keyof typeof color;
   customIcon?: ReactNode;
 }
