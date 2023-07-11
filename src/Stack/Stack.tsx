@@ -26,26 +26,32 @@ export const Stack = styled(BlockWithOptions)<{
 }>`
   display: flex;
   flex-direction: column;
-  gap: ${({ gap }) => (gap ? getResponsiveValue(gap, 'base') : spacing[4])};
+  gap: ${({ gap }) =>
+    gap !== undefined ? getResponsiveValue(gap, 'base') : spacing[4]};
 
   ${minSm} {
-    gap: ${({ gap }) => (gap ? getResponsiveValue(gap, 'sm') : spacing[4])};
+    gap: ${({ gap }) =>
+      gap !== undefined ? getResponsiveValue(gap, 'sm') : spacing[4]};
   }
 
   ${minMd} {
     flex-direction: ${({ direction }) => direction || 'row'};
-    gap: ${({ gap }) => (gap ? getResponsiveValue(gap, 'md') : spacing[4])};
+    gap: ${({ gap }) =>
+      gap !== undefined ? getResponsiveValue(gap, 'md') : spacing[4]};
   }
 
   ${minLg} {
-    gap: ${({ gap }) => (gap ? getResponsiveValue(gap, 'lg') : spacing[4])};
+    gap: ${({ gap }) =>
+      gap !== undefined ? getResponsiveValue(gap, 'lg') : spacing[4]};
   }
 
   ${minXl} {
-    gap: ${({ gap }) => (gap ? getResponsiveValue(gap, 'xl') : spacing[4])};
+    gap: ${({ gap }) =>
+      gap !== undefined ? getResponsiveValue(gap, 'xl') : spacing[4]};
   }
 
   ${min2xl} {
-    gap: ${({ gap }) => (gap ? getResponsiveValue(gap, '2xl') : spacing[4])};
+    gap: ${({ gap }) =>
+      gap !== undefined ? getResponsiveValue(gap, '2xl') : spacing[4]};
   }
 `;
