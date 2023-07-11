@@ -1,6 +1,8 @@
 export const color = {
   black: '#000000',
+  blackTr10: 'rgba(0, 0, 0, 0.10)',
   white: '#FFFFFF',
+  whiteTr50: 'rgba(255, 255, 255, 0.50)',
 
   slate50: '#F7FAFC',
   slate100: '#EEF3F6',
