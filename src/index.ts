@@ -22,3 +22,4 @@ export { Logo } from './Logo';
 export { NormalizeArea } from './NormalizeArea';
 export { Text } from './Text';
 export { Stack } from './Stack';
+export { SubNav } from './SubNav';
