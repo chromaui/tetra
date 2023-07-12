@@ -5,6 +5,7 @@ import { Header } from './Header';
 import { Button } from '../Button';
 import { desktopData, mobileData } from './data';
 import { Link } from '../Link';
+import { SubNav } from '../SubNav';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -54,6 +55,37 @@ export const DesktopLight: Story = {
 };
 
 export const DesktopDark: Story = {
+  args: {
+    ...DesktopLight.args,
+    theme: 'dark',
+  },
+  parameters: {
+    ...DesktopLight.parameters,
+    backgrounds: { default: 'dark' },
+  },
+};
+
+export const WithSubNav: Story = {
+  render: (args) => (
+    <>
+      <Header {...args} />
+      <SubNav
+        variant="dark"
+        label="features"
+        items={[
+          { id: '1', label: 'UI Tests', href: '/ui-tests' },
+          {
+            id: '2',
+            label: 'Visual test',
+            href: '/visual-tests',
+            isActive: true,
+          },
+          { id: '3', label: 'Interaction test', href: '/interaction-tests' },
+          { id: '4', label: 'TurboSnap', href: '/turbosnap', external: true },
+        ]}
+      />
+    </>
+  ),
   args: {
     ...DesktopLight.args,
     theme: 'dark',
