@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import React, { Meta, StoryObj } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { NavDropdownMenu } from './NavDropdownMenu';
 
@@ -22,6 +22,7 @@ export const Light: Story = {
     label: 'Features',
     items: features,
   },
+  decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
