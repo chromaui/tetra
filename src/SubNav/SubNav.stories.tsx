@@ -1,4 +1,5 @@
-import React, { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
+import { within, userEvent } from '@storybook/testing-library';
 import { SubNav } from './SubNav';
 
 const meta: Meta<typeof SubNav> = {
@@ -33,5 +34,24 @@ export const Dark: Story = {
   },
   parameters: {
     backgrounds: { default: 'dark' },
+  },
+};
+
+export const Collapsed: Story = {
+  ...Dark,
+  parameters: {
+    backgrounds: { default: 'dark' },
+    viewport: {
+      chromatic: { viewports: [320, 640] },
+      defaultViewport: 'xsm',
+    },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Features',
+    });
+    MenuButton.focus();
+    await userEvent.keyboard('{enter}');
   },
 };
