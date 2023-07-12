@@ -1,3 +1,15 @@
+# v1.12.0 (Wed Jul 12 2023)
+
+#### 🚀 Enhancement
+
+- Subnav [#59](https://github.com/chromaui/tetra/pull/59) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.11.2 (Tue Jun 13 2023)
 
 #### 🐛 Bug Fix
