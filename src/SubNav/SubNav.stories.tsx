@@ -12,7 +12,7 @@ const meta: Meta<typeof SubNav> = {
 export default meta;
 type Story = StoryObj<typeof SubNav>;
 
-const docsItems = [
+const features = [
   { id: '1', label: 'UI Tests', href: '/ui-tests' },
   { id: '2', label: 'Visual test', href: '/visual-tests', isActive: true },
   { id: '3', label: 'Interaction test', href: '/interaction-tests' },
@@ -21,15 +21,15 @@ const docsItems = [
 
 export const Light: Story = {
   args: {
-    label: 'Docs nav',
-    items: docsItems,
+    label: 'Features',
+    items: features,
   },
 };
 
 export const Dark: Story = {
   args: {
     ...Light.args,
-    theme: 'dark',
+    variant: 'dark',
   },
   parameters: {
     backgrounds: { default: 'dark' },

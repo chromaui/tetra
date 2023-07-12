@@ -1,23 +1,24 @@
-import React, { ElementType, FunctionComponent, ReactNode } from 'react';
+import React, { ElementType, FunctionComponent } from 'react';
 import { styled } from '@storybook/theming';
 import { Container } from '../Container';
 import { LinkWithWrapper } from '../LinkWithWrapper/LinkWithWrapper';
-import { Stack } from '../Stack';
+import { HStack } from '../Stack';
 import { color, fontWeight, spacing } from '../_tokens';
-import { typography } from '../_helpers';
+import { minSm, typography } from '../_helpers';
 import { Icon } from '../Icon';
+import { NavDropdownMenu } from '../NavDropdownMenu';
 
-const Wrapper = styled.div<{ theTheme?: 'light' | 'dark' }>`
+const Wrapper = styled.div<{ variant?: 'light' | 'dark' }>`
   box-shadow: ${(props) =>
-      props.theTheme === 'dark' ? color.whiteTr50 : color.blackTr10}
+      props.variant === 'dark' ? color.whiteTr50 : color.blackTr10}
     0 -1px 0px 0px inset;
 `;
 
 const SubNavLink = styled(LinkWithWrapper, {
   shouldForwardProp: (propName) =>
-    propName !== 'theTheme' && propName !== 'isActive',
+    propName !== 'variant' && propName !== 'isActive',
 })<{
-  theTheme?: 'light' | 'dark';
+  variant?: 'light' | 'dark';
   isActive?: boolean;
 }>`
   all: unset;
@@ -28,6 +29,8 @@ const SubNavLink = styled(LinkWithWrapper, {
   outline: none;
   user-select: none;
   border: none;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
   height: ${spacing[10]};
   background: transparent;
   gap: 6px;
@@ -47,14 +50,28 @@ const SubNavLink = styled(LinkWithWrapper, {
     color: ${color.blue500};
   }
 
-  color: ${({ isActive, theTheme }) => {
+  color: ${({ isActive, variant }) => {
     if (isActive) return color.blue500;
-    if (theTheme === 'light') return color.slate500;
+    if (variant === 'light') return color.slate500;
     return color.slate300;
   }};
 
   ${(props) =>
     props.isActive && `box-shadow: ${color.blue500} 0 -3px 0 0 inset;`}
+`;
+
+const DropdownMenuWrapper = styled.div`
+  ${minSm} {
+    display: none;
+  }
+`;
+
+const TabsMenu = styled(HStack)`
+  display: none;
+
+  ${minSm} {
+    display: flex;
+  }
 `;
 
 interface SubNavItem {
@@ -67,7 +84,7 @@ interface SubNavItem {
 }
 
 export interface SubNavProps {
-  theme?: 'light' | 'dark';
+  variant?: 'light' | 'dark';
   label: string;
   items: SubNavItem[];
 }
@@ -75,23 +92,29 @@ export interface SubNavProps {
 export const SubNav: FunctionComponent<SubNavProps> = ({
   label,
   items,
-  theme = 'light',
+  variant = 'light',
 }) => {
   return (
-    <Wrapper theTheme={theme}>
+    <Wrapper variant={variant}>
       <Container>
-        <Stack direction="row" gap={0}>
+        <DropdownMenuWrapper>
+          <NavDropdownMenu label={label} items={items} variant={variant} />
+        </DropdownMenuWrapper>
+        <TabsMenu gap={0}>
           {items.map((item) => (
             <SubNavLink
               key={item.id}
               href={item.href}
-              theTheme={theme}
+              variant={variant}
               isActive={item.isActive}
             >
-              {item.label} {item.external && <Icon name="sharealt" />}
+              {item.label}{' '}
+              {item.external && (
+                <Icon name="sharealt" aria-label="external page" />
+              )}
             </SubNavLink>
           ))}
-        </Stack>
+        </TabsMenu>
       </Container>
     </Wrapper>
   );
