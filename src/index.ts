@@ -22,5 +22,5 @@ export { Logo } from './Logo';
 export { NormalizeArea } from './NormalizeArea';
 export { NavDropdownMenu } from './NavDropdownMenu';
 export { Text } from './Text';
-export { Stack } from './Stack';
+export { Stack, HStack, VStack } from './Stack';
 export { SubNav } from './SubNav';
