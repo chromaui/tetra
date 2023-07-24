@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, forwardRef } from 'react';
 import { styled } from '@storybook/theming';
 import { color as tokenColor, fontFamily } from '../_tokens';
 import { Icon } from '../Icon';
@@ -44,39 +44,49 @@ const Container = styled.a<{
   text-decoration: none;
 `;
 
-export const Link: FC<LinkProps> = ({
-  children,
-  size = 'md',
-  color = 'blue500',
-  leftIcon,
-  rightIcon,
-  href,
-  target,
-  onClick,
-  as,
-  ...rest
-}) => {
-  let iconSize: 12 | 14 | 16 = 14;
-  if (size === 'sm') iconSize = 12;
-  if (size === 'lg') iconSize = 16;
+export const Link = forwardRef<
+  HTMLAnchorElement | HTMLButtonElement,
+  LinkProps
+>(
+  (
+    {
+      children,
+      size = 'md',
+      color = 'blue500',
+      leftIcon,
+      rightIcon,
+      href,
+      target,
+      onClick,
+      as,
+      ...rest
+    },
+    ref
+  ) => {
+    let iconSize: 12 | 14 | 16 = 14;
+    if (size === 'sm') iconSize = 12;
+    if (size === 'lg') iconSize = 16;
 
-  let asContainer: LinkProps['as'] = 'button';
-  if (href) asContainer = 'a';
-  if (as && !href) asContainer = as;
+    let asContainer: LinkProps['as'] = 'button';
+    if (href) asContainer = 'a';
+    if (as && !href) asContainer = as;
 
-  return (
-    <Container
-      size={size}
-      color={color}
-      onClick={onClick}
-      as={asContainer}
-      href={href}
-      target={target}
-      {...rest}
-    >
-      {leftIcon && <Icon name={leftIcon} size={iconSize} color={color} />}
-      {children}
-      {rightIcon && <Icon name={rightIcon} size={iconSize} color={color} />}
-    </Container>
-  );
-};
+    return (
+      <Container
+        size={size}
+        color={color}
+        onClick={onClick}
+        as={asContainer}
+        href={href}
+        target={target}
+        ref={ref as React.Ref<HTMLAnchorElement & HTMLButtonElement>}
+        {...rest}
+      >
+        {leftIcon && <Icon name={leftIcon} size={iconSize} color={color} />}
+        {children}
+        {rightIcon && <Icon name={rightIcon} size={iconSize} color={color} />}
+      </Container>
+    );
+  }
+);
+Link.displayName = 'Link';

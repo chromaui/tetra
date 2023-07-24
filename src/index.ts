@@ -8,6 +8,7 @@ export * from './_helpers';
 export { useMediaQuery } from './_hooks/useMediaQuery';
 
 // Components
+export { Avatar } from './Avatar';
 export { Container } from './Container';
 export { Button } from './Button';
 export { CustomerStoryHero } from './CustomerStoryHero';
@@ -21,6 +22,7 @@ export { LinkWithWrapper } from './LinkWithWrapper';
 export { Logo } from './Logo';
 export { NormalizeArea } from './NormalizeArea';
 export { NavDropdownMenu } from './NavDropdownMenu';
-export { Text } from './Text';
-export { Stack } from './Stack';
+export { Stack, HStack, VStack } from './Stack';
 export { SubNav } from './SubNav';
+export { Testimonial } from './Testimonial';
+export { Text } from './Text';

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, forwardRef } from 'react';
 import { styled } from '@storybook/theming';
 import { color as tokenColor, fontFamily } from '../_tokens';
 import { Icon } from '../Icon';
@@ -91,47 +91,59 @@ const Container = styled.a<{
   }
 `;
 
-export const Button: FC<ButtonProps> = ({
-  children,
-  size = 'md',
-  variant = 'solid',
-  color = 'blue',
-  leftIcon,
-  rightIcon,
-  href,
-  target,
-  onClick,
-  as,
-  ...rest
-}) => {
-  let iconSize: 12 | 14 | 16 = 14;
-  if (size === 'sm') iconSize = 12;
-  if (size === 'lg') iconSize = 16;
+export const Button = forwardRef<
+  HTMLAnchorElement | HTMLButtonElement,
+  ButtonProps
+>(
+  (
+    {
+      children,
+      size = 'md',
+      variant = 'solid',
+      color = 'blue',
+      leftIcon,
+      rightIcon,
+      href,
+      target,
+      onClick,
+      as,
+      ...rest
+    },
+    ref
+  ) => {
+    let iconSize: 12 | 14 | 16 = 14;
+    if (size === 'sm') iconSize = 12;
+    if (size === 'lg') iconSize = 16;
 
-  let iconColor: keyof typeof tokenColor = 'slate500';
-  if (variant === 'solid' && color === 'blue') iconColor = 'white';
-  if (variant === 'solid' && color === 'white') iconColor = 'blue500';
-  if (variant === 'outline' && color === 'blue') iconColor = 'blue500';
-  if (variant === 'outline' && color === 'white') iconColor = 'white';
+    let iconColor: keyof typeof tokenColor = 'slate500';
+    if (variant === 'solid' && color === 'blue') iconColor = 'white';
+    if (variant === 'solid' && color === 'white') iconColor = 'blue500';
+    if (variant === 'outline' && color === 'blue') iconColor = 'blue500';
+    if (variant === 'outline' && color === 'white') iconColor = 'white';
 
-  let asContainer: ButtonProps['as'] = 'button';
-  if (href) asContainer = 'a';
-  if (as && !href) asContainer = as;
+    let asContainer: ButtonProps['as'] = 'button';
+    if (href) asContainer = 'a';
+    if (as && !href) asContainer = as;
 
-  return (
-    <Container
-      size={size}
-      variant={variant}
-      color={color}
-      onClick={onClick}
-      as={asContainer}
-      href={href}
-      target={target}
-      {...rest}
-    >
-      {leftIcon && <Icon name={leftIcon} size={iconSize} color={iconColor} />}
-      {children}
-      {rightIcon && <Icon name={rightIcon} size={iconSize} color={iconColor} />}
-    </Container>
-  );
-};
+    return (
+      <Container
+        size={size}
+        variant={variant}
+        color={color}
+        onClick={onClick}
+        as={asContainer}
+        href={href}
+        target={target}
+        ref={ref as React.Ref<HTMLAnchorElement & HTMLButtonElement>}
+        {...rest}
+      >
+        {leftIcon && <Icon name={leftIcon} size={iconSize} color={iconColor} />}
+        {children}
+        {rightIcon && (
+          <Icon name={rightIcon} size={iconSize} color={iconColor} />
+        )}
+      </Container>
+    );
+  }
+);
+Button.displayName = 'Button';
