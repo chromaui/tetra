@@ -11,6 +11,7 @@ export type ListTypes =
   | 'heading20'
   | 'heading18'
   | 'heading16'
+  | 'body20'
   | 'body18'
   | 'body16'
   | 'body14';
@@ -78,6 +79,12 @@ export const t: TProps = {
     fontSize: 16,
     lineHeight: 28,
     fontWeight: 'semibold',
+  },
+  body20: {
+    fontFamily: 'sans',
+    fontSize: 20,
+    lineHeight: 32,
+    fontWeight: 'regular',
   },
   body18: {
     fontFamily: 'sans',
@@ -162,6 +169,13 @@ const heading16 = css`
   font-weight: ${fontWeight[t.heading16.fontWeight]};
 `;
 
+const body20 = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[20]};
+  line-height: ${lineHeight[32]};
+  font-weight: ${fontWeight.regular};
+`;
+
 const body18 = css`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[18]};
@@ -201,6 +215,7 @@ export const typography = {
   heading20,
   heading18,
   heading16,
+  body20,
   body18,
   body16,
   body14,

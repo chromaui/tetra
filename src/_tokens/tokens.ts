@@ -3,7 +3,7 @@ export const color = {
   blackTr10: 'rgba(0, 0, 0, 0.10)',
   blackTr05: 'rgba(0, 0, 0, 0.05)',
   white: '#FFFFFF',
-  whiteTr50: 'rgba(255, 255, 255, 0.1)',
+  whiteTr10: 'rgba(255, 255, 255, 0.1)',
   whiteTr05: 'rgba(255, 255, 255, 0.05)',
 
   slate50: '#F7FAFC',
