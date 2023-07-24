@@ -1,3 +1,15 @@
+# v1.13.0 (Mon Jul 24 2023)
+
+#### 🚀 Enhancement
+
+- Add Avatar & Testimonial components [#60](https://github.com/chromaui/tetra/pull/60) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.12.0 (Wed Jul 12 2023)
 
 #### 🚀 Enhancement
