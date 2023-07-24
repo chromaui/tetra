@@ -10,9 +10,9 @@ import { NavDropdownMenu } from '../NavDropdownMenu';
 
 const Wrapper = styled.div<{ variant?: 'light' | 'dark' }>`
   box-shadow: ${(props) =>
-        props.variant === 'dark' ? color.whiteTr50 : color.blackTr10}
+        props.variant === 'dark' ? color.whiteTr05 : color.blackTr10}
       0 -1px 0px 0px inset,
-    ${(props) => (props.variant === 'dark' ? color.whiteTr50 : color.blackTr10)}
+    ${(props) => (props.variant === 'dark' ? color.whiteTr05 : color.blackTr10)}
       0 1px 0px 0px inset;
 `;
 
