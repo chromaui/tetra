@@ -34,7 +34,7 @@ export const Inverse: Story = {
   args: {
     ...Base.args,
     inverse: true,
-    logo: './air-bnb.svg',
+    logo: './airbnb.svg',
   },
   parameters: {
     backgrounds: { default: 'dark' },
