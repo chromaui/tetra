@@ -94,11 +94,20 @@ const FooterWrapper = styled.footer<{ inverse?: boolean }>`
 const BottomRow = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: ${spacing[5]};
   justify-content: space-between;
 `;
 
-const Colophon = styled.div<{ inverse?: boolean }>`
+const Colophon = styled(HStack)`
+  flex-wrap: wrap;
+
+  svg {
+    flex: none;
+  }
+`;
+
+const ColophonText = styled.div<{ inverse?: boolean }>`
   ${typography.body14};
   color: ${({ inverse }) => (inverse ? color.white : color.slate500)};
 `;
@@ -144,12 +153,12 @@ export const Footer = ({
         ))}
       </Columns>
       <BottomRow>
-        <HStack gap={5} align="center">
+        <Colophon gap={5} align="center">
           <Logo name="chromatic" theme={inverse ? 'dark' : 'light'} />
-          <Colophon inverse={inverse}>
+          <ColophonText inverse={inverse}>
             &copy; Chroma Software Inc. Made by the maintainers of Storybook.
-          </Colophon>
-        </HStack>
+          </ColophonText>
+        </Colophon>
         <HStack gap={4}>
           {socialLinks.map(({ title, icon, ...linkProps }) => (
             <SocialLink
