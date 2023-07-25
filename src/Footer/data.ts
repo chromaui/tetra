@@ -53,3 +53,9 @@ export default [
     ],
   },
 ];
+
+export const socialLinks = [
+  { title: 'github', href: 'https://github.com/chromaui/' },
+  { title: 'twitter', href: 'https://twitter.com/chromaui' },
+  { title: 'youtube', href: 'https://youtube.com/@chromaticui' },
+];

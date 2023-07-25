@@ -2,12 +2,13 @@ import React from 'react';
 import { styled } from '@storybook/theming';
 import { minSm, typography } from '../_helpers';
 import { color, spacing } from '../_tokens';
-import footerData from './data';
+import footerData, { socialLinks } from './data';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { Container } from '../Container';
 import { Logo } from '../Logo';
 import { Icon } from '../Icon';
 import { HStack } from '../Stack';
+import { IconProps } from '../Icon/Icon';
 
 const Columns = styled.div`
   display: grid;
@@ -51,23 +52,24 @@ const SocialLink = styled(LinkWithWrapper)<{ inverse?: boolean }>`
   display: block;
   padding: 10px;
   border-radius: 100%;
-  border: 1px solid
-    ${({ inverse }) => (inverse ? color.whiteTr10 : color.blackTr10)};
+  border-width: 1px;
+  border-style: solid;
 
-  transition: transform 150ms ease-out, color 150ms ease-out;
+  border-color: ${({ inverse }) =>
+    inverse ? color.whiteTr10 : color.blackTr10};
 
-  &:hover,
-  &:focus-visible {
-    cursor: pointer;
-    transform: translateY(-1px);
-  }
-  &:active {
-    transform: translateY(0);
-  }
+  transition: border-color: 150ms ease-out;
 
   svg {
     display: block;
     fill: ${({ inverse }) => (inverse ? color.white : color.slate500)};
+  }
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    outline: 0;
+    border-color: ${({ inverse }) => (inverse ? color.white : color.slate500)};
   }
 `;
 
@@ -93,7 +95,7 @@ const BottomRow = styled.div`
   justify-content: space-between;
 `;
 
-const Attribution = styled.div<{ inverse?: boolean }>`
+const Colophon = styled.div<{ inverse?: boolean }>`
   ${typography.body14};
   color: ${({ inverse }) => (inverse ? color.white : color.slate500)};
 `;
@@ -137,21 +139,22 @@ export const Footer = ({
       <BottomRow>
         <HStack gap={5} align="center">
           <Logo name="chromatic" theme={inverse ? 'dark' : 'light'} />
-          <Attribution inverse={inverse}>
-            © Chroma Software Inc. By the maintainers of Storybook.
-          </Attribution>
+          <Colophon inverse={inverse}>
+            &copy; Chroma Software Inc. Made by the maintainers of Storybook.
+          </Colophon>
         </HStack>
-
         <HStack gap={4}>
-          <SocialLink href="#">
-            <Icon size={20} name="github" />
-          </SocialLink>
-          <SocialLink href="#">
-            <Icon size={20} name="twitter" />
-          </SocialLink>
-          <SocialLink href="#">
-            <Icon size={20} name="youtube" />
-          </SocialLink>
+          {socialLinks.map(({ title, href }) => (
+            <SocialLink
+              key={title}
+              inverse={inverse}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon size={20} name={title as any} />
+            </SocialLink>
+          ))}
         </HStack>
       </BottomRow>
     </Container>

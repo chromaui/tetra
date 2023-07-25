@@ -7,7 +7,7 @@ const meta: Meta<typeof Footer> = {
   title: 'Components/Footer',
   component: Footer,
   parameters: {
-    layout: 'fullscreen',
+    layout: 'padded',
   },
 };
 
