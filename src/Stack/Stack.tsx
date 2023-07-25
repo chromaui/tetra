@@ -13,10 +13,29 @@ interface StackProps extends BlockWithOptionsProps {
   children: ReactNode;
   gap?: keyof typeof spacing | ResponsiveObjTypes;
   direction?: 'row' | 'column';
+  align: 'flex-start' | 'center' | 'flex-end';
+  justify?:
+    | 'flex-start'
+    | 'center'
+    | 'flex-end'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly';
 }
 
-const stackStyles = ({ gap }: { gap?: StackProps['gap'] }) => css`
+const stackStyles = ({
+  gap,
+  align,
+  justify,
+}: {
+  gap?: StackProps['gap'];
+  align?: StackProps['align'];
+  justify?: StackProps['justify'];
+}) => css`
   display: flex;
+
+  ${align && `align-items: ${align};`};
+  ${justify && `justify-content: ${justify};`};
 
   gap: ${gap !== undefined ? getResponsiveValue(gap, 'base') : spacing[4]};
 
@@ -60,6 +79,8 @@ export const Stack = styled(BlockWithOptions)<{
 
 export const HStack = styled(BlockWithOptions)<{
   gap?: StackProps['gap'];
+  align?: StackProps['align'];
+  justify?: StackProps['justify'];
 }>`
   ${stackStyles};
   flex-direction: row;
@@ -67,6 +88,8 @@ export const HStack = styled(BlockWithOptions)<{
 
 export const VStack = styled(BlockWithOptions)<{
   gap?: StackProps['gap'];
+  align?: StackProps['align'];
+  justify?: StackProps['justify'];
 }>`
   ${stackStyles};
   flex-direction: column;

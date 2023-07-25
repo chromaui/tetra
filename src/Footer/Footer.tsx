@@ -1,11 +1,13 @@
 import React from 'react';
-import { styled, css } from '@storybook/theming';
+import { styled } from '@storybook/theming';
 import { minSm, typography } from '../_helpers';
-import { color, fontSize, fontWeight, spacing } from '../_tokens';
+import { color, spacing } from '../_tokens';
 import footerData from './data';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { Container } from '../Container';
 import { Logo } from '../Logo';
+import { Icon } from '../Icon';
+import { HStack } from '../Stack';
 
 const Columns = styled.div`
   display: grid;
@@ -45,10 +47,35 @@ const FooterLink = styled(LinkWithWrapper)<{ inverse?: boolean }>`
   }
 `;
 
+const SocialLink = styled(LinkWithWrapper)<{ inverse?: boolean }>`
+  display: block;
+  padding: 10px;
+  border-radius: 100%;
+  border: 1px solid
+    ${({ inverse }) => (inverse ? color.whiteTr10 : color.blackTr10)};
+
+  transition: transform 150ms ease-out, color 150ms ease-out;
+
+  &:hover,
+  &:focus-visible {
+    cursor: pointer;
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+
+  svg {
+    display: block;
+    fill: ${({ inverse }) => (inverse ? color.white : color.slate500)};
+  }
+`;
+
 const FooterWrapper = styled.footer<{ inverse?: boolean }>`
-  background-color: ${({ inverse }) => (inverse ? '#171C23' : color.blue50)};
+  background-color: ${({ inverse }) =>
+    inverse ? color.slate900 : color.blue50};
   border-top: 1px solid
-    ${({ inverse }) => (inverse ? color.whiteTr10 : color.slate300)};
+    ${({ inverse }) => (inverse ? color.whiteTr10 : color.blackTr10)};
 
   padding-top: ${spacing[12]};
   padding-bottom: ${spacing[12]};
@@ -63,6 +90,7 @@ const BottomRow = styled.div`
   display: flex;
   align-items: center;
   gap: ${spacing[5]};
+  justify-content: space-between;
 `;
 
 const Attribution = styled.div<{ inverse?: boolean }>`
@@ -107,10 +135,24 @@ export const Footer = ({
         ))}
       </Columns>
       <BottomRow>
-        <Logo name="chromatic" theme={inverse ? 'dark' : 'light'} />
-        <Attribution inverse={inverse}>
-          © Chroma Software Inc. By the maintainers of Storybook.
-        </Attribution>
+        <HStack gap={5} align="center">
+          <Logo name="chromatic" theme={inverse ? 'dark' : 'light'} />
+          <Attribution inverse={inverse}>
+            © Chroma Software Inc. By the maintainers of Storybook.
+          </Attribution>
+        </HStack>
+
+        <HStack gap={4}>
+          <SocialLink href="#">
+            <Icon size={20} name="github" />
+          </SocialLink>
+          <SocialLink href="#">
+            <Icon size={20} name="twitter" />
+          </SocialLink>
+          <SocialLink href="#">
+            <Icon size={20} name="youtube" />
+          </SocialLink>
+        </HStack>
       </BottomRow>
     </Container>
   </FooterWrapper>
