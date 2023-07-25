@@ -113,66 +113,56 @@ const ColophonText = styled.div<{ inverse?: boolean }>`
 `;
 
 export interface FooterProps {
-  text: React.ReactNode;
-  avatarUrl: string;
-  name: string;
-  jobTitle: string;
-  logo: string;
-  inverse?: boolean;
-  companyName?: string;
-  compact: boolean;
+  theme: 'light' | 'dark';
   columns: FooterColumn[];
   socialLinks: FooterSocialItem[];
 }
 
 export const Footer = ({
-  inverse,
-  text,
-  avatarUrl,
-  name,
-  jobTitle,
-  logo,
-  companyName,
-  compact,
+  theme,
   columns,
   socialLinks,
   ...props
-}: FooterProps) => (
-  <FooterWrapper inverse={inverse} {...props}>
-    <Container>
-      <Columns>
-        {columns.map((column) => (
-          <Column key={column.title}>
-            <ColumnTitle inverse={inverse}>{column.title}</ColumnTitle>
-            {column.links.map((link) => (
-              <FooterLink inverse={inverse} key={link.title} {...link}>
-                {link.title}
-              </FooterLink>
-            ))}
-          </Column>
-        ))}
-      </Columns>
-      <BottomRow>
-        <Colophon gap={5} align="center">
-          <Logo name="chromatic" theme={inverse ? 'dark' : 'light'} />
-          <ColophonText inverse={inverse}>
-            &copy; Chroma Software Inc. Made by the maintainers of Storybook.
-          </ColophonText>
-        </Colophon>
-        <HStack gap={4}>
-          {socialLinks.map(({ title, icon, ...linkProps }) => (
-            <SocialLink
-              key={title}
-              inverse={inverse}
-              target="_blank"
-              rel="noopener noreferrer"
-              {...linkProps}
-            >
-              <Icon size={20} name={icon} aria-label={title} />
-            </SocialLink>
+}: FooterProps) => {
+  const inverse = theme === 'dark';
+
+  return (
+    <FooterWrapper inverse={inverse} {...props}>
+      <Container>
+        <Columns>
+          {columns.map((column) => (
+            <Column key={column.title}>
+              <ColumnTitle inverse={inverse}>{column.title}</ColumnTitle>
+              {column.links.map((link) => (
+                <FooterLink inverse={inverse} key={link.title} {...link}>
+                  {link.title}
+                </FooterLink>
+              ))}
+            </Column>
           ))}
-        </HStack>
-      </BottomRow>
-    </Container>
-  </FooterWrapper>
-);
+        </Columns>
+        <BottomRow>
+          <Colophon gap={5} align="center">
+            <Logo name="chromatic" theme={inverse ? 'dark' : 'light'} />
+            <ColophonText inverse={inverse}>
+              &copy; Chroma Software Inc. Made by the maintainers of Storybook.
+            </ColophonText>
+          </Colophon>
+          <HStack gap={4}>
+            {socialLinks.map(({ title, icon, ...linkProps }) => (
+              <SocialLink
+                key={title}
+                inverse={inverse}
+                target="_blank"
+                rel="noopener noreferrer"
+                {...linkProps}
+              >
+                <Icon size={20} name={icon} aria-label={title} />
+              </SocialLink>
+            ))}
+          </HStack>
+        </BottomRow>
+      </Container>
+    </FooterWrapper>
+  );
+};
