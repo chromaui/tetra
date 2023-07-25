@@ -2,12 +2,16 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Footer } from './Footer';
+import { footerColumns, footerSocialLinks } from './data';
 
 const meta: Meta<typeof Footer> = {
   title: 'Components/Footer',
   component: Footer,
   parameters: {
     layout: 'padded',
+    chromatic: {
+      viewports: [320, 640, 768, 1024],
+    },
   },
 };
 
@@ -27,6 +31,8 @@ export const Base: Story = {
     name: 'Dominic Nguyen',
     jobTitle: 'Engineering manager',
     logo: './atomic-design.svg',
+    columns: footerColumns,
+    socialLinks: footerSocialLinks,
   },
 };
 
@@ -35,8 +41,5 @@ export const Inverse: Story = {
     ...Base.args,
     inverse: true,
     logo: './airbnb.svg',
-  },
-  parameters: {
-    backgrounds: { default: 'dark' },
   },
 };

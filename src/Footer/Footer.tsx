@@ -2,13 +2,12 @@ import React from 'react';
 import { styled } from '@storybook/theming';
 import { minSm, typography } from '../_helpers';
 import { color, spacing } from '../_tokens';
-import footerData, { socialLinks } from './data';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { Container } from '../Container';
 import { Logo } from '../Logo';
 import { Icon } from '../Icon';
 import { HStack } from '../Stack';
-import { IconProps } from '../Icon/Icon';
+import { FooterColumn, FooterSocialItem } from './types';
 
 const Columns = styled.div`
   display: grid;
@@ -30,7 +29,9 @@ const ColumnTitle = styled.div<{ inverse?: boolean }>`
   margin-bottom: ${spacing[1]};
 `;
 
-const FooterLink = styled(LinkWithWrapper)<{ inverse?: boolean }>`
+const FooterLink = styled(LinkWithWrapper, {
+  shouldForwardProp: (propName) => propName !== 'inverse',
+})<{ inverse?: boolean }>`
   ${typography.body14};
   text-decoration: none;
   display: block;
@@ -48,7 +49,9 @@ const FooterLink = styled(LinkWithWrapper)<{ inverse?: boolean }>`
   }
 `;
 
-const SocialLink = styled(LinkWithWrapper)<{ inverse?: boolean }>`
+const SocialLink = styled(LinkWithWrapper, {
+  shouldForwardProp: (propName) => propName !== 'inverse',
+})<{ inverse?: boolean }>`
   display: block;
   padding: 10px;
   border-radius: 100%;
@@ -100,7 +103,7 @@ const Colophon = styled.div<{ inverse?: boolean }>`
   color: ${({ inverse }) => (inverse ? color.white : color.slate500)};
 `;
 
-interface FooterProps {
+export interface FooterProps {
   text: React.ReactNode;
   avatarUrl: string;
   name: string;
@@ -109,6 +112,8 @@ interface FooterProps {
   inverse?: boolean;
   companyName?: string;
   compact: boolean;
+  columns: FooterColumn[];
+  socialLinks: FooterSocialItem[];
 }
 
 export const Footer = ({
@@ -120,16 +125,18 @@ export const Footer = ({
   logo,
   companyName,
   compact,
+  columns,
+  socialLinks,
   ...props
 }: FooterProps) => (
   <FooterWrapper inverse={inverse} {...props}>
     <Container>
       <Columns>
-        {footerData.map((column) => (
+        {columns.map((column) => (
           <Column key={column.title}>
             <ColumnTitle inverse={inverse}>{column.title}</ColumnTitle>
             {column.links.map((link) => (
-              <FooterLink inverse={inverse} key={link.title} href={link.href}>
+              <FooterLink inverse={inverse} key={link.title} {...link}>
                 {link.title}
               </FooterLink>
             ))}
@@ -144,15 +151,15 @@ export const Footer = ({
           </Colophon>
         </HStack>
         <HStack gap={4}>
-          {socialLinks.map(({ title, href }) => (
+          {socialLinks.map(({ title, icon, ...linkProps }) => (
             <SocialLink
               key={title}
               inverse={inverse}
-              href={href}
               target="_blank"
               rel="noopener noreferrer"
+              {...linkProps}
             >
-              <Icon size={20} name={title as any} />
+              <Icon size={20} name={icon} aria-label={title} />
             </SocialLink>
           ))}
         </HStack>
