@@ -137,7 +137,6 @@ const Logo = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
     display: block;
     width: auto;
     max-height: 40px;
-    max-width: 80px;
   }
 
   ${(props) =>
