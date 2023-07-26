@@ -159,7 +159,6 @@ interface TestimonialProps {
   variant?: TestimonialVariant;
   inverse?: boolean;
   companyName?: string;
-  compact: boolean;
 }
 
 export const Testimonial = ({
@@ -171,7 +170,6 @@ export const Testimonial = ({
   jobTitle,
   logo,
   companyName,
-  compact,
   ...props
 }: TestimonialProps) => (
   <div {...props}>
@@ -182,7 +180,7 @@ export const Testimonial = ({
       <Cite>
         <Author>
           <Avatar
-            size={compact ? 'medium' : 'large'}
+            size={variant === 'compact' ? 'medium' : 'large'}
             username={name}
             src={avatarUrl}
           />
