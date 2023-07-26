@@ -70,7 +70,7 @@ export const WithSubNav: Story = {
     <>
       <Header {...args} />
       <SubNav
-        variant="dark"
+        theme="dark"
         label="features"
         items={[
           { id: '1', label: 'UI Tests', href: '/ui-tests' },
