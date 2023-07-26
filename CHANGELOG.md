@@ -1,3 +1,15 @@
+# v1.14.2 (Wed Jul 26 2023)
+
+#### 🐛 Bug Fix
+
+- remove max-width on logo when not in compact mode [#63](https://github.com/chromaui/tetra/pull/63) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.14.1 (Wed Jul 26 2023)
 
 #### 🐛 Bug Fix
