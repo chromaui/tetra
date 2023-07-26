@@ -12,6 +12,7 @@ export interface LinkProps {
   rightIcon?: Icons;
   href?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
+  rel?: string;
   onClick?: () => void;
   as?: 'button' | 'a';
 }
@@ -57,6 +58,7 @@ export const Link = forwardRef<
       rightIcon,
       href,
       target,
+      rel,
       onClick,
       as,
       ...rest
@@ -79,6 +81,7 @@ export const Link = forwardRef<
         as={asContainer}
         href={href}
         target={target}
+        rel={rel}
         ref={ref as React.Ref<HTMLAnchorElement & HTMLButtonElement>}
         {...rest}
       >

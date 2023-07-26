@@ -205,6 +205,15 @@ const subheading = css`
   text-transform: uppercase;
 `;
 
+const subheadingLarge = css`
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[14]};
+  line-height: ${lineHeight[20]};
+  font-weight: ${fontWeight.bold};
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+`;
+
 export const typography = {
   heading56,
   heading48,
@@ -220,4 +229,5 @@ export const typography = {
   body16,
   body14,
   subheading,
+  subheadingLarge,
 };

@@ -13,6 +13,7 @@ export { Container } from './Container';
 export { Button } from './Button';
 export { CustomerStoryHero } from './CustomerStoryHero';
 export { Divider } from './Divider';
+export { Footer, FooterProps } from './Footer';
 export { Grid } from './Grid';
 export { Header, HeaderProps } from './Header';
 export { Icon, Icons } from './Icon';

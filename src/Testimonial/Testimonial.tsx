@@ -29,7 +29,8 @@ const Inner = styled.div<{ variant: TestimonialVariant; inverse?: boolean }>`
   ${(props) =>
     props.variant === 'left-aligned' &&
     css`
-      border-left: 1px solid ${props.inverse ? color.whiteTr10 : color.slate300};
+      border-left: 1px solid
+        ${props.inverse ? color.whiteTr10 : color.blackTr10};
       padding-left: ${spacing[10]};
     `}
 `;
@@ -119,7 +120,7 @@ const JobTitle = styled.div<{ variant: TestimonialVariant }>`
 
 const Logo = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
   border-left: 1px solid
-    ${(props) => (props.inverse ? color.whiteTr10 : color.slate300)};
+    ${(props) => (props.inverse ? color.whiteTr10 : color.blackTr10)};
   margin-left: 20px;
   padding-left: 20px;
   display: flex;
