@@ -1,3 +1,15 @@
+# v1.14.0 (Wed Jul 26 2023)
+
+#### 🚀 Enhancement
+
+- Footer component [#61](https://github.com/chromaui/tetra/pull/61) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.13.0 (Mon Jul 24 2023)
 
 #### 🚀 Enhancement
