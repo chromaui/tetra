@@ -10,9 +10,9 @@ import { NavDropdownMenu } from '../NavDropdownMenu';
 
 const Wrapper = styled.div<{ variant?: 'light' | 'dark' }>`
   box-shadow: ${(props) =>
-        props.variant === 'dark' ? color.whiteTr05 : color.blackTr10}
+        props.variant === 'dark' ? color.whiteTr10 : color.blackTr10}
       0 -1px 0px 0px inset,
-    ${(props) => (props.variant === 'dark' ? color.whiteTr05 : color.blackTr10)}
+    ${(props) => (props.variant === 'dark' ? color.whiteTr10 : color.blackTr10)}
       0 1px 0px 0px inset;
 `;
 
@@ -86,7 +86,7 @@ interface SubNavItem {
 }
 
 export interface SubNavProps {
-  variant?: 'light' | 'dark';
+  theme?: 'light' | 'dark';
   label: string;
   items: SubNavItem[];
 }
@@ -94,30 +94,28 @@ export interface SubNavProps {
 export const SubNav: FunctionComponent<SubNavProps> = ({
   label,
   items,
-  variant = 'light',
-}) => {
-  return (
-    <Wrapper variant={variant}>
-      <Container>
-        <DropdownMenuWrapper>
-          <NavDropdownMenu label={label} items={items} variant={variant} />
-        </DropdownMenuWrapper>
-        <TabsMenu gap={0}>
-          {items.map((item) => (
-            <SubNavLink
-              key={item.id}
-              href={item.href}
-              variant={variant}
-              isActive={item.isActive}
-            >
-              {item.label}{' '}
-              {item.external && (
-                <Icon name="sharealt" aria-label="external page" />
-              )}
-            </SubNavLink>
-          ))}
-        </TabsMenu>
-      </Container>
-    </Wrapper>
-  );
-};
+  theme = 'light',
+}) => (
+  <Wrapper variant={theme}>
+    <Container>
+      <DropdownMenuWrapper>
+        <NavDropdownMenu label={label} items={items} variant={theme} />
+      </DropdownMenuWrapper>
+      <TabsMenu gap={0}>
+        {items.map((item) => (
+          <SubNavLink
+            key={item.id}
+            href={item.href}
+            variant={theme}
+            isActive={item.isActive}
+          >
+            {item.label}{' '}
+            {item.external && (
+              <Icon name="sharealt" aria-label="external page" />
+            )}
+          </SubNavLink>
+        ))}
+      </TabsMenu>
+    </Container>
+  </Wrapper>
+);

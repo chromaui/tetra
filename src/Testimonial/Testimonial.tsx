@@ -157,13 +157,13 @@ interface TestimonialProps {
   jobTitle: string;
   logo: string;
   variant?: TestimonialVariant;
-  inverse?: boolean;
+  theme?: 'light' | 'dark';
   companyName?: string;
 }
 
 export const Testimonial = ({
   variant = 'default',
-  inverse,
+  theme = 'light',
   text,
   avatarUrl,
   name,
@@ -171,30 +171,33 @@ export const Testimonial = ({
   logo,
   companyName,
   ...props
-}: TestimonialProps) => (
-  <div {...props}>
-    <Inner variant={variant} inverse={inverse}>
-      <Quote variant={variant} inverse={inverse}>
-        {text}
-      </Quote>
-      <Cite>
-        <Author>
-          <Avatar
-            size={variant === 'compact' ? 'medium' : 'large'}
-            username={name}
-            src={avatarUrl}
-          />
-          <Meta>
-            <Name variant={variant} inverse={inverse}>
-              {name}
-            </Name>
-            <JobTitle variant={variant}>{jobTitle}</JobTitle>
-          </Meta>
-        </Author>
-        <Logo variant={variant} inverse={inverse}>
-          <img src={logo} alt={companyName} loading="lazy" />
-        </Logo>
-      </Cite>
-    </Inner>
-  </div>
-);
+}: TestimonialProps) => {
+  const inverse = theme === 'dark';
+  return (
+    <div {...props}>
+      <Inner variant={variant} inverse={inverse}>
+        <Quote variant={variant} inverse={inverse}>
+          {text}
+        </Quote>
+        <Cite>
+          <Author>
+            <Avatar
+              size={variant === 'compact' ? 'medium' : 'large'}
+              username={name}
+              src={avatarUrl}
+            />
+            <Meta>
+              <Name variant={variant} inverse={inverse}>
+                {name}
+              </Name>
+              <JobTitle variant={variant}>{jobTitle}</JobTitle>
+            </Meta>
+          </Author>
+          <Logo variant={variant} inverse={inverse}>
+            <img src={logo} alt={companyName} loading="lazy" />
+          </Logo>
+        </Cite>
+      </Inner>
+    </div>
+  );
+};
