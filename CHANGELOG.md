@@ -1,3 +1,15 @@
+# v1.14.1 (Wed Jul 26 2023)
+
+#### 🐛 Bug Fix
+
+- fix compact mode for Testimonial and use theme prop for dark/light modes [#62](https://github.com/chromaui/tetra/pull/62) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.14.0 (Wed Jul 26 2023)
 
 #### 🚀 Enhancement
