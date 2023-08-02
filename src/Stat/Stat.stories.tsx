@@ -51,31 +51,31 @@ export const Alignment: Story = {
   },
 };
 
-export const Status: Story = {
+export const Variants: Story = {
   render: (args) => (
     <HStack gap={12}>
       <VStack align="center">
-        <Stat {...args} status="default" />
+        <Stat {...args} variant="default" />
         <code>default</code>
       </VStack>
       <VStack align="center">
-        <Stat {...args} status="positive" />
+        <Stat {...args} variant="positive" />
         <code>positive</code>
       </VStack>
       <VStack align="center">
-        <Stat {...args} status="negative" />
+        <Stat {...args} variant="negative" />
         <code>negative</code>
       </VStack>
       <VStack align="center">
-        <Stat {...args} status="warning" />
+        <Stat {...args} variant="warning" />
         <code>warning</code>
       </VStack>
       <VStack align="center">
-        <Stat {...args} status="neutral" />
+        <Stat {...args} variant="neutral" />
         <code>neutral</code>
       </VStack>
       <VStack align="center" style={{ background: '#000' }}>
-        <Stat {...args} status="inverse" />
+        <Stat {...args} variant="inverse" />
         <code style={{ color: '#fff' }}>inverse</code>
       </VStack>
     </HStack>
@@ -87,6 +87,18 @@ export const CustomColor: Story = {
   args: {
     ...Base.args,
     valueColor: 'purple500',
+  },
+};
+
+export const CustomColorInverse: Story = {
+  args: {
+    ...CustomColor.args,
+    variant: 'inverse',
+  },
+  parameters: {
+    backgrounds: {
+      default: 'dark',
+    },
   },
 };
 

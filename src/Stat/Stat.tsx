@@ -9,7 +9,7 @@ import {
   lineHeight,
 } from '../_tokens';
 
-type Status =
+type StatVariant =
   | 'default'
   | 'positive'
   | 'negative'
@@ -35,7 +35,7 @@ const CardinalInner = styled.div<{
 `;
 
 const Count = styled.div<{
-  status: Status;
+  variant: StatVariant;
   valueColor?: Color;
   isLoading?: boolean;
   size: Size;
@@ -59,47 +59,46 @@ const Count = styled.div<{
       overflow: hidden;
 
       > span {
-        ${animations.inlineGlow(props.status === 'inverse')};
+        ${animations.inlineGlow(props.variant === 'inverse')};
       }
     `};
 
   ${(props) =>
-    props.status === 'positive' &&
+    props.variant === 'positive' &&
     css`
       color: ${color.green500};
     `};
   ${(props) =>
-    props.status === 'negative' &&
+    props.variant === 'negative' &&
     css`
       color: ${color.orange500};
     `};
   ${(props) =>
-    props.status === 'warning' &&
+    props.variant === 'warning' &&
     css`
       color: ${color.yellow500};
     `};
   ${(props) =>
-    props.status === 'neutral' &&
+    props.variant === 'neutral' &&
     css`
       color: ${color.slate600};
     `};
   ${(props) =>
-    props.status === 'inverse' &&
+    props.variant === 'inverse' &&
     css`
       color: ${color.slate400};
     `};
   ${(props) =>
-    props.status === 'default' &&
     props.valueColor &&
     css`
       color: ${color[props.valueColor]};
     `};
 `;
 
-const Dimension = styled.div<{ size: Size; status: Status }>`
+const Dimension = styled.div<{ size: Size; variant: StatVariant }>`
   ${typography.body14};
   color: ${(props) =>
-    props.status === 'inverse' ? color.slate500 : color.slate600};
+    props.variant === 'inverse' ? color.slate500 : color.slate600};
   ${(props) =>
     props.size === 'small' &&
     css`
@@ -107,10 +106,10 @@ const Dimension = styled.div<{ size: Size; status: Status }>`
       line-height: ${lineHeight[20]};
     `};
 `;
-const Unit = styled.div<{ size: Size; status: Status }>`
+const Unit = styled.div<{ size: Size; variant: StatVariant }>`
   ${typography.body14};
   color: ${(props) =>
-    props.status === 'inverse' ? color.slate500 : color.slate600};
+    props.variant === 'inverse' ? color.slate500 : color.slate600};
   ${(props) =>
     props.size === 'small' &&
     css`
@@ -125,7 +124,7 @@ export interface StatProps {
   unit: string;
   isLoading?: boolean;
   size?: Size;
-  status?: Status;
+  variant?: StatVariant;
   alignment?: Alignment;
   valueColor?: Color;
 }
@@ -137,7 +136,7 @@ export const Stat: FC<StatProps> = ({
   isLoading,
   valueColor,
   size = 'large',
-  status = 'default',
+  variant = 'default',
   alignment = 'left',
   ...props
 }) => {
@@ -146,18 +145,18 @@ export const Stat: FC<StatProps> = ({
 
   return (
     <CardinalInner alignment={alignment} {...props}>
-      <Dimension status={status} size={size}>
+      <Dimension variant={variant} size={size}>
         {dimension}
       </Dimension>
       <Count
         size={size}
         isLoading={isLoading}
-        status={status}
+        variant={variant}
         valueColor={valueColor}
       >
         <span>{isLoading ? 'loading' : formattedValue}</span>
       </Count>
-      <Unit status={status} size={size}>
+      <Unit variant={variant} size={size}>
         {unit}
       </Unit>
     </CardinalInner>
