@@ -1,3 +1,15 @@
+# v1.15.1 (Wed Aug 02 2023)
+
+#### 🐛 Bug Fix
+
+- fix stat component so that custom color can be used with any variant [#65](https://github.com/chromaui/tetra/pull/65) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.15.0 (Wed Aug 02 2023)
 
 #### 🚀 Enhancement
