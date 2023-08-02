@@ -1,3 +1,15 @@
+# v1.15.0 (Wed Aug 02 2023)
+
+#### 🚀 Enhancement
+
+- Stat component [#64](https://github.com/chromaui/tetra/pull/64) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.14.2 (Wed Jul 26 2023)
 
 #### 🐛 Bug Fix
