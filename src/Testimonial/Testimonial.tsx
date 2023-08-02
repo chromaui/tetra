@@ -15,18 +15,6 @@ const Inner = styled.div<{ variant: TestimonialVariant; inverse?: boolean }>`
   flex-direction: column;
 
   ${(props) =>
-    props.variant === 'default' &&
-    css`
-      padding-top: ${spacing[12]};
-      padding-bottom: ${spacing[12]};
-
-      ${minSm} {
-        padding-top: ${spacing[28]};
-        padding-bottom: ${spacing[28]};
-      }
-    `}
-
-  ${(props) =>
     props.variant === 'left-aligned' &&
     css`
       border-left: 1px solid
@@ -121,8 +109,8 @@ const JobTitle = styled.div<{ variant: TestimonialVariant }>`
 const Logo = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
   border-left: 1px solid
     ${(props) => (props.inverse ? color.whiteTr10 : color.blackTr10)};
-  margin-left: 20px;
-  padding-left: 20px;
+  margin-left: spacing[5];
+  padding-left: spacing[5];
   display: flex;
   align-items: center;
 

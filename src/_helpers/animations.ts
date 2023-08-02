@@ -48,7 +48,7 @@ const shake = keyframes`
   100% { transform:rotate(0deg) }
 `;
 
-const inlineGlow = (inverse: boolean) => css`
+const inlineGlow = (inverse?: boolean) => css`
   animation: ${glow} 1.5s ease-in-out infinite;
   background: ${inverse ? color.whiteTr05 : color.blackTr05};
   color: transparent;
