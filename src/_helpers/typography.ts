@@ -130,7 +130,7 @@ const heading40 = css`
 const heading36 = css`
   font-family: ${fontFamily[t.heading36.fontFamily]};
   font-size: ${fontSize[t.heading36.fontSize]};
-  line-height: ${lineHeight[t.heading56.lineHeight]};
+  line-height: ${lineHeight[t.heading36.lineHeight]};
   font-weight: ${fontWeight[t.heading36.fontWeight]};
 `;
 
