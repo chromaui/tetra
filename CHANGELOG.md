@@ -1,3 +1,15 @@
+# v1.15.3 (Thu Aug 03 2023)
+
+#### 🐛 Bug Fix
+
+- fix testimonal logo spacing and responsive styles [#67](https://github.com/chromaui/tetra/pull/67) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.15.2 (Thu Aug 03 2023)
 
 #### 🐛 Bug Fix
