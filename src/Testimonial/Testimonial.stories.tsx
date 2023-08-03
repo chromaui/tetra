@@ -8,6 +8,7 @@ const meta: Meta<typeof Testimonial> = {
   component: Testimonial,
   parameters: {
     layout: 'fullscreen',
+    chromatic: { viewports: [320, 640, 768, 939] },
   },
 };
 
