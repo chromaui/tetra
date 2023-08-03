@@ -70,8 +70,14 @@ const Quote = styled.blockquote<{
 
 const Cite = styled.cite`
   display: flex;
-  align-items: stretch;
+  align-items: center;
   font-style: normal;
+  flex-direction: column;
+
+  ${minSm} {
+    align-items: stretch;
+    flex-direction: row;
+  }
 `;
 
 const Meta = styled.div`
@@ -107,14 +113,19 @@ const JobTitle = styled.div<{ variant: TestimonialVariant }>`
 `;
 
 const Logo = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
-  border-left: 1px solid
-    ${(props) => (props.inverse ? color.whiteTr10 : color.blackTr10)};
-  margin-left: spacing[5];
-  padding-left: spacing[5];
+  margin-top: ${spacing[5]};
+  padding-top: ${spacing[5]};
   display: flex;
   align-items: center;
+  border-top: 1px solid
+    ${(props) => (props.inverse ? color.whiteTr10 : color.blackTr10)};
 
   ${minSm} {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    border-left: 1px solid
+      ${(props) => (props.inverse ? color.whiteTr10 : color.blackTr10)};
     margin-left: ${(props) =>
       props.variant === 'compact' ? spacing[5] : spacing[12]};
     padding-left: ${(props) =>
