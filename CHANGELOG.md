@@ -1,3 +1,15 @@
+# v1.15.2 (Thu Aug 03 2023)
+
+#### 🐛 Bug Fix
+
+- fix heading36 line height [#66](https://github.com/chromaui/tetra/pull/66) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.15.1 (Wed Aug 02 2023)
 
 #### 🐛 Bug Fix
