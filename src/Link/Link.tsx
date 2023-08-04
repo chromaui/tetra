@@ -1,6 +1,6 @@
 import React, { FC, forwardRef } from 'react';
 import { styled } from '@storybook/theming';
-import { color as tokenColor, fontFamily } from '../_tokens';
+import { color as tokenColor, fontFamily, fontWeight } from '../_tokens';
 import { Icon } from '../Icon';
 import type { Icons } from '../Icon/Icon';
 
@@ -15,11 +15,13 @@ export interface LinkProps {
   rel?: string;
   onClick?: () => void;
   as?: 'button' | 'a';
+  emphasis?: boolean;
 }
 
 const Container = styled.a<{
   size: LinkProps['size'];
   color: LinkProps['color'];
+  emphasis: LinkProps['emphasis'];
 }>`
   border: 0;
   border-radius: 3em;
@@ -38,11 +40,21 @@ const Container = styled.a<{
     if (size === 'lg') return '1rem';
     return null;
   }};
-  font-weight: 600;
+  font-weight: ${(props) =>
+    props.emphasis ? fontWeight.semibold : fontWeight.regular};
   font-family: ${fontFamily.sans};
   gap: 0.75rem;
   transition: all 0.16s ease-in-out;
   text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    cursor: pointer;
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
 `;
 
 export const Link = forwardRef<
@@ -61,6 +73,7 @@ export const Link = forwardRef<
       rel,
       onClick,
       as,
+      emphasis,
       ...rest
     },
     ref
@@ -75,6 +88,7 @@ export const Link = forwardRef<
 
     return (
       <Container
+        emphasis={emphasis}
         size={size}
         color={color}
         onClick={onClick}
