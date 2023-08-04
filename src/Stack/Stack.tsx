@@ -68,6 +68,8 @@ const stackStyles = ({
 export const Stack = styled(BlockWithOptions)<{
   gap?: StackProps['gap'];
   direction?: StackProps['direction'];
+  align?: StackProps['align'];
+  justify?: StackProps['justify'];
 }>`
   ${stackStyles};
   flex-direction: column;
