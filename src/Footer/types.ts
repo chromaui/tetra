@@ -3,7 +3,7 @@ import { IconProps } from '../Icon/Icon';
 export interface FooterItem {
   title: string;
   href: string;
-  linkWrapper?: any;
+  LinkWrapper?: any;
 }
 
 export interface FooterColumn {
