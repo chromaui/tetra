@@ -26,7 +26,7 @@ export const Base: Story = {
 export const Emphasis: Story = {
   args: {
     ...Base.args,
-    emphasis: true,
+    weight: 'semibold',
   },
 };
 

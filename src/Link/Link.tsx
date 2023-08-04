@@ -15,13 +15,13 @@ export interface LinkProps {
   rel?: string;
   onClick?: () => void;
   as?: 'button' | 'a';
-  emphasis?: boolean;
+  weight?: 'regular' | 'semibold' | 'bold';
 }
 
 const Container = styled.a<{
   size: LinkProps['size'];
   color: LinkProps['color'];
-  emphasis: LinkProps['emphasis'];
+  weight: 'regular' | 'semibold' | 'bold';
 }>`
   border: 0;
   border-radius: 3em;
@@ -40,8 +40,7 @@ const Container = styled.a<{
     if (size === 'lg') return '1rem';
     return null;
   }};
-  font-weight: ${(props) =>
-    props.emphasis ? fontWeight.semibold : fontWeight.regular};
+  font-weight: ${(props) => fontWeight[props.weight]};
   font-family: ${fontFamily.sans};
   gap: 0.75rem;
   transition: all 0.16s ease-in-out;
@@ -73,7 +72,7 @@ export const Link = forwardRef<
       rel,
       onClick,
       as,
-      emphasis,
+      weight = 'regular',
       ...rest
     },
     ref
@@ -88,7 +87,7 @@ export const Link = forwardRef<
 
     return (
       <Container
-        emphasis={emphasis}
+        weight={weight}
         size={size}
         color={color}
         onClick={onClick}
