@@ -1,17 +1,39 @@
+import React from 'react';
 import { FooterColumn, FooterSocialItem } from './types';
+
+const FakeLinkWrapper = (props: any) => (
+  // eslint-disable-next-line jsx-a11y/anchor-has-content
+  <a data-fake-link-wrapper="true" {...props} />
+);
 
 export const footerColumns: FooterColumn[] = [
   {
     title: 'Product',
     links: [
-      { title: 'Pricing', href: '/pricing' },
-      { title: 'About', href: '/company/about' },
-      { title: 'Jobs', href: '/company/careers' },
-      { title: 'Terms of Service', href: '/docs/terms-of-service' },
-      { title: 'Privacy', href: '/docs/privacy-policy' },
-      { title: 'Status', href: 'http://status.chromatic.com/' },
-      { title: 'Security • SOC 2', href: '/docs/security' },
-      { title: 'Contact Sales', href: '/sales' },
+      { title: 'Pricing', href: '/pricing', LinkWrapper: FakeLinkWrapper },
+      { title: 'About', href: '/company/about', LinkWrapper: FakeLinkWrapper },
+      { title: 'Jobs', href: '/company/careers', LinkWrapper: FakeLinkWrapper },
+      {
+        title: 'Terms of Service',
+        href: '/docs/terms-of-service',
+        LinkWrapper: FakeLinkWrapper,
+      },
+      {
+        title: 'Privacy',
+        href: '/docs/privacy-policy',
+        LinkWrapper: FakeLinkWrapper,
+      },
+      {
+        title: 'Status',
+        href: 'http://status.chromatic.com/',
+        LinkWrapper: FakeLinkWrapper,
+      },
+      {
+        title: 'Security • SOC 2',
+        href: '/docs/security',
+        LinkWrapper: FakeLinkWrapper,
+      },
+      { title: 'Contact Sales', href: '/sales', LinkWrapper: FakeLinkWrapper },
     ],
   },
   {

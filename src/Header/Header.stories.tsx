@@ -28,7 +28,7 @@ export const DesktopLight: Story = {
     desktopBreakpoint: 992,
     desktopRight: (
       <>
-        <Link emphasis href="/">
+        <Link weight="semibold" href="/">
           Sign in
         </Link>
         <Button size="sm" variant="outline" color="blue">

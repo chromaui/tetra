@@ -25,3 +25,22 @@ export const Base: Story = {
     );
   },
 };
+
+export const WithCustomPadding: Story = {
+  ...Base,
+  args: {
+    paddingY: 28,
+  },
+  render: (args) => {
+    return (
+      <Container
+        marginTop={10}
+        marginBottom={10}
+        style={{ border: '1px solid red' }}
+        {...args}
+      >
+        <Placeholder height={600} color="orange100" />
+      </Container>
+    );
+  },
+};
