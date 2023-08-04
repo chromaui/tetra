@@ -23,6 +23,13 @@ export const Base: Story = {
   },
 };
 
+export const Emphasis: Story = {
+  args: {
+    ...Base.args,
+    emphasis: true,
+  },
+};
+
 export const Sizes: Story = {
   args: {
     ...Base.args,
