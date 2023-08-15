@@ -1,5 +1,5 @@
 import React from 'react';
-import { FooterColumn, FooterSocialItem } from './types';
+import { FooterColumn, FooterSocialItem, HomeItem } from './types';
 
 const FakeLinkWrapper = (props: any) => (
   // eslint-disable-next-line jsx-a11y/anchor-has-content
@@ -110,3 +110,8 @@ export const footerSocialLinks: FooterSocialItem[] = [
     href: 'https://youtube.com/@chromaticui',
   },
 ];
+
+export const homeLink: HomeItem = {
+  href: '/',
+  LinkWrapper: FakeLinkWrapper,
+};
