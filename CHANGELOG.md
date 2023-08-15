@@ -1,3 +1,15 @@
+# v1.15.6 (Tue Aug 15 2023)
+
+#### 🐛 Bug Fix
+
+- Add home link to logo in the footer [#70](https://github.com/chromaui/tetra/pull/70) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.15.5 (Fri Aug 04 2023)
 
 #### 🐛 Bug Fix
