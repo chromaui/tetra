@@ -7,7 +7,7 @@ import { Container } from '../Container';
 import { Logo } from '../Logo';
 import { Icon } from '../Icon';
 import { HStack } from '../Stack';
-import { FooterColumn, FooterSocialItem } from './types';
+import { FooterColumn, FooterSocialItem, HomeItem } from './types';
 
 const Columns = styled.div`
   display: grid;
@@ -112,16 +112,36 @@ const ColophonText = styled.div<{ inverse?: boolean }>`
   color: ${({ inverse }) => (inverse ? color.white : color.slate500)};
 `;
 
+const HomeLink = styled(LinkWithWrapper)`
+  display: block;
+  transition: transform 150ms ease-out, color 150ms ease-out;
+
+  svg {
+    display: block;
+  }
+
+  &:hover,
+  &:focus-visible {
+    cursor: pointer;
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
 export interface FooterProps {
   theme: 'light' | 'dark';
   columns: FooterColumn[];
   socialLinks: FooterSocialItem[];
+  homeLink: HomeItem;
 }
 
 export const Footer = ({
   theme,
   columns,
   socialLinks,
+  homeLink,
   ...props
 }: FooterProps) => {
   const inverse = theme === 'dark';
@@ -143,7 +163,9 @@ export const Footer = ({
         </Columns>
         <BottomRow>
           <Colophon gap={5} align="center">
-            <Logo name="chromatic" theme={inverse ? 'dark' : 'light'} />
+            <HomeLink href={homeLink.href} LinkWrapper={homeLink.LinkWrapper}>
+              <Logo name="chromatic" theme={inverse ? 'dark' : 'light'} />
+            </HomeLink>
             <ColophonText inverse={inverse}>
               &copy; Chroma Software Inc. Made by the maintainers of Storybook.
             </ColophonText>

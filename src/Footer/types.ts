@@ -13,3 +13,7 @@ export interface FooterColumn {
 export interface FooterSocialItem extends FooterItem {
   icon: IconProps['name'];
 }
+export interface HomeItem {
+  href: string;
+  LinkWrapper?: any;
+}

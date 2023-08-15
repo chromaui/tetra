@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Footer } from './Footer';
-import { footerColumns, footerSocialLinks } from './data';
+import { footerColumns, footerSocialLinks, homeLink } from './data';
 
 const meta: Meta<typeof Footer> = {
   title: 'Components/Footer',
@@ -22,6 +22,7 @@ export const Base: Story = {
   args: {
     columns: footerColumns,
     socialLinks: footerSocialLinks,
+    homeLink,
   },
 };
 
