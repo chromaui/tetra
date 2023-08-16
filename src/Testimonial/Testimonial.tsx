@@ -2,7 +2,14 @@ import React from 'react';
 import { styled, css } from '@storybook/theming';
 import { Avatar } from '../Avatar';
 import { minSm, typography } from '../_helpers';
-import { color, fontSize, fontWeight, spacing } from '../_tokens';
+import {
+  color,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeight,
+  spacing,
+} from '../_tokens';
 
 type TestimonialVariant = 'default' | 'left-aligned' | 'compact';
 
@@ -102,7 +109,9 @@ const Name = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
 `;
 
 const JobTitle = styled.div<{ variant: TestimonialVariant }>`
-  ${typography.body14};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[12]};
+  line-height: 18px;
   ${(props) =>
     props.variant === 'compact' &&
     css`
