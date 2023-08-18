@@ -22,13 +22,17 @@ const meta: Meta<typeof Accordion> = {
 export default meta;
 type Story = StoryObj<typeof Accordion>;
 
-const PanelContent = () => (
-  <Text>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, autem
-    expedita, in explicabo inventore quasi enim iusto voluptate quibusdam eius,
-    quas corporis. Aperiam vel minima nulla sint animi in ducimus.
-  </Text>
-);
+const PanelContent = ({ inverse }) => {
+  const color = inverse ? 'white' : 'slate800';
+
+  return (
+    <Text color={color}>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, autem
+      expedita, in explicabo inventore quasi enim iusto voluptate quibusdam
+      eius, quas corporis. Aperiam vel minima nulla sint animi in ducimus.
+    </Text>
+  );
+};
 
 export const Base: Story = {
   args: {
@@ -49,7 +53,7 @@ export const Base: Story = {
               {args.triggerCopy}
             </AccordionTrigger>
             <AccordionPanel>
-              <PanelContent />
+              <PanelContent inverse={args.inverse} />
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
@@ -75,7 +79,7 @@ export const Inverse: Story = {
             {args.triggerCopy}
           </AccordionTrigger>
           <AccordionPanel inverse={args.inverse}>
-            <PanelContent />
+            <PanelContent inverse={args.inverse} />
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
@@ -98,7 +102,7 @@ export const StartingOpen: Story = {
               {args.triggerCopy}
             </AccordionTrigger>
             <AccordionPanel>
-              <PanelContent />
+              <PanelContent inverse={args.inverse} />
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
@@ -123,7 +127,7 @@ export const WithAlternateIcon: Story = {
               {args.triggerCopy}
             </AccordionTrigger>
             <AccordionPanel>
-              <PanelContent />
+              <PanelContent inverse={args.inverse} />
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
@@ -148,7 +152,7 @@ export const WithNoIcon: Story = {
               {args.triggerCopy}
             </AccordionTrigger>
             <AccordionPanel>
-              <PanelContent />
+              <PanelContent inverse={args.inverse} />
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
@@ -169,7 +173,7 @@ export const Reversed: Story = {
         <Accordion>
           <AccordionItem id="1">
             <AccordionPanel>
-              <PanelContent />
+              <PanelContent inverse={args.inverse} />
             </AccordionPanel>
             <AccordionTrigger iconName={args.iconName}>
               {args.triggerCopy}
@@ -196,7 +200,7 @@ export const ReversedInverse: Story = {
       <Accordion inverse={args.inverse}>
         <AccordionItem id="1" inverse={args.inverse}>
           <AccordionPanel inverse={args.inverse}>
-            <PanelContent />
+            <PanelContent inverse={args.inverse} />
           </AccordionPanel>
           <AccordionTrigger iconName={args.iconName} inverse={args.inverse}>
             {args.triggerCopy}
@@ -225,7 +229,7 @@ export const Group: Story = {
                 {args.triggerCopy} {`  ${id + 1}`}
               </AccordionTrigger>
               <AccordionPanel>
-                <PanelContent />
+                <PanelContent inverse={args.inverse} />
               </AccordionPanel>
             </AccordionItem>
           ))}
@@ -256,7 +260,7 @@ export const GroupInverse: Story = {
                 {args.triggerCopy} {`  ${id + 1}`}
               </AccordionTrigger>
               <AccordionPanel inverse={args.inverse}>
-                <PanelContent />
+                <PanelContent inverse={args.inverse} />
               </AccordionPanel>
             </AccordionItem>
           ))}
@@ -285,7 +289,7 @@ export const GroupOpenStart: Story = {
                 {args.triggerCopy} {`  ${id + 1}`}
               </AccordionTrigger>
               <AccordionPanel inverse={args.inverse}>
-                <PanelContent />
+                <PanelContent inverse={args.inverse} />
               </AccordionPanel>
             </AccordionItem>
           ))}
@@ -317,7 +321,7 @@ export const GroupOpenStartInverse: Story = {
                 {args.triggerCopy} {`  ${id + 1}`}
               </AccordionTrigger>
               <AccordionPanel inverse={args.inverse}>
-                <PanelContent />
+                <PanelContent inverse={args.inverse} />
               </AccordionPanel>
             </AccordionItem>
           ))}
@@ -345,7 +349,7 @@ export const GroupReverse: Story = {
           {accordionIds.map((id, i) => (
             <AccordionItem inverse={args.inverse} key={i} id={`item-${id}`}>
               <AccordionPanel inverse={args.inverse}>
-                <PanelContent />
+                <PanelContent inverse={args.inverse} />
               </AccordionPanel>
               <AccordionTrigger iconName={args.iconName} inverse={args.inverse}>
                 {args.triggerCopy} {`  ${id + 1}`}
@@ -387,7 +391,7 @@ export const GroupWithAlternateIcons: Story = {
                   {args.triggerCopy} {`  ${id + 1}`}
                 </AccordionTrigger>
                 <AccordionPanel inverse={args.inverse}>
-                  <PanelContent />
+                  <PanelContent inverse={args.inverse} />
                 </AccordionPanel>
               </AccordionItem>
             );

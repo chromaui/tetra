@@ -58,7 +58,7 @@ const Item = styled(Acc.Item)<{
     inverse ? color.whiteTr10 : color.slate200};
   flex-flow: column nowrap;
   overflow: hidden;
-  padding: ${spacing[4]} ${spacing[8]} ${spacing[2]};
+  padding: ${spacing[2]} ${spacing[8]};
 
   &:last-of-type {
     border-bottom-left-radius: 4px;
@@ -85,8 +85,7 @@ const Trigger = styled(Acc.Trigger)<{
   font-size: ${fontSize[16]};
   font-weight: 400;
   justify-content: space-between;
-  padding: 0;
-  padding-bottom: ${spacing[2]};
+  padding: ${spacing[2]} 0;
   transition: all 0.16s ease-in-out;
   width: 100%;
 
@@ -120,7 +119,6 @@ const Panel = styled(Acc.Content)<{
   }
 
   & > * {
-    // to ensure we override any passed components with inherited styles
     color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   }
 `;
