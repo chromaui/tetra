@@ -37,5 +37,5 @@ export const Base: Story = {
   parameters: {
     layout: 'centered',
   },
-  render: ({ items }) => <CustomerStoryHero items={items} />,
+  render: (args) => <CustomerStoryHero items={args.items} />,
 };

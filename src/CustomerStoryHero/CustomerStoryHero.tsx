@@ -87,14 +87,12 @@ export interface SharedHeroProps {
 }
 
 export interface CustomerStoryHeroProps {
-  items: [
-    {
-      imgPath: string;
-      imgAlt: string;
-      caption: React.ReactNode | string;
-      position?: 'first' | 'last';
-    }
-  ];
+  items: {
+    imgPath?: string;
+    imgAlt?: string;
+    caption?: React.ReactNode | string;
+    position?: 'first' | 'last';
+  }[];
 }
 
 export const CustomerStoryHero: FC<CustomerStoryHeroProps> = ({
