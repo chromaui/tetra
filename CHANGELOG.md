@@ -1,3 +1,15 @@
+# v1.15.7 (Fri Aug 18 2023)
+
+#### 🐛 Bug Fix
+
+- Misc updates [#71](https://github.com/chromaui/tetra/pull/71) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.15.6 (Tue Aug 15 2023)
 
 #### 🐛 Bug Fix
