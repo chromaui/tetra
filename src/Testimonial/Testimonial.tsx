@@ -26,7 +26,11 @@ const Inner = styled.div<{ variant: TestimonialVariant; inverse?: boolean }>`
     css`
       border-left: 1px solid
         ${props.inverse ? color.whiteTr10 : color.blackTr10};
-      padding-left: ${spacing[10]};
+      padding-left: ${spacing[5]};
+
+      ${minSm} {
+        padding-left: ${spacing[10]};
+      }
     `}
 `;
 
@@ -77,18 +81,26 @@ const Quote = styled.blockquote<{
 
 const Cite = styled.cite`
   display: flex;
-  align-items: center;
   font-style: normal;
-  flex-direction: column;
+  align-items: stretch;
+  flex-direction: row-reverse;
 
   ${minSm} {
-    align-items: stretch;
     flex-direction: row;
   }
 `;
 
-const Meta = styled.div`
-  margin-left: ${spacing[3]};
+const Meta = styled.div<{ variant: TestimonialVariant }>`
+  ${(props) =>
+    props.variant === 'left-aligned'
+      ? css`
+          margin-left: ${spacing[3]};
+        `
+      : css`
+          ${minSm} {
+            margin-left: ${spacing[3]};
+          }
+        `}
 `;
 
 const Author = styled.div`
@@ -96,16 +108,36 @@ const Author = styled.div`
   align-items: center;
 `;
 
+const AuthorImage = styled(Avatar)<{ variant: TestimonialVariant }>`
+  ${(props) =>
+    props.variant !== 'left-aligned' &&
+    css`
+      display: none;
+
+      ${minSm} {
+        display: inline-block;
+      }
+    `};
+`;
+
 const Name = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
-  ${typography.body14};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[12]};
+  line-height: 16px;
+  font-weight: ${fontWeight.bold};
+  color: ${(props) => (props.inverse ? color.white : color.slate800)};
+
+  ${minSm} {
+    ${typography.body14};
+    font-weight: ${fontWeight.bold};
+  }
+
   ${(props) =>
     props.variant === 'compact' &&
     css`
       font-size: ${fontSize[12]};
       line-height: 16px;
     `}
-  font-weight: ${fontWeight.bold};
-  color: ${(props) => (props.inverse ? color.white : color.slate800)};
 `;
 
 const JobTitle = styled.div<{ variant: TestimonialVariant }>`
@@ -122,17 +154,19 @@ const JobTitle = styled.div<{ variant: TestimonialVariant }>`
 `;
 
 const Logo = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
-  margin-top: ${spacing[5]};
-  padding-top: ${spacing[5]};
   display: flex;
   align-items: center;
-  border-top: 1px solid
+  border-right: 1px solid
     ${(props) => (props.inverse ? color.whiteTr10 : color.blackTr10)};
+  margin-right: ${(props) =>
+    props.variant === 'compact' ? spacing[5] : spacing[4]};
+  padding-right: ${(props) =>
+    props.variant === 'compact' ? spacing[5] : spacing[4]};
 
   ${minSm} {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
     border-left: 1px solid
       ${(props) => (props.inverse ? color.whiteTr10 : color.blackTr10)};
     margin-left: ${(props) =>
@@ -145,6 +179,7 @@ const Logo = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
     display: block;
     width: auto;
     max-height: 40px;
+    max-width: 120px;
   }
 
   ${(props) =>
@@ -154,6 +189,12 @@ const Logo = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
         max-height: 28px;
         max-width: 80px;
       }
+    `}
+
+  ${(props) =>
+    props.variant === 'left-aligned' &&
+    css`
+      display: none;
     `}
 `;
 
@@ -165,7 +206,7 @@ interface TestimonialProps {
   logo: string;
   variant?: TestimonialVariant;
   theme?: 'light' | 'dark';
-  companyName?: string;
+  companyName: string;
 }
 
 export const Testimonial = ({
@@ -188,12 +229,13 @@ export const Testimonial = ({
         </Quote>
         <Cite>
           <Author>
-            <Avatar
+            <AuthorImage
+              variant={variant}
               size={variant === 'compact' ? 'medium' : 'large'}
               username={name}
               src={avatarUrl}
             />
-            <Meta>
+            <Meta variant={variant}>
               <Name variant={variant} inverse={inverse}>
                 {name}
               </Name>

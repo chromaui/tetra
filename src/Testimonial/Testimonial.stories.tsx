@@ -26,8 +26,9 @@ export const Base: Story = {
     ),
     avatarUrl: 'https://avatars1.githubusercontent.com/u/263385?s=88&v=4',
     name: 'Dominic Nguyen',
-    jobTitle: 'Engineering manager',
+    jobTitle: 'Staff software engineer',
     logo: './homebound-logo.svg',
+    companyName: 'Homebound',
   },
 };
 
