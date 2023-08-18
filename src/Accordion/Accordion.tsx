@@ -105,7 +105,10 @@ const StyledIcon = styled(Icon)<{
 `;
 
 // the collapsible content of each item
-const Panel = styled(Acc.Content)`
+const Panel = styled(Acc.Content)<{
+  inverse?: boolean;
+}>`
+  color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   overflow: hidden;
 
   &[data-state='open'] {
@@ -114,6 +117,11 @@ const Panel = styled(Acc.Content)`
 
   &[data-state='closed'] {
     animation: ${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  & > * {
+    // to ensure we override any passed components with inherited styles
+    color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   }
 `;
 
@@ -153,7 +161,7 @@ AccordionTrigger.displayName = 'AccordionTrigger';
 export const AccordionPanel = forwardRef<any, AccordionProps>(
   ({ inverse, children, ...props }, forwardedRef) => {
     return (
-      <Panel ref={forwardedRef} {...props}>
+      <Panel inverse={inverse} ref={forwardedRef} {...props}>
         {children}
       </Panel>
     );
