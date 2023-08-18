@@ -45,7 +45,10 @@ const Count = styled.div<{
 
   ${(props) =>
     props.size === 'small'
-      ? typography.body14
+      ? css`
+          ${typography.body14}
+          font-weight: ${fontWeight.bold};
+        `
       : css`
           font-family: ${fontFamily.sans};
           font-size: ${fontSize[30]};

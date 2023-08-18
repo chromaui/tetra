@@ -21,12 +21,10 @@ const Wrapper = styled.div<WrapperProps>`
 
   display: flex;
   height: 60px;
-  padding-top: ${spacing[3]};
   align-items: center;
   justify-content: space-between;
 
   @media (min-width: ${({ desktopBreakpoint }) => desktopBreakpoint}px) {
-    padding-top: 36px;
     height: calc(48px + 36px);
   }
 `;
