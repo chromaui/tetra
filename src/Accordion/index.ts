@@ -1,6 +1,1 @@
-export {
-  Accordion,
-  AccordionTrigger,
-  AccordionPanel,
-  AccordionItem,
-} from './Accordion';
+export { Accordion } from './Accordion';
