@@ -126,7 +126,7 @@ const Panel = styled(Acc.Content)<{
 // Wrapper for each accordion item's trigger & content
 // expects AccordionTrigger & AccordionPanel as children
 // radix requires custom components to have refs passed in
-export const AccordionItem = forwardRef<any, AccordionProps>(
+const AccordionItem = forwardRef<any, AccordionProps>(
   ({ inverse, id = '0', children, ...props }, forwardedRef) => (
     <Item value={id} inverse={inverse} {...props} ref={forwardedRef}>
       {children}
@@ -138,7 +138,7 @@ AccordionItem.displayName = 'AccordionItem';
 
 // the button controlling the open/closed state of each item
 // radix requires custom components to have refs passed in
-export const AccordionTrigger = forwardRef<any, AccordionProps>(
+const AccordionTrigger = forwardRef<any, AccordionProps>(
   (
     { inverse, iconName = 'arrowdown', iconSize = 14, children, ...props },
     forwardedRef
@@ -156,7 +156,7 @@ AccordionTrigger.displayName = 'AccordionTrigger';
 
 // the collapsible content of each item
 // radix requires custom components to have refs passed in
-export const AccordionPanel = forwardRef<any, AccordionProps>(
+const AccordionPanel = forwardRef<any, AccordionProps>(
   ({ inverse, children, ...props }, forwardedRef) => {
     return (
       <Panel inverse={inverse} ref={forwardedRef} {...props}>
@@ -188,3 +188,7 @@ export const Accordion: FC<AccordionProps> = ({
     </AccordionWrapper>
   );
 };
+
+Accordion.Item = AccordionItem;
+Accordion.Trigger = AccordionTrigger;
+Accordion.Panel = AccordionPanel;
