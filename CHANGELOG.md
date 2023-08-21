@@ -1,3 +1,15 @@
+# v1.15.9 (Mon Aug 21 2023)
+
+#### 🐛 Bug Fix
+
+- make the default link size 1em (so it matches the surrounding text) [#74](https://github.com/chromaui/tetra/pull/74) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.15.8 (Mon Aug 21 2023)
 
 #### 🐛 Bug Fix
