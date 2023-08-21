@@ -10,10 +10,8 @@ import { NavDropdownMenu } from '../NavDropdownMenu';
 
 const Wrapper = styled.div<{ variant?: 'light' | 'dark' }>`
   box-shadow: ${(props) =>
-        props.variant === 'dark' ? color.whiteTr10 : color.blackTr10}
-      0 -1px 0px 0px inset,
-    ${(props) => (props.variant === 'dark' ? color.whiteTr10 : color.blackTr10)}
-      0 1px 0px 0px inset;
+      props.variant === 'dark' ? color.whiteTr10 : color.blackTr10}
+    0 -1px 0px 0px inset;
 `;
 
 const SubNavLink = styled(LinkWithWrapper, {
