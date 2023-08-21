@@ -23,10 +23,6 @@ const Wrapper = styled.div<WrapperProps>`
   height: 72px;
   align-items: center;
   justify-content: space-between;
-
-  @media (min-width: ${({ desktopBreakpoint }) => desktopBreakpoint}px) {
-    height: calc(48px + 36px);
-  }
 `;
 
 const Left = styled.div`
