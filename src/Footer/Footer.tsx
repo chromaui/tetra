@@ -12,8 +12,11 @@ import { FooterColumn, FooterSocialItem, HomeItem } from './types';
 const Columns = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: ${spacing[8]};
-  margin-bottom: ${spacing[16]};
+  gap: ${spacing[12]} ${spacing[8]};
+  margin-bottom: ${spacing[12]};
+  ${minSm} {
+    margin-bottom: ${spacing[20]};
+  }
 `;
 
 const Column = styled.div`
@@ -27,6 +30,7 @@ const ColumnTitle = styled.div<{ inverse?: boolean }>`
   ${typography.subheadingLarge};
   color: ${({ inverse }) => (inverse ? color.white : color.slate500)};
   margin-bottom: ${spacing[1]};
+  opacity: ${({ inverse }) => (inverse ? 0.5 : 1)};
 `;
 
 const FooterLink = styled(LinkWithWrapper, {
@@ -86,8 +90,8 @@ const FooterWrapper = styled.footer<{ inverse?: boolean }>`
   padding-bottom: ${spacing[12]};
 
   ${minSm} {
-    padding-top: ${spacing[16]};
-    padding-bottom: ${spacing[16]};
+    padding-top: ${spacing[20]};
+    padding-bottom: ${spacing[20]};
   }
 `;
 
@@ -104,12 +108,14 @@ const Colophon = styled(HStack)`
 
   svg {
     flex: none;
+    margin-top: -5px; //optical alignment for logo and colophon text
   }
 `;
 
 const ColophonText = styled.div<{ inverse?: boolean }>`
   ${typography.body14};
   color: ${({ inverse }) => (inverse ? color.white : color.slate500)};
+  opacity: ${({ inverse }) => (inverse ? 0.5 : 1)};
 `;
 
 const HomeLink = styled(LinkWithWrapper)`

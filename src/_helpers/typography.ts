@@ -207,7 +207,7 @@ const subheading = css`
 
 const subheadingLarge = css`
   font-family: ${fontFamily.sans};
-  font-size: ${fontSize[14]};
+  font-size: 13px;
   line-height: ${lineHeight[20]};
   font-weight: ${fontWeight.bold};
   letter-spacing: 0.35em;

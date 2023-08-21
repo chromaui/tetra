@@ -20,7 +20,7 @@ const Wrapper = styled.div<WrapperProps>`
   ${resetCSS}
 
   display: flex;
-  height: 60px;
+  height: 72px;
   align-items: center;
   justify-content: space-between;
 
@@ -47,10 +47,6 @@ const LogoLink = styled(LinkWithWrapper)`
   &:focus-visible {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
     outline: none;
-  }
-
-  ${minSm} {
-    margin-top: -4px;
   }
 `;
 
