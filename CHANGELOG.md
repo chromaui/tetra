@@ -1,3 +1,16 @@
+# v1.15.10 (Mon Aug 21 2023)
+
+#### 🐛 Bug Fix
+
+- SubNav: remove top divider to favor composing it in the app instead [#75](https://github.com/chromaui/tetra/pull/75) ([@domyen](https://github.com/domyen) [@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 2
+
+- Dominic Nguyen ([@domyen](https://github.com/domyen))
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.15.9 (Mon Aug 21 2023)
 
 #### 🐛 Bug Fix
