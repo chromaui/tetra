@@ -36,6 +36,9 @@ export const Sizes: Story = {
   },
   render: ({ children }) => (
     <>
+      <Link href="#default" size="default">
+        {children}
+      </Link>
       <Link href="#sm" size="sm">
         {children}
       </Link>

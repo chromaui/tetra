@@ -6,7 +6,7 @@ import type { Icons } from '../Icon/Icon';
 
 export interface LinkProps {
   children: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'default' | 'sm' | 'md' | 'lg';
   color?: keyof typeof tokenColor;
   leftIcon?: Icons;
   rightIcon?: Icons;
@@ -35,6 +35,7 @@ const Container = styled.a<{
     return tokenColor.blue500;
   }};
   font-size: ${({ size }) => {
+    if (size === 'default') return '1em';
     if (size === 'sm') return '0.75rem';
     if (size === 'md') return '0.875rem';
     if (size === 'lg') return '1rem';
@@ -63,7 +64,7 @@ export const Link = forwardRef<
   (
     {
       children,
-      size = 'md',
+      size = 'default',
       color = 'blue500',
       leftIcon,
       rightIcon,
