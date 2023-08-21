@@ -11,6 +11,7 @@ import { HeaderProps } from './types';
 import { minSm } from '../_helpers';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { resetCSS } from '../_localHelpers/resetCSS';
+import { Divider } from '../Divider';
 
 interface WrapperProps {
   desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
@@ -104,25 +105,28 @@ const HeaderWithProvider: FC = () => {
   const isMobile = breakpoint === false;
 
   return (
-    <Container>
-      <Wrapper desktopBreakpoint={desktopBreakpoint}>
-        <Left>
-          <LogoLink
-            href={logoHref || '/'}
-            LinkWrapper={logoLinkWrapper}
-            aria-label="Home"
-          >
-            <Logo
-              name={logo || 'chromatic'}
-              height={isDesktop ? logoHeightDesktop : logoHeightMobile}
-              theme={theme}
-            />
-          </LogoLink>
-          {isDesktop && <NavDesktop />}
-        </Left>
-        {isDesktop && <Right>{desktopRight}</Right>}
-        {isMobile && <NavMobile />}
-      </Wrapper>
-    </Container>
+    <>
+      <Container>
+        <Wrapper desktopBreakpoint={desktopBreakpoint}>
+          <Left>
+            <LogoLink
+              href={logoHref || '/'}
+              LinkWrapper={logoLinkWrapper}
+              aria-label="Home"
+            >
+              <Logo
+                name={logo || 'chromatic'}
+                height={isDesktop ? logoHeightDesktop : logoHeightMobile}
+                theme={theme}
+              />
+            </LogoLink>
+            {isDesktop && <NavDesktop />}
+          </Left>
+          {isDesktop && <Right>{desktopRight}</Right>}
+          {isMobile && <NavMobile />}
+        </Wrapper>
+      </Container>
+      <Divider inverse={theme === 'dark'} />
+    </>
   );
 };
