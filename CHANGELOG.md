@@ -1,3 +1,15 @@
+# v1.15.8 (Mon Aug 21 2023)
+
+#### 🐛 Bug Fix
+
+- Update Header and Footer spacing [#73](https://github.com/chromaui/tetra/pull/73) ([@domyen](https://github.com/domyen))
+
+#### Authors: 1
+
+- Dominic Nguyen ([@domyen](https://github.com/domyen))
+
+---
+
 # v1.15.7 (Fri Aug 18 2023)
 
 #### 🐛 Bug Fix
