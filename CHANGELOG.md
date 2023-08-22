@@ -1,3 +1,15 @@
+# v1.15.12 (Tue Aug 22 2023)
+
+#### 🐛 Bug Fix
+
+- adjust subnav dropdown trigger sizing [#77](https://github.com/chromaui/tetra/pull/77) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.15.11 (Tue Aug 22 2023)
 
 #### 🐛 Bug Fix
