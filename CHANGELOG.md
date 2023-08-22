@@ -1,3 +1,15 @@
+# v1.15.11 (Tue Aug 22 2023)
+
+#### 🐛 Bug Fix
+
+- subnav: remove background color change on hover [#76](https://github.com/chromaui/tetra/pull/76) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.15.10 (Mon Aug 21 2023)
 
 #### 🐛 Bug Fix
