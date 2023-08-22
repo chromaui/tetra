@@ -1,7 +1,8 @@
 import React, { FC, useState, forwardRef } from 'react';
 import { keyframes, styled } from '@storybook/theming';
 import * as Acc from '@radix-ui/react-accordion';
-import { color, fontFamily, fontSize, spacing } from '../_tokens';
+import { breakpoint, color, fontFamily, fontSize, spacing } from '../_tokens';
+import { minSm, typography } from '../_helpers';
 import { Icon } from '../Icon';
 import type { Icons } from '../Icon/Icon';
 
@@ -39,36 +40,49 @@ const slideUp = keyframes`
 const AccordionWrapper = styled(Acc.Root)<{
   inverse?: boolean;
 }>`
-  border: 1px solid;
-  border-bottom: 0;
-  border-color: ${({ inverse }) =>
-    inverse ? color.whiteTr10 : color.slate200};
-  border-radius: 5px;
+  ${typography.body16};
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
-  font-family: ${fontFamily.sans};
-  font-size: ${fontSize[16]};
 `;
 
 // Wrapper for each accordion item's trigger & content
 const Item = styled(Acc.Item)<{
   inverse?: boolean;
 }>`
-  border-bottom: 1px solid;
+  border: 1px solid;
   border-color: ${({ inverse }) =>
-    inverse ? color.whiteTr10 : color.slate200};
+    inverse ? color.whiteTr10 : color.blackTr10};
+  border-bottom: 0;
   flex-flow: column nowrap;
   overflow: hidden;
-  padding: ${spacing[2]} ${spacing[8]};
+  padding: ${spacing[2]} ${spacing[4]};
+  transition: all 0.2s ease-in-out;
 
-  &:last-of-type {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+  ${minSm} {
+    padding: ${spacing[2]} ${spacing[8]};
   }
 
-  &:focus-within {
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 0 0 2px var(--mauve-12);
+  &:first-of-type {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  &:last-of-type {
+    border-bottom: 1px solid;
+    border-bottom-color: ${({ inverse }) =>
+      inverse ? color.whiteTr10 : color.blackTr10};
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  &:focus-within,
+  &:hover {
+    outline: none;
+    border-color: ${color.blue500};
+  }
+
+  &:hover + &,
+  &:focus-within + & {
+    border-top-color: ${color.blue500};
   }
 `;
 
@@ -76,37 +90,48 @@ const Item = styled(Acc.Item)<{
 const Trigger = styled(Acc.Trigger)<{
   inverse?: boolean;
 }>`
-  align-items: center;
+  ${typography.body14};
+  align-items: start;
   background: none;
   border: 0;
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   cursor: pointer;
   display: flex;
-  font-size: ${fontSize[16]};
-  font-weight: 400;
   justify-content: space-between;
   padding: ${spacing[2]} 0;
+  text-align: left;
   transition: all 0.16s ease-in-out;
   width: 100%;
 
+  ${minSm} {
+    ${typography.body16};
+    align-items: center;
+  }
+
   &:hover,
   &:focus {
-    color: ${({ inverse }) => (inverse ? color.slate50 : color.slate700)};
-    transform: translateY(-1px);
+    outline: none;
   }
 `;
 
 const StyledIcon = styled(Icon)<{
   inverse?: boolean;
 }>`
-  fill: ${({ inverse }) => (inverse ? color.white : color.slate800)};
-  margin-left: ${spacing[2]};
+  fill: currentColor;
+  flex-basis: ${spacing[4]};
+  flex-shrink: 0;
+  margin-left: ${spacing[5]};
+
+  ${minSm} {
+    margin-left: ${spacing[4]};
+  }
 `;
 
 // the collapsible content of each item
 const Panel = styled(Acc.Content)<{
   inverse?: boolean;
 }>`
+  ${typography.body14};
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   overflow: hidden;
 
@@ -119,7 +144,12 @@ const Panel = styled(Acc.Content)<{
   }
 
   & > * {
+    ${typography.body14};
     color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
+
+    ${minSm} {
+      ${typography.body16};
+    }
   }
 `;
 
@@ -128,7 +158,13 @@ const Panel = styled(Acc.Content)<{
 // radix requires custom components to have refs passed in
 const AccordionItem = forwardRef<any, AccordionProps>(
   ({ inverse, id = '0', children, ...props }, forwardedRef) => (
-    <Item value={id} inverse={inverse} {...props} ref={forwardedRef}>
+    <Item
+      value={id}
+      inverse={inverse}
+      {...props}
+      ref={forwardedRef}
+      className="accordion-item"
+    >
       {children}
     </Item>
   )
@@ -146,7 +182,13 @@ const AccordionTrigger = forwardRef<any, AccordionProps>(
     <Trigger ref={forwardedRef} inverse={inverse} {...props}>
       {children}
       {iconName && (
-        <StyledIcon inverse={inverse} name={iconName} size={iconSize} />
+        <StyledIcon
+          aria-hidden="true"
+          inverse={inverse}
+          name={iconName}
+          size={iconSize}
+          tabIndex={-1}
+        />
       )}
     </Trigger>
   )
