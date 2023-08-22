@@ -42,11 +42,9 @@ const SubNavLink = styled(LinkWithWrapper, {
 
   &:focus {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
-    background-color: rgba(30, 167, 253, 0.14);
   }
 
   &:hover {
-    background-color: rgba(30, 167, 253, 0.14);
     color: ${color.blue500};
   }
 
