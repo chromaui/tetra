@@ -59,6 +59,14 @@ const SubNavLink = styled(LinkWithWrapper, {
 `;
 
 const DropdownMenuWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  height: ${spacing[10]};
+
+  button {
+    margin-top: -1px; // optically centre
+  }
+
   ${minSm} {
     display: none;
   }

@@ -15,7 +15,7 @@ export const buttonStyles = css`
   user-select: none;
   border-radius: 4px;
   border: none;
-  height: ${spacing[10]};
+  height: ${spacing[8]};
   background: transparent;
   gap: 6px;
   text-decoration: none;
