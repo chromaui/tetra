@@ -54,11 +54,10 @@ const Item = styled(Acc.Item)<{
   border-bottom: 0;
   flex-flow: column nowrap;
   overflow: hidden;
-  padding: ${spacing[2]} ${spacing[4]};
   transition: all 0.2s ease-in-out;
 
-  ${minSm} {
-    padding: ${spacing[2]} ${spacing[8]};
+  &[data-state='open'] {
+    padding-bottom: ${spacing[8]};
   }
 
   &:first-of-type {
@@ -90,22 +89,21 @@ const Item = styled(Acc.Item)<{
 const Trigger = styled(Acc.Trigger)<{
   inverse?: boolean;
 }>`
-  ${typography.body14};
-  align-items: start;
+  ${typography.body16};
+  align-items: center;
   background: none;
   border: 0;
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: ${spacing[2]} 0;
+  padding: calc(${spacing[4]} + 1px) ${spacing[8]};
   text-align: left;
-  transition: all 0.16s ease-in-out;
+  transition: all 300ms ease-in-out;
   width: 100%;
 
-  ${minSm} {
-    ${typography.body16};
-    align-items: center;
+  [data-state='open'] & {
+    padding-top: ${spacing[8]};
   }
 
   &:hover,
@@ -121,19 +119,16 @@ const StyledIcon = styled(Icon)<{
   flex-basis: ${spacing[4]};
   flex-shrink: 0;
   margin-left: ${spacing[5]};
-
-  ${minSm} {
-    margin-left: ${spacing[4]};
-  }
 `;
 
 // the collapsible content of each item
 const Panel = styled(Acc.Content)<{
   inverse?: boolean;
 }>`
-  ${typography.body14};
+  ${typography.body16};
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   overflow: hidden;
+  padding: 0 ${spacing[12]} 0 ${spacing[8]};
 
   &[data-state='open'] {
     animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1);
@@ -144,12 +139,7 @@ const Panel = styled(Acc.Content)<{
   }
 
   & > * {
-    ${typography.body14};
     color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
-
-    ${minSm} {
-      ${typography.body16};
-    }
   }
 `;
 

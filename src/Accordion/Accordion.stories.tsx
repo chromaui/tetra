@@ -10,7 +10,10 @@ const meta: Meta<typeof Accordion> = {
   component: Accordion,
   tags: ['autodocs'],
   parameters: {
-    layout: 'fullscreen',
+    layout: 'padded',
+    chromatic: {
+      viewports: [320, 640, 768, 1024],
+    },
   },
 };
 
@@ -60,7 +63,7 @@ export const Base: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion>
           <Accordion.Item id="1">
             <Accordion.Trigger iconName={args.iconName}>
@@ -86,7 +89,7 @@ export const Inverse: Story = {
     backgrounds: { default: 'dark' },
   },
   render: (args) => (
-    <Stack direction="column" marginY={10} marginX={10} gap={2}>
+    <Stack direction="column" marginY={0} marginX={0} gap={2}>
       <Accordion inverse={args.inverse}>
         <Accordion.Item id="1" inverse={args.inverse}>
           <Accordion.Trigger iconName={args.iconName} inverse={args.inverse}>
@@ -109,7 +112,7 @@ export const StartingOpen: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion defaultValue="1">
           <Accordion.Item id="1">
             <Accordion.Trigger iconName={args.iconName}>
@@ -134,7 +137,7 @@ export const WithAlternateIcon: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion>
           <Accordion.Item id="1">
             <Accordion.Trigger iconName={args.iconName}>
@@ -159,7 +162,7 @@ export const WithNoIcon: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion>
           <Accordion.Item id="1">
             <Accordion.Trigger iconName={args.iconName}>
@@ -183,7 +186,7 @@ export const Reversed: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion>
           <Accordion.Item id="1">
             <Accordion.Panel>
@@ -210,7 +213,7 @@ export const ReversedInverse: Story = {
     backgrounds: { default: 'dark' },
   },
   render: (args) => (
-    <Stack direction="column" marginY={10} marginX={10} gap={2}>
+    <Stack direction="column" marginY={0} marginX={0} gap={2}>
       <Accordion inverse={args.inverse}>
         <Accordion.Item id="1" inverse={args.inverse}>
           <Accordion.Panel inverse={args.inverse}>
@@ -233,7 +236,7 @@ export const Group: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion>
           {accordions.map((acc, i) => {
             const { id, triggerCopy } = acc;
@@ -266,7 +269,7 @@ export const GroupInverse: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion inverse={args.inverse}>
           {accordions.map((acc, i) => {
             const { id, triggerCopy } = acc;
@@ -300,7 +303,7 @@ export const GroupOpenStart: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion defaultValue="item-2" inverse={args.inverse}>
           {accordions.map((acc, i) => {
             const { id, triggerCopy } = acc;
@@ -337,7 +340,7 @@ export const GroupOpenStartInverse: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion defaultValue="item-0" inverse={args.inverse}>
           {accordions.map((acc, i) => {
             const { id, triggerCopy } = acc;
@@ -373,7 +376,7 @@ export const GroupReverse: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion inverse={args.inverse}>
           {accordions.map((acc, i) => {
             const { id, triggerCopy } = acc;
@@ -409,7 +412,7 @@ export const GroupWithAlternateIcons: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={10} marginX={10} gap={2}>
+      <Stack direction="column" marginY={0} marginX={0} gap={2}>
         <Accordion inverse={args.inverse}>
           {accordions.map((acc, i) => {
             const { id, triggerCopy, icon } = acc;
