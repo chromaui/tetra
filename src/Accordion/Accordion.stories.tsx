@@ -2,7 +2,6 @@ import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Stack } from '../Stack';
 import { Text } from '../Text';
-import { Placeholder } from '../_localComponents/Placeholder';
 import { Accordion } from './Accordion';
 
 const meta: Meta<typeof Accordion> = {
