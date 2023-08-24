@@ -35,7 +35,11 @@ const accordions = [
     triggerCopy: 'How is this compared to Selenium, Cypress, or Playwright?',
     icon: 'accessibilityalt',
   },
-  { id: 3, triggerCopy: 'Why run visual tests in the cloud?', icon: 'heart' },
+  {
+    id: 3,
+    triggerCopy: 'Why run visual tests in the cloud?',
+    icon: 'heart',
+  },
 ];
 
 const PanelContent = ({ inverse }) => {
