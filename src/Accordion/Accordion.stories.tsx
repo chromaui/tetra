@@ -66,18 +66,16 @@ export const Base: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion>
-          <Accordion.Item id="1">
-            <Accordion.Trigger iconName={args.iconName}>
-              {args.triggerCopy}
-            </Accordion.Trigger>
-            <Accordion.Panel>
-              <ExamplePanelContent inverse={args.inverse} />
-            </Accordion.Panel>
-          </Accordion.Item>
-        </Accordion>
-      </Stack>
+      <Accordion>
+        <Accordion.Item id="1">
+          <Accordion.Trigger iconName={args.iconName}>
+            {args.triggerCopy}
+          </Accordion.Trigger>
+          <Accordion.Panel>
+            <ExamplePanelContent inverse={args.inverse} />
+          </Accordion.Panel>
+        </Accordion.Item>
+      </Accordion>
     );
   },
 };
@@ -92,18 +90,16 @@ export const Inverse: Story = {
     backgrounds: { default: 'dark' },
   },
   render: (args) => (
-    <Stack direction="column" marginY={0} marginX={0} gap={2}>
-      <Accordion inverse={args.inverse}>
-        <Accordion.Item id="1" inverse={args.inverse}>
-          <Accordion.Trigger iconName={args.iconName} inverse={args.inverse}>
-            {args.triggerCopy}
-          </Accordion.Trigger>
-          <Accordion.Panel inverse={args.inverse}>
-            <ExamplePanelContent inverse={args.inverse} />
-          </Accordion.Panel>
-        </Accordion.Item>
-      </Accordion>
-    </Stack>
+    <Accordion inverse={args.inverse}>
+      <Accordion.Item id="1" inverse={args.inverse}>
+        <Accordion.Trigger iconName={args.iconName} inverse={args.inverse}>
+          {args.triggerCopy}
+        </Accordion.Trigger>
+        <Accordion.Panel inverse={args.inverse}>
+          <ExamplePanelContent inverse={args.inverse} />
+        </Accordion.Panel>
+      </Accordion.Item>
+    </Accordion>
   ),
 };
 
@@ -115,18 +111,16 @@ export const StartingOpen: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion defaultValue="1">
-          <Accordion.Item id="1">
-            <Accordion.Trigger iconName={args.iconName}>
-              {args.triggerCopy}
-            </Accordion.Trigger>
-            <Accordion.Panel>
-              <ExamplePanelContent inverse={args.inverse} />
-            </Accordion.Panel>
-          </Accordion.Item>
-        </Accordion>
-      </Stack>
+      <Accordion defaultValue="1">
+        <Accordion.Item id="1">
+          <Accordion.Trigger iconName={args.iconName}>
+            {args.triggerCopy}
+          </Accordion.Trigger>
+          <Accordion.Panel>
+            <ExamplePanelContent inverse={args.inverse} />
+          </Accordion.Panel>
+        </Accordion.Item>
+      </Accordion>
     );
   },
 };
@@ -140,18 +134,16 @@ export const WithAlternateIcon: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion>
-          <Accordion.Item id="1">
-            <Accordion.Trigger iconName={args.iconName}>
-              {args.triggerCopy}
-            </Accordion.Trigger>
-            <Accordion.Panel>
-              <ExamplePanelContent inverse={args.inverse} />
-            </Accordion.Panel>
-          </Accordion.Item>
-        </Accordion>
-      </Stack>
+      <Accordion>
+        <Accordion.Item id="1">
+          <Accordion.Trigger iconName={args.iconName}>
+            {args.triggerCopy}
+          </Accordion.Trigger>
+          <Accordion.Panel>
+            <ExamplePanelContent inverse={args.inverse} />
+          </Accordion.Panel>
+        </Accordion.Item>
+      </Accordion>
     );
   },
 };
@@ -165,18 +157,16 @@ export const WithNoIcon: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion>
-          <Accordion.Item id="1">
-            <Accordion.Trigger iconName={args.iconName}>
-              {args.triggerCopy}
-            </Accordion.Trigger>
-            <Accordion.Panel>
-              <ExamplePanelContent inverse={args.inverse} />
-            </Accordion.Panel>
-          </Accordion.Item>
-        </Accordion>
-      </Stack>
+      <Accordion>
+        <Accordion.Item id="1">
+          <Accordion.Trigger iconName={args.iconName}>
+            {args.triggerCopy}
+          </Accordion.Trigger>
+          <Accordion.Panel>
+            <ExamplePanelContent inverse={args.inverse} />
+          </Accordion.Panel>
+        </Accordion.Item>
+      </Accordion>
     );
   },
 };
@@ -189,18 +179,16 @@ export const Reversed: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion>
-          <Accordion.Item id="1">
-            <Accordion.Panel>
-              <ExamplePanelContent inverse={args.inverse} />
-            </Accordion.Panel>
-            <Accordion.Trigger iconName={args.iconName}>
-              {args.triggerCopy}
-            </Accordion.Trigger>
-          </Accordion.Item>
-        </Accordion>
-      </Stack>
+      <Accordion>
+        <Accordion.Item id="1">
+          <Accordion.Panel>
+            <ExamplePanelContent inverse={args.inverse} />
+          </Accordion.Panel>
+          <Accordion.Trigger iconName={args.iconName}>
+            {args.triggerCopy}
+          </Accordion.Trigger>
+        </Accordion.Item>
+      </Accordion>
     );
   },
 };
@@ -216,18 +204,16 @@ export const ReversedInverse: Story = {
     backgrounds: { default: 'dark' },
   },
   render: (args) => (
-    <Stack direction="column" marginY={0} marginX={0} gap={2}>
-      <Accordion inverse={args.inverse}>
-        <Accordion.Item id="1" inverse={args.inverse}>
-          <Accordion.Panel inverse={args.inverse}>
-            <ExamplePanelContent inverse={args.inverse} />
-          </Accordion.Panel>
-          <Accordion.Trigger iconName={args.iconName} inverse={args.inverse}>
-            {args.triggerCopy}
-          </Accordion.Trigger>
-        </Accordion.Item>
-      </Accordion>
-    </Stack>
+    <Accordion inverse={args.inverse}>
+      <Accordion.Item id="1" inverse={args.inverse}>
+        <Accordion.Panel inverse={args.inverse}>
+          <ExamplePanelContent inverse={args.inverse} />
+        </Accordion.Panel>
+        <Accordion.Trigger iconName={args.iconName} inverse={args.inverse}>
+          {args.triggerCopy}
+        </Accordion.Trigger>
+      </Accordion.Item>
+    </Accordion>
   ),
 };
 
@@ -239,24 +225,22 @@ export const Group: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion>
-          {accordions.map((acc, i) => {
-            const { id, triggerCopy } = acc;
+      <Accordion>
+        {accordions.map((acc, i) => {
+          const { id, triggerCopy } = acc;
 
-            return (
-              <Accordion.Item key={i} id={`item-${id}`}>
-                <Accordion.Trigger iconName={args.iconName}>
-                  {triggerCopy}
-                </Accordion.Trigger>
-                <Accordion.Panel>
-                  <ExamplePanelContent inverse={args.inverse} />
-                </Accordion.Panel>
-              </Accordion.Item>
-            );
-          })}
-        </Accordion>
-      </Stack>
+          return (
+            <Accordion.Item key={i} id={`item-${id}`}>
+              <Accordion.Trigger iconName={args.iconName}>
+                {triggerCopy}
+              </Accordion.Trigger>
+              <Accordion.Panel>
+                <ExamplePanelContent inverse={args.inverse} />
+              </Accordion.Panel>
+            </Accordion.Item>
+          );
+        })}
+      </Accordion>
     );
   },
 };
@@ -272,27 +256,25 @@ export const GroupInverse: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion inverse={args.inverse}>
-          {accordions.map((acc, i) => {
-            const { id, triggerCopy } = acc;
+      <Accordion inverse={args.inverse}>
+        {accordions.map((acc, i) => {
+          const { id, triggerCopy } = acc;
 
-            return (
-              <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
-                <Accordion.Trigger
-                  iconName={args.iconName}
-                  inverse={args.inverse}
-                >
-                  {triggerCopy} {`  ${id + 1}`}
-                </Accordion.Trigger>
-                <Accordion.Panel inverse={args.inverse}>
-                  <ExamplePanelContent inverse={args.inverse} />
-                </Accordion.Panel>
-              </Accordion.Item>
-            );
-          })}
-        </Accordion>
-      </Stack>
+          return (
+            <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
+              <Accordion.Trigger
+                iconName={args.iconName}
+                inverse={args.inverse}
+              >
+                {triggerCopy} {`  ${id + 1}`}
+              </Accordion.Trigger>
+              <Accordion.Panel inverse={args.inverse}>
+                <ExamplePanelContent inverse={args.inverse} />
+              </Accordion.Panel>
+            </Accordion.Item>
+          );
+        })}
+      </Accordion>
     );
   },
 };
@@ -306,27 +288,25 @@ export const GroupOpenStart: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion defaultValue="item-2" inverse={args.inverse}>
-          {accordions.map((acc, i) => {
-            const { id, triggerCopy } = acc;
+      <Accordion defaultValue="item-2" inverse={args.inverse}>
+        {accordions.map((acc, i) => {
+          const { id, triggerCopy } = acc;
 
-            return (
-              <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
-                <Accordion.Trigger
-                  iconName={args.iconName}
-                  inverse={args.inverse}
-                >
-                  {triggerCopy}
-                </Accordion.Trigger>
-                <Accordion.Panel inverse={args.inverse}>
-                  <ExamplePanelContent inverse={args.inverse} />
-                </Accordion.Panel>
-              </Accordion.Item>
-            );
-          })}
-        </Accordion>
-      </Stack>
+          return (
+            <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
+              <Accordion.Trigger
+                iconName={args.iconName}
+                inverse={args.inverse}
+              >
+                {triggerCopy}
+              </Accordion.Trigger>
+              <Accordion.Panel inverse={args.inverse}>
+                <ExamplePanelContent inverse={args.inverse} />
+              </Accordion.Panel>
+            </Accordion.Item>
+          );
+        })}
+      </Accordion>
     );
   },
 };
@@ -343,27 +323,25 @@ export const GroupOpenStartInverse: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion defaultValue="item-0" inverse={args.inverse}>
-          {accordions.map((acc, i) => {
-            const { id, triggerCopy } = acc;
+      <Accordion defaultValue="item-0" inverse={args.inverse}>
+        {accordions.map((acc, i) => {
+          const { id, triggerCopy } = acc;
 
-            return (
-              <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
-                <Accordion.Trigger
-                  iconName={args.iconName}
-                  inverse={args.inverse}
-                >
-                  {triggerCopy}
-                </Accordion.Trigger>
-                <Accordion.Panel inverse={args.inverse}>
-                  <ExamplePanelContent inverse={args.inverse} />
-                </Accordion.Panel>
-              </Accordion.Item>
-            );
-          })}
-        </Accordion>
-      </Stack>
+          return (
+            <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
+              <Accordion.Trigger
+                iconName={args.iconName}
+                inverse={args.inverse}
+              >
+                {triggerCopy}
+              </Accordion.Trigger>
+              <Accordion.Panel inverse={args.inverse}>
+                <ExamplePanelContent inverse={args.inverse} />
+              </Accordion.Panel>
+            </Accordion.Item>
+          );
+        })}
+      </Accordion>
     );
   },
 };
@@ -379,27 +357,25 @@ export const GroupReverse: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion inverse={args.inverse}>
-          {accordions.map((acc, i) => {
-            const { id, triggerCopy } = acc;
+      <Accordion inverse={args.inverse}>
+        {accordions.map((acc, i) => {
+          const { id, triggerCopy } = acc;
 
-            return (
-              <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
-                <Accordion.Panel inverse={args.inverse}>
-                  <ExamplePanelContent inverse={args.inverse} />
-                </Accordion.Panel>
-                <Accordion.Trigger
-                  iconName={args.iconName}
-                  inverse={args.inverse}
-                >
-                  {triggerCopy} {`  ${id + 1}`}
-                </Accordion.Trigger>
-              </Accordion.Item>
-            );
-          })}
-        </Accordion>
-      </Stack>
+          return (
+            <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
+              <Accordion.Panel inverse={args.inverse}>
+                <ExamplePanelContent inverse={args.inverse} />
+              </Accordion.Panel>
+              <Accordion.Trigger
+                iconName={args.iconName}
+                inverse={args.inverse}
+              >
+                {triggerCopy} {`  ${id + 1}`}
+              </Accordion.Trigger>
+            </Accordion.Item>
+          );
+        })}
+      </Accordion>
     );
   },
 };
@@ -415,24 +391,22 @@ export const GroupWithAlternateIcons: Story = {
   },
   render: (args) => {
     return (
-      <Stack direction="column" marginY={0} marginX={0} gap={2}>
-        <Accordion inverse={args.inverse}>
-          {accordions.map((acc, i) => {
-            const { id, triggerCopy, icon } = acc;
+      <Accordion inverse={args.inverse}>
+        {accordions.map((acc, i) => {
+          const { id, triggerCopy, icon } = acc;
 
-            return (
-              <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
-                <Accordion.Trigger inverse={args.inverse} iconName={icon}>
-                  {triggerCopy}
-                </Accordion.Trigger>
-                <Accordion.Panel inverse={args.inverse}>
-                  <ExamplePanelContent inverse={args.inverse} />
-                </Accordion.Panel>
-              </Accordion.Item>
-            );
-          })}
-        </Accordion>
-      </Stack>
+          return (
+            <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
+              <Accordion.Trigger inverse={args.inverse} iconName={icon}>
+                {triggerCopy}
+              </Accordion.Trigger>
+              <Accordion.Panel inverse={args.inverse}>
+                <ExamplePanelContent inverse={args.inverse} />
+              </Accordion.Panel>
+            </Accordion.Item>
+          );
+        })}
+      </Accordion>
     );
   },
 };
