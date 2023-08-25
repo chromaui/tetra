@@ -10,9 +10,6 @@ const meta: Meta<typeof Accordion> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    chromatic: {
-      viewports: [320, 640, 768, 1024],
-    },
   },
 };
 
@@ -22,7 +19,8 @@ type Story = StoryObj<typeof Accordion>;
 const accordions = [
   {
     id: 0,
-    triggerCopy: 'Does Chromatic replace Jest or Enzyme?',
+    triggerCopy:
+      'Does Chromatic replace Jest or Enzyme? Does Chromatic replace Jest or Enzyme? Does Chromatic replace Jest or Enzyme? Does Chromatic replace Jest or Enzyme?',
     icon: 'cloudhollow',
   },
   {
@@ -63,6 +61,9 @@ export const Base: Story = {
   },
   parameters: {
     backgrounds: { default: 'light' },
+    chromatic: {
+      viewports: [320, 640, 768, 1024],
+    },
   },
   render: (args) => {
     return (
@@ -88,6 +89,9 @@ export const Inverse: Story = {
   },
   parameters: {
     backgrounds: { default: 'dark' },
+    chromatic: {
+      viewports: [320, 640, 768, 1024],
+    },
   },
   render: (args) => (
     <Accordion inverse={args.inverse}>
@@ -170,58 +174,16 @@ export const WithNoIcon: Story = {
     );
   },
 };
-
-export const Reversed: Story = {
-  ...Base,
-  args: {
-    ...Base.args,
-    inverse: false,
-  },
-  render: (args) => {
-    return (
-      <Accordion>
-        <Accordion.Item id="1">
-          <Accordion.Panel>
-            <ExamplePanelContent inverse={args.inverse} />
-          </Accordion.Panel>
-          <Accordion.Trigger iconName={args.iconName}>
-            {args.triggerCopy}
-          </Accordion.Trigger>
-        </Accordion.Item>
-      </Accordion>
-    );
-  },
-};
-
-export const ReversedInverse: Story = {
-  ...Base,
-  name: 'Reversed and Inverse',
-  args: {
-    ...Base.args,
-    inverse: true,
-  },
-  parameters: {
-    backgrounds: { default: 'dark' },
-  },
-  render: (args) => (
-    <Accordion inverse={args.inverse}>
-      <Accordion.Item id="1" inverse={args.inverse}>
-        <Accordion.Panel inverse={args.inverse}>
-          <ExamplePanelContent inverse={args.inverse} />
-        </Accordion.Panel>
-        <Accordion.Trigger iconName={args.iconName} inverse={args.inverse}>
-          {args.triggerCopy}
-        </Accordion.Trigger>
-      </Accordion.Item>
-    </Accordion>
-  ),
-};
-
 export const Group: Story = {
   ...Base,
   args: {
     ...Base.args,
     inverse: false,
+  },
+  parameters: {
+    chromatic: {
+      viewports: [320, 640, 768, 1024],
+    },
   },
   render: (args) => {
     return (
@@ -253,6 +215,9 @@ export const GroupInverse: Story = {
   },
   parameters: {
     backgrounds: { default: 'dark' },
+    chromatic: {
+      viewports: [320, 640, 768, 1024],
+    },
   },
   render: (args) => {
     return (
@@ -266,7 +231,7 @@ export const GroupInverse: Story = {
                 iconName={args.iconName}
                 inverse={args.inverse}
               >
-                {triggerCopy} {`  ${id + 1}`}
+                {triggerCopy}
               </Accordion.Trigger>
               <Accordion.Panel inverse={args.inverse}>
                 <ExamplePanelContent inverse={args.inverse} />
@@ -338,40 +303,6 @@ export const GroupOpenStartInverse: Story = {
               <Accordion.Panel inverse={args.inverse}>
                 <ExamplePanelContent inverse={args.inverse} />
               </Accordion.Panel>
-            </Accordion.Item>
-          );
-        })}
-      </Accordion>
-    );
-  },
-};
-
-export const GroupReverse: Story = {
-  ...Base,
-  args: {
-    ...Base.args,
-    inverse: false,
-  },
-  parameters: {
-    backgrounds: { default: 'light' },
-  },
-  render: (args) => {
-    return (
-      <Accordion inverse={args.inverse}>
-        {accordions.map((acc, i) => {
-          const { id, triggerCopy } = acc;
-
-          return (
-            <Accordion.Item inverse={args.inverse} key={i} id={`item-${id}`}>
-              <Accordion.Panel inverse={args.inverse}>
-                <ExamplePanelContent inverse={args.inverse} />
-              </Accordion.Panel>
-              <Accordion.Trigger
-                iconName={args.iconName}
-                inverse={args.inverse}
-              >
-                {triggerCopy} {`  ${id + 1}`}
-              </Accordion.Trigger>
             </Accordion.Item>
           );
         })}
