@@ -19,8 +19,7 @@ type Story = StoryObj<typeof Accordion>;
 const accordions = [
   {
     id: 0,
-    triggerCopy:
-      'Does Chromatic replace Jest or Enzyme? Does Chromatic replace Jest or Enzyme? Does Chromatic replace Jest or Enzyme? Does Chromatic replace Jest or Enzyme?',
+    triggerCopy: 'Does Chromatic replace Jest or Enzyme?',
     icon: 'cloudhollow',
   },
   {
