@@ -97,7 +97,7 @@ const Trigger = styled(Acc.Trigger)<{
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: calc(${spacing[4]} + 1px) 30px;
+  padding: calc(${spacing[4]} + 1px) ${spacing[8]};
   text-align: left;
   transition: all 300ms ease-in-out;
   width: 100%;
@@ -128,7 +128,7 @@ const Panel = styled(Acc.Content)<{
   ${typography.body16};
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   overflow: hidden;
-  padding: 0 ${spacing[12]} 0 30px;
+  padding: 0 ${spacing[12]} 0 ${spacing[8]};
 
   &[data-state='open'] {
     animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1);
