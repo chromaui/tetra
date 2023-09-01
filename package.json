@@ -82,12 +82,12 @@
     "vite": "4.2.1"
   },
   "peerDependencies": {
+    "@storybook/theming": "^7.0.2",
     "framer-motion": "10.12.16",
     "react": ">=17",
     "react-dom": ">=17"
   },
   "dependencies": {
-    "@storybook/theming": "^7.0.2",
     "@radix-ui/react-collapsible": "1.0.2",
     "@radix-ui/react-dropdown-menu": "2.0.5",
     "@radix-ui/react-navigation-menu": "1.1.2",
