@@ -15,7 +15,6 @@ export default defineConfig({
   // There is a bug in Radix - https://github.com/radix-ui/primitives/issues/1848
   // Remove this one when it's fixed
   noExternal: [
-    '@storybook/theming',
     '@radix-ui/react-navigation-menu',
     '@radix-ui/react-popover',
     '@radix-ui/react-collapsible',
