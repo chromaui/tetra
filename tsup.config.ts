@@ -19,7 +19,5 @@ export default defineConfig({
     '@radix-ui/react-popover',
     '@radix-ui/react-collapsible',
     'framer-motion',
-    // '@storybook/theming',
-    // '@emotion/*',
   ],
 });
