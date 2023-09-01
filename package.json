@@ -31,8 +31,14 @@
   "main": "./dist/index.js",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
     }
   },
   "files": [
@@ -71,7 +77,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook": "^7.0.18",
-    "tsup": "6.6.3",
+    "tsup": "7.2.0",
     "typescript": "5.0.2",
     "vite": "4.2.1"
   },
