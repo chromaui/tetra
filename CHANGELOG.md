@@ -1,3 +1,15 @@
+# v1.15.14 (Fri Sep 01 2023)
+
+#### 🐛 Bug Fix
+
+- Add @storybook/theming to noExternal in tsup [#79](https://github.com/chromaui/tetra/pull/79) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.15.13 (Fri Sep 01 2023)
 
 #### 🐛 Bug Fix
