@@ -1,3 +1,15 @@
+# v1.15.13 (Fri Sep 01 2023)
+
+#### 🐛 Bug Fix
+
+- Update exports to have types [#78](https://github.com/chromaui/tetra/pull/78) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.15.12 (Tue Aug 22 2023)
 
 #### 🐛 Bug Fix
