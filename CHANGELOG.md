@@ -1,3 +1,15 @@
+# v1.15.15 (Fri Sep 01 2023)
+
+#### 🐛 Bug Fix
+
+- Remove @storybook/theming from noExternal [#80](https://github.com/chromaui/tetra/pull/80) ([@cdedreuille](https://github.com/cdedreuille))
+
+#### Authors: 1
+
+- Charles de Dreuille ([@cdedreuille](https://github.com/cdedreuille))
+
+---
+
 # v1.15.14 (Fri Sep 01 2023)
 
 #### 🐛 Bug Fix
