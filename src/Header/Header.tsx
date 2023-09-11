@@ -1,23 +1,19 @@
 import React, { FC } from 'react';
 import { styled } from '@storybook/theming';
 import { HeaderProvider, useHeaderContext } from './context';
-import { Logo } from '../Logo';
+import { HeaderLogo } from './HeaderLogo';
 import { spacing } from '../_tokens';
 import { Container } from '../Container';
 import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
-import { useMediaQuery } from '../_hooks/useMediaQuery';
 import { HeaderProps } from './types';
 import { minSm } from '../_helpers';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { resetCSS } from '../_localHelpers/resetCSS';
 import { Divider } from '../Divider';
+import { desktopBreakpoint } from './styles';
 
-interface WrapperProps {
-  desktopBreakpoint?: HeaderProps['desktopBreakpoint'];
-}
-
-const Wrapper = styled.div<WrapperProps>`
+const Wrapper = styled.div`
   ${resetCSS}
 
   display: flex;
@@ -48,20 +44,36 @@ const LogoLink = styled(LinkWithWrapper)`
 `;
 
 const Right = styled.div`
-  display: flex;
-  gap: ${spacing[6]};
-  align-items: center;
+  display: none;
+
+  @media (min-width: ${desktopBreakpoint}px) {
+    display: flex;
+    gap: ${spacing[6]};
+    align-items: center;
+  }
+`;
+
+const MobileOnly = styled.div`
+  display: contents;
+
+  @media (min-width: ${desktopBreakpoint}px) {
+    display: none;
+  }
+`;
+const DesktopOnly = styled.div`
+  display: none;
+
+  @media (min-width: ${desktopBreakpoint}px) {
+    display: contents;
+  }
 `;
 
 export const Header: FC<HeaderProps> = ({
   theme = 'light',
   logo,
-  logoHeightDesktop,
-  logoHeightMobile,
   logoHref,
   logoLinkWrapper,
   desktopData,
-  desktopBreakpoint,
   desktopRight,
   desktopActiveId,
   mobileData,
@@ -72,12 +84,9 @@ export const Header: FC<HeaderProps> = ({
     <HeaderProvider
       theme={theme}
       logo={logo}
-      logoHeightDesktop={logoHeightDesktop}
-      logoHeightMobile={logoHeightMobile}
       logoHref={logoHref}
       logoLinkWrapper={logoLinkWrapper}
       desktopData={desktopData}
-      desktopBreakpoint={desktopBreakpoint}
       desktopRight={desktopRight}
       desktopActiveId={desktopActiveId}
       mobileData={mobileData}
@@ -90,40 +99,28 @@ export const Header: FC<HeaderProps> = ({
 };
 
 const HeaderWithProvider: FC = () => {
-  const {
-    theme,
-    desktopBreakpoint,
-    logo,
-    logoHeightDesktop,
-    logoHeightMobile,
-    logoHref,
-    logoLinkWrapper,
-    desktopRight,
-  } = useHeaderContext();
-  const breakpoint = useMediaQuery({ min: desktopBreakpoint || 1024 });
-  const isDesktop = breakpoint === true;
-  const isMobile = breakpoint === false;
+  const { theme, logoHref, logoLinkWrapper, desktopRight } = useHeaderContext();
 
   return (
     <>
       <Container>
-        <Wrapper desktopBreakpoint={desktopBreakpoint}>
+        <Wrapper>
           <Left>
             <LogoLink
               href={logoHref || '/'}
               LinkWrapper={logoLinkWrapper}
               aria-label="Home"
             >
-              <Logo
-                name={logo || 'chromatic'}
-                height={isDesktop ? logoHeightDesktop : logoHeightMobile}
-                theme={theme}
-              />
+              <HeaderLogo theme={theme} />
             </LogoLink>
-            {isDesktop && <NavDesktop />}
+            <DesktopOnly>
+              <NavDesktop />
+            </DesktopOnly>
           </Left>
-          {isDesktop && <Right>{desktopRight}</Right>}
-          {isMobile && <NavMobile />}
+          <Right>{desktopRight}</Right>
+          <MobileOnly>
+            <NavMobile />
+          </MobileOnly>
         </Wrapper>
       </Container>
       <Divider inverse={theme === 'dark'} />

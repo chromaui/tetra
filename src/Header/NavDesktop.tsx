@@ -25,11 +25,11 @@ const NavigationMenuItem = styled(NavigationMenu.Item)`
   position: relative;
 `;
 
-export const NavDesktop: FC = () => {
+export const NavDesktop: FC = (props) => {
   const { desktopData } = useHeaderContext();
 
   return (
-    <NavigationMenuRoot delayDuration={100}>
+    <NavigationMenuRoot delayDuration={100} {...props}>
       <NavigationMenuList>
         {desktopData &&
           desktopData.map((item) => (

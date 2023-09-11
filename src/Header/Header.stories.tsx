@@ -21,11 +21,8 @@ type Story = StoryObj<typeof Header>;
 export const DesktopLight: Story = {
   args: {
     theme: 'light',
-    logoHeightDesktop: 24,
-    logoHeightMobile: 22,
     desktopData,
     mobileData,
-    desktopBreakpoint: 992,
     desktopRight: (
       <>
         <Link size="md" weight="semibold" href="/">

@@ -42,11 +42,8 @@ export interface HeaderDesktopItem {
 export interface HeaderProps {
   theme?: 'light' | 'dark';
   logo?: 'chromatic' | 'storybook';
-  logoHeightDesktop?: number;
-  logoHeightMobile?: number;
   logoHref?: string;
   logoLinkWrapper?: any;
-  desktopBreakpoint?: number;
   desktopData: HeaderDesktopItem[];
   desktopRight?: ReactNode;
   desktopActiveId?: string;
