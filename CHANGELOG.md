@@ -1,3 +1,15 @@
+# v1.15.16 (Mon Sep 11 2023)
+
+#### 🐛 Bug Fix
+
+- 🪗 Adds Accordion component [#72](https://github.com/chromaui/tetra/pull/72) ([@elseloop](https://github.com/elseloop))
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v1.15.15 (Fri Sep 01 2023)
 
 #### 🐛 Bug Fix
