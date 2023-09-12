@@ -1,3 +1,15 @@
+# v1.16.0 (Tue Sep 12 2023)
+
+#### 🚀 Enhancement
+
+- use media queries for header sizing, this prevents layout shift on load [#82](https://github.com/chromaui/tetra/pull/82) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.15.16 (Mon Sep 11 2023)
 
 #### 🐛 Bug Fix
