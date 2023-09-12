@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
+import React, { FC } from 'react';
 import { Stack } from '../Stack';
 import { Text } from '../Text';
 import { Accordion } from './Accordion';
@@ -39,7 +39,9 @@ const accordions = [
   },
 ];
 
-const ExamplePanelContent = ({ inverse }) => {
+const ExamplePanelContent: FC<{ inverse: boolean | undefined }> = ({
+  inverse,
+}) => {
   const color = inverse ? 'white' : 'slate800';
 
   return (

@@ -6,15 +6,37 @@ import { minSm, typography } from '../_helpers';
 import { Icon } from '../Icon';
 import type { Icons } from '../Icon/Icon';
 
+export interface ItemProps {
+  inverse?: boolean | undefined;
+  id?: string | undefined;
+}
+
+export interface TriggerProps {
+  inverse?: boolean | undefined;
+  iconName?: Icons | false;
+  iconSize?: number;
+}
+
+export interface PanelProps {
+  inverse?: boolean | undefined;
+}
+
+type ItemFC = FC<React.PropsWithChildren<ItemProps>>;
+type TriggerFC = FC<React.PropsWithChildren<TriggerProps>>;
+type PanelFC = FC<React.PropsWithChildren<PanelProps>>;
+
 export interface AccordionProps {
-  children: React.ReactNode | string;
+  children: React.ReactNode | ItemFC | TriggerFC | PanelFC | string;
   defaultValue?: string | undefined;
   iconName?: Icons | false;
   iconSize?: number;
   id?: string | undefined;
-  inverse?: boolean;
+  inverse?: boolean | undefined;
   value?: string;
   triggerCopy?: string;
+  Item?: React.ElementType;
+  Trigger?: React.ElementType;
+  Panel?: React.ElementType;
 }
 
 const slideDown = keyframes`
@@ -146,7 +168,7 @@ const Panel = styled(Acc.Content)<{
 // Wrapper for each accordion item's trigger & content
 // expects AccordionTrigger & AccordionPanel as children
 // radix requires custom components to have refs passed in
-const AccordionItem = forwardRef<any, AccordionProps>(
+const AccordionItem = forwardRef<any, React.PropsWithChildren<ItemProps>>(
   ({ inverse, id = '0', children, ...props }, forwardedRef) => (
     <Item
       value={id}
@@ -164,7 +186,7 @@ AccordionItem.displayName = 'AccordionItem';
 
 // the button controlling the open/closed state of each item
 // radix requires custom components to have refs passed in
-const AccordionTrigger = forwardRef<any, AccordionProps>(
+const AccordionTrigger = forwardRef<any, React.PropsWithChildren<TriggerProps>>(
   (
     { inverse, iconName = 'arrowdown', iconSize = 14, children, ...props },
     forwardedRef
@@ -177,7 +199,6 @@ const AccordionTrigger = forwardRef<any, AccordionProps>(
           inverse={inverse}
           name={iconName}
           size={iconSize}
-          tabIndex={-1}
         />
       )}
     </Trigger>
@@ -188,7 +209,7 @@ AccordionTrigger.displayName = 'AccordionTrigger';
 
 // the collapsible content of each item
 // radix requires custom components to have refs passed in
-const AccordionPanel = forwardRef<any, AccordionProps>(
+const AccordionPanel = forwardRef<any, React.PropsWithChildren<PanelProps>>(
   ({ inverse, children, ...props }, forwardedRef) => {
     return (
       <Panel inverse={inverse} ref={forwardedRef} {...props}>
@@ -201,13 +222,11 @@ const AccordionPanel = forwardRef<any, AccordionProps>(
 AccordionPanel.displayName = 'AccordionPanel';
 
 // Outermost accordion container; expects N <AccordionItem /> as children
-export const Accordion: FC<AccordionProps> = ({
-  defaultValue,
-  inverse,
-  children,
-  iconName,
-  ...props
-}) => {
+export const Accordion: FC<React.PropsWithChildren<AccordionProps>> & {
+  Item: React.ElementType;
+  Trigger: React.ElementType;
+  Panel: React.ElementType;
+} = ({ defaultValue, inverse, children, iconName, ...props }) => {
   return (
     <AccordionWrapper
       inverse={inverse}
