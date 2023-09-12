@@ -8,6 +8,7 @@ export * from './_helpers';
 export { useMediaQuery } from './_hooks/useMediaQuery';
 
 // Components
+export { Accordion } from './Accordion';
 export { Avatar } from './Avatar';
 export { Container } from './Container';
 export { Button } from './Button';
