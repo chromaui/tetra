@@ -2,6 +2,8 @@ import { css, keyframes } from '@storybook/theming';
 import { color, fontWeight, spacing } from '../_tokens';
 import { typography } from '../_helpers';
 
+export const desktopBreakpoint = 1000;
+
 export const NavigationMenuItem = css`
   all: unset;
   display: flex;
