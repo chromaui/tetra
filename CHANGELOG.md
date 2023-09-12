@@ -1,3 +1,16 @@
+# v1.16.1 (Tue Sep 12 2023)
+
+#### 🐛 Bug Fix
+
+- Linting of Accordion component & stories [#84](https://github.com/chromaui/tetra/pull/84) ([@elseloop](https://github.com/elseloop))
+- Adds 🪗 Accordion export to index, but for real this time [#83](https://github.com/chromaui/tetra/pull/83) ([@elseloop](https://github.com/elseloop))
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v1.16.0 (Tue Sep 12 2023)
 
 #### 🚀 Enhancement
