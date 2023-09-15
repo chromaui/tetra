@@ -74,3 +74,14 @@ export const InverseLeftAlign: Story = {
     layout: 'padded',
   },
 };
+
+export const Balanced: Story = {
+  args: {
+    ...Base.args,
+    variant: 'compact',
+    balanced: true,
+  },
+  parameters: {
+    layout: 'padded',
+  },
+};
