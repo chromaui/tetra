@@ -36,6 +36,7 @@ const Inner = styled.div<{ variant: TestimonialVariant; inverse?: boolean }>`
 
 const Quote = styled.blockquote<{
   inverse?: boolean;
+  balanced?: boolean;
   variant: TestimonialVariant;
 }>`
   ${(props) =>
@@ -77,6 +78,13 @@ const Quote = styled.blockquote<{
     css`
       margin-bottom: ${spacing[4]};
     `}
+
+  ${(props) =>
+    props.balanced
+      ? css`
+          text-wrap: balance;
+        `
+      : ''}
 `;
 
 const Cite = styled.cite`
@@ -206,12 +214,14 @@ interface TestimonialProps {
   logo: string;
   variant?: TestimonialVariant;
   theme?: 'light' | 'dark';
+  balanced?: boolean;
   companyName: string;
 }
 
 export const Testimonial = ({
   variant = 'default',
   theme = 'light',
+  balanced,
   text,
   avatarUrl,
   name,
@@ -224,7 +234,7 @@ export const Testimonial = ({
   return (
     <div {...props}>
       <Inner variant={variant} inverse={inverse}>
-        <Quote variant={variant} inverse={inverse}>
+        <Quote variant={variant} inverse={inverse} balanced={balanced}>
           {text}
         </Quote>
         <Cite>
