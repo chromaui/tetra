@@ -64,6 +64,7 @@ const AccordionWrapper = styled(Acc.Root)<{
 }>`
   ${typography.body16};
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
+  width: 100%;
 `;
 
 // Wrapper for each accordion item's trigger & content
