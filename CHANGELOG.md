@@ -1,3 +1,15 @@
+# v1.16.3 (Wed Sep 20 2023)
+
+#### 🐛 Bug Fix
+
+- Adds width: 100% to ensure accordion width doesn't jump when opened [#86](https://github.com/chromaui/tetra/pull/86) ([@elseloop](https://github.com/elseloop))
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v1.16.2 (Fri Sep 15 2023)
 
 #### 🐛 Bug Fix
