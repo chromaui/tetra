@@ -1,3 +1,15 @@
+# v1.16.4 (Fri Oct 13 2023)
+
+#### 🐛 Bug Fix
+
+- use ReactNode as children type in button and link [#87](https://github.com/chromaui/tetra/pull/87) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.16.3 (Wed Sep 20 2023)
 
 #### 🐛 Bug Fix
