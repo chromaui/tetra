@@ -5,7 +5,7 @@ import { Icon } from '../Icon';
 import type { Icons } from '../Icon/Icon';
 
 export interface ButtonProps {
-  children: string;
+  children: React.ReactNode;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'solid' | 'outline';
   color?: 'blue' | 'white' | 'slate';
