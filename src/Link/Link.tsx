@@ -5,7 +5,7 @@ import { Icon } from '../Icon';
 import type { Icons } from '../Icon/Icon';
 
 export interface LinkProps {
-  children: string;
+  children: React.ReactNode;
   size?: 'default' | 'sm' | 'md' | 'lg';
   color?: keyof typeof tokenColor;
   leftIcon?: Icons;
