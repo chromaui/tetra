@@ -1,3 +1,15 @@
+# v1.16.6 (Mon Oct 30 2023)
+
+#### 🐛 Bug Fix
+
+- Updates AccordionItem horizontal padding on small screens [#89](https://github.com/chromaui/tetra/pull/89) ([@elseloop](https://github.com/elseloop))
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v1.16.5 (Mon Oct 30 2023)
 
 #### 🐛 Bug Fix
