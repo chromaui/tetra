@@ -135,9 +135,7 @@ const Trigger = styled(Acc.Trigger)<{
   }
 `;
 
-const StyledIcon = styled(Icon)<{
-  inverse?: boolean;
-}>`
+const StyledIcon = styled(Icon)`
   fill: currentColor;
   flex-basis: ${spacing[4]};
   flex-shrink: 0;
@@ -195,12 +193,7 @@ const AccordionTrigger = forwardRef<any, React.PropsWithChildren<TriggerProps>>(
     <Trigger ref={forwardedRef} inverse={inverse} {...props}>
       {children}
       {iconName && (
-        <StyledIcon
-          aria-hidden="true"
-          inverse={inverse}
-          name={iconName}
-          size={iconSize}
-        />
+        <StyledIcon aria-hidden="true" name={iconName} size={iconSize} />
       )}
     </Trigger>
   )
