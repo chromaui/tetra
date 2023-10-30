@@ -7,18 +7,18 @@ import { Icon } from '../Icon';
 import type { Icons } from '../Icon/Icon';
 
 export interface ItemProps {
-  inverse?: boolean | undefined;
+  inverse?: boolean;
   id?: string | undefined;
 }
 
 export interface TriggerProps {
-  inverse?: boolean | undefined;
+  inverse?: boolean;
   iconName?: Icons | false;
   iconSize?: number;
 }
 
 export interface PanelProps {
-  inverse?: boolean | undefined;
+  inverse?: boolean;
 }
 
 type ItemFC = FC<React.PropsWithChildren<ItemProps>>;
@@ -31,7 +31,7 @@ export interface AccordionProps {
   iconName?: Icons | false;
   iconSize?: number;
   id?: string | undefined;
-  inverse?: boolean | undefined;
+  inverse?: boolean;
   value?: string;
   triggerCopy?: string;
   Item?: React.ElementType;
@@ -120,10 +120,14 @@ const Trigger = styled(Acc.Trigger)<{
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: calc(${spacing[4]} + 1px) ${spacing[8]};
+  padding: calc(${spacing[4]} + 1px) ${spacing[5]};
   text-align: left;
   transition: all 300ms ease-in-out;
   width: 100%;
+
+  ${minSm} {
+    padding: calc(${spacing[4]} + 1px) ${spacing[8]};
+  }
 
   [data-state='open'] & {
     padding-top: ${spacing[8]};
