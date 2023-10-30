@@ -1,3 +1,15 @@
+# v1.16.5 (Mon Oct 30 2023)
+
+#### 🐛 Bug Fix
+
+- Removes superfluous prop from Accordion’s StyledIcon [#88](https://github.com/chromaui/tetra/pull/88) ([@elseloop](https://github.com/elseloop))
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v1.16.4 (Fri Oct 13 2023)
 
 #### 🐛 Bug Fix
