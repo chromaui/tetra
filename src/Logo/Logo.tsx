@@ -6,6 +6,7 @@ interface LogoProps {
   variant?: 'default' | 'monochrome';
   width?: number;
   height?: number;
+  alt?: string;
 }
 
 export const Logo: FC<LogoProps> = ({
@@ -14,6 +15,8 @@ export const Logo: FC<LogoProps> = ({
   variant = 'default',
   width,
   height,
+  alt,
+  ...props
 }) => {
   const textColor = theme === 'light' ? '#2E3438' : '#FFFFFF';
   const logomarkColorChromatic = () => {
@@ -45,7 +48,10 @@ export const Logo: FC<LogoProps> = ({
       width={logoDimensions()[0]}
       height={logoDimensions()[1]}
       viewBox="0 0 120 24"
+      role="img"
+      {...props}
     >
+      <title>{alt}</title>
       {name === 'chromatic' && (
         <>
           <path
