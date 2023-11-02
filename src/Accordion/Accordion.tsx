@@ -94,11 +94,6 @@ const Item = styled(Acc.Item)<{
       border-color: ${({ inverse }) =>
         inverse ? color.whiteTr10 : color.blackTr10};
     }
-
-    &:hover + &,
-    &:focus-within + & {
-      border-top-color: ${color.blue500};
-    }
   }
 
   &:first-of-type {
@@ -122,6 +117,17 @@ const Item = styled(Acc.Item)<{
 
   &:hover + &,
   &:focus-within + & {
+    border-top-color: ${color.blue500};
+  }
+
+  &[data-state='open']:hover + [data-state='closed'],
+  &[data-state='open']:focus-within + [data-state='closed'] {
+    border-top-color: ${({ inverse }) =>
+      inverse ? color.whiteTr10 : color.blackTr10};
+  }
+
+  &[data-state='open']:hover + [data-state='closed']:hover,
+  &[data-state='open']:focus-within + [data-state='closed']:focus-within {
     border-top-color: ${color.blue500};
   }
 `;
