@@ -170,7 +170,11 @@ export const Footer = ({
         <BottomRow>
           <Colophon gap={5} align="center">
             <HomeLink href={homeLink.href} LinkWrapper={homeLink.LinkWrapper}>
-              <Logo name="chromatic" theme={inverse ? 'dark' : 'light'} />
+              <Logo
+                alt="Chromatic"
+                name="chromatic"
+                theme={inverse ? 'dark' : 'light'}
+              />
             </HomeLink>
             <ColophonText inverse={inverse}>
               &copy; Chroma Software Inc. Made by the maintainers of Storybook.
