@@ -48,9 +48,10 @@ export const Logo: FC<LogoProps> = ({
       width={logoDimensions()[0]}
       height={logoDimensions()[1]}
       viewBox="0 0 120 24"
-      alt={alt}
+      role="img"
       {...props}
     >
+      <title>{alt}</title>
       {name === 'chromatic' && (
         <>
           <path
