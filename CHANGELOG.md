@@ -1,3 +1,15 @@
+# v1.16.9 (Thu Nov 02 2023)
+
+#### 🐛 Bug Fix
+
+- Adds alt attribute to footer logo [#92](https://github.com/chromaui/tetra/pull/92) ([@elseloop](https://github.com/elseloop))
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v1.16.8 (Thu Nov 02 2023)
 
 #### 🐛 Bug Fix
