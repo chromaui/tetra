@@ -1,3 +1,15 @@
+# v1.16.7 (Thu Nov 02 2023)
+
+#### 🐛 Bug Fix
+
+- Accordion: updates to open styles [#90](https://github.com/chromaui/tetra/pull/90) ([@elseloop](https://github.com/elseloop))
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v1.16.6 (Mon Oct 30 2023)
 
 #### 🐛 Bug Fix
