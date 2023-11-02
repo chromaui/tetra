@@ -1,3 +1,15 @@
+# v1.16.8 (Thu Nov 02 2023)
+
+#### 🐛 Bug Fix
+
+- Fixes Accordion group hover styles [#91](https://github.com/chromaui/tetra/pull/91) ([@elseloop](https://github.com/elseloop))
+
+#### Authors: 1
+
+- Dan Manchester ([@elseloop](https://github.com/elseloop))
+
+---
+
 # v1.16.7 (Thu Nov 02 2023)
 
 #### 🐛 Bug Fix
