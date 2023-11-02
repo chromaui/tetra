@@ -1,7 +1,14 @@
 import React, { FC, useState, forwardRef } from 'react';
 import { keyframes, styled } from '@storybook/theming';
 import * as Acc from '@radix-ui/react-accordion';
-import { breakpoint, color, fontFamily, fontSize, spacing } from '../_tokens';
+import {
+  breakpoint,
+  color,
+  fontFamily,
+  fontSize,
+  spacing,
+  fontWeight,
+} from '../_tokens';
 import { minSm, typography } from '../_helpers';
 import { Icon } from '../Icon';
 import type { Icons } from '../Icon/Icon';
@@ -81,6 +88,17 @@ const Item = styled(Acc.Item)<{
 
   &[data-state='open'] {
     padding-bottom: ${spacing[8]};
+
+    &:focus-within,
+    &:hover {
+      border-color: ${({ inverse }) =>
+        inverse ? color.whiteTr10 : color.blackTr10};
+    }
+
+    &:hover + &,
+    &:focus-within + & {
+      border-top-color: ${color.blue500};
+    }
   }
 
   &:first-of-type {
@@ -119,6 +137,7 @@ const Trigger = styled(Acc.Trigger)<{
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   cursor: pointer;
   display: flex;
+  font-weight: ${fontWeight.bold};
   justify-content: space-between;
   padding: calc(${spacing[4]} + 1px) ${spacing[5]};
   text-align: left;
@@ -144,6 +163,11 @@ const StyledIcon = styled(Icon)`
   flex-basis: ${spacing[4]};
   flex-shrink: 0;
   margin-left: ${spacing[5]};
+  transition: transform 300ms ease-in-out;
+
+  [data-state='open'] & {
+    transform: rotate(180deg);
+  }
 `;
 
 // the collapsible content of each item
