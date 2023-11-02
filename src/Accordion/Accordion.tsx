@@ -144,6 +144,11 @@ const StyledIcon = styled(Icon)`
   flex-basis: ${spacing[4]};
   flex-shrink: 0;
   margin-left: ${spacing[5]};
+  transition: transform 300ms ease-in-out;
+
+  [data-state='open'] & {
+    transform: rotate(180deg);
+  }
 `;
 
 // the collapsible content of each item
