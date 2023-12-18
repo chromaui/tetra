@@ -82,7 +82,7 @@
     "vite": "4.2.1"
   },
   "peerDependencies": {
-    "@storybook/theming": "^7.0.2",
+    "@storybook/theming": "^7.0.2 || ^8.0.0-alpha.0",
     "framer-motion": "10.12.16",
     "react": ">=17",
     "react-dom": ">=17"
