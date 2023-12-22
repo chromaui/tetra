@@ -1,3 +1,15 @@
+# v1.16.10 (Fri Dec 22 2023)
+
+#### 🐛 Bug Fix
+
+- Align sb theming [#95](https://github.com/chromaui/tetra/pull/95) ([@JonathanKolnik](https://github.com/JonathanKolnik))
+
+#### Authors: 1
+
+- Jono Kolnik ([@JonathanKolnik](https://github.com/JonathanKolnik))
+
+---
+
 # v1.16.9 (Thu Nov 02 2023)
 
 #### 🐛 Bug Fix
