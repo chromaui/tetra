@@ -77,7 +77,7 @@ export const color = {
 };
 
 export const fontFamily = {
-  sans: '"Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  sans: 'var(--nunito-sans, "Nunito Sans"), "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
   mono: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
 };
 
