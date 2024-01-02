@@ -1,3 +1,15 @@
+# v1.16.11 (Tue Jan 02 2024)
+
+#### 🐛 Bug Fix
+
+- add font family css variable [#93](https://github.com/chromaui/tetra/pull/93) ([@JonathanKolnik](https://github.com/JonathanKolnik))
+
+#### Authors: 1
+
+- Jono Kolnik ([@JonathanKolnik](https://github.com/JonathanKolnik))
+
+---
+
 # v1.16.10 (Fri Dec 22 2023)
 
 #### 🐛 Bug Fix
