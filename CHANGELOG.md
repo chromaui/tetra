@@ -1,3 +1,16 @@
+# v1.16.12 (Mon Feb 05 2024)
+
+#### ⚠️ Pushed to `main`
+
+- upgrade storybook ([@winkerVSbecks](https://github.com/winkerVSbecks))
+- upgrade framer-motion ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.16.11 (Tue Jan 02 2024)
 
 #### 🐛 Bug Fix
