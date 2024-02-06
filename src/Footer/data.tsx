@@ -1,65 +1,77 @@
-import React from 'react';
-import { FooterColumn, FooterSocialItem, HomeItem } from './types';
+import { FooterProps } from './Footer';
 
-const FakeLinkWrapper = (props: any) => (
-  // eslint-disable-next-line jsx-a11y/anchor-has-content
-  <a data-fake-link-wrapper="true" {...props} />
-);
-
-export const footerColumns: FooterColumn[] = [
+export const footerColumns: FooterProps['columns'] = [
   {
     title: 'Product',
     links: [
-      { title: 'Pricing', href: '/pricing', LinkWrapper: FakeLinkWrapper },
-      { title: 'About', href: '/company/about', LinkWrapper: FakeLinkWrapper },
-      { title: 'Jobs', href: '/company/careers', LinkWrapper: FakeLinkWrapper },
-      {
-        title: 'Terms of Service',
-        href: '/docs/terms-of-service',
-        LinkWrapper: FakeLinkWrapper,
-      },
-      {
-        title: 'Privacy',
-        href: '/docs/privacy-policy',
-        LinkWrapper: FakeLinkWrapper,
-      },
-      {
-        title: 'Status',
-        href: 'http://status.chromatic.com/',
-        LinkWrapper: FakeLinkWrapper,
-      },
-      {
-        title: 'Security • SOC 2',
-        href: '/docs/security',
-        LinkWrapper: FakeLinkWrapper,
-      },
-      { title: 'Contact Sales', href: '/sales', LinkWrapper: FakeLinkWrapper },
+      { title: 'Pricing', href: '/pricing' },
+      { title: 'About', href: '/company/about' },
+      { title: 'Jobs', href: '/company/careers' },
+      { title: 'Terms of Service', href: '/docs/terms-of-service' },
+      { title: 'Privacy', href: '/docs/privacy-policy' },
+      { title: 'Status', href: 'https://status.chromatic.com/' },
+      { title: 'Security • SOC 2', href: '/security' },
+      { title: 'Contact Sales', href: '/sales' },
     ],
   },
   {
     title: 'Features',
     links: [
       { title: 'UI Tests', href: '/features/test' },
-      { title: 'UI Review', href: '/features/publish' },
-      { title: 'Document', href: '/features/document' },
-      { title: 'Visual test', href: '/features/test' },
-      { title: 'Interaction test', href: '/docs/interactions' },
-      { title: 'TurboSnap', href: '/docs/turbosnap' },
+      {
+        title: 'Visual test',
+        href: '/features/visual-test',
+      },
+      {
+        title: 'Interaction test',
+        href: '/features/interaction-test',
+      },
+      { title: 'TurboSnap', href: '/features/turbosnap' },
+      { title: 'UI Review', href: '/features/review' },
+      { title: 'Publish', href: '/features/publish' },
       { title: 'Figma plugin', href: '/features/figma-plugin' },
+      {
+        title: 'Storybook',
+        href: '/storybook',
+      },
+      {
+        title: 'Playwright',
+        href: '/playwright',
+      },
+      {
+        title: 'Cypress',
+        href: '/cypress',
+      },
     ],
   },
   {
     title: 'Customers',
     links: [
       { title: 'Made for Storybook', href: '/solutions/storybook' },
-      { title: 'Frontend teams', href: '/solutions/frontend' },
-      { title: 'Design systems', href: '/solutions/design-systems' },
-      { title: 'Digital agencies', href: '/solutions/agencies' },
+      {
+        title: 'Frontend teams',
+        href: '/solutions/frontend',
+      },
+      {
+        title: 'Design systems',
+        href: '/solutions/design-systems',
+      },
+      {
+        title: 'Digital agencies',
+        href: '/solutions/agencies',
+      },
+      {
+        title: 'Netlify',
+        href: '/customers/netlify',
+      },
       {
         title: 'Monday.com',
         href: '/customers/monday',
       },
-      { title: 'Collective.work', href: '/customers/collective' },
+      {
+        title: 'Collective.work',
+        href: '/customers/collective',
+      },
     ],
   },
   {
@@ -101,9 +113,13 @@ export const footerColumns: FooterColumn[] = [
   },
 ];
 
-export const footerSocialLinks: FooterSocialItem[] = [
+export const footerSocialLinks: FooterProps['socialLinks'] = [
   { title: 'github', icon: 'github', href: 'https://github.com/chromaui/' },
-  { title: 'twitter', icon: 'twitter', href: 'https://twitter.com/chromaui' },
+  {
+    title: 'twitter',
+    icon: 'twitter',
+    href: 'https://twitter.com/chromaticcom',
+  },
   {
     title: 'youtube',
     icon: 'youtube',
@@ -111,7 +127,6 @@ export const footerSocialLinks: FooterSocialItem[] = [
   },
 ];
 
-export const homeLink: HomeItem = {
+export const homeLink: FooterProps['homeLink'] = {
   href: '/',
-  LinkWrapper: FakeLinkWrapper,
 };

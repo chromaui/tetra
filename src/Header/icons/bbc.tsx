@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React from 'react';
 
-export const BBCIcon: FC = () => {
+export const BBCIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
       <rect width="16" height="16" fill="#000" rx="2" />

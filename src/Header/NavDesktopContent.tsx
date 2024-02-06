@@ -30,7 +30,7 @@ const Column = styled.div<{ bg: keyof typeof color; index: number }>`
 `;
 
 const Separator = styled.div<{ index: number }>`
-  padding-top: ${({ index }) => (index > 0 ? spacing[5] : spacing[3])};
+  padding-top: ${spacing[3]};
   padding-left: ${spacing[3]};
   padding-right: ${spacing[3]};
   padding-bottom: ${spacing[2]};
