@@ -16,7 +16,17 @@ export { CustomerStoryHero } from './CustomerStoryHero';
 export { Divider } from './Divider';
 export { Footer, FooterProps } from './Footer';
 export { Grid } from './Grid';
-export { Header, HeaderProps } from './Header';
+export {
+  Header,
+  HeaderProps,
+  CollectiveIcon,
+  FigmaIcon,
+  NetlifyIcon,
+  MondayIcon,
+  PlaywrightIcon,
+  CypressIcon,
+  BBCIcon,
+} from './Header';
 export { Icon, Icons } from './Icon';
 export { IntegrationImage } from './IntegrationImage';
 export { Link } from './Link';
