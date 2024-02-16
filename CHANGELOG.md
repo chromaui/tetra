@@ -1,3 +1,15 @@
+# v1.17.0 (Fri Feb 16 2024)
+
+#### 🚀 Enhancement
+
+- Update header and footer [#96](https://github.com/chromaui/tetra/pull/96) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.16.12 (Mon Feb 05 2024)
 
 #### ⚠️ Pushed to `main`
