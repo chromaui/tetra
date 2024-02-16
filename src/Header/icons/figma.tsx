@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React from 'react';
 
-export const FigmaIcon: FC = () => {
+export const FigmaIcon = () => {
   return (
     <svg
       width="16"
