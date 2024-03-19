@@ -39,14 +39,67 @@ export const Dark: Story = {
 
 export const Collapsed: Story = {
   ...Dark,
-  decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
   parameters: {
     backgrounds: { default: 'dark' },
-    chromatic: { viewports: [320] },
+    chromatic: {
+      cropToViewport: true,
+      modes: {
+        short_xsm: {
+          viewport: {
+            width: 320,
+            height: 150,
+          },
+        },
+      },
+    },
     viewport: {
-      defaultViewport: 'xsm',
+      viewports: {
+        short_xsm: {
+          name: 'short_xsm',
+          styles: { width: '320px', height: '150px' },
+        },
+      },
+      defaultViewport: 'short_xsm',
     },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Features',
+    });
+    MenuButton.focus();
+    await userEvent.keyboard('{enter}');
+  },
+};
+
+export const Collapsed2: Story = {
+  ...Dark,
+  parameters: {
+    backgrounds: { default: 'dark' },
+    chromatic: {
+      cropToViewport: true,
+      modes: {
+        short_xsm: {
+          viewport: {
+            width: 320,
+            height: 150,
+          },
+        },
+      },
+    },
+    viewport: {
+      viewports: {
+        short_xsm: {
+          name: 'short_xsm',
+          styles: { width: '320px', height: '150px' },
+        },
+      },
+      defaultViewport: 'short_xsm',
+    },
+  },
+  decorators: [
+    (StoryFn) => <div style={{ width: 320, height: 150 }}>{StoryFn()}</div>,
+  ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
