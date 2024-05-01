@@ -8,6 +8,7 @@ import { color } from '../_tokens';
 import { Icons } from '../Icon/Icon';
 import { PlaywrightIcon } from './icons/playwright';
 import { CypressIcon } from './icons/cypress';
+import { EzCaterIcon } from './icons/ezcater';
 
 interface LinkProps {
   title: string;
@@ -279,6 +280,14 @@ export const desktopData: HeaderProps['desktopData'] = [
             customIcon: <CollectiveIcon />,
             href: '/customers/collective',
           },
+          {
+            type: 'link',
+            title: 'ezCater',
+            description:
+              'How to test UI appearance & functionality simultaneously',
+            customIcon: <EzCaterIcon />,
+            href: '/customers/ezcater',
+          },
         ],
         backgroundColor: 'white',
       },
@@ -421,6 +430,11 @@ export const mobileData: HeaderProps['mobileData'] = [
         title: 'Collective.work',
         customIcon: <CollectiveIcon />,
         href: '/customers/collective',
+      },
+      {
+        title: 'ezCater',
+        customIcon: <EzCaterIcon />,
+        href: '/customers/ezcater',
       },
     ],
   },

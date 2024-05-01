@@ -20,6 +20,7 @@ export {
   Header,
   HeaderProps,
   CollectiveIcon,
+  EzCaterIcon,
   FigmaIcon,
   NetlifyIcon,
   MondayIcon,
