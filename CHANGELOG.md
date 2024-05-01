@@ -1,3 +1,15 @@
+# v1.18.0 (Wed May 01 2024)
+
+#### 🚀 Enhancement
+
+- add ezcater icon and casestudy to header [#98](https://github.com/chromaui/tetra/pull/98) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.17.0 (Fri Feb 16 2024)
 
 #### 🚀 Enhancement
