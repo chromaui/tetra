@@ -7,3 +7,4 @@ export { MondayIcon } from './icons/monday';
 export { PlaywrightIcon } from './icons/playwright';
 export { CypressIcon } from './icons/cypress';
 export { BBCIcon } from './icons/bbc';
+export { EzCaterIcon } from './icons/ezcater';
