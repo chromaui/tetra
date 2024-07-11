@@ -1,1 +1,1 @@
-export { Container } from './Container';
+export { Container, FullWidthContainer } from './Container';

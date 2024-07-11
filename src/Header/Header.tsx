@@ -3,7 +3,7 @@ import { styled } from '@storybook/theming';
 import { HeaderProvider, useHeaderContext } from './context';
 import { HeaderLogo } from './HeaderLogo';
 import { spacing } from '../_tokens';
-import { Container } from '../Container';
+import { Container, FullWidthContainer } from '../Container';
 import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
 import { HeaderProps } from './types';
@@ -79,6 +79,7 @@ export const Header: FC<HeaderProps> = ({
   mobileData,
   mobileBottom,
   mobileTop,
+  fullWidth = false,
 }) => {
   return (
     <HeaderProvider
@@ -93,17 +94,21 @@ export const Header: FC<HeaderProps> = ({
       mobileTop={mobileTop}
       mobileBottom={mobileBottom}
     >
-      <HeaderWithProvider />
+      <HeaderWithProvider fullWidth={fullWidth} />
     </HeaderProvider>
   );
 };
 
-const HeaderWithProvider: FC = () => {
+const HeaderWithProvider: FC<{
+  fullWidth?: boolean;
+}> = ({ fullWidth = false }) => {
   const { theme, logoHref, logoLinkWrapper, desktopRight } = useHeaderContext();
+
+  const HeaderContainer = fullWidth ? FullWidthContainer : Container;
 
   return (
     <>
-      <Container>
+      <HeaderContainer>
         <Wrapper>
           <Left>
             <LogoLink
@@ -122,7 +127,7 @@ const HeaderWithProvider: FC = () => {
             <NavMobile />
           </MobileOnly>
         </Wrapper>
-      </Container>
+      </HeaderContainer>
       <Divider inverse={theme === 'dark'} />
     </>
   );
