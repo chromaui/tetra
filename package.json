@@ -3,16 +3,8 @@
   "version": "1.18.0",
   "description": "Style Guide + UI library for Chromatic and Storybook marketing sites and docs",
   "author": {
-    "name": "Chromatic"
+    "name": "winkervsbecks"
   },
-  "contributors": [
-    {
-      "name": "winkervsbecks"
-    },
-    {
-      "name": "cdedreuille"
-    }
-  ],
   "license": "MIT",
   "repository": {
     "type": "git",
