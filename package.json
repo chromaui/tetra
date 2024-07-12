@@ -2,14 +2,9 @@
   "name": "@chromatic-com/tetra",
   "version": "1.18.0",
   "description": "Style Guide + UI library for Chromatic and Storybook marketing sites and docs",
-  "contributors": [
-    {
-      "name": "winkervsbecks"
-    },
-    {
-      "name": "cdedreuille"
-    }
-  ],
+  "author": {
+    "name": "winkervsbecks"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
