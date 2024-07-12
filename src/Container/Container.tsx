@@ -45,7 +45,7 @@ const FullWidthInner = styled.div`
 const FullWidthOuter = styled(BlockWithOptionsForContainer)`
   margin-left: auto;
   margin-right: auto;
-  max-width: 1800px;
+  max-width: 1440px;
 `;
 
 export const FullWidthContainer = ({

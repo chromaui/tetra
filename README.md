@@ -9,14 +9,13 @@ https://tetra.chromatic.com
 ## Install
 
 ```console
-yarn add @chromaui/tetra
+yarn add @chromatic-com/tetra
 ```
 
 ## To Do
 
 - [ ] Replace fonts in Text by the new text helpers
 - [ ] Move icons to a new library and import it as primitive inside the Icon component
-
 
 ## Developing
 
