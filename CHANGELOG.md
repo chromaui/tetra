@@ -1,3 +1,24 @@
+# v1.19.0 (Fri Jul 12 2024)
+
+#### 🚀 Enhancement
+
+- add the option to make header full width [#99](https://github.com/chromaui/tetra/pull/99) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### 🐛 Bug Fix
+
+- add author to package json to fix release [#102](https://github.com/chromaui/tetra/pull/102) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+- fix max-width for full width container [#100](https://github.com/chromaui/tetra/pull/100) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### ⚠️ Pushed to `main`
+
+- add author to package json to fix release ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.18.0 (Wed May 01 2024)
 
 #### 🚀 Enhancement
