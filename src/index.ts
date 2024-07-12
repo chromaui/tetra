@@ -10,7 +10,7 @@ export { useMediaQuery } from './_hooks/useMediaQuery';
 // Components
 export { Accordion } from './Accordion';
 export { Avatar } from './Avatar';
-export { Container } from './Container';
+export { Container, FullWidthContainer } from './Container';
 export { Button } from './Button';
 export { CustomerStoryHero } from './CustomerStoryHero';
 export { Divider } from './Divider';

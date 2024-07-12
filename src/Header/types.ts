@@ -50,4 +50,5 @@ export interface HeaderProps {
   mobileData: HeaderMobileSection[];
   mobileTop?: ReactNode;
   mobileBottom?: ReactNode;
+  fullWidth?: boolean;
 }

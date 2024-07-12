@@ -248,3 +248,33 @@ export const MobileOpen: Story = {
     await userEvent.click(MenuButton);
   },
 };
+
+export const DesktopFullWidth: Story = {
+  args: {
+    ...DesktopLight.args,
+    fullWidth: true,
+  },
+  parameters: {
+    layout: 'fullscreen',
+  },
+};
+
+export const MobileFullWidth: Story = {
+  args: {
+    ...DesktopLight.args,
+  },
+  parameters: {
+    layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'xsm',
+    },
+  },
+  decorators: DesktopLightOpen.decorators,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Toggle Menu',
+    });
+    await userEvent.click(MenuButton);
+  },
+};
