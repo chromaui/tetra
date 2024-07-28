@@ -1,0 +1,26 @@
+import { Meta, Source } from '@storybook/blocks';
+import { cssVariables } from './css-variables';
+
+<Meta title="Tokens/CSS Variables" />
+
+# Token CSS Variables
+
+The tokens are also available as CSS Variables. To use them:
+
+```jsx
+import cssVariables from '@chromatic-com/tetra/css-variables';
+import { css, Global } from '@storybook/theming';
+
+const tetraCSSVariables = css`
+  ${cssVariables}
+`;
+
+const App = () => (
+  <>
+    <Global styles={tetraCSSVariables} />
+    {/* Other app components */}
+  </>
+);
+```
+
+<Source code={cssVariables} />
