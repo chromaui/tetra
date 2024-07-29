@@ -40,3 +40,5 @@ export { Stat } from './Stat';
 export { SubNav } from './SubNav';
 export { Testimonial } from './Testimonial';
 export { Text } from './Text';
+
+export { cssVariables } from './css-variables';
