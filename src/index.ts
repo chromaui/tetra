@@ -14,6 +14,11 @@ export { Container, FullWidthContainer } from './Container';
 export { Button } from './Button';
 export { CustomerStoryHero } from './CustomerStoryHero';
 export { Divider } from './Divider';
+export {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuItem,
+} from './DropdownMenu';
 export { Footer, FooterProps } from './Footer';
 export { Grid } from './Grid';
 export {
