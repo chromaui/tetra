@@ -1,3 +1,15 @@
+# v1.19.2 (Thu Aug 01 2024)
+
+#### 🐛 Bug Fix
+
+- Dropdown component [#104](https://github.com/chromaui/tetra/pull/104) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.19.1 (Mon Jul 29 2024)
 
 #### 🐛 Bug Fix
