@@ -563,7 +563,7 @@
 
 #### 🐛 Bug Fix
 
-- some helper exports  were removed in the previous PR, adding those ba… [#53](https://github.com/chromaui/tetra/pull/53) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+- some helper exports were removed in the previous PR, adding those ba… [#53](https://github.com/chromaui/tetra/pull/53) ([@winkerVSbecks](https://github.com/winkerVSbecks))
 
 #### Authors: 1
 
