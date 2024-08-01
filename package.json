@@ -11,14 +11,14 @@
     "url": "git+https://github.com/chromaui/tetra.git"
   },
   "scripts": {
-    "dev": "concurrently  -n \"Build,SB\" \"yarn build --watch\" \"yarn storybook\" ",
+    "dev": "concurrently  -n \"Build,SB\" \"pnpm run build --watch\" \"pnpm run storybook\" ",
     "build": "tsup --onSuccess \"cp -a public/. dist/public\"",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "lint:fix": "yarn lint --fix && prettier --write .",
+    "lint:fix": "pnpm run lint --fix && prettier --write .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "yarn build && auto shipit",
+    "release": "pnpm run build && auto shipit",
     "prepare": "node ./prepare.js"
   },
   "lint-staged": {
@@ -109,5 +109,6 @@
   },
   "resolutions": {
     "jackspeak": "2.1.1"
-  }
+  },
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }

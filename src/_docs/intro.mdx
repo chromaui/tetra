@@ -2,6 +2,35 @@ import { Meta } from '@storybook/blocks';
 
 <Meta title="Introduction" />
 
-# Introduction
+# Tetra
 
-To be documented
+<img src="public/cover.jpg" />
+
+Style guide and UI components for Chromatic's docs and marketing sites. https://tetra.chromatic.com
+
+## Install
+
+```console
+pnpm add @chromatic-com/tetra
+```
+
+## To Do
+
+- [ ] Replace fonts in Text by the new text helpers
+- [ ] Move icons to a new library and import it as primitive inside the Icon component
+
+## Developing
+
+Watch and rebuild code with `tsup` and runs Storybook to preview your UI during development.
+
+```console
+pnpm run storybook
+```
+
+## Building
+
+Build package with `tsup` for production.
+
+```console
+pnpm run build
+```
