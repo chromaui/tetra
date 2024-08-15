@@ -1,3 +1,15 @@
+# v1.19.3 (Thu Aug 15 2024)
+
+#### 🐛 Bug Fix
+
+- Loosen peer dep to allow SB 8 [#105](https://github.com/chromaui/tetra/pull/105) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.19.2 (Thu Aug 01 2024)
 
 #### 🐛 Bug Fix
