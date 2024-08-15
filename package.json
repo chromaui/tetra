@@ -1,6 +1,6 @@
 {
   "name": "@chromatic-com/tetra",
-  "version": "1.19.2",
+  "version": "1.19.3",
   "description": "Style Guide + UI library for Chromatic and Storybook marketing sites and docs",
   "author": {
     "name": "winkervsbecks"
