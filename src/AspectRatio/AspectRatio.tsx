@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 
 interface AspectRatioProps {
   children: React.ReactNode;

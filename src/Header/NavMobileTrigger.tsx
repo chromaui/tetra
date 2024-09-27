@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import * as Popover from '@radix-ui/react-popover';
 import { color } from '../_tokens';

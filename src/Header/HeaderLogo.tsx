@@ -1,4 +1,4 @@
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import React, { FC } from 'react';
 import { desktopBreakpoint } from './styles';
 

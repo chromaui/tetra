@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
 import React, { FC } from 'react';
-import { Stack } from '../Stack';
 import { Text } from '../Text';
 import { Accordion } from './Accordion';
 

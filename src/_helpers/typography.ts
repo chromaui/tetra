@@ -1,4 +1,4 @@
-import { css } from '@storybook/theming';
+import { css } from '@emotion/react';
 import { fontSize, fontWeight, fontFamily, lineHeight } from '../_tokens';
 
 export type ListTypes =

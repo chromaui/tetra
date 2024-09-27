@@ -1,4 +1,4 @@
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import React, { FC, useState } from 'react';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import { color, spacing } from '../_tokens';

@@ -1,5 +1,5 @@
 import React, { ElementType, FunctionComponent } from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu';
 import { typography } from '../_helpers';
 import { color, spacing } from '../_tokens';
@@ -13,7 +13,9 @@ const NavDropdownMenuContent = styled(RadixDropdownMenu.Content)`
   border-radius: 4px;
   padding: ${spacing[2]};
 
-  box-shadow: 0px 0px 15px ${color.blackTr05}, 0px 1px 2px ${color.blackTr10};
+  box-shadow:
+    0px 0px 15px ${color.blackTr05},
+    0px 1px 2px ${color.blackTr10};
 `;
 
 const DropdownMenuLink = styled(LinkWithWrapper)`

@@ -1,5 +1,5 @@
 import React, { ElementType, FunctionComponent } from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { Container } from '../Container';
 import { LinkWithWrapper } from '../LinkWithWrapper/LinkWithWrapper';
 import { HStack } from '../Stack';
@@ -36,7 +36,9 @@ const SubNavLink = styled(LinkWithWrapper, {
   gap: 6px;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
   ${typography.body14}
   font-weight: ${fontWeight.bold};
 

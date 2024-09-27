@@ -1,14 +1,8 @@
-import React, { FC, useState, forwardRef } from 'react';
-import { keyframes, styled } from '@storybook/theming';
+import React, { FC, forwardRef } from 'react';
+import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 import * as Acc from '@radix-ui/react-accordion';
-import {
-  breakpoint,
-  color,
-  fontFamily,
-  fontSize,
-  spacing,
-  fontWeight,
-} from '../_tokens';
+import { color, spacing, fontWeight } from '../_tokens';
 import { minSm, typography } from '../_helpers';
 import { Icon } from '../Icon';
 import type { Icons } from '../Icon/Icon';
@@ -54,7 +48,7 @@ const slideDown = keyframes`
     // dynamically set height
     height: var(--radix-accordion-content-height);
   }
-}`;
+`;
 
 const slideUp = keyframes`
   from {
@@ -63,21 +57,17 @@ const slideUp = keyframes`
   to {
     height: 0;
   }
-}`;
+`;
 
 // Outermost accordion container
-const AccordionWrapper = styled(Acc.Root)<{
-  inverse?: boolean;
-}>`
+const AccordionWrapper = styled(Acc.Root)<{ inverse?: boolean }>`
   ${typography.body16};
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   width: 100%;
 `;
 
 // Wrapper for each accordion item's trigger & content
-const Item = styled(Acc.Item)<{
-  inverse?: boolean;
-}>`
+const Item = styled(Acc.Item)<{ inverse?: boolean }>`
   border: 1px solid;
   border-color: ${({ inverse }) =>
     inverse ? color.whiteTr10 : color.blackTr10};
@@ -133,9 +123,7 @@ const Item = styled(Acc.Item)<{
 `;
 
 // the button controlling the open/closed state of each item
-const Trigger = styled(Acc.Trigger)<{
-  inverse?: boolean;
-}>`
+const Trigger = styled(Acc.Trigger)<{ inverse?: boolean }>`
   ${typography.body16};
   align-items: center;
   background: none;
@@ -177,9 +165,7 @@ const StyledIcon = styled(Icon)`
 `;
 
 // the collapsible content of each item
-const Panel = styled(Acc.Content)<{
-  inverse?: boolean;
-}>`
+const Panel = styled(Acc.Content)<{ inverse?: boolean }>`
   ${typography.body16};
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   overflow: hidden;

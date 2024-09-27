@@ -1,4 +1,4 @@
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { spacing, breakpoint } from '../_tokens/tokens';
 import {
   min2xl,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { minSm, typography } from '../_helpers';
 import { color, spacing } from '../_tokens';
 import { LinkWithWrapper } from '../LinkWithWrapper';
@@ -41,7 +41,9 @@ const FooterLink = styled(LinkWithWrapper, {
   display: block;
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
 
-  transition: transform 150ms ease-out, color 150ms ease-out;
+  transition:
+    transform 150ms ease-out,
+    color 150ms ease-out;
 
   &:hover,
   &:focus-visible {
@@ -120,7 +122,9 @@ const ColophonText = styled.div<{ inverse?: boolean }>`
 
 const HomeLink = styled(LinkWithWrapper)`
   display: block;
-  transition: transform 150ms ease-out, color 150ms ease-out;
+  transition:
+    transform 150ms ease-out,
+    color 150ms ease-out;
 
   svg {
     display: block;

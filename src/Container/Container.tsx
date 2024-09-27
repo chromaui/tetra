@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { spacing } from '../_tokens';
 import {
   BlockWithOptionsForContainer,

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { HeaderProvider, useHeaderContext } from './context';
 import { HeaderLogo } from './HeaderLogo';
 import { spacing } from '../_tokens';
