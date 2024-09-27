@@ -48,8 +48,8 @@
     "node": ">=14.0.0"
   },
   "devDependencies": {
-    "@emotion/react": "11.13.3",
-    "@emotion/styled": "11.13.0",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@storybook/addon-a11y": "^8.3.3",
     "@storybook/addon-essentials": "^8.3.3",
     "@storybook/addon-interactions": "^8.3.3",
@@ -84,8 +84,8 @@
     "vite": "4.2.1"
   },
   "peerDependencies": {
-    "@emotion/react": "11.13.3",
-    "@emotion/styled": "11.13.0",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "framer-motion": "^11.0.3",
     "react": ">=17",
     "react-dom": ">=17"

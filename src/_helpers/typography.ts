@@ -107,66 +107,66 @@ export const t: TProps = {
 };
 
 const heading56 = css`
-  font-family: ${fontFamily[t.heading56.fontFamily]};
-  font-size: ${fontSize[t.heading56.fontSize]};
-  line-height: ${lineHeight[t.heading56.lineHeight]};
-  font-weight: ${fontWeight[t.heading56.fontWeight]};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[56]};
+  line-height: ${lineHeight[70]};
+  font-weight: ${fontWeight.semibold};
 `;
 
 const heading48 = css`
-  font-family: ${fontFamily[t.heading48.fontFamily]};
-  font-size: ${fontSize[t.heading48.fontSize]};
-  line-height: ${lineHeight[t.heading48.lineHeight]};
-  font-weight: ${fontWeight[t.heading48.fontWeight]};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[48]};
+  line-height: ${lineHeight[64]};
+  font-weight: ${fontWeight.semibold};
 `;
 
 const heading40 = css`
-  font-family: ${fontFamily[t.heading40.fontFamily]};
-  font-size: ${fontSize[t.heading40.fontSize]};
-  line-height: ${lineHeight[t.heading40.lineHeight]};
-  font-weight: ${fontWeight[t.heading40.fontWeight]};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[40]};
+  line-height: ${lineHeight[48]};
+  font-weight: ${fontWeight.semibold};
 `;
 
 const heading36 = css`
-  font-family: ${fontFamily[t.heading36.fontFamily]};
-  font-size: ${fontSize[t.heading36.fontSize]};
-  line-height: ${lineHeight[t.heading36.lineHeight]};
-  font-weight: ${fontWeight[t.heading36.fontWeight]};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[36]};
+  line-height: ${lineHeight[44]};
+  font-weight: ${fontWeight.semibold};
 `;
 
 const heading30 = css`
-  font-family: ${fontFamily[t.heading30.fontFamily]};
-  font-size: ${fontSize[t.heading30.fontSize]};
-  line-height: ${lineHeight[t.heading30.lineHeight]};
-  font-weight: ${fontWeight[t.heading30.fontWeight]};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[30]};
+  line-height: ${lineHeight[38]};
+  font-weight: ${fontWeight.semibold};
 `;
 
 const heading24 = css`
-  font-family: ${fontFamily[t.heading24.fontFamily]};
-  font-size: ${fontSize[t.heading24.fontSize]};
-  line-height: ${lineHeight[t.heading24.lineHeight]};
-  font-weight: ${fontWeight[t.heading24.fontWeight]};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[24]};
+  line-height: ${lineHeight[32]};
+  font-weight: ${fontWeight.semibold};
 `;
 
 const heading20 = css`
-  font-family: ${fontFamily[t.heading20.fontFamily]};
-  font-size: ${fontSize[t.heading20.fontSize]};
-  line-height: ${lineHeight[t.heading20.lineHeight]};
-  font-weight: ${fontWeight[t.heading20.fontWeight]};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[20]};
+  line-height: ${lineHeight[32]};
+  font-weight: ${fontWeight.semibold};
 `;
 
 const heading18 = css`
-  font-family: ${fontFamily[t.heading18.fontFamily]};
-  font-size: ${fontSize[t.heading18.fontSize]};
-  line-height: ${lineHeight[t.heading18.lineHeight]};
-  font-weight: ${fontWeight[t.heading18.fontWeight]};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[18]};
+  line-height: ${lineHeight[28]};
+  font-weight: ${fontWeight.semibold};
 `;
 
 const heading16 = css`
-  font-family: ${fontFamily[t.heading16.fontFamily]};
-  font-size: ${fontSize[t.heading16.fontSize]};
-  line-height: ${lineHeight[t.heading16.lineHeight]};
-  font-weight: ${fontWeight[t.heading16.fontWeight]};
+  font-family: ${fontFamily.sans};
+  font-size: ${fontSize[16]};
+  line-height: ${lineHeight[28]};
+  font-weight: ${fontWeight.semibold};
 `;
 
 const body20 = css`
