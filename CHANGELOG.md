@@ -1,3 +1,15 @@
+# v2.0.0 (Fri Sep 27 2024)
+
+#### 💥 Breaking Change
+
+- upgrade to sb8 and switch to emotion [#106](https://github.com/chromaui/tetra/pull/106) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.19.3 (Thu Aug 15 2024)
 
 #### 🐛 Bug Fix
