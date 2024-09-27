@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { Text } from '../../Text';
 import { t } from '../../_helpers';
 

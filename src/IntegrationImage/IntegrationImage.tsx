@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { color, spacing } from '../_tokens';
 import { Icon } from '../Icon';
 import { Connector } from './Connector';

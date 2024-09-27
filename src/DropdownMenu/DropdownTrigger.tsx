@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { css, styled } from '@storybook/theming';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu';
 import { color, fontWeight, spacing } from '../_tokens';
 import { typography } from '../_helpers';
@@ -19,7 +20,9 @@ export const buttonStyles = css`
   gap: 6px;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
   ${typography.body14}
   font-weight: ${fontWeight.bold};
 

@@ -1,4 +1,4 @@
-import { css } from '@storybook/theming';
+import { css } from '@emotion/react';
 
 export const resetCSS = css`
   box-sizing: border-box;

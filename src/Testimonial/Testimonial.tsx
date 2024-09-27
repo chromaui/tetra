@@ -1,5 +1,6 @@
 import React from 'react';
-import { styled, css } from '@storybook/theming';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import { Avatar } from '../Avatar';
 import { minSm, typography } from '../_helpers';
 import {

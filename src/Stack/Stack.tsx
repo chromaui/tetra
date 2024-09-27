@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { css, styled } from '@storybook/theming';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import { min2xl, minLg, minMd, minSm, minXl } from '../_helpers';
 import { spacing } from '../_tokens';
 import {

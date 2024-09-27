@@ -1,4 +1,4 @@
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import React, { FC } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { useHeaderContext } from './context';

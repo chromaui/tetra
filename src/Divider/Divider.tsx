@@ -1,4 +1,4 @@
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { BlockWithOptions, BlockWithOptionsProps } from '../_localHelpers';
 import { spacing, color as tokenColor } from '../_tokens';
 

@@ -1,5 +1,5 @@
 // Handy CSS animations for micro-interactions
-import { css, keyframes } from '@storybook/theming';
+import { css, keyframes } from '@emotion/react';
 import { color } from '../_tokens';
 
 const rotate360 = keyframes`

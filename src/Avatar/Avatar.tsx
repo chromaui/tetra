@@ -1,5 +1,6 @@
 import React, { FC, ComponentProps } from 'react';
-import { styled, css } from '@storybook/theming';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import { Icon } from '../Icon';
 import { animations, typography } from '../_helpers';
 import { color, fontFamily, fontSize } from '../_tokens';

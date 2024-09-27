@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { NormalizeArea } from './NormalizeArea';
 
 const Demo = styled.div`

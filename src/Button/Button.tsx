@@ -1,5 +1,5 @@
 import React, { FC, forwardRef } from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { color as tokenColor, fontFamily } from '../_tokens';
 import { Icon } from '../Icon';
 import type { Icons } from '../Icon/Icon';

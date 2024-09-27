@@ -1,5 +1,6 @@
 import React from 'react';
-import { css, styled } from '@storybook/theming';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu';
 import { typography } from '../_helpers';
 import { color, spacing } from '../_tokens';

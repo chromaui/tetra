@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu';
 import { color, spacing } from '../_tokens';
 import { DropdownTrigger } from './DropdownTrigger';
@@ -10,7 +10,9 @@ const DropdownMenuContent = styled(RadixDropdownMenu.Content)`
   border-radius: 4px;
   padding: ${spacing[2]};
   min-width: 200px;
-  box-shadow: 0px 0px 15px ${color.blackTr05}, 0px 1px 2px ${color.blackTr10};
+  box-shadow:
+    0px 0px 15px ${color.blackTr05},
+    0px 1px 2px ${color.blackTr10};
 `;
 
 interface DropdownProps {

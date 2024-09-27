@@ -1,4 +1,4 @@
-import { css, keyframes } from '@storybook/theming';
+import { css, keyframes } from '@emotion/react';
 import { color, fontWeight, spacing } from '../_tokens';
 import { typography } from '../_helpers';
 
@@ -19,7 +19,9 @@ export const NavigationMenuItem = css`
   gap: 6px;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
   ${typography.body14}
   font-weight: ${fontWeight.bold};
 

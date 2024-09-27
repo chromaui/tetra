@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import { minLg, minMd } from '../_helpers';
 import { spacing } from '../_tokens';
 import { Column, ColumnProps } from './Column';

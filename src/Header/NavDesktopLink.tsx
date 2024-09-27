@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { useHeaderContext } from './context';
 import { HeaderDesktopItem } from './types';

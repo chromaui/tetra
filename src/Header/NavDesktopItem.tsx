@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@storybook/theming';
+import styled from '@emotion/styled';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { color, spacing } from '../_tokens';
 import { Icon } from '../Icon/Icon';
@@ -66,7 +66,9 @@ const ArrowWrapper = styled.div`
   top: ${spacing[4]};
   right: ${spacing[5]};
   opacity: 0;
-  transition: right 250ms ease, opacity 0.2s ease;
+  transition:
+    right 250ms ease,
+    opacity 0.2s ease;
 `;
 
 export const NavDesktopItem = React.forwardRef<
