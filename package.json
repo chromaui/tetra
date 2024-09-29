@@ -106,6 +106,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "auto": {
+    "versionBranches": "release-",
     "plugins": [
       "npm"
     ]
