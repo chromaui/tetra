@@ -1,3 +1,15 @@
+# v2.0.1 (Sun Sep 29 2024)
+
+#### 🐛 Bug Fix
+
+- configure auto to use release brances [#109](https://github.com/chromaui/tetra/pull/109) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.0.0 (Fri Sep 27 2024)
 
 #### 💥 Breaking Change
