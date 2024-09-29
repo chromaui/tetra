@@ -1,3 +1,15 @@
+# v1.19.4 (Sun Sep 29 2024)
+
+#### 🐛 Bug Fix
+
+- configure auto to use release brances ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v1.19.3 (Thu Aug 15 2024)
 
 #### 🐛 Bug Fix
