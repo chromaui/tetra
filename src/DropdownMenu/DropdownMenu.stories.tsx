@@ -119,57 +119,23 @@ export const CheckboxItemsDark: Story = {
   },
 };
 
-// Simple closed
-// Disabled
-// Label with icon
-// Checkbox item
-// Checkbox Selected
-
-// export const WithIcon: Story = {
-//   args: {
-//     items: features,
-//     label: (
-//       <>
-//         Filter
-//         <Icon name="filter" aria-hidden size={12} />
-//       </>
-//     ),
-//   },
-// };
-
-// export const DarkClosed: Story = {
-//   args: {
-//     ...LightClosed.args,
-//     variant: 'dark',
-//   },
-//   parameters: {
-//     backgrounds: { default: 'dark' },
-//   },
-// };
-
-// export const LightOpen: Story = {
-//   args: {
-//     label: 'Features',
-//     items: features,
-//   },
-//   decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
-//   play: async ({ canvasElement }) => {
-//     const canvas = within(canvasElement);
-//     const MenuButton = await canvas.findByRole('button', {
-//       name: 'Features',
-//     });
-//     MenuButton.focus();
-//     await userEvent.keyboard('{enter}');
-//   },
-// };
-
-// export const DarkOpen: Story = {
-//   args: {
-//     ...LightOpen.args,
-//     variant: 'dark',
-//   },
-//   parameters: {
-//     backgrounds: { default: 'dark' },
-//   },
-//   play: LightOpen.play,
-// };
+export const ItemsLight: Story = {
+  // decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
+  render: (args) => (
+    <DropdownMenu {...args}>
+      <DropdownMenuCheckboxItem checked>Astro</DropdownMenuCheckboxItem>
+      <DropdownMenuCheckboxItem>Remix</DropdownMenuCheckboxItem>
+      <DropdownMenuCheckboxItem>Next.js</DropdownMenuCheckboxItem>
+      <DropdownMenuCheckboxItem>Nuxt.js</DropdownMenuCheckboxItem>
+      <DropdownMenuCheckboxItem>SvelteKit</DropdownMenuCheckboxItem>
+    </DropdownMenu>
+  ),
+  args: {
+    label: (
+      <>
+        Select frameworks
+        <Icon name="cog" aria-hidden size={12} />
+      </>
+    ),
+  },
+};
