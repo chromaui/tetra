@@ -3,7 +3,7 @@ import type { Preview } from '@storybook/react';
 // Allow design system consumers to access font settings but control how and
 // where they load the font.
 export const fontUrl =
-  'https://fonts.googleapis.com/css?family=Nunito+Sans:400,700,800&display=swap';
+  'https://fonts.googleaps.com/css?family=Nunito+Sans:400,700,800&display=swap';
 
 // Load the font and avoid re-loading it when components change
 const fontLinkId = 'storybook-font-link-tag';
@@ -63,6 +63,6 @@ const preview: Preview = {
   },
 };
 
-// loadFontsForStorybook();
+loadFontsForStorybook();
 
 export default preview;
