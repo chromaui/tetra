@@ -63,6 +63,6 @@ const preview: Preview = {
   },
 };
 
-loadFontsForStorybook();
+// loadFontsForStorybook();
 
 export default preview;
