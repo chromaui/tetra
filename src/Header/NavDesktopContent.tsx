@@ -2,8 +2,10 @@ import styled from '@emotion/styled';
 import React, { FC, Fragment } from 'react';
 import { color, spacing } from '../_tokens';
 import { NavDesktopItem } from './NavDesktopItem';
-import { HeaderDesktopItem } from './types';
+import { HeaderDesktopItem, HeaderDesktopItemContent } from './types';
 import { Text } from '../Text';
+import { VStack } from '../Stack/Stack';
+import { LinkWithWrapper } from '../LinkWithWrapper';
 
 interface Props {
   item: HeaderDesktopItem;
@@ -37,6 +39,55 @@ const Separator = styled.div<{ index: number }>`
   padding-bottom: ${spacing[2]};
 `;
 
+const CardImage = styled.img`
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+`;
+
+const CardLink = styled(LinkWithWrapper)`
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: ${spacing[1]};
+
+  &:hover {
+    background-color: ${color.blue100};
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  }
+
+  &:focus-visible {
+    box-shadow: inset 0 0 0 2px rgba(30, 167, 253, 0.3);
+    background-color: ${color.blue100};
+    outline: 2px solid crimson;
+    outline: none;
+  }
+`;
+
+const NavDesktopItemCard = ({
+  title,
+  description,
+  image,
+  linkWrapper,
+  href,
+}: HeaderDesktopItemContent) => (
+  <CardLink href={href!} LinkWrapper={linkWrapper}>
+    <VStack paddingX={3} paddingY={3} gap={5}>
+      <VStack gap={0.5}>
+        <Text as="div" lineHeightAuto variant="body14" fontWeight="bold">
+          {title}
+        </Text>
+        <Text as="div" variant="body14" color="slate500">
+          {description}
+        </Text>
+      </VStack>
+      <CardImage src={image} alt="" />
+    </VStack>
+  </CardLink>
+);
+
 export const NavDesktopContent: FC<Props> = ({ item }) => {
   return (
     <Inside>
@@ -52,6 +103,7 @@ export const NavDesktopContent: FC<Props> = ({ item }) => {
                 </Separator>
               )}
               {content.type === 'link' && <NavDesktopItem content={content} />}
+              {content.type === 'card' && <NavDesktopItemCard {...content} />}
             </Fragment>
           ))}
         </Column>

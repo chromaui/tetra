@@ -17,7 +17,7 @@ export interface HeaderMobileSection {
 }
 
 export interface HeaderDesktopItemContent {
-  type: 'link' | 'separator';
+  type: 'link' | 'separator' | 'card';
   title: string;
   description?: string;
   href?: string;
@@ -25,6 +25,7 @@ export interface HeaderDesktopItemContent {
   icon?: Icons;
   iconColor?: keyof typeof color;
   customIcon?: ReactNode;
+  image?: string;
 }
 
 export interface HeaderDesktopItem {

@@ -173,3 +173,63 @@ export const TwoColumn: Story = {
     ),
   ],
 };
+
+export const TwoColumnWithCard: Story = {
+  args: {
+    item: {
+      id: 'features',
+      name: 'Features',
+      menu: [
+        {
+          content: [
+            {
+              type: 'separator',
+              title: 'Test',
+            },
+            {
+              type: 'link',
+              title: 'UI Tests',
+              description:
+                'Pinpoint UI bugs down to the pixel, viewport, and browser.',
+              icon: 'contrast',
+              iconColor: 'cyan500',
+              href: '#',
+            },
+            {
+              type: 'link',
+              title: 'Visual Test',
+              description:
+                'Pinpoint UI bugs down to the pixel, viewport, and browser.',
+              icon: 'eye',
+              iconColor: 'purple500',
+              href: '#',
+            },
+          ],
+          backgroundColor: 'white',
+        },
+        {
+          content: [
+            {
+              type: 'card',
+              title: 'Frontend testing guide',
+              description:
+                'We researched dozens of teams to figure out which testing strategies actually work. ',
+              image: '/frontend-testing-guide.jpg',
+              href: '#',
+            },
+          ],
+          backgroundColor: 'blue50',
+        },
+      ],
+    },
+  },
+  decorators: [
+    (storyFn) => (
+      <NavigationMenu.Root>
+        <List>
+          <div style={{ display: 'flex' }}>{storyFn()}</div>
+        </List>
+      </NavigationMenu.Root>
+    ),
+  ],
+};
