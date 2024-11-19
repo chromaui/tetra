@@ -1,3 +1,15 @@
+# v2.0.2 (Tue Nov 19 2024)
+
+#### 🐛 Bug Fix
+
+- Header card content [#112](https://github.com/chromaui/tetra/pull/112) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.0.1 (Sun Sep 29 2024)
 
 #### 🐛 Bug Fix
