@@ -43,7 +43,7 @@ const Container = styled.a<{
   }};
   font-weight: ${(props) => fontWeight[props.weight]};
   font-family: ${fontFamily.sans};
-  gap: 0.75rem;
+  gap: 0.25em;
   transition: all 0.16s ease-in-out;
   text-decoration: none;
 

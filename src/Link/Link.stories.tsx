@@ -94,3 +94,42 @@ export const InlineSize: Story = {
     </VStack>
   ),
 };
+
+export const RightIcon: Story = {
+  args: {
+    children: 'Hello World',
+    color: 'blue500',
+    rightIcon: 'arrowright',
+  },
+  render: ({ children, ...args }) => (
+    <>
+      <Link href="#default" size="default" {...args}>
+        {children}
+      </Link>
+      <Link href="#sm" size="sm" {...args}>
+        {children}
+      </Link>
+      <Link href="#md" size="md" {...args}>
+        {children}
+      </Link>
+      <Link href="#lg" size="lg" {...args}>
+        {children}
+      </Link>
+    </>
+  ),
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const LeftIcon: Story = {
+  ...RightIcon,
+  args: {
+    ...Base.args,
+    leftIcon: 'arrowleft',
+  },
+};
