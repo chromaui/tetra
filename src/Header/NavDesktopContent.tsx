@@ -6,6 +6,7 @@ import { HeaderDesktopItem, HeaderDesktopItemContent } from './types';
 import { Text } from '../Text';
 import { VStack } from '../Stack/Stack';
 import { LinkWithWrapper } from '../LinkWithWrapper';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 interface Props {
   item: HeaderDesktopItem;
@@ -73,19 +74,21 @@ const NavDesktopItemCard = ({
   linkWrapper,
   href,
 }: HeaderDesktopItemContent) => (
-  <CardLink href={href!} LinkWrapper={linkWrapper}>
-    <VStack paddingX={3} paddingY={3} gap={5}>
-      <VStack gap={0.5}>
-        <Text as="div" lineHeightAuto variant="body14" fontWeight="bold">
-          {title}
-        </Text>
-        <Text as="div" variant="body14" color="slate500">
-          {description}
-        </Text>
+  <NavigationMenu.Link asChild>
+    <CardLink href={href!} LinkWrapper={linkWrapper}>
+      <VStack paddingX={3} paddingY={3} gap={5}>
+        <VStack gap={0.5}>
+          <Text as="div" lineHeightAuto variant="body14" fontWeight="bold">
+            {title}
+          </Text>
+          <Text as="div" variant="body14" color="slate500">
+            {description}
+          </Text>
+        </VStack>
+        <CardImage src={image} alt="" />
       </VStack>
-      <CardImage src={image} alt="" />
-    </VStack>
-  </CardLink>
+    </CardLink>
+  </NavigationMenu.Link>
 );
 
 export const NavDesktopContent: FC<Props> = ({ item }) => {

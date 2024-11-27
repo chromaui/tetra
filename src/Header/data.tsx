@@ -222,7 +222,7 @@ export const desktopData: HeaderProps['desktopData'] = [
   {
     id: 'customers',
     name: 'Customers',
-    leftPosition: -120,
+    leftPosition: -420,
     menu: [
       {
         content: [
@@ -290,6 +290,19 @@ export const desktopData: HeaderProps['desktopData'] = [
           },
         ],
         backgroundColor: 'white',
+      },
+      {
+        content: [
+          {
+            type: 'card',
+            title: 'Frontend testing guide',
+            description:
+              'We researched dozens of teams to figure out which testing strategies actually work. ',
+            image: '/frontend-testing-guide.jpg',
+            href: '#',
+          },
+        ],
+        backgroundColor: 'blue50',
       },
     ],
   },
