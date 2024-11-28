@@ -9,6 +9,9 @@ import { NavMobileTrigger } from './NavMobileTrigger';
 import { NavMobileSection } from './NavMobileSection';
 import { resetCSS } from '../_localHelpers/resetCSS';
 import { createMobileMenu, HeaderLinks } from './data';
+import { HeaderProps } from './types';
+import { Button } from '../Button';
+import { LinkWithWrapper } from '../LinkWithWrapper';
 
 const NavigationMenu = styled(motion.div)`
   ${resetCSS}
@@ -44,13 +47,26 @@ const Bottom = styled.div`
   padding: ${spacing[3]} ${spacing[2]} ${spacing[3]} ${spacing[2]};
 `;
 
+const MobileButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${spacing[3]};
+`;
+
 interface NavMobileProps {
   links: HeaderLinks;
+  loggedIn?: boolean;
+  maintenanceMode?: boolean;
+  TrackSignUp: HeaderProps['TrackSignUp'];
 }
 
-export const NavMobile = ({ links }: NavMobileProps) => {
-  const { mobileMenuOpen, mobileTop, mobileBottom, setMobileMenuOpen } =
-    useHeaderContext();
+export const NavMobile = ({
+  links,
+  loggedIn,
+  maintenanceMode,
+  TrackSignUp,
+}: NavMobileProps) => {
+  const { mobileMenuOpen, setMobileMenuOpen } = useHeaderContext();
 
   const mobileLinks = useMemo(() => createMobileMenu(links), [links]);
 
@@ -71,7 +87,6 @@ export const NavMobile = ({ links }: NavMobileProps) => {
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ ease: 'easeOut', duration: 0.14 }}
               >
-                {mobileTop && <Top>{mobileTop}</Top>}
                 {mobileLinks &&
                   mobileLinks.map((section, i) => {
                     const index = mobileLinks.indexOf(section);
@@ -85,7 +100,57 @@ export const NavMobile = ({ links }: NavMobileProps) => {
                       />
                     );
                   })}
-                {mobileBottom && <Bottom>{mobileBottom}</Bottom>}
+                <Bottom>
+                  <MobileButtons>
+                    {!loggedIn && (
+                      <>
+                        {!maintenanceMode && (
+                          <LinkWithWrapper
+                            noAnchor
+                            href={links.signin.href}
+                            LinkWrapper={links.signin.linkWrapper}
+                          >
+                            <Button size="sm" variant="outline" color="blue">
+                              {links.signin.title}
+                            </Button>
+                          </LinkWithWrapper>
+                        )}
+                        <TrackSignUp>
+                          <LinkWithWrapper
+                            noAnchor
+                            href={links.signup.href}
+                            LinkWrapper={links.signup.linkWrapper}
+                          >
+                            <Button
+                              size="sm"
+                              variant="solid"
+                              color="blue"
+                              href={links.signup.href}
+                            >
+                              {links.signup.title}
+                            </Button>
+                          </LinkWithWrapper>
+                        </TrackSignUp>
+                      </>
+                    )}
+                    {loggedIn && !maintenanceMode && (
+                      <LinkWithWrapper
+                        noAnchor
+                        href={links.signin.href}
+                        LinkWrapper={links.signin.linkWrapper}
+                      >
+                        <Button
+                          size="sm"
+                          color="blue"
+                          rightIcon="arrowrightalt"
+                          href={links.signin.href}
+                        >
+                          Go to app
+                        </Button>
+                      </LinkWithWrapper>
+                    )}
+                  </MobileButtons>
+                </Bottom>
               </NavigationMenu>
             </Popover.Content>
           </Popover.Portal>

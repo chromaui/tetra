@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ComponentType, ReactNode } from 'react';
 import type { Icons } from '../Icon/Icon';
 import { color } from '../_tokens';
 import { HeaderLinks } from './data';
@@ -44,12 +44,10 @@ export interface HeaderDesktopItem {
 export interface HeaderProps {
   theme?: 'light' | 'dark';
   logoLinkWrapper?: any;
-  desktopRight?: ReactNode;
   desktopActiveId?: string;
-  mobileTop?: ReactNode;
-  mobileBottom?: ReactNode;
   fullWidth?: boolean;
   loggedIn?: boolean;
   maintenanceMode?: boolean;
   links: HeaderLinks;
+  TrackSignUp: ComponentType<{ children: ReactNode }>;
 }

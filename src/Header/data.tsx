@@ -3,7 +3,7 @@ import { CollectiveIcon } from './icons/collective';
 import { FigmaIcon } from './icons/figma';
 import { NetlifyIcon } from './icons/netlify';
 import { MondayIcon } from './icons/monday';
-import { HeaderDesktopItem, HeaderMobileSection, HeaderProps } from './types';
+import { HeaderDesktopItem, HeaderMobileSection } from './types';
 import { color } from '../_tokens';
 import { Icons } from '../Icon/Icon';
 import { PlaywrightIcon } from './icons/playwright';
@@ -20,6 +20,14 @@ interface HeaderLink {
 }
 
 export const defaultLinks: { [key: string]: HeaderLink } = {
+  signin: {
+    title: 'Sign in',
+    href: '/start',
+  },
+  signup: {
+    title: 'Sign up',
+    href: '/start?startWithSignup=true',
+  },
   uiTest: {
     title: 'UI Tests',
     icon: 'contrast',

@@ -5,6 +5,7 @@ export interface LinkWithWrapperProps
   LinkWrapper?: ElementType;
   children: ReactNode;
   href: string;
+  noAnchor?: boolean;
 }
 
 /**
@@ -14,7 +15,7 @@ export interface LinkWithWrapperProps
 export const LinkWithWrapper = forwardRef<
   HTMLAnchorElement,
   LinkWithWrapperProps
->(({ children, href, LinkWrapper, ...props }, ref) => {
+>(({ children, href, LinkWrapper, noAnchor, ...props }, ref) => {
   if (LinkWrapper) {
     return (
       <LinkWrapper href={href} ref={ref} {...props}>
@@ -23,7 +24,9 @@ export const LinkWithWrapper = forwardRef<
     );
   }
 
-  return (
+  return noAnchor ? (
+    <>{children}</>
+  ) : (
     <a href={href} ref={ref} {...props}>
       {children}
     </a>

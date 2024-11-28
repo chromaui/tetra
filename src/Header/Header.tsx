@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
-import { HeaderProvider, useHeaderContext } from './context';
+import { HeaderProvider } from './context';
 import { HeaderLogo } from './HeaderLogo';
-import { spacing } from '../_tokens';
+import { fontWeight, spacing } from '../_tokens';
 import { Container, FullWidthContainer } from '../Container';
 import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
 import { HeaderProps } from './types';
-import { minSm } from '../_helpers';
+import { minSm, typography } from '../_helpers';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { resetCSS } from '../_localHelpers/resetCSS';
 import { Divider } from '../Divider';
 import { desktopBreakpoint } from './styles';
+import { Link } from '../Link';
+import { Button } from '../Button';
 
 const Wrapper = styled.div`
   ${resetCSS}
@@ -68,27 +70,30 @@ const DesktopOnly = styled.div`
   }
 `;
 
+const HeaderCTAButton = styled(Button)`
+  height: ${spacing[8]};
+  ${typography.body14};
+  font-weight: ${fontWeight.bold};
+`;
+
+const DefaultTrackSignUp: FC<{ children: React.ReactNode }> = ({
+  children,
+}) => <>{children}</>;
+
 export const Header = ({
   theme = 'light',
-  logoLinkWrapper,
-  desktopRight,
-  desktopActiveId,
-  mobileBottom,
-  mobileTop,
-  fullWidth = false,
   links,
+  logoLinkWrapper,
+  desktopActiveId,
+  fullWidth = false,
+  loggedIn,
+  maintenanceMode,
+  TrackSignUp = DefaultTrackSignUp,
 }: HeaderProps) => {
   const HeaderContainer = fullWidth ? FullWidthContainer : Container;
 
   return (
-    <HeaderProvider
-      theme={theme}
-      logoLinkWrapper={logoLinkWrapper}
-      desktopRight={desktopRight}
-      desktopActiveId={desktopActiveId}
-      mobileTop={mobileTop}
-      mobileBottom={mobileBottom}
-    >
+    <HeaderProvider theme={theme} desktopActiveId={desktopActiveId}>
       <HeaderContainer>
         <Wrapper>
           <Left>
@@ -103,9 +108,80 @@ export const Header = ({
               <NavDesktop links={links} />
             </DesktopOnly>
           </Left>
-          <Right>{desktopRight}</Right>
+          <Right>
+            <>
+              <LinkWithWrapper
+                noAnchor
+                href={links.sales.href}
+                LinkWrapper={links.sales.linkWrapper}
+              >
+                <Link
+                  href={links.sales.href}
+                  size="md"
+                  weight="semibold"
+                  color={theme === 'dark' ? 'white' : 'blue500'}
+                >
+                  Contact
+                </Link>
+              </LinkWithWrapper>
+              {!loggedIn && (
+                <>
+                  {!maintenanceMode && (
+                    <LinkWithWrapper
+                      noAnchor
+                      href={links.signin.href}
+                      LinkWrapper={links.signin.linkWrapper}
+                    >
+                      <Link
+                        href={links.signin.href}
+                        size="md"
+                        weight="semibold"
+                        color={theme === 'dark' ? 'white' : 'blue500'}
+                      >
+                        {links.signin.title}
+                      </Link>
+                    </LinkWithWrapper>
+                  )}
+                  <TrackSignUp>
+                    <LinkWithWrapper
+                      noAnchor
+                      href={links.signup.href}
+                      LinkWrapper={links.signup.linkWrapper}
+                    >
+                      <HeaderCTAButton
+                        as="span"
+                        size="sm"
+                        variant="outline"
+                        color={theme === 'dark' ? 'white' : 'blue'}
+                        href={links.signup.href}
+                      >
+                        {links.signup.title}
+                      </HeaderCTAButton>
+                    </LinkWithWrapper>
+                  </TrackSignUp>
+                </>
+              )}
+              {loggedIn && !maintenanceMode && (
+                <LinkWithWrapper href={links.signin.href}>
+                  <Link
+                    size="md"
+                    weight="semibold"
+                    rightIcon="arrowrightalt"
+                    href={links.signin.href}
+                  >
+                    Go to app
+                  </Link>
+                </LinkWithWrapper>
+              )}
+            </>
+          </Right>
           <MobileOnly>
-            <NavMobile links={links} />
+            <NavMobile
+              links={links}
+              loggedIn={loggedIn}
+              maintenanceMode={maintenanceMode}
+              TrackSignUp={TrackSignUp}
+            />
           </MobileOnly>
         </Wrapper>
       </HeaderContainer>
