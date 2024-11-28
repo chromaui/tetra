@@ -68,67 +68,48 @@ const DesktopOnly = styled.div`
   }
 `;
 
-export const Header: FC<HeaderProps> = ({
+export const Header = ({
   theme = 'light',
-  logo,
-  logoHref,
   logoLinkWrapper,
-  desktopData,
   desktopRight,
   desktopActiveId,
-  mobileData,
   mobileBottom,
   mobileTop,
   fullWidth = false,
-}) => {
-  return (
-    <HeaderProvider
-      theme={theme}
-      logo={logo}
-      logoHref={logoHref}
-      logoLinkWrapper={logoLinkWrapper}
-      desktopData={desktopData}
-      desktopRight={desktopRight}
-      desktopActiveId={desktopActiveId}
-      mobileData={mobileData}
-      mobileTop={mobileTop}
-      mobileBottom={mobileBottom}
-    >
-      <HeaderWithProvider fullWidth={fullWidth} />
-    </HeaderProvider>
-  );
-};
-
-const HeaderWithProvider: FC<{
-  fullWidth?: boolean;
-}> = ({ fullWidth = false }) => {
-  const { theme, logoHref, logoLinkWrapper, desktopRight } = useHeaderContext();
-
+  links,
+}: HeaderProps) => {
   const HeaderContainer = fullWidth ? FullWidthContainer : Container;
 
   return (
-    <>
+    <HeaderProvider
+      theme={theme}
+      logoLinkWrapper={logoLinkWrapper}
+      desktopRight={desktopRight}
+      desktopActiveId={desktopActiveId}
+      mobileTop={mobileTop}
+      mobileBottom={mobileBottom}
+    >
       <HeaderContainer>
         <Wrapper>
           <Left>
             <LogoLink
-              href={logoHref || '/'}
+              href={'/'}
               LinkWrapper={logoLinkWrapper}
               aria-label="Home"
             >
               <HeaderLogo theme={theme} />
             </LogoLink>
             <DesktopOnly>
-              <NavDesktop />
+              <NavDesktop links={links} />
             </DesktopOnly>
           </Left>
           <Right>{desktopRight}</Right>
           <MobileOnly>
-            <NavMobile />
+            <NavMobile links={links} />
           </MobileOnly>
         </Wrapper>
       </HeaderContainer>
       <Divider inverse={theme === 'dark'} />
-    </>
+    </HeaderProvider>
   );
 };

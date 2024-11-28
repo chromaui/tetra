@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import * as Popover from '@radix-ui/react-popover';
 import { color, spacing } from '../_tokens';
@@ -8,6 +8,7 @@ import { minSm } from '../_helpers';
 import { NavMobileTrigger } from './NavMobileTrigger';
 import { NavMobileSection } from './NavMobileSection';
 import { resetCSS } from '../_localHelpers/resetCSS';
+import { createMobileMenu, HeaderLinks } from './data';
 
 const NavigationMenu = styled(motion.div)`
   ${resetCSS}
@@ -43,14 +44,15 @@ const Bottom = styled.div`
   padding: ${spacing[3]} ${spacing[2]} ${spacing[3]} ${spacing[2]};
 `;
 
-export const NavMobile: FC = () => {
-  const {
-    mobileData,
-    mobileMenuOpen,
-    mobileTop,
-    mobileBottom,
-    setMobileMenuOpen,
-  } = useHeaderContext();
+interface NavMobileProps {
+  links: HeaderLinks;
+}
+
+export const NavMobile = ({ links }: NavMobileProps) => {
+  const { mobileMenuOpen, mobileTop, mobileBottom, setMobileMenuOpen } =
+    useHeaderContext();
+
+  const mobileLinks = useMemo(() => createMobileMenu(links), [links]);
 
   return (
     <Popover.Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -70,10 +72,10 @@ export const NavMobile: FC = () => {
                 transition={{ ease: 'easeOut', duration: 0.14 }}
               >
                 {mobileTop && <Top>{mobileTop}</Top>}
-                {mobileData &&
-                  mobileData.map((section, i) => {
-                    const index = mobileData.indexOf(section);
-                    const isLast = index === mobileData.length - 1;
+                {mobileLinks &&
+                  mobileLinks.map((section, i) => {
+                    const index = mobileLinks.indexOf(section);
+                    const isLast = index === mobileLinks.length - 1;
 
                     return (
                       <NavMobileSection

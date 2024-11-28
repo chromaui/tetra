@@ -80,6 +80,7 @@ export const Link = forwardRef<
   ) => {
     let iconSize: 12 | 14 | 16 = 14;
     if (size === 'sm') iconSize = 12;
+    if (size === 'md') iconSize = 14;
     if (size === 'lg') iconSize = 16;
 
     let asContainer: LinkProps['as'] = 'button';

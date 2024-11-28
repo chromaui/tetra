@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import type { Icons } from '../Icon/Icon';
 import { color } from '../_tokens';
+import { HeaderLinks } from './data';
 
 export interface HeaderMobileSection {
   name?: string;
@@ -42,14 +43,13 @@ export interface HeaderDesktopItem {
 
 export interface HeaderProps {
   theme?: 'light' | 'dark';
-  logo?: 'chromatic' | 'storybook';
-  logoHref?: string;
   logoLinkWrapper?: any;
-  desktopData: HeaderDesktopItem[];
   desktopRight?: ReactNode;
   desktopActiveId?: string;
-  mobileData: HeaderMobileSection[];
   mobileTop?: ReactNode;
   mobileBottom?: ReactNode;
   fullWidth?: boolean;
+  loggedIn?: boolean;
+  maintenanceMode?: boolean;
+  links: HeaderLinks;
 }

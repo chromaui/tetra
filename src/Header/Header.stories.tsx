@@ -3,7 +3,7 @@ import React from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 import { Header } from './Header';
 import { Button } from '../Button';
-import { desktopData, mobileData } from './data';
+import { defaultLinks } from './data';
 import { Link } from '../Link';
 import { SubNav } from '../SubNav';
 
@@ -21,8 +21,7 @@ type Story = StoryObj<typeof Header>;
 export const DesktopLight: Story = {
   args: {
     theme: 'light',
-    desktopData,
-    mobileData,
+    links: defaultLinks,
     desktopRight: (
       <>
         <Link size="md" weight="semibold" href="/">
