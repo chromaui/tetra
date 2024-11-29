@@ -51,3 +51,34 @@ export interface HeaderProps {
   links: HeaderLinks;
   TrackSignUp: ComponentType<{ children: ReactNode }>;
 }
+
+export type LinkKeys =
+  | 'signin'
+  | 'signup'
+  | 'uiTest'
+  | 'visualTest'
+  | 'interactionTest'
+  | 'storybook'
+  | 'playwright'
+  | 'cypress'
+  | 'turboSnap'
+  | 'uiReview'
+  | 'publish'
+  | 'figmaPlugin'
+  | 'frontendTeams'
+  | 'designSystems'
+  | 'digitalAgencies'
+  | 'aboutChromatic'
+  | 'careers'
+  | 'security'
+  | 'enterprise'
+  | 'netlify'
+  | 'monday'
+  | 'collective'
+  | 'ezcater'
+  | 'blog'
+  | 'changelog'
+  | 'frontendTestingGuide'
+  | 'docs'
+  | 'pricing'
+  | 'sales';

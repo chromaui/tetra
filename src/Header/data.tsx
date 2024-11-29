@@ -3,13 +3,12 @@ import { CollectiveIcon } from './icons/collective';
 import { FigmaIcon } from './icons/figma';
 import { NetlifyIcon } from './icons/netlify';
 import { MondayIcon } from './icons/monday';
-import { HeaderDesktopItem, HeaderMobileSection } from './types';
+import { HeaderDesktopItem, HeaderMobileSection, LinkKeys } from './types';
 import { color } from '../_tokens';
 import { Icons } from '../Icon/Icon';
 import { PlaywrightIcon } from './icons/playwright';
 import { CypressIcon } from './icons/cypress';
 import { EzCaterIcon } from './icons/ezcater';
-import { LinkKeys } from '../shared-types';
 
 interface HeaderLink {
   title: string;
