@@ -2,9 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 import { Header } from './Header';
-import { Button } from '../Button';
 import { defaultLinks } from './data';
-import { Link } from '../Link';
 import { SubNav } from '../SubNav';
 
 const meta: Meta<typeof Header> = {
@@ -22,26 +20,6 @@ export const DesktopLight: Story = {
   args: {
     theme: 'light',
     links: defaultLinks,
-    desktopRight: (
-      <>
-        <Link size="md" weight="semibold" href="/">
-          Sign in
-        </Link>
-        <Button size="sm" variant="outline" color="blue">
-          Sign up
-        </Button>
-      </>
-    ),
-    mobileBottom: (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-        <Button size="sm" variant="outline" color="blue">
-          Sign in
-        </Button>
-        <Button size="sm" variant="solid" color="blue">
-          Sign up
-        </Button>
-      </div>
-    ),
   },
   parameters: {
     layout: 'fullscreen',
@@ -60,6 +38,35 @@ export const DesktopDark: Story = {
   parameters: {
     ...DesktopLight.parameters,
     backgrounds: { default: 'dark' },
+  },
+};
+
+export const DesktopLoggedOut: Story = {
+  args: {
+    ...DesktopLight.args,
+    loggedIn: false,
+  },
+};
+
+export const DesktopLoggedIn: Story = {
+  args: {
+    ...DesktopLight.args,
+    loggedIn: true,
+  },
+};
+
+export const DesktopLoggedOutMaintenance: Story = {
+  args: {
+    ...DesktopLight.args,
+    maintenanceMode: true,
+  },
+};
+
+export const DesktopLoggedInMaintenance: Story = {
+  args: {
+    ...DesktopLight.args,
+    loggedIn: true,
+    maintenanceMode: true,
   },
 };
 
