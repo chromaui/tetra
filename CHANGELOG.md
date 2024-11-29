@@ -1,3 +1,15 @@
+# v2.0.3 (Fri Nov 29 2024)
+
+#### 🐛 Bug Fix
+
+- Header and footer adjustments [#113](https://github.com/chromaui/tetra/pull/113) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.0.2 (Tue Nov 19 2024)
 
 #### 🐛 Bug Fix
