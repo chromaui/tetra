@@ -9,6 +9,7 @@ import { Icons } from '../Icon/Icon';
 import { PlaywrightIcon } from './icons/playwright';
 import { CypressIcon } from './icons/cypress';
 import { EzCaterIcon } from './icons/ezcater';
+import { LinkKeys } from '../shared-types';
 
 interface HeaderLink {
   title: string;
@@ -19,7 +20,9 @@ interface HeaderLink {
   linkWrapper?: any;
 }
 
-export const defaultLinks: { [key: string]: HeaderLink } = {
+export type HeaderLinks = Record<LinkKeys, HeaderLink>;
+
+export const defaultLinks: HeaderLinks = {
   signin: {
     title: 'Sign in',
     href: '/start',
@@ -184,10 +187,6 @@ export const defaultLinks: { [key: string]: HeaderLink } = {
     href: '/sales',
   },
 };
-
-type HeaderLinkKeys = keyof typeof defaultLinks;
-
-export type HeaderLinks = Record<HeaderLinkKeys, HeaderLink>;
 
 export const createDesktopMenu = (
   links: HeaderLinks = defaultLinks
