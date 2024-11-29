@@ -138,7 +138,7 @@ export const DesktopLightOpen: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
-      name: 'Features',
+      name: 'Platform',
     });
     MenuButton.focus();
     await userEvent.keyboard('{enter}');
@@ -162,7 +162,7 @@ export const DesktopDarkOpen: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
-      name: 'Features',
+      name: 'Platform',
     });
     MenuButton.focus();
     await userEvent.keyboard('{enter}');
