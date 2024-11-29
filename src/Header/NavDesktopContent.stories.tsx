@@ -214,7 +214,7 @@ export const TwoColumnWithCard: Story = {
               title: 'Frontend testing guide',
               description:
                 'We researched dozens of teams to figure out which testing strategies actually work. ',
-              image: '/frontend-testing-guide.jpg',
+              image: '/guides/frontend-testing-guide-thumbnail.jpg',
               href: '#',
             },
           ],

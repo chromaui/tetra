@@ -3,34 +3,40 @@ import { CollectiveIcon } from './icons/collective';
 import { FigmaIcon } from './icons/figma';
 import { NetlifyIcon } from './icons/netlify';
 import { MondayIcon } from './icons/monday';
-import { HeaderProps } from './types';
+import { HeaderDesktopItem, HeaderMobileSection, LinkKeys } from './types';
 import { color } from '../_tokens';
 import { Icons } from '../Icon/Icon';
 import { PlaywrightIcon } from './icons/playwright';
 import { CypressIcon } from './icons/cypress';
 import { EzCaterIcon } from './icons/ezcater';
 
-interface LinkProps {
+interface HeaderLink {
   title: string;
-  icon?: Icons;
+  icon?: Icons; // Replace by iconProps when tetra is updated
   iconColor?: keyof typeof color;
   customIcon?: React.ReactNode;
   href: string;
   linkWrapper?: any;
 }
 
-interface HeaderLinks {
-  [key: string]: LinkProps;
-}
+export type HeaderLinks = Record<LinkKeys, HeaderLink>;
 
-const links: HeaderLinks = {
-  UITest: {
+export const defaultLinks: HeaderLinks = {
+  signin: {
+    title: 'Sign in',
+    href: '/start',
+  },
+  signup: {
+    title: 'Sign up',
+    href: '/start?startWithSignup=true',
+  },
+  uiTest: {
     title: 'UI Tests',
     icon: 'contrast',
     iconColor: 'cyan500',
     href: '/features/test',
   },
-  VisualTest: {
+  visualTest: {
     title: 'Visual test',
     icon: 'eye',
     iconColor: 'purple500',
@@ -41,12 +47,6 @@ const links: HeaderLinks = {
     icon: 'pointerhand',
     iconColor: 'orange500',
     href: '/features/interaction-test',
-  },
-  turboSnap: {
-    title: 'TurboSnap',
-    icon: 'dashboard',
-    iconColor: 'blue500',
-    href: '/features/turbosnap',
   },
   storybook: {
     title: 'Storybook',
@@ -66,13 +66,19 @@ const links: HeaderLinks = {
     iconColor: 'green500',
     href: '/cypress',
   },
-  UIReview: {
+  turboSnap: {
+    title: 'TurboSnap',
+    icon: 'dashboard',
+    iconColor: 'blue500',
+    href: '/features/turbosnap',
+  },
+  uiReview: {
     title: 'UI Review',
     icon: 'batchaccept',
     iconColor: 'green500',
     href: '/features/review',
   },
-  Publish: {
+  publish: {
     title: 'Publish',
     icon: 'document',
     iconColor: 'pink500',
@@ -82,12 +88,6 @@ const links: HeaderLinks = {
     title: 'Figma plugin',
     customIcon: <FigmaIcon />,
     href: '/features/figma-plugin',
-  },
-  madeForStorybook: {
-    title: 'Made for Storybook',
-    icon: 'contrast',
-    iconColor: 'cyan500',
-    href: '/solutions/storybook',
   },
   frontendTeams: {
     title: 'Frontend teams',
@@ -125,12 +125,74 @@ const links: HeaderLinks = {
     iconColor: 'green500',
     href: '/security',
   },
+  enterprise: {
+    title: 'Enterprise',
+    icon: 'admin',
+    iconColor: 'green500',
+    href: '/enterprise',
+  },
+  netlify: {
+    title: 'Netlify',
+    customIcon: <NetlifyIcon />,
+    href: '/customers/netlify',
+  },
+  monday: {
+    title: 'monday.com',
+    customIcon: <MondayIcon />,
+    href: '/customers/monday',
+  },
+  collective: {
+    title: 'Collective.work',
+    customIcon: <CollectiveIcon />,
+    href: '/customers/collective',
+  },
+  ezcater: {
+    title: 'ezCater',
+    customIcon: <EzCaterIcon />,
+    href: '/customers/ezcater',
+  },
+  blog: {
+    title: 'Blog',
+    icon: 'starhollow',
+    iconColor: 'purple500',
+    href: '/blog',
+  },
+  changelog: {
+    title: 'Changelog',
+    icon: 'book',
+    iconColor: 'green500',
+    href: '/blog/releases',
+  },
+  frontendTestingGuide: {
+    title: 'Frontend testing guide',
+    href: '/frontend-testing-guide',
+  },
+  docs: {
+    title: 'Docs',
+    icon: 'browser',
+    iconColor: 'orange500',
+    href: '/docs',
+  },
+  pricing: {
+    title: 'Pricing',
+    href: '/pricing',
+    icon: 'starhollow',
+    iconColor: 'yellow500',
+  },
+  sales: {
+    title: 'Contact sales',
+    icon: 'email',
+    iconColor: 'blue500',
+    href: '/sales',
+  },
 };
 
-export const desktopData: HeaderProps['desktopData'] = [
+export const createDesktopMenu = (
+  links: HeaderLinks = defaultLinks
+): HeaderDesktopItem[] => [
   {
-    id: 'features',
-    name: 'Features',
+    id: 'platform',
+    name: 'Platform',
     leftPosition: -220,
     menu: [
       {
@@ -140,12 +202,12 @@ export const desktopData: HeaderProps['desktopData'] = [
             title: 'Test',
           },
           {
-            ...links.UITest,
+            ...links.uiTest,
             type: 'link',
             description: 'Test how UIs look & function',
           },
           {
-            ...links.VisualTest,
+            ...links.visualTest,
             type: 'link',
             description:
               'Pinpoint bugs down to the browser, viewport, and pixel',
@@ -171,12 +233,12 @@ export const desktopData: HeaderProps['desktopData'] = [
             title: 'Review',
           },
           {
-            ...links.UIReview,
+            ...links.uiReview,
             type: 'link',
             description: 'Speed up team sign-off and manage change requests',
           },
           {
-            ...links.Publish,
+            ...links.publish,
             type: 'link',
             description: 'Index & version components to reuse existing work',
           },
@@ -202,12 +264,14 @@ export const desktopData: HeaderProps['desktopData'] = [
           {
             ...links.playwright,
             type: 'link',
-            description: 'Test every page in your Playwright E2E suite',
+            description:
+              'Visual tests for every page in your Playwright E2E suite',
           },
           {
             ...links.cypress,
             type: 'link',
-            description: 'Test every page in your Cypress E2E suite',
+            description:
+              'Visual tests for every page in your Cypress E2E suite',
           },
         ],
         backgroundColor: 'white',
@@ -215,13 +279,8 @@ export const desktopData: HeaderProps['desktopData'] = [
     ],
   },
   {
-    id: 'pricing',
-    name: 'Pricing',
-    href: '/pricing',
-  },
-  {
-    id: 'customers',
-    name: 'Customers',
+    id: 'solutions',
+    name: 'Solutions',
     leftPosition: -120,
     menu: [
       {
@@ -229,11 +288,6 @@ export const desktopData: HeaderProps['desktopData'] = [
           {
             type: 'separator',
             title: 'Use cases',
-          },
-          {
-            ...links.madeForStorybook,
-            type: 'link',
-            description: 'Ship UI components with less manual work',
           },
           {
             ...links.frontendTeams,
@@ -250,6 +304,12 @@ export const desktopData: HeaderProps['desktopData'] = [
             type: 'link',
             description: 'Increase margins by speeding up client sign-off',
           },
+          {
+            ...links.enterprise,
+            type: 'link',
+            title: 'Enterprise',
+            description: 'Scale frontend development & testing',
+          },
         ],
       },
       {
@@ -259,34 +319,26 @@ export const desktopData: HeaderProps['desktopData'] = [
             title: 'Customer Stories',
           },
           {
+            ...links.netlify,
             type: 'link',
-            title: 'Netlify',
             description: 'How Netlify rebranded in six weeks without bugs',
-            customIcon: <NetlifyIcon />,
-            href: '/customers/netlify',
           },
           {
+            ...links.monday,
             type: 'link',
-            title: 'monday.com',
             description: 'How 200 developers speed up their frontend velocity',
-            customIcon: <MondayIcon />,
-            href: '/customers/monday',
           },
           {
+            ...links.collective,
             type: 'link',
-            title: 'Collective.work',
             description:
               'How to deliver personalized UX across borders & devices',
-            customIcon: <CollectiveIcon />,
-            href: '/customers/collective',
           },
           {
+            ...links.ezcater,
             type: 'link',
-            title: 'ezCater',
             description:
-              'How to test UI appearance & functionality simultaneously',
-            customIcon: <EzCaterIcon />,
-            href: '/customers/ezcater',
+              'How to simultaneously test UI appearance & functionality',
           },
         ],
         backgroundColor: 'white',
@@ -296,161 +348,87 @@ export const desktopData: HeaderProps['desktopData'] = [
   {
     id: 'docs',
     name: 'Docs',
-    href: '/docs',
+    ...links.docs,
   },
   {
-    id: 'blog',
-    name: 'Blog',
-    href: '/blog',
-  },
-  {
-    id: 'company',
-    name: 'Company',
-    leftPosition: -20,
+    id: 'resources',
+    name: 'Resources',
+    leftPosition: -220,
     menu: [
       {
         content: [
           {
-            ...links.aboutChromatic,
+            ...links.blog,
             type: 'link',
-            description: 'Our mission is to improve the UX of the internet',
-          },
-          {
-            ...links.careers,
-            type: 'link',
-            title: 'Careers',
-            description: 'Opportunities and culture. Join our team.',
-            icon: 'user',
-            iconColor: 'purple500',
-            href: '/company/careers',
-          },
-          {
-            ...links.security,
-            type: 'link',
-            title: 'Security',
-            description: 'Security report and overview of compliance',
+            description: 'News and feature updates from our team.',
           },
         ],
         backgroundColor: 'white',
       },
+      {
+        content: [
+          {
+            ...links.frontendTestingGuide,
+            type: 'card',
+            title: 'Frontend testing guide',
+            description:
+              'We researched dozens of teams to figure out which testing strategies actually work.',
+            image: '/guides/frontend-testing-guide-thumbnail.jpg',
+          },
+        ],
+        backgroundColor: 'blue50',
+      },
     ],
+  },
+  {
+    id: 'pricing',
+    name: 'Pricing',
+    ...links.pricing,
   },
 ];
 
-export const mobileData: HeaderProps['mobileData'] = [
+export const createMobileMenu = (
+  links: HeaderLinks = defaultLinks
+): HeaderMobileSection[] => [
   {
     name: 'Features',
     maxItems: 3,
     content: [
-      links.UITest,
-      links.UIReview,
-      links.Publish,
-      links.VisualTest,
+      links.uiTest,
+      links.uiReview,
+      links.publish,
+      links.visualTest,
       links.interactionTest,
       links.turboSnap,
       links.figmaPlugin,
     ],
   },
   {
-    content: [
-      {
-        title: 'Pricing',
-        icon: 'starhollow',
-        iconColor: 'yellow500',
-        href: '/pricing',
-      },
-      {
-        title: 'Docs',
-        icon: 'browser',
-        iconColor: 'orange500',
-        href: '/docs',
-      },
-      {
-        title: 'Blog',
-        icon: 'grow',
-        iconColor: 'purple500',
-        href: '/blog',
-      },
-      {
-        title: 'Contact sales',
-        icon: 'email',
-        iconColor: 'blue500',
-        href: '/sales',
-      },
-    ],
+    content: [links.pricing, links.docs, links.blog, links.sales],
   },
   {
     name: 'Integrations',
     collapsible: true,
-    content: [
-      {
-        ...links.storybook,
-      },
-      {
-        ...links.playwright,
-      },
-      {
-        ...links.cypress,
-      },
-    ],
+    content: [links.storybook, links.playwright, links.cypress],
   },
   {
     name: 'Use cases',
     collapsible: true,
     content: [
-      {
-        ...links.madeForStorybook,
-      },
-      {
-        ...links.frontendTeams,
-      },
-      {
-        ...links.designSystems,
-      },
-      {
-        ...links.digitalAgencies,
-      },
+      links.frontendTeams,
+      links.designSystems,
+      links.digitalAgencies,
+      links.enterprise,
     ],
   },
   {
     name: 'Customer Stories',
     collapsible: true,
-    content: [
-      {
-        title: 'Netlify',
-        customIcon: <NetlifyIcon />,
-        href: '/customers/netlify',
-      },
-      {
-        title: 'monday.com',
-        customIcon: <MondayIcon />,
-        href: '/customers/monday',
-      },
-      {
-        title: 'Collective.work',
-        customIcon: <CollectiveIcon />,
-        href: '/customers/collective',
-      },
-      {
-        title: 'ezCater',
-        customIcon: <EzCaterIcon />,
-        href: '/customers/ezcater',
-      },
-    ],
+    content: [links.netlify, links.monday, links.collective, links.ezcater],
   },
   {
     name: 'Company',
     collapsible: true,
-    content: [
-      {
-        ...links.aboutChromatic,
-      },
-      {
-        ...links.careers,
-      },
-      {
-        ...links.security,
-      },
-    ],
+    content: [links.aboutChromatic, links.careers, links.security],
   },
 ];

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ElementType, useMemo } from 'react';
 import styled from '@emotion/styled';
 import { minSm, typography } from '../_helpers';
 import { color, spacing } from '../_tokens';
@@ -7,7 +7,7 @@ import { Container } from '../Container';
 import { Logo } from '../Logo';
 import { Icon } from '../Icon';
 import { HStack } from '../Stack';
-import { FooterColumn, FooterSocialItem, HomeItem } from './types';
+import { createFooterColumns, footerSocialLinks } from './data';
 
 const Columns = styled.div`
   display: grid;
@@ -67,7 +67,7 @@ const SocialLink = styled(LinkWithWrapper, {
   border-color: ${({ inverse }) =>
     inverse ? color.whiteTr10 : color.blackTr10};
 
-  transition: border-color: 150ms ease-out;
+  transition: border-color 150ms ease-out;
 
   svg {
     display: block;
@@ -142,19 +142,15 @@ const HomeLink = styled(LinkWithWrapper)`
 
 export interface FooterProps {
   theme: 'light' | 'dark';
-  columns: FooterColumn[];
-  socialLinks: FooterSocialItem[];
-  homeLink: HomeItem;
+  LinkWrapper: ElementType;
 }
 
-export const Footer = ({
-  theme,
-  columns,
-  socialLinks,
-  homeLink,
-  ...props
-}: FooterProps) => {
+export const Footer = ({ theme, LinkWrapper, ...props }: FooterProps) => {
   const inverse = theme === 'dark';
+  const columns = useMemo(
+    () => createFooterColumns(LinkWrapper),
+    [LinkWrapper]
+  );
 
   return (
     <FooterWrapper inverse={inverse} {...props}>
@@ -173,7 +169,7 @@ export const Footer = ({
         </Columns>
         <BottomRow>
           <Colophon gap={5} align="center">
-            <HomeLink href={homeLink.href} LinkWrapper={homeLink.LinkWrapper}>
+            <HomeLink href="/" LinkWrapper={LinkWrapper}>
               <Logo
                 alt="Chromatic"
                 name="chromatic"
@@ -185,7 +181,7 @@ export const Footer = ({
             </ColophonText>
           </Colophon>
           <HStack gap={4}>
-            {socialLinks.map(({ title, icon, ...linkProps }) => (
+            {footerSocialLinks.map(({ title, icon, ...linkProps }) => (
               <SocialLink
                 key={title}
                 inverse={inverse}

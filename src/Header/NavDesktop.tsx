@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { useHeaderContext } from './context';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
+import { HeaderLinks, createDesktopMenu } from './data';
 
 const NavigationMenuRoot = styled(NavigationMenu.Root)`
   position: relative;
@@ -25,14 +25,18 @@ const NavigationMenuItem = styled(NavigationMenu.Item)`
   position: relative;
 `;
 
-export const NavDesktop: FC = (props) => {
-  const { desktopData } = useHeaderContext();
+interface NavDesktopProps {
+  links: HeaderLinks;
+}
+
+export const NavDesktop = ({ links, ...props }: NavDesktopProps) => {
+  const desktopLinks = useMemo(() => createDesktopMenu(links), [links]);
 
   return (
     <NavigationMenuRoot delayDuration={100} {...props}>
       <NavigationMenuList>
-        {desktopData &&
-          desktopData.map((item) => (
+        {desktopLinks &&
+          desktopLinks.map((item) => (
             <NavigationMenuItem key={item.name}>
               {item.menu ? (
                 <NavDesktopTrigger key={item.name} item={item} />

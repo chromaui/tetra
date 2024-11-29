@@ -43,7 +43,7 @@ const Container = styled.a<{
   }};
   font-weight: ${(props) => fontWeight[props.weight]};
   font-family: ${fontFamily.sans};
-  gap: 0.75rem;
+  gap: 0.25em;
   transition: all 0.16s ease-in-out;
   text-decoration: none;
 
@@ -80,6 +80,7 @@ export const Link = forwardRef<
   ) => {
     let iconSize: 12 | 14 | 16 = 14;
     if (size === 'sm') iconSize = 12;
+    if (size === 'md') iconSize = 14;
     if (size === 'lg') iconSize = 16;
 
     let asContainer: LinkProps['as'] = 'button';

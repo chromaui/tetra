@@ -1,77 +1,80 @@
-import { FooterProps } from './Footer';
+import { ElementType } from 'react';
+import { FooterColumn, FooterSocialItem } from './types';
 
-export const footerColumns: FooterProps['columns'] = [
+export const createFooterColumns = (
+  LinkWrapper: ElementType
+): FooterColumn[] => [
   {
-    title: 'Product',
+    title: 'Company',
     links: [
-      { title: 'Pricing', href: '/pricing' },
-      { title: 'About', href: '/company/about' },
-      { title: 'Jobs', href: '/company/careers' },
+      { title: 'About', href: '/company/about', LinkWrapper },
+      { title: 'Careers', href: '/company/careers', LinkWrapper },
       { title: 'Terms of Service', href: '/docs/terms-of-service' },
       { title: 'Privacy', href: '/docs/privacy-policy' },
-      { title: 'Status', href: 'https://status.chromatic.com/' },
       { title: 'Security • SOC 2', href: '/security' },
-      { title: 'Contact Sales', href: '/sales' },
+      { title: 'Status', href: 'https://status.chromatic.com/' },
+      { title: 'Contact Sales', href: '/sales', LinkWrapper },
     ],
   },
   {
-    title: 'Features',
+    title: 'Platform',
     links: [
-      { title: 'UI Tests', href: '/features/test' },
+      { title: 'UI Tests', href: '/features/test', LinkWrapper },
       {
         title: 'Visual test',
         href: '/features/visual-test',
+        LinkWrapper,
       },
       {
         title: 'Interaction test',
         href: '/features/interaction-test',
+        LinkWrapper,
       },
-      { title: 'TurboSnap', href: '/features/turbosnap' },
-      { title: 'UI Review', href: '/features/review' },
-      { title: 'Publish', href: '/features/publish' },
+      { title: 'TurboSnap', href: '/features/turbosnap', LinkWrapper },
+      { title: 'UI Review', href: '/features/review', LinkWrapper },
+      { title: 'Publish', href: '/features/publish', LinkWrapper },
+      { title: 'Storybook', href: '/storybook', LinkWrapper },
+      { title: 'Playwright', href: '/playwright', LinkWrapper },
+      { title: 'Cypress', href: '/cypress', LinkWrapper },
       { title: 'Figma plugin', href: '/features/figma-plugin' },
-      {
-        title: 'Storybook',
-        href: '/storybook',
-      },
-      {
-        title: 'Playwright',
-        href: '/playwright',
-      },
-      {
-        title: 'Cypress',
-        href: '/cypress',
-      },
+      { title: 'Pricing', href: '/pricing', LinkWrapper },
     ],
   },
   {
     title: 'Customers',
     links: [
-      { title: 'Made for Storybook', href: '/solutions/storybook' },
+      { title: 'Enterprise', href: '/enterprise', LinkWrapper },
       {
         title: 'Frontend teams',
         href: '/solutions/frontend',
+        LinkWrapper,
       },
       {
         title: 'Design systems',
         href: '/solutions/design-systems',
+        LinkWrapper,
       },
       {
         title: 'Digital agencies',
         href: '/solutions/agencies',
+        LinkWrapper,
       },
       {
         title: 'Netlify',
         href: '/customers/netlify',
+        LinkWrapper,
       },
       {
         title: 'Monday.com',
         href: '/customers/monday',
+        LinkWrapper,
       },
       {
         title: 'Collective.work',
         href: '/customers/collective',
+        LinkWrapper,
       },
+      { title: 'ezCater', href: '/customers/ezcater', LinkWrapper },
     ],
   },
   {
@@ -91,29 +94,45 @@ export const footerColumns: FooterProps['columns'] = [
         title: 'Component Driven UIs',
         href: 'https://www.componentdriven.org/',
       },
+      {
+        title: 'Frontend testing guide',
+        href: '/frontend-testing-guide',
+        LinkWrapper,
+      },
     ],
   },
   {
     title: 'Compare',
     links: [
       {
+        title: 'Overview of tools',
+        href: '/choose/visual-testing',
+        LinkWrapper,
+      },
+      {
         title: 'Applitools',
         href: '/compare/applitools',
+        LinkWrapper,
       },
-      { title: 'Percy', href: '/compare/percy' },
+      { title: 'Percy', href: '/compare/percy', LinkWrapper },
+      { title: 'Sauce Labs', href: '/compare/sauce-labs', LinkWrapper },
+      { title: 'Katalon', href: '/compare/katalon', LinkWrapper },
+      { title: 'LambdaTest', href: '/compare/lambdatest', LinkWrapper },
+      { title: 'SmartBear', href: '/compare/smartbear', LinkWrapper },
+      { title: 'TestingBot', href: '/compare/testingbot', LinkWrapper },
+      { title: 'Lost Pixel', href: '/compare/lost-pixel', LinkWrapper },
+      { title: 'Backstop', href: '/compare/backstop', LinkWrapper },
+      { title: 'Playwright', href: '/compare/playwright', LinkWrapper },
       {
         title: 'Deploy Storybook',
         href: '/choose/storybook-deploy',
-      },
-      {
-        title: 'Visual testing services',
-        href: '/choose/visual-testing',
+        LinkWrapper,
       },
     ],
   },
 ];
 
-export const footerSocialLinks: FooterProps['socialLinks'] = [
+export const footerSocialLinks: FooterSocialItem[] = [
   { title: 'github', icon: 'github', href: 'https://github.com/chromaui/' },
   {
     title: 'twitter',
@@ -121,12 +140,13 @@ export const footerSocialLinks: FooterProps['socialLinks'] = [
     href: 'https://twitter.com/chromaticcom',
   },
   {
+    title: 'BlueSky',
+    icon: 'bluesky',
+    href: 'https://bsky.app/profile/chromaticui.bsky.social',
+  },
+  {
     title: 'youtube',
     icon: 'youtube',
     href: 'https://youtube.com/@chromaticui',
   },
 ];
-
-export const homeLink: FooterProps['homeLink'] = {
-  href: '/',
-};

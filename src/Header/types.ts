@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
+import { ComponentType, ReactNode } from 'react';
 import type { Icons } from '../Icon/Icon';
 import { color } from '../_tokens';
+import { HeaderLinks } from './data';
 
 export interface HeaderMobileSection {
   name?: string;
@@ -42,14 +43,42 @@ export interface HeaderDesktopItem {
 
 export interface HeaderProps {
   theme?: 'light' | 'dark';
-  logo?: 'chromatic' | 'storybook';
-  logoHref?: string;
   logoLinkWrapper?: any;
-  desktopData: HeaderDesktopItem[];
-  desktopRight?: ReactNode;
   desktopActiveId?: string;
-  mobileData: HeaderMobileSection[];
-  mobileTop?: ReactNode;
-  mobileBottom?: ReactNode;
   fullWidth?: boolean;
+  loggedIn?: boolean;
+  maintenanceMode?: boolean;
+  links: HeaderLinks;
+  TrackSignUp: ComponentType<{ children: ReactNode }>;
 }
+
+export type LinkKeys =
+  | 'signin'
+  | 'signup'
+  | 'uiTest'
+  | 'visualTest'
+  | 'interactionTest'
+  | 'storybook'
+  | 'playwright'
+  | 'cypress'
+  | 'turboSnap'
+  | 'uiReview'
+  | 'publish'
+  | 'figmaPlugin'
+  | 'frontendTeams'
+  | 'designSystems'
+  | 'digitalAgencies'
+  | 'aboutChromatic'
+  | 'careers'
+  | 'security'
+  | 'enterprise'
+  | 'netlify'
+  | 'monday'
+  | 'collective'
+  | 'ezcater'
+  | 'blog'
+  | 'changelog'
+  | 'frontendTestingGuide'
+  | 'docs'
+  | 'pricing'
+  | 'sales';

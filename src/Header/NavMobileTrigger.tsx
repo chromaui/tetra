@@ -14,6 +14,7 @@ const MobileTrigger = styled(Popover.Trigger)`
   width: 40px;
   height: 40px;
   border-radius: 6px;
+  margin-left: -10px;
 
   &:focus {
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
