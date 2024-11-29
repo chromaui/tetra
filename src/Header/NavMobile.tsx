@@ -12,6 +12,8 @@ import { createMobileMenu, HeaderLinks } from './data';
 import { HeaderProps } from './types';
 import { Button } from '../Button';
 import { LinkWithWrapper } from '../LinkWithWrapper';
+import { Link } from '../Link';
+import { HStack } from '../Stack';
 
 const NavigationMenu = styled(motion.div)`
   ${resetCSS}
@@ -53,6 +55,14 @@ const MobileButtons = styled.div`
   gap: ${spacing[3]};
 `;
 
+const SignInWrapper = styled.div`
+  display: none;
+
+  @media (min-width: 400px) {
+    display: contents;
+  }
+`;
+
 interface NavMobileProps {
   links: HeaderLinks;
   loggedIn?: boolean;
@@ -66,13 +76,47 @@ export const NavMobile = ({
   maintenanceMode,
   TrackSignUp,
 }: NavMobileProps) => {
-  const { mobileMenuOpen, setMobileMenuOpen } = useHeaderContext();
+  const { theme, mobileMenuOpen, setMobileMenuOpen } = useHeaderContext();
 
   const mobileLinks = useMemo(() => createMobileMenu(links), [links]);
 
   return (
     <Popover.Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-      <NavMobileTrigger />
+      <HStack gap={6}>
+        <LinkWithWrapper
+          noAnchor
+          href={links.sales.href}
+          LinkWrapper={links.sales.linkWrapper}
+        >
+          <Link
+            href={links.sales.href}
+            size="md"
+            weight="semibold"
+            color={theme === 'dark' ? 'white' : 'blue500'}
+          >
+            Contact
+          </Link>
+        </LinkWithWrapper>
+        <SignInWrapper>
+          {!maintenanceMode && (
+            <LinkWithWrapper
+              noAnchor
+              href={links.signin.href}
+              LinkWrapper={links.signin.linkWrapper}
+            >
+              <Link
+                href={links.signin.href}
+                size="md"
+                weight="semibold"
+                color={theme === 'dark' ? 'white' : 'blue500'}
+              >
+                {links.signin.title}
+              </Link>
+            </LinkWithWrapper>
+          )}
+        </SignInWrapper>
+        <NavMobileTrigger />
+      </HStack>
       <AnimatePresence>
         {mobileMenuOpen && (
           <Popover.Portal forceMount>
