@@ -1,3 +1,15 @@
+# v2.0.4 (Tue Dec 03 2024)
+
+#### 🐛 Bug Fix
+
+- Change features to platform on mobile nav [#114](https://github.com/chromaui/tetra/pull/114) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.0.3 (Fri Nov 29 2024)
 
 #### 🐛 Bug Fix
