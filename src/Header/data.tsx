@@ -391,7 +391,7 @@ export const createMobileMenu = (
   links: HeaderLinks = defaultLinks
 ): HeaderMobileSection[] => [
   {
-    name: 'Features',
+    name: 'Platform',
     maxItems: 3,
     content: [
       links.uiTest,
