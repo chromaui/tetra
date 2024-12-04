@@ -1,3 +1,15 @@
+# v2.0.5 (Wed Dec 04 2024)
+
+#### 🐛 Bug Fix
+
+- fix position of platforms dropdown in fullwidth mode [#115](https://github.com/chromaui/tetra/pull/115) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.0.4 (Tue Dec 03 2024)
 
 #### 🐛 Bug Fix
