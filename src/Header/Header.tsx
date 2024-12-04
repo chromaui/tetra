@@ -105,7 +105,7 @@ export const Header = ({
               <HeaderLogo theme={theme} />
             </LogoLink>
             <DesktopOnly>
-              <NavDesktop links={links} />
+              <NavDesktop links={links} fullWidth={fullWidth} />
             </DesktopOnly>
           </Left>
           <Right>

@@ -188,12 +188,13 @@ export const defaultLinks: HeaderLinks = {
 };
 
 export const createDesktopMenu = (
-  links: HeaderLinks = defaultLinks
+  links: HeaderLinks = defaultLinks,
+  fullWidth?: boolean
 ): HeaderDesktopItem[] => [
   {
     id: 'platform',
     name: 'Platform',
-    leftPosition: -220,
+    leftPosition: fullWidth ? -120 : -220,
     menu: [
       {
         content: [
