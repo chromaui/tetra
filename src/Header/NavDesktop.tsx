@@ -27,10 +27,14 @@ const NavigationMenuItem = styled(NavigationMenu.Item)`
 
 interface NavDesktopProps {
   links: HeaderLinks;
+  fullWidth?: boolean;
 }
 
-export const NavDesktop = ({ links, ...props }: NavDesktopProps) => {
-  const desktopLinks = useMemo(() => createDesktopMenu(links), [links]);
+export const NavDesktop = ({ links, fullWidth, ...props }: NavDesktopProps) => {
+  const desktopLinks = useMemo(
+    () => createDesktopMenu(links, fullWidth),
+    [links]
+  );
 
   return (
     <NavigationMenuRoot delayDuration={100} {...props}>
