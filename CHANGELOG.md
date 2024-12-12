@@ -1,3 +1,15 @@
+# v2.0.6 (Thu Dec 12 2024)
+
+#### 🐛 Bug Fix
+
+- add sticky styles for signup button [#116](https://github.com/chromaui/tetra/pull/116) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.0.5 (Wed Dec 04 2024)
 
 #### 🐛 Bug Fix
