@@ -8,6 +8,9 @@ import { SubNav } from '../SubNav';
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
   component: Header,
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export default meta;
@@ -22,7 +25,6 @@ export const DesktopLight: Story = {
     links: defaultLinks,
   },
   parameters: {
-    layout: 'fullscreen',
     chromatic: { viewports: [940, 1024, 1280, 1536] },
     viewport: {
       defaultViewport: 'lg',
@@ -42,7 +44,6 @@ export const DesktopDark: Story = {
 };
 
 export const DesktopLightSticky: Story = {
-  ...DesktopLight,
   args: {
     ...DesktopLight.args,
     isSticky: true,
@@ -56,7 +57,6 @@ export const DesktopDarkSticky: Story = {
     isSticky: true,
   },
   parameters: {
-    ...DesktopLight.parameters,
     backgrounds: { default: 'dark' },
   },
 };
@@ -148,7 +148,6 @@ export const DesktopLightOpen: Story = {
     ...DesktopLight.args,
   },
   parameters: {
-    layout: 'fullscreen',
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
     viewport: {
       defaultViewport: 'lg',
@@ -171,7 +170,6 @@ export const DesktopDarkOpen: Story = {
     theme: 'dark',
   },
   parameters: {
-    layout: 'fullscreen',
     backgrounds: { default: 'dark' },
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
     viewport: {
@@ -194,7 +192,6 @@ export const TabletLight: Story = {
     ...DesktopLight.args,
   },
   parameters: {
-    layout: 'fullscreen',
     chromatic: { viewports: [320, 640, 768, 939] },
     viewport: {
       defaultViewport: 'md',
@@ -208,7 +205,6 @@ export const TabletDark: Story = {
     theme: 'dark',
   },
   parameters: {
-    layout: 'fullscreen',
     chromatic: { viewports: [320, 640, 768, 939] },
     viewport: {
       defaultViewport: 'md',
@@ -222,7 +218,6 @@ export const TabletOpen: Story = {
     ...DesktopLight.args,
   },
   parameters: {
-    layout: 'fullscreen',
     chromatic: { viewports: [320, 640, 768, 939] },
     viewport: {
       defaultViewport: 'md',
@@ -259,7 +254,6 @@ export const MobileOpen: Story = {
     ...DesktopLight.args,
   },
   parameters: {
-    layout: 'fullscreen',
     chromatic: { viewports: [320, 640, 768, 939] },
     viewport: {
       defaultViewport: 'xsm',
@@ -280,9 +274,6 @@ export const DesktopFullWidth: Story = {
     ...DesktopLight.args,
     fullWidth: true,
   },
-  parameters: {
-    layout: 'fullscreen',
-  },
 };
 
 export const MobileFullWidth: Story = {
@@ -290,7 +281,6 @@ export const MobileFullWidth: Story = {
     ...DesktopLight.args,
   },
   parameters: {
-    layout: 'fullscreen',
     viewport: {
       defaultViewport: 'xsm',
     },
