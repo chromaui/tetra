@@ -48,6 +48,7 @@ export interface HeaderProps {
   fullWidth?: boolean;
   loggedIn?: boolean;
   maintenanceMode?: boolean;
+  isSticky?: boolean;
   links: HeaderLinks;
   TrackSignUp: ComponentType<{ children: ReactNode }>;
 }

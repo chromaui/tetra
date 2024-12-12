@@ -41,6 +41,26 @@ export const DesktopDark: Story = {
   },
 };
 
+export const DesktopLightSticky: Story = {
+  ...DesktopLight,
+  args: {
+    ...DesktopLight.args,
+    isSticky: true,
+  },
+};
+
+export const DesktopDarkSticky: Story = {
+  args: {
+    ...DesktopLight.args,
+    theme: 'dark',
+    isSticky: true,
+  },
+  parameters: {
+    ...DesktopLight.parameters,
+    backgrounds: { default: 'dark' },
+  },
+};
+
 export const DesktopLoggedOut: Story = {
   args: {
     ...DesktopLight.args,
