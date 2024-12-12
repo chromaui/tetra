@@ -88,6 +88,7 @@ export const Header = ({
   fullWidth = false,
   loggedIn,
   maintenanceMode,
+  isSticky,
   TrackSignUp = DefaultTrackSignUp,
 }: HeaderProps) => {
   const HeaderContainer = fullWidth ? FullWidthContainer : Container;
@@ -151,8 +152,8 @@ export const Header = ({
                       <HeaderCTAButton
                         as="span"
                         size="sm"
-                        variant="outline"
-                        color={theme === 'dark' ? 'white' : 'blue'}
+                        variant={isSticky ? 'solid' : 'outline'}
+                        color={theme === 'light' || isSticky ? 'blue' : 'white'}
                         href={links.signup.href}
                       >
                         {links.signup.title}
