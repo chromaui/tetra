@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { within } from '@storybook/test';
+import { expect, screen, within } from '@storybook/test';
 
 import { InfoTooltip } from './InfoTooltip';
 
@@ -32,6 +32,8 @@ export const Default: Story = {
     const canvas = within(canvasElement);
     const button = canvas.getByRole('button');
     button.focus();
+    const tooltip = await screen.findByRole('tooltip');
+    expect(tooltip).toBeInTheDocument();
   },
   name: 'InfoTooltip',
 };
