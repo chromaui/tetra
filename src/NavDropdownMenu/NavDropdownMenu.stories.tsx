@@ -1,9 +1,9 @@
 import React, { Meta, StoryObj } from '@storybook/react';
-import { within, userEvent } from '@storybook/testing-library';
+import { within, userEvent } from '@storybook/test';
 import { NavDropdownMenu } from './NavDropdownMenu';
 
 const meta: Meta<typeof NavDropdownMenu> = {
-  title: 'Components/NavDropdownMenu',
+  title: 'Portal Components/NavDropdownMenu',
   component: NavDropdownMenu,
 };
 

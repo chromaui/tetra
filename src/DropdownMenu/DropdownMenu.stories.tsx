@@ -1,11 +1,11 @@
 import React, { Meta, StoryObj } from '@storybook/react';
-import { within, userEvent } from '@storybook/testing-library';
+import { within, userEvent } from '@storybook/test';
 import { DropdownMenu } from './DropdownMenu';
 import { DropdownMenuItem, DropdownMenuCheckboxItem } from './DropdownItems';
 import { Icon } from '../Icon';
 
 const meta: Meta<typeof DropdownMenu> = {
-  title: 'Components/Dropdown',
+  title: 'Portal Components/Dropdown',
   component: DropdownMenu,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -118,58 +118,3 @@ export const CheckboxItemsDark: Story = {
     backgrounds: { default: 'dark' },
   },
 };
-
-// Simple closed
-// Disabled
-// Label with icon
-// Checkbox item
-// Checkbox Selected
-
-// export const WithIcon: Story = {
-//   args: {
-//     items: features,
-//     label: (
-//       <>
-//         Filter
-//         <Icon name="filter" aria-hidden size={12} />
-//       </>
-//     ),
-//   },
-// };
-
-// export const DarkClosed: Story = {
-//   args: {
-//     ...LightClosed.args,
-//     variant: 'dark',
-//   },
-//   parameters: {
-//     backgrounds: { default: 'dark' },
-//   },
-// };
-
-// export const LightOpen: Story = {
-//   args: {
-//     label: 'Features',
-//     items: features,
-//   },
-//   decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
-//   play: async ({ canvasElement }) => {
-//     const canvas = within(canvasElement);
-//     const MenuButton = await canvas.findByRole('button', {
-//       name: 'Features',
-//     });
-//     MenuButton.focus();
-//     await userEvent.keyboard('{enter}');
-//   },
-// };
-
-// export const DarkOpen: Story = {
-//   args: {
-//     ...LightOpen.args,
-//     variant: 'dark',
-//   },
-//   parameters: {
-//     backgrounds: { default: 'dark' },
-//   },
-//   play: LightOpen.play,
-// };

@@ -58,6 +58,7 @@
     "@storybook/eslint-config-storybook": "^4.0.0",
     "@storybook/react": "^8.4.4",
     "@storybook/react-vite": "^8.4.4",
+    "@storybook/test": "^8.4.4",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^8.4.4",
     "@types/node": "18.15.3",
@@ -92,10 +93,13 @@
   },
   "dependencies": {
     "@radix-ui/react-accordion": "1.1.2",
+    "@radix-ui/react-alert-dialog": "1.1.5",
     "@radix-ui/react-collapsible": "1.0.2",
+    "@radix-ui/react-dialog": "1.1.5",
     "@radix-ui/react-dropdown-menu": "2.0.5",
     "@radix-ui/react-navigation-menu": "1.1.2",
-    "@radix-ui/react-popover": "1.0.5"
+    "@radix-ui/react-popover": "1.0.5",
+    "@radix-ui/react-tooltip": "1.1.7"
   },
   "bugs": {
     "url": "https://github.com/chromaui/tetra/issues"

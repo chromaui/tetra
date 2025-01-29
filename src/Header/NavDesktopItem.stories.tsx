@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import styled from '@emotion/styled';
-import { within } from '@storybook/testing-library';
+import { within } from '@storybook/test';
 import { NavDesktopItem } from './NavDesktopItem';
 
 const meta: Meta<typeof NavDesktopItem> = {
