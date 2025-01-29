@@ -22,7 +22,11 @@ export const Light: Story = {
     label: 'Features',
     items: features,
   },
-  decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
+  decorators: [
+    (storyFn) => (
+      <div style={{ width: '200px', height: '250px' }}>{storyFn()}</div>
+    ),
+  ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
@@ -40,8 +44,9 @@ export const Dark: Story = {
     ...Light.args,
     variant: 'dark',
   },
+  decorators: Light.decorators,
+  play: Light.play,
   parameters: {
     backgrounds: { default: 'dark' },
   },
-  play: Light.play,
 };
