@@ -12,7 +12,7 @@ const meta: Meta<typeof AlertDialog> = {
   },
   decorators: [
     (storyFn) => (
-      <div style={{ width: '800px', height: '600px' }}>{storyFn()}</div>
+      <div style={{ width: '1200px', height: '900px' }}>{storyFn()}</div>
     ),
   ],
 };
