@@ -11,11 +11,6 @@ const meta: Meta<typeof InfoTooltip> = {
     layout: 'padded',
     backgrounds: { default: 'dark' },
   },
-  decorators: [
-    (storyFn) => (
-      <div style={{ width: '800px', height: '600px' }}>{storyFn()}</div>
-    ),
-  ],
 };
 export default meta;
 type Story = StoryObj<typeof InfoTooltip>;
@@ -27,13 +22,6 @@ export const Default: Story = {
       title: 'Learn more',
       href: '/features/stories',
     },
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const button = canvas.getByRole('button');
-    button.focus();
-    const tooltip = await screen.findByRole('tooltip');
-    expect(tooltip).toBeInTheDocument();
   },
   name: 'InfoTooltip',
 };

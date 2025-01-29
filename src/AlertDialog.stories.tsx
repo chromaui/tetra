@@ -10,11 +10,6 @@ const meta: Meta<typeof AlertDialog> = {
   parameters: {
     layout: 'padded',
   },
-  decorators: [
-    (storyFn) => (
-      <div style={{ width: '1200px', height: '900px' }}>{storyFn()}</div>
-    ),
-  ],
 };
 export default meta;
 type Story = StoryObj<typeof AlertDialog>;

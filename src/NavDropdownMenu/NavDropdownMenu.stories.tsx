@@ -30,6 +30,8 @@ export const Light: Story = {
     });
     MenuButton.focus();
     await userEvent.keyboard('{enter}');
+    await userEvent.keyboard('{arrowDown}');
+    await userEvent.keyboard('{arrowDown}');
   },
 };
 

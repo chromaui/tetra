@@ -34,3 +34,4 @@ yarn-error.log*
 storybook-static
 
 @chromaui
+build-storybook.log
