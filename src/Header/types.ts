@@ -59,6 +59,7 @@ export type LinkKeys =
   | 'uiTest'
   | 'visualTest'
   | 'interactionTest'
+  | 'accessibilityTest'
   | 'storybook'
   | 'playwright'
   | 'cypress'
