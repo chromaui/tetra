@@ -123,6 +123,12 @@ export const createFooterColumns = (
       { title: 'Lost Pixel', href: '/compare/lost-pixel', LinkWrapper },
       { title: 'Backstop', href: '/compare/backstop', LinkWrapper },
       { title: 'Playwright', href: '/compare/playwright', LinkWrapper },
+      { title: 'Axe', href: '/compare/axe', LinkWrapper },
+      {
+        title: 'Accessibility testing',
+        href: '/compare/accessibility',
+        LinkWrapper,
+      },
       {
         title: 'Deploy Storybook',
         href: '/choose/storybook-deploy',
