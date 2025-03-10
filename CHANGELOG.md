@@ -1,3 +1,15 @@
+# v2.0.7 (Mon Mar 10 2025)
+
+#### 🐛 Bug Fix
+
+- add a11y test links to header/footer [#118](https://github.com/chromaui/tetra/pull/118) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.0.6 (Thu Dec 12 2024)
 
 #### 🐛 Bug Fix
