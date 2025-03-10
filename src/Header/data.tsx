@@ -48,6 +48,12 @@ export const defaultLinks: HeaderLinks = {
     iconColor: 'orange500',
     href: '/features/interaction-test',
   },
+  accessibilityTest: {
+    title: 'Accessibility test',
+    icon: 'accessibility',
+    iconColor: 'green500',
+    href: '/features/accessibility-test',
+  },
   storybook: {
     title: 'Storybook',
     icon: 'storybook',
@@ -217,6 +223,11 @@ export const createDesktopMenu = (
             ...links.interactionTest,
             type: 'link',
             description: 'Verify behavior of all screens and components',
+          },
+          {
+            ...links.accessibilityTest,
+            type: 'link',
+            description: 'Catch accessibility issues at the component level',
           },
           {
             ...links.turboSnap,
@@ -399,6 +410,7 @@ export const createMobileMenu = (
       links.uiReview,
       links.publish,
       links.visualTest,
+      links.accessibilityTest,
       links.interactionTest,
       links.turboSnap,
       links.figmaPlugin,
