@@ -1,3 +1,15 @@
+# v2.0.8 (Sat Mar 22 2025)
+
+#### 🐛 Bug Fix
+
+- update bluesky link [#119](https://github.com/chromaui/tetra/pull/119) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.0.7 (Mon Mar 10 2025)
 
 #### 🐛 Bug Fix
