@@ -148,7 +148,7 @@ export const footerSocialLinks: FooterSocialItem[] = [
   {
     title: 'BlueSky',
     icon: 'bluesky',
-    href: 'https://bsky.app/profile/chromaticui.bsky.social',
+    href: 'https://bsky.app/profile/chromatic.com',
   },
   {
     title: 'youtube',
