@@ -87,10 +87,6 @@ export const createFooterColumns = (
         href: 'https://storybook.js.org/tutorials/visual-testing-handbook/',
       },
       {
-        title: 'Design Systems',
-        href: 'https://storybook.js.org/tutorials/design-systems-for-developers/',
-      },
-      {
         title: 'Component Driven UIs',
         href: 'https://www.componentdriven.org/',
       },
