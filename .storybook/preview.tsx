@@ -1,4 +1,9 @@
 import type { Preview } from '@storybook/react';
+import { MotionGlobalConfig } from 'framer-motion';
+
+// Use framer-motion's global config to disable animations for visual tests
+MotionGlobalConfig.skipAnimations = true; //isChromatic();
+MotionGlobalConfig.useManualTiming = true; // isChromatic();
 
 // Allow design system consumers to access font settings but control how and
 // where they load the font.
