@@ -1,3 +1,15 @@
+# v2.1.0 (Tue Jun 03 2025)
+
+#### 🚀 Enhancement
+
+- remove ds for devs from footer [#120](https://github.com/chromaui/tetra/pull/120) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.0.8 (Sat Mar 22 2025)
 
 #### 🐛 Bug Fix
