@@ -1,4 +1,5 @@
-import React, { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
+import React from 'react';
 
 import { Divider } from './Divider';
 import { Placeholder } from '../_localComponents/Placeholder';

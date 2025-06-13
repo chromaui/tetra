@@ -1,5 +1,6 @@
-import React, { Meta, StoryObj } from '@storybook/react';
-import { within, userEvent } from '@storybook/testing-library';
+import { Meta, StoryObj } from '@storybook/react-vite';
+import React from 'react';
+import { within, userEvent } from 'storybook/test';
 import { NavDropdownMenu } from './NavDropdownMenu';
 
 const meta: Meta<typeof NavDropdownMenu> = {

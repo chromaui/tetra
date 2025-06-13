@@ -1,5 +1,6 @@
-import React, { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
+import React from 'react';
 import { Container } from './Container';
 import { Placeholder } from '../_localComponents/Placeholder';
 
