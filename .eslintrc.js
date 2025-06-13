@@ -22,6 +22,9 @@ module.exports = {
     },
   ],
   settings: {
+    'import/resolver': {
+      typescript: {},
+    },
     jest: {
       version: 'latest',
     },

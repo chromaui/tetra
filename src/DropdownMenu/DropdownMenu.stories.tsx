@@ -3,7 +3,7 @@ import React from 'react';
 import { DropdownMenu } from './DropdownMenu';
 import { DropdownMenuItem, DropdownMenuCheckboxItem } from './DropdownItems';
 import { Icon } from '../Icon';
-import { within } from '@storybook/test';
+import { within } from 'storybook/test';
 
 const meta: Meta<typeof DropdownMenu> = {
   title: 'Components/Dropdown',
