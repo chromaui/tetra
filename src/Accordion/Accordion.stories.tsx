@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import React, { FC } from 'react';
 import { Text } from '../Text';
 import { Accordion } from './Accordion';

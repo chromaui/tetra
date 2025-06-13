@@ -1,4 +1,5 @@
-import React, { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
+import React from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 import { DropdownMenu } from './DropdownMenu';
 import { DropdownMenuItem, DropdownMenuCheckboxItem } from './DropdownItems';
