@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import { within, userEvent } from '@storybook/testing-library';
 import { DropdownMenu } from './DropdownMenu';
 import { DropdownMenuItem, DropdownMenuCheckboxItem } from './DropdownItems';
 import { Icon } from '../Icon';
+import { within } from '@storybook/test';
 
 const meta: Meta<typeof DropdownMenu> = {
   title: 'Components/Dropdown',
   component: DropdownMenu,
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, userEvent }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button');
     MenuButton.focus();

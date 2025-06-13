@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import { within, userEvent } from '@storybook/testing-library';
+import { within, userEvent } from '@storybook/test';
 import { Header } from './Header';
 import { defaultLinks } from './data';
 import { SubNav } from '../SubNav';

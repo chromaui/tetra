@@ -28,6 +28,7 @@ export const loadFontsForStorybook = () => {
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
+
     backgrounds: {
       default: 'light',
       values: [
@@ -35,6 +36,7 @@ const preview: Preview = {
         { name: 'dark', value: '#171C23' },
       ],
     },
+
     viewport: {
       viewports: {
         xsm: { name: 'XSmall', styles: { width: '320px', height: '100%' } },
@@ -45,12 +47,14 @@ const preview: Preview = {
         '2xl': { name: '2XL', styles: { width: '1536px', height: '100%' } },
       },
     },
+
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/,
       },
     },
+
     options: {
       storySort: {
         order: [
@@ -64,6 +68,13 @@ const preview: Preview = {
           'Utilities',
         ],
       },
+    },
+
+    a11y: {
+      // 'todo' - show a11y violations in the test UI only
+      // 'error' - fail CI on a11y violations
+      // 'off' - skip a11y checks entirely
+      test: 'todo',
     },
   },
 };
