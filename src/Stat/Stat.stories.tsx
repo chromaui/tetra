@@ -95,10 +95,8 @@ export const CustomColorInverse: Story = {
     ...CustomColor.args,
     variant: 'inverse',
   },
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-    },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
 

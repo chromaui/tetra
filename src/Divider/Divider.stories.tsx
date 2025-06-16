@@ -35,7 +35,7 @@ export const Inverse: Story = {
   args: {
     inverse: true,
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };

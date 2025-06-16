@@ -39,8 +39,8 @@ export const ClosedDark: Story = {
     ...ClosedLight.args,
     variant: 'dark',
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
 
@@ -69,8 +69,8 @@ export const LabelWithIconDark: Story = {
     ...LabelWithIconLight.args,
     variant: 'dark',
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
 
@@ -92,8 +92,8 @@ export const DisabledItemsDark: Story = {
     ...DisabledItemsLight.args,
     variant: 'dark',
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
 
@@ -115,8 +115,8 @@ export const CheckboxItemsDark: Story = {
     ...CheckboxItemsLight.args,
     variant: 'dark',
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
 
@@ -143,8 +143,8 @@ export const CheckboxItemsDark: Story = {
 //     ...LightClosed.args,
 //     variant: 'dark',
 //   },
-//   parameters: {
-//     backgrounds: { default: 'dark' },
+//   globals: {
+//     backgrounds: { value: 'dark' },
 //   },
 // };
 
@@ -169,8 +169,8 @@ export const CheckboxItemsDark: Story = {
 //     ...LightOpen.args,
 //     variant: 'dark',
 //   },
-//   parameters: {
-//     backgrounds: { default: 'dark' },
+//   globals: {
+//     backgrounds: { value: 'dark' },
 //   },
 //   play: LightOpen.play,
 // };

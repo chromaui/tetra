@@ -31,20 +31,20 @@ const preview: Preview = {
 
     backgrounds: {
       default: 'light',
-      values: [
-        { name: 'light', value: '#fff' },
-        { name: 'dark', value: '#171C23' },
-      ],
+      options: {
+        light: { name: 'light', value: '#fff' },
+        dark: { name: 'dark', value: '#171C23' },
+      },
     },
 
     viewport: {
-      viewports: {
-        xsm: { name: 'XSmall', styles: { width: '320px', height: '100%' } },
-        sm: { name: 'Small', styles: { width: '640px', height: '100%' } },
-        md: { name: 'Medium', styles: { width: '768px', height: '100%' } },
-        lg: { name: 'Large', styles: { width: '1024px', height: '100%' } },
+      options: {
+        xs: { name: 'XS', styles: { width: '320px', height: '100%' } },
+        sm: { name: 'SM', styles: { width: '640px', height: '100%' } },
+        md: { name: 'MD', styles: { width: '768px', height: '100%' } },
+        lg: { name: 'LG', styles: { width: '1024px', height: '100%' } },
         xl: { name: 'XL', styles: { width: '1280px', height: '100%' } },
-        '2xl': { name: '2XL', styles: { width: '1536px', height: '100%' } },
+        xxl: { name: 'XXL', styles: { width: '1536px', height: '100%' } },
       },
     },
 

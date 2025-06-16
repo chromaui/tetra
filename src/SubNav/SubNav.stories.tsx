@@ -33,20 +33,20 @@ export const Dark: Story = {
     ...Light.args,
     theme: 'dark',
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
 
 export const Collapsed: Story = {
   ...Dark,
   decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
+  globals: {
+    backgrounds: { value: 'dark' },
+    viewport: { value: 'xs' },
+  },
   parameters: {
-    backgrounds: { default: 'dark' },
     chromatic: { viewports: [320] },
-    viewport: {
-      defaultViewport: 'xsm',
-    },
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

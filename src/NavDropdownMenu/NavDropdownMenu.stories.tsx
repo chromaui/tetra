@@ -39,8 +39,8 @@ export const Dark: Story = {
     ...Light.args,
     variant: 'dark',
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
   play: Light.play,
 };

@@ -38,8 +38,8 @@ export const Inverse: Story = {
     theme: 'dark',
     logo: './airbnb.svg',
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
 
@@ -48,8 +48,10 @@ export const Compact: Story = {
     ...Inverse.args,
     variant: 'compact',
   },
+  globals: {
+    backgrounds: { value: 'dark' },
+  },
   parameters: {
-    backgrounds: { default: 'dark' },
     layout: 'padded',
   },
 };
@@ -69,8 +71,10 @@ export const InverseLeftAlign: Story = {
     ...Inverse.args,
     variant: 'left-aligned',
   },
+  globals: {
+    backgrounds: { value: 'dark' },
+  },
   parameters: {
-    backgrounds: { default: 'dark' },
     layout: 'padded',
   },
 };
