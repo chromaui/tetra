@@ -199,7 +199,7 @@ export const TabletLight: Story = {
     ...DesktopLight.args,
   },
   globals: {
-    backgrounds: { value: 'dark' },
+    backgrounds: { value: 'light' },
   },
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },
