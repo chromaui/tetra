@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import React, { FC } from 'react';
 import { Text } from '../Text';
 import { Accordion } from './Accordion';
@@ -59,8 +59,10 @@ export const Base: Story = {
     iconSize: 14,
     triggerCopy: 'How is this compared to Selenium, Cypress, or Playwright?',
   },
+  globals: {
+    backgrounds: { value: 'light' },
+  },
   parameters: {
-    backgrounds: { default: 'light' },
     chromatic: {
       viewports: [320, 640, 768, 1024],
     },
@@ -87,8 +89,10 @@ export const Inverse: Story = {
     ...Base.args,
     inverse: true,
   },
+  globals: {
+    backgrounds: { value: 'dark' },
+  },
   parameters: {
-    backgrounds: { default: 'dark' },
     chromatic: {
       viewports: [320, 640, 768, 1024],
     },
@@ -213,8 +217,10 @@ export const GroupInverse: Story = {
     ...Base.args,
     inverse: true,
   },
+  globals: {
+    backgrounds: { value: 'dark' },
+  },
   parameters: {
-    backgrounds: { default: 'dark' },
     chromatic: {
       viewports: [320, 640, 768, 1024],
     },
@@ -283,8 +289,8 @@ export const GroupOpenStartInverse: Story = {
     ...Base.args,
     inverse: true,
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
   render: (args) => {
     return (
@@ -317,8 +323,8 @@ export const GroupWithAlternateIcons: Story = {
     ...Base.args,
     inverse: false,
   },
-  parameters: {
-    backgrounds: { default: 'light' },
+  globals: {
+    backgrounds: { value: 'light' },
   },
   render: (args) => {
     return (

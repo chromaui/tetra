@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 import { MotionGlobalConfig } from 'framer-motion';
 
 // Use framer-motion's global config to disable animations for visual tests
@@ -28,29 +28,33 @@ export const loadFontsForStorybook = () => {
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
+
     backgrounds: {
       default: 'light',
-      values: [
-        { name: 'light', value: '#fff' },
-        { name: 'dark', value: '#171C23' },
-      ],
-    },
-    viewport: {
-      viewports: {
-        xsm: { name: 'XSmall', styles: { width: '320px', height: '100%' } },
-        sm: { name: 'Small', styles: { width: '640px', height: '100%' } },
-        md: { name: 'Medium', styles: { width: '768px', height: '100%' } },
-        lg: { name: 'Large', styles: { width: '1024px', height: '100%' } },
-        xl: { name: 'XL', styles: { width: '1280px', height: '100%' } },
-        '2xl': { name: '2XL', styles: { width: '1536px', height: '100%' } },
+      options: {
+        light: { name: 'light', value: '#fff' },
+        dark: { name: 'dark', value: '#171C23' },
       },
     },
+
+    viewport: {
+      options: {
+        xs: { name: 'XS', styles: { width: '320px', height: '100%' } },
+        sm: { name: 'SM', styles: { width: '640px', height: '100%' } },
+        md: { name: 'MD', styles: { width: '768px', height: '100%' } },
+        lg: { name: 'LG', styles: { width: '1024px', height: '100%' } },
+        xl: { name: 'XL', styles: { width: '1280px', height: '100%' } },
+        xxl: { name: 'XXL', styles: { width: '1536px', height: '100%' } },
+      },
+    },
+
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/,
       },
     },
+
     options: {
       storySort: {
         order: [
@@ -64,6 +68,13 @@ const preview: Preview = {
           'Utilities',
         ],
       },
+    },
+
+    a11y: {
+      // 'todo' - show a11y violations in the test UI only
+      // 'error' - fail CI on a11y violations
+      // 'off' - skip a11y checks entirely
+      test: 'todo',
     },
   },
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Stat } from './Stat';
 import { HStack, VStack } from '../Stack';
@@ -95,10 +95,8 @@ export const CustomColorInverse: Story = {
     ...CustomColor.args,
     variant: 'inverse',
   },
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-    },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
 

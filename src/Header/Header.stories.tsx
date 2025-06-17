@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import { within, userEvent } from '@storybook/testing-library';
+import { within, userEvent } from 'storybook/test';
 import { Header } from './Header';
 import { defaultLinks } from './data';
 import { SubNav } from '../SubNav';
@@ -24,11 +24,11 @@ export const DesktopLight: Story = {
     theme: 'light',
     links: defaultLinks,
   },
+  globals: {
+    viewport: { value: 'lg' },
+  },
   parameters: {
     chromatic: { viewports: [940, 1024, 1280, 1536] },
-    viewport: {
-      defaultViewport: 'lg',
-    },
   },
 };
 
@@ -37,9 +37,12 @@ export const DesktopDark: Story = {
     ...DesktopLight.args,
     theme: 'dark',
   },
+  globals: {
+    ...DesktopLight.globals,
+    backgrounds: { value: 'dark' },
+  },
   parameters: {
     ...DesktopLight.parameters,
-    backgrounds: { default: 'dark' },
   },
 };
 
@@ -56,8 +59,8 @@ export const DesktopDarkSticky: Story = {
     theme: 'dark',
     isSticky: true,
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
 
@@ -115,9 +118,11 @@ export const WithSubNav: Story = {
     ...DesktopLight.args,
     theme: 'dark',
   },
+  globals: {
+    backgrounds: { value: 'dark' },
+  },
   parameters: {
     ...DesktopLight.parameters,
-    backgrounds: { default: 'dark' },
   },
 };
 
@@ -137,9 +142,11 @@ export const DesktopDarkActive: Story = {
     theme: 'dark',
     desktopActiveId: 'pricing',
   },
+  globals: {
+    backgrounds: { value: 'dark' },
+  },
   parameters: {
     ...DesktopLight.parameters,
-    backgrounds: { default: 'dark' },
   },
 };
 
@@ -147,11 +154,11 @@ export const DesktopLightOpen: Story = {
   args: {
     ...DesktopLight.args,
   },
+  globals: {
+    viewport: { value: 'lg' },
+  },
   parameters: {
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
-    viewport: {
-      defaultViewport: 'lg',
-    },
   },
   decorators: [(storyFn) => <div style={{ height: '800px' }}>{storyFn()}</div>],
   play: async ({ canvasElement }) => {
@@ -169,12 +176,12 @@ export const DesktopDarkOpen: Story = {
     ...DesktopLight.args,
     theme: 'dark',
   },
+  globals: {
+    backgrounds: { value: 'dark' },
+    viewport: { value: 'lg' },
+  },
   parameters: {
-    backgrounds: { default: 'dark' },
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
-    viewport: {
-      defaultViewport: 'lg',
-    },
   },
   decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {
@@ -191,11 +198,11 @@ export const TabletLight: Story = {
   args: {
     ...DesktopLight.args,
   },
+  globals: {
+    backgrounds: { value: 'light' },
+  },
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },
-    viewport: {
-      defaultViewport: 'md',
-    },
   },
 };
 
@@ -204,12 +211,12 @@ export const TabletDark: Story = {
     ...DesktopLight.args,
     theme: 'dark',
   },
+  globals: {
+    backgrounds: { value: 'dark' },
+    viewport: { value: 'md' },
+  },
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },
-    viewport: {
-      defaultViewport: 'md',
-    },
-    backgrounds: { default: 'dark' },
   },
 };
 
@@ -217,11 +224,11 @@ export const TabletOpen: Story = {
   args: {
     ...DesktopLight.args,
   },
+  globals: {
+    viewport: { value: 'md' },
+  },
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },
-    viewport: {
-      defaultViewport: 'md',
-    },
   },
   decorators: [(storyFn) => <div style={{ height: '900px' }}>{storyFn()}</div>],
   play: async ({ canvasElement }) => {
@@ -253,11 +260,11 @@ export const MobileOpen: Story = {
   args: {
     ...DesktopLight.args,
   },
+  globals: {
+    viewport: { value: 'xs' },
+  },
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },
-    viewport: {
-      defaultViewport: 'xsm',
-    },
   },
   decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {
@@ -280,10 +287,8 @@ export const MobileFullWidth: Story = {
   args: {
     ...DesktopLight.args,
   },
-  parameters: {
-    viewport: {
-      defaultViewport: 'xsm',
-    },
+  globals: {
+    viewport: { value: 'xs' },
   },
   decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {

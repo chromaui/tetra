@@ -1,5 +1,6 @@
-import React, { Meta, StoryObj } from '@storybook/react';
-import { within, userEvent } from '@storybook/testing-library';
+import { Meta, StoryObj } from '@storybook/react-vite';
+import React from 'react';
+import { within, userEvent } from 'storybook/test';
 import { SubNav } from './SubNav';
 
 const meta: Meta<typeof SubNav> = {
@@ -32,20 +33,20 @@ export const Dark: Story = {
     ...Light.args,
     theme: 'dark',
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
 
 export const Collapsed: Story = {
   ...Dark,
   decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
+  globals: {
+    backgrounds: { value: 'dark' },
+    viewport: { value: 'xs' },
+  },
   parameters: {
-    backgrounds: { default: 'dark' },
     chromatic: { viewports: [320] },
-    viewport: {
-      defaultViewport: 'xsm',
-    },
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

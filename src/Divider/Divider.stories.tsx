@@ -1,4 +1,5 @@
-import React, { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
+import React from 'react';
 
 import { Divider } from './Divider';
 import { Placeholder } from '../_localComponents/Placeholder';
@@ -34,7 +35,7 @@ export const Inverse: Story = {
   args: {
     inverse: true,
   },
-  parameters: {
-    backgrounds: { default: 'dark' },
+  globals: {
+    backgrounds: { value: 'dark' },
   },
 };
