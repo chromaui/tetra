@@ -163,7 +163,11 @@ export const Header = ({
                 </>
               )}
               {loggedIn && !maintenanceMode && (
-                <LinkWithWrapper href={links.signin.href}>
+                <LinkWithWrapper
+                  noAnchor
+                  href={links.signin.href}
+                  LinkWrapper={links.signin.linkWrapper}
+                >
                   <Link
                     size="md"
                     weight="semibold"

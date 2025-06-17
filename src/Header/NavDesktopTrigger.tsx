@@ -43,7 +43,7 @@ const CaretDown = styled.div`
   transition: transform 250ms ease;
 `;
 
-const NavigationMenuContent = styled(NavigationMenu.Content)<{
+const NavigationMenuContent = styled.div<{
   leftPosition?: number;
 }>`
   position: absolute;
@@ -72,9 +72,11 @@ export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
           <Icon name="arrowdown" aria-hidden size={12} />
         </CaretDown>
       </NavigationMenuTrigger>
-      <NavigationMenuContent leftPosition={item.leftPosition}>
-        <NavDesktopContent item={item} />
-      </NavigationMenuContent>
+      <NavigationMenu.Content asChild>
+        <NavigationMenuContent leftPosition={item.leftPosition}>
+          <NavDesktopContent item={item} />
+        </NavigationMenuContent>
+      </NavigationMenu.Content>
     </>
   );
 };

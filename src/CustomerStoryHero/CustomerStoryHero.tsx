@@ -95,16 +95,13 @@ export interface CustomerStoryHeroProps {
   }[];
 }
 
-export const CustomerStoryHero: FC<CustomerStoryHeroProps> = ({
-  items,
-  ...rest
-}) => (
+export const CustomerStoryHero: FC<CustomerStoryHeroProps> = ({ items }) => (
   <HeroContainer>
     {items.map((item, index) => {
       const { imgPath, imgAlt, caption, position } = item;
 
       return (
-        <React.Fragment key="index">
+        <React.Fragment key={index}>
           <HeroItem position={position}>
             <HeroImage
               position={position}

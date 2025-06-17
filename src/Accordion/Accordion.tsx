@@ -60,14 +60,14 @@ const slideUp = keyframes`
 `;
 
 // Outermost accordion container
-const AccordionWrapper = styled(Acc.Root)<{ inverse?: boolean }>`
+const AccordionWrapper = styled.div<{ inverse?: boolean }>`
   ${typography.body16};
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   width: 100%;
 `;
 
 // Wrapper for each accordion item's trigger & content
-const Item = styled(Acc.Item)<{ inverse?: boolean }>`
+const Item = styled.div<{ inverse?: boolean }>`
   border: 1px solid;
   border-color: ${({ inverse }) =>
     inverse ? color.whiteTr10 : color.blackTr10};
@@ -123,7 +123,7 @@ const Item = styled(Acc.Item)<{ inverse?: boolean }>`
 `;
 
 // the button controlling the open/closed state of each item
-const Trigger = styled(Acc.Trigger)<{ inverse?: boolean }>`
+const Trigger = styled.div<{ inverse?: boolean }>`
   ${typography.body16};
   align-items: center;
   background: none;
@@ -165,7 +165,7 @@ const StyledIcon = styled(Icon)`
 `;
 
 // the collapsible content of each item
-const Panel = styled(Acc.Content)<{ inverse?: boolean }>`
+const Panel = styled.div<{ inverse?: boolean }>`
   ${typography.body16};
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   overflow: hidden;
@@ -189,15 +189,11 @@ const Panel = styled(Acc.Content)<{ inverse?: boolean }>`
 // radix requires custom components to have refs passed in
 const AccordionItem = forwardRef<any, React.PropsWithChildren<ItemProps>>(
   ({ inverse, id = '0', children, ...props }, forwardedRef) => (
-    <Item
-      value={id}
-      inverse={inverse}
-      {...props}
-      ref={forwardedRef}
-      className="accordion-item"
-    >
-      {children}
-    </Item>
+    <Acc.Item value={id} asChild {...props} ref={forwardedRef}>
+      <Item inverse={inverse} className="accordion-item">
+        {children}
+      </Item>
+    </Acc.Item>
   )
 );
 
@@ -210,12 +206,14 @@ const AccordionTrigger = forwardRef<any, React.PropsWithChildren<TriggerProps>>(
     { inverse, iconName = 'arrowdown', iconSize = 14, children, ...props },
     forwardedRef
   ) => (
-    <Trigger ref={forwardedRef} inverse={inverse} {...props}>
-      {children}
-      {iconName && (
-        <StyledIcon aria-hidden="true" name={iconName} size={iconSize} />
-      )}
-    </Trigger>
+    <Acc.Trigger ref={forwardedRef} asChild>
+      <Trigger inverse={inverse} {...props}>
+        {children}
+        {iconName && (
+          <StyledIcon aria-hidden="true" name={iconName} size={iconSize} />
+        )}
+      </Trigger>
+    </Acc.Trigger>
   )
 );
 
@@ -226,9 +224,11 @@ AccordionTrigger.displayName = 'AccordionTrigger';
 const AccordionPanel = forwardRef<any, React.PropsWithChildren<PanelProps>>(
   ({ inverse, children, ...props }, forwardedRef) => {
     return (
-      <Panel inverse={inverse} ref={forwardedRef} {...props}>
-        {children}
-      </Panel>
+      <Acc.Content asChild>
+        <Panel inverse={inverse} ref={forwardedRef} {...props}>
+          {children}
+        </Panel>
+      </Acc.Content>
     );
   }
 );
@@ -242,15 +242,15 @@ export const Accordion: FC<React.PropsWithChildren<AccordionProps>> & {
   Panel: React.ElementType;
 } = ({ defaultValue, inverse, children, iconName, ...props }) => {
   return (
-    <AccordionWrapper
-      inverse={inverse}
+    <Acc.Root
+      asChild
       type="single"
       collapsible
       defaultValue={defaultValue}
       {...props}
     >
-      {children}
-    </AccordionWrapper>
+      <AccordionWrapper inverse={inverse}>{children}</AccordionWrapper>
+    </Acc.Root>
   );
 };
 
