@@ -1,3 +1,15 @@
+# v2.1.1 (Tue Jun 17 2025)
+
+#### 🐛 Bug Fix
+
+- Upgrade to Storybook 9.0.9 [#121](https://github.com/chromaui/tetra/pull/121) ([@MichaelArestad](https://github.com/MichaelArestad))
+
+#### Authors: 1
+
+- Michael Arestad ([@MichaelArestad](https://github.com/MichaelArestad))
+
+---
+
 # v2.1.0 (Tue Jun 03 2025)
 
 #### 🚀 Enhancement
