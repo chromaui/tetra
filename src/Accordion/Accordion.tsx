@@ -128,6 +128,7 @@ const Trigger = styled.div<{ inverse?: boolean }>`
   align-items: center;
   background: none;
   border: 0;
+  box-sizing: border-box;
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
   cursor: pointer;
   display: flex;
