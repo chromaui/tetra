@@ -1,4 +1,4 @@
-import React, { FC, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import { color as tokenColor, fontFamily } from '../_tokens';
 import { Icon } from '../Icon';
@@ -9,6 +9,7 @@ export interface ButtonProps {
   size?: 'sm' | 'md' | 'lg';
   variant?: 'solid' | 'outline';
   color?: 'blue' | 'white' | 'slate';
+  inverted?: boolean;
   leftIcon?: Icons;
   rightIcon?: Icons;
   href?: string;
@@ -20,6 +21,7 @@ export interface ButtonProps {
 const Container = styled.a<{
   size: ButtonProps['size'];
   variant: ButtonProps['variant'];
+  inverted: ButtonProps['inverted'];
   color: ButtonProps['color'];
 }>`
   border: 0;
@@ -34,19 +36,21 @@ const Container = styled.a<{
     if (size === 'lg') return '0 2rem';
     return null;
   }};
-  background: ${({ variant, color }) => {
-    if (variant === 'solid' && color === 'blue') return tokenColor.blue500;
+  background: ${({ variant, color, inverted }) => {
+    if (variant === 'solid' && color === 'blue') return tokenColor.blue600;
     if (variant === 'solid' && color === 'white') return tokenColor.white;
-    if (variant === 'solid' && color === 'slate') return tokenColor.slate100;
+    if (variant === 'solid' && color === 'slate')
+      return inverted ? tokenColor.slate700 : tokenColor.slate100;
     return 'transparent';
   }};
-  color: ${({ variant, color }) => {
+  color: ${({ variant, color, inverted }) => {
     if (variant === 'solid' && color === 'blue') return tokenColor.white;
-    if (variant === 'solid' && color === 'white') return tokenColor.blue500;
-    if (variant === 'solid' && color === 'slate') return tokenColor.slate500;
-    if (variant === 'outline' && color === 'blue') return tokenColor.blue500;
+    if (variant === 'solid' && color === 'white') return tokenColor.blue600;
+    if (color === 'slate')
+      return inverted ? tokenColor.slate200 : tokenColor.slate700;
+    if (variant === 'outline' && color === 'blue')
+      return inverted ? tokenColor.blue400 : tokenColor.blue600;
     if (variant === 'outline' && color === 'white') return tokenColor.white;
-    if (variant === 'outline' && color === 'slate') return tokenColor.slate500;
     return null;
   }};
   height: ${({ size }) => {
@@ -55,13 +59,13 @@ const Container = styled.a<{
     if (size === 'lg') return '3rem';
     return null;
   }};
-  box-shadow: ${({ color, variant }) => {
+  box-shadow: ${({ color, variant, inverted }) => {
     if (variant === 'outline' && color === 'blue')
-      return `0 0 0 1px ${tokenColor.blue500}`;
+      return `0 0 0 1px ${inverted ? tokenColor.blue400 : tokenColor.blue600}`;
     if (variant === 'outline' && color === 'white')
       return `0 0 0 1px ${tokenColor.white}`;
     if (variant === 'outline' && color === 'slate')
-      return `0 0 0 1px ${tokenColor.slate400}`;
+      return `0 0 0 1px ${inverted ? tokenColor.slate500 : tokenColor.slate400}`;
     return null;
   }};
   font-size: ${({ size }) => {
@@ -77,16 +81,29 @@ const Container = styled.a<{
   text-decoration: none;
 
   &:hover {
-    background: ${({ variant, color }) => {
-      if (variant === 'solid' && color === 'blue') return tokenColor.blue600;
-      if (variant === 'solid' && color === 'white') return tokenColor.blue100;
-      if (variant === 'solid' && color === 'slate') return tokenColor.slate300;
+    background: ${({ variant, color, inverted }) => {
+      if (variant === 'solid' && color === 'blue')
+        return `hsl(from ${tokenColor.blue600} h s calc( l + 3 ))`;
+      if (variant === 'solid' && color === 'white')
+        return inverted ? tokenColor.slate200 : tokenColor.blue100;
+      if (variant === 'solid' && color === 'slate')
+        return inverted
+          ? `hsl(from ${tokenColor.slate700} h s calc( l + 8 ))`
+          : tokenColor.slate300;
       if (variant === 'outline' && color === 'blue') return tokenColor.blueTr10;
       if (variant === 'outline' && color === 'white')
         return 'rgba(255, 255, 255, 0.1)';
       if (variant === 'outline' && color === 'slate')
-        return 'rgba(255, 255, 255, 0.1)';
+        return inverted ? 'hsl(0 0 100% / 0.05)' : tokenColor.blue100;
       return 'transparent';
+    }};
+    color: ${({ variant, color, inverted }) => {
+      if (variant === 'outline' && color === 'blue')
+        return inverted
+          ? `hsl(from ${tokenColor.blue400} h s calc( l + 8 ))`
+          : `hsl(from ${tokenColor.blue600} h s calc( l - 4 ))`;
+      if (color === 'slate')
+        return inverted ? tokenColor.slate100 : tokenColor.slate800;
     }};
   }
 `;
@@ -101,6 +118,7 @@ export const Button = forwardRef<
       size = 'md',
       variant = 'solid',
       color = 'blue',
+      inverted,
       leftIcon,
       rightIcon,
       href,
@@ -115,12 +133,6 @@ export const Button = forwardRef<
     if (size === 'sm') iconSize = 12;
     if (size === 'lg') iconSize = 16;
 
-    let iconColor: keyof typeof tokenColor = 'slate500';
-    if (variant === 'solid' && color === 'blue') iconColor = 'white';
-    if (variant === 'solid' && color === 'white') iconColor = 'blue500';
-    if (variant === 'outline' && color === 'blue') iconColor = 'blue500';
-    if (variant === 'outline' && color === 'white') iconColor = 'white';
-
     let asContainer: ButtonProps['as'] = 'button';
     if (href) asContainer = 'a';
     if (as && !href) asContainer = as;
@@ -130,6 +142,7 @@ export const Button = forwardRef<
         size={size}
         variant={variant}
         color={color}
+        inverted={inverted}
         onClick={onClick}
         as={asContainer}
         href={href}
@@ -137,11 +150,9 @@ export const Button = forwardRef<
         ref={ref as React.Ref<HTMLAnchorElement & HTMLButtonElement>}
         {...rest}
       >
-        {leftIcon && <Icon name={leftIcon} size={iconSize} color={iconColor} />}
+        {leftIcon && <Icon name={leftIcon} size={iconSize} />}
         {children}
-        {rightIcon && (
-          <Icon name={rightIcon} size={iconSize} color={iconColor} />
-        )}
+        {rightIcon && <Icon name={rightIcon} size={iconSize} />}
       </Container>
     );
   }

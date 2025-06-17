@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
+import { color } from '../_tokens/tokens';
 import { Link } from './Link';
 import { Text } from '../Text';
 import { VStack } from '../Stack';
@@ -18,7 +19,6 @@ export const Base: Story = {
   args: {
     children: 'Hello World',
     size: 'md',
-    color: 'blue500',
     leftIcon: undefined,
     rightIcon: undefined,
     href: undefined,
@@ -62,6 +62,25 @@ export const Sizes: Story = {
   ],
 };
 
+export const Inverted: Story = {
+  args: {
+    ...Base.args,
+    inverted: true,
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          padding: '4rem',
+          backgroundColor: color.slate800,
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+};
+
 export const InlineSize: Story = {
   args: {
     ...Base.args,
@@ -99,7 +118,6 @@ export const InlineSize: Story = {
 export const RightIcon: Story = {
   args: {
     children: 'Hello World',
-    color: 'blue500',
     rightIcon: 'arrowright',
   },
   render: ({ children, ...args }) => (

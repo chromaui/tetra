@@ -24,8 +24,8 @@ export const color = {
   blue400: 'hsl(212 100% 64%)',
   blue500: 'hsl(212 100% 55%)',
   blue600: 'hsl(212 100% 46%)',
-  blueTR10: 'hsl(212 100% 55% / 0.10)',
-  blueTR50: 'hsl(212 100% 55% / 0.50)',
+  blueTr10: 'hsl(212 100% 55% / 0.10)',
+  blueTr50: 'hsl(212 100% 55% / 0.50)',
 
   cyan50: '#E8FDFC',
   cyan100: '#D8F8F7',
