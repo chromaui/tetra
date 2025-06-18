@@ -31,11 +31,6 @@ export const buttonStyles = css`
     box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
     background-color: rgba(30, 167, 253, 0.14);
   }
-
-  &:hover {
-    background-color: rgba(30, 167, 253, 0.14);
-    color: ${color.blue500};
-  }
 `;
 
 const TriggerButton = styled(RadixDropdownMenu.Trigger, {
@@ -46,16 +41,33 @@ const TriggerButton = styled(RadixDropdownMenu.Trigger, {
   isActive?: boolean;
 }>`
   ${buttonStyles}
-  background-color: ${({ isActive }) => isActive && 'rgba(30, 167, 253, 0.07)'};
+  background-color: ${({ isActive, variant }) => {
+    if (isActive) {
+      return color.green300;
+    }
+    return variant === 'light' ? color.slate100 : color.slate800;
+  }};
   color: ${({ isActive, variant }) => {
-    if (isActive) return color.blue500;
-    if (variant === 'light') return color.slate500;
-    return color.white;
+    if (isActive) return variant === 'light' ? color.blue600 : color.blue400;
+    return variant === 'light' ? color.slate700 : color.white;
   }};
 
-  &[data-state='open'] {
+  &:hover {
     background-color: rgba(30, 167, 253, 0.14);
-    color: ${color.blue500};
+    color: ${({ variant }) => {
+      return variant === 'light' ? color.blue600 : color.blue400;
+    }};
+  }
+
+  &[data-state='open'] {
+    background-color: ${({ variant }) => {
+      return variant === 'light'
+        ? `hsl(from ${color.blue600} h s l / 0.07)`
+        : `hsl(from ${color.blue400} h s l / 0.07)`;
+    }};
+    color: ${({ variant }) => {
+      return variant === 'light' ? color.blue600 : color.blue400;
+    }};
   }
 
   &[data-state='open'] > .CaretDown {
