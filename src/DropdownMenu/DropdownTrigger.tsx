@@ -42,7 +42,9 @@ const TriggerButton = styled(RadixDropdownMenu.Trigger, {
   ${buttonStyles}
   background-color: ${({ isActive, variant }) => {
     if (isActive) {
-      return color.green300;
+      return variant === 'light'
+        ? `hsl(from ${color.blue600} h s l / 0.07)`
+        : `hsl(from ${color.blue400} h s l / 0.07)`;
     }
     return variant === 'light' ? color.slate100 : color.slate800;
   }};
@@ -52,7 +54,14 @@ const TriggerButton = styled(RadixDropdownMenu.Trigger, {
   }};
 
   &:hover {
-    background-color: rgba(30, 167, 253, 0.14);
+    background-color: ${({ isActive, variant }) => {
+      if (isActive) {
+        return variant === 'light'
+          ? `hsl(from ${color.blue600} h s l / 0.14)`
+          : `hsl(from ${color.blue400} h s l / 0.14)`;
+      }
+      return variant === 'light' ? color.slate100 : color.slate800;
+    }};
     color: ${({ variant }) => {
       return variant === 'light' ? color.blue600 : color.blue400;
     }};
