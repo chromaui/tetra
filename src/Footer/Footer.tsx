@@ -28,7 +28,7 @@ const Column = styled.div`
 
 const ColumnTitle = styled.div<{ inverse?: boolean }>`
   ${typography.subheadingLarge};
-  color: ${({ inverse }) => (inverse ? color.white : color.slate500)};
+  color: ${({ inverse }) => (inverse ? color.white : color.slate600)};
   margin-bottom: ${spacing[1]};
   opacity: ${({ inverse }) => (inverse ? 0.5 : 1)};
 `;
@@ -116,7 +116,7 @@ const Colophon = styled(HStack)`
 
 const ColophonText = styled.div<{ inverse?: boolean }>`
   ${typography.body14};
-  color: ${({ inverse }) => (inverse ? color.white : color.slate500)};
+  color: ${({ inverse }) => (inverse ? color.white : color.slate600)};
   opacity: ${({ inverse }) => (inverse ? 0.5 : 1)};
 `;
 

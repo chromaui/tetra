@@ -134,14 +134,18 @@ export const Colors: Story = {
           flexDirection: 'column',
         }}
       >
-        <Button color="blue">{`Blue - ${children}`}</Button>
-        <Button color="white">{`White - ${children}`}</Button>
-        <Button color="slate">{`Slate - ${children}`}</Button>
-        <Button color="blue" variant="outline">{`Blue - ${children}`}</Button>
-        <Button color="white" variant="outline">
+        <Button color="blue" inverted>{`Blue - ${children}`}</Button>
+        <Button color="white" inverted>{`White - ${children}`}</Button>
+        <Button color="slate" inverted>{`Slate - ${children}`}</Button>
+        <Button
+          color="blue"
+          variant="outline"
+          inverted
+        >{`Blue - ${children}`}</Button>
+        <Button color="white" variant="outline" inverted>
           {`White - ${children}`}
         </Button>
-        <Button color="slate" variant="outline">
+        <Button color="slate" variant="outline" inverted>
           {`Slate - ${children}`}
         </Button>
       </div>

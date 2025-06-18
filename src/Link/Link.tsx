@@ -1,4 +1,4 @@
-import React, { FC, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import { color as tokenColor, fontFamily, fontWeight } from '../_tokens';
 import { Icon } from '../Icon';
@@ -8,6 +8,7 @@ export interface LinkProps {
   children: React.ReactNode;
   size?: 'default' | 'sm' | 'md' | 'lg';
   color?: keyof typeof tokenColor;
+  inverted?: boolean;
   leftIcon?: Icons;
   rightIcon?: Icons;
   href?: string;
@@ -21,6 +22,7 @@ export interface LinkProps {
 const Container = styled.a<{
   size: LinkProps['size'];
   color: LinkProps['color'];
+  inverted?: boolean;
   weight: 'regular' | 'semibold' | 'bold';
 }>`
   border: 0;
@@ -30,9 +32,9 @@ const Container = styled.a<{
   align-items: center;
   padding: 0;
   background: transparent;
-  color: ${({ color }) => {
+  color: ${({ color, inverted }) => {
     if (color) return tokenColor[color];
-    return tokenColor.blue500;
+    return inverted ? tokenColor.blue400 : tokenColor.blue600;
   }};
   font-size: ${({ size }) => {
     if (size === 'default') return '1em';
@@ -49,6 +51,12 @@ const Container = styled.a<{
 
   &:hover,
   &:focus-visible {
+    color: ${({ color, inverted }) => {
+      if (color) return `hsl(from ${tokenColor[color]} h s calc( l + 4 ))`;
+      return inverted
+        ? `hsl(from ${tokenColor.blue400} h s calc( l + 4))`
+        : `hsl(from ${tokenColor.blue600} h s calc( l + 8))`;
+    }};
     cursor: pointer;
     transform: translateY(-1px);
   }
@@ -65,7 +73,8 @@ export const Link = forwardRef<
     {
       children,
       size = 'default',
-      color = 'blue500',
+      color,
+      inverted,
       leftIcon,
       rightIcon,
       href,
@@ -92,6 +101,7 @@ export const Link = forwardRef<
         weight={weight}
         size={size}
         color={color}
+        inverted={inverted}
         onClick={onClick}
         as={asContainer}
         href={href}
@@ -100,9 +110,9 @@ export const Link = forwardRef<
         ref={ref as React.Ref<HTMLAnchorElement & HTMLButtonElement>}
         {...rest}
       >
-        {leftIcon && <Icon name={leftIcon} size={iconSize} color={color} />}
+        {leftIcon && <Icon name={leftIcon} size={iconSize} />}
         {children}
-        {rightIcon && <Icon name={rightIcon} size={iconSize} color={color} />}
+        {rightIcon && <Icon name={rightIcon} size={iconSize} />}
       </Container>
     );
   }
