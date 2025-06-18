@@ -159,7 +159,7 @@ const JobTitle = styled.div<{ variant: TestimonialVariant }>`
       font-size: ${fontSize[12]};
       line-height: 14px;
     `}
-  color: ${color.slate500};
+  color: ${color.slate600};
 `;
 
 const Logo = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
