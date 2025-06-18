@@ -97,7 +97,7 @@ export const NavDesktopItem = React.forwardRef<
             <Text as="div" lineHeightAuto variant="body14" fontWeight="bold">
               {content.title}
             </Text>
-            <Text as="div" variant="body14" color="slate500">
+            <Text as="div" variant="body14" color="slate600">
               {content.description}
             </Text>
           </TextWrapper>
