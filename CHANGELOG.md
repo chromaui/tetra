@@ -1,3 +1,15 @@
+# v2.2.0 (Wed Jun 18 2025)
+
+#### 🚀 Enhancement
+
+- fix all vitest warnings and errors [#122](https://github.com/chromaui/tetra/pull/122) ([@MichaelArestad](https://github.com/MichaelArestad))
+
+#### Authors: 1
+
+- Michael Arestad ([@MichaelArestad](https://github.com/MichaelArestad))
+
+---
+
 # v2.1.1 (Tue Jun 17 2025)
 
 #### 🐛 Bug Fix
