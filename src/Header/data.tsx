@@ -78,6 +78,12 @@ export const defaultLinks: HeaderLinks = {
     iconColor: 'blue500',
     href: '/features/turbosnap',
   },
+  steadySnap: {
+    title: 'SteadySnap',
+    icon: 'photostabilize',
+    iconColor: 'yellow500',
+    href: '/features/steadysnap',
+  },
   uiReview: {
     title: 'UI Review',
     icon: 'batchaccept',
@@ -234,6 +240,12 @@ export const createDesktopMenu = (
             type: 'link',
             description:
               "Track changed components to only test what's necessary",
+          },
+          {
+            ...links.steadySnap,
+            type: 'link',
+            description:
+              'Eliminate flakiness in tests by stabilizing frontend rendering',
           },
         ],
         backgroundColor: 'white',
@@ -413,6 +425,7 @@ export const createMobileMenu = (
       links.accessibilityTest,
       links.interactionTest,
       links.turboSnap,
+      links.steadySnap,
       links.figmaPlugin,
     ],
   },

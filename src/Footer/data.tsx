@@ -31,6 +31,7 @@ export const createFooterColumns = (
         LinkWrapper,
       },
       { title: 'TurboSnap', href: '/features/turbosnap', LinkWrapper },
+      { title: 'SteadySnap', href: '/features/steadysnap', LinkWrapper },
       { title: 'UI Review', href: '/features/review', LinkWrapper },
       { title: 'Publish', href: '/features/publish', LinkWrapper },
       { title: 'Storybook', href: '/storybook', LinkWrapper },
