@@ -83,4 +83,5 @@ export type LinkKeys =
   | 'frontendTestingGuide'
   | 'docs'
   | 'pricing'
-  | 'sales';
+  | 'sales'
+  | 'steadySnap';
