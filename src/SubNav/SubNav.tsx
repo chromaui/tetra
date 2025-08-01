@@ -22,6 +22,10 @@ const SubNavLink = styled(LinkWithWrapper, {
   isActive?: boolean;
 }>`
   all: unset;
+  color: ${({ isActive, variant }) => {
+    if (isActive) return variant === 'light' ? color.blue600 : color.blue400;
+    return variant === 'light' ? color.slate600 : color.slate300;
+  }};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,17 +51,14 @@ const SubNavLink = styled(LinkWithWrapper, {
   }
 
   &:hover {
-    color: ${color.blue500};
+    color: ${({ variant }) => {
+      return `hsl(from ${variant === 'light' ? color.blue600 : color.blue400} h s calc( l + 4 ))`;
+    }};
   }
 
-  color: ${({ isActive, variant }) => {
-    if (isActive) return color.blue500;
-    if (variant === 'light') return color.slate500;
-    return color.slate300;
-  }};
-
   ${(props) =>
-    props.isActive && `box-shadow: ${color.blue500} 0 -3px 0 0 inset;`}
+    props.isActive &&
+    `box-shadow: ${props.variant === 'light' ? color.blue600 : color.blue400} 0 -3px 0 0 inset;`}
 `;
 
 const DropdownMenuWrapper = styled.div`
