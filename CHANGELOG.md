@@ -1,3 +1,15 @@
+# v2.2.1 (Fri Aug 01 2025)
+
+#### 🐛 Bug Fix
+
+- Add steadysnap to header and footer [#124](https://github.com/chromaui/tetra/pull/124) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.2.0 (Wed Jun 18 2025)
 
 #### 🚀 Enhancement
