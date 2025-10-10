@@ -3,14 +3,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Avatar } from '../Avatar';
 import { minSm, typography } from '../_helpers';
-import {
-  color,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  lineHeight,
-  spacing,
-} from '../_tokens';
+import { color, fontFamily, fontSize, fontWeight, spacing } from '../_tokens';
 
 type TestimonialVariant = 'default' | 'left-aligned' | 'compact';
 
@@ -159,7 +152,7 @@ const JobTitle = styled.div<{ variant: TestimonialVariant }>`
       font-size: ${fontSize[12]};
       line-height: 14px;
     `}
-  color: ${color.slate600};
+  color: ${color.slate400};
 `;
 
 const Logo = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
