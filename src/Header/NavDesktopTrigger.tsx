@@ -22,14 +22,14 @@ const NavigationMenuTrigger = styled(NavigationMenu.Trigger, {
   ${NavigationMenuItem}
   background-color: ${({ isActive }) => isActive && 'rgba(30, 167, 253, 0.07)'};
   color: ${({ isActive, theTheme }) => {
-    if (isActive) return color.blue500;
+    if (isActive) return color.blue600;
     if (theTheme === 'light') return color.slate800;
     return color.white;
   }};
 
   &[data-state='open'] {
     background-color: rgba(30, 167, 253, 0.14);
-    color: ${color.blue500};
+    color: ${color.blue600};
   }
 
   &[data-state='open'] > .CaretDown {

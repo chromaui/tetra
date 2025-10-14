@@ -169,6 +169,7 @@ export const Header = ({
                   LinkWrapper={links.signin.linkWrapper}
                 >
                   <Link
+                    inverted={theme === 'dark'}
                     size="md"
                     weight="semibold"
                     rightIcon="arrowrightalt"

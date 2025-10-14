@@ -77,6 +77,16 @@ export const DesktopLoggedIn: Story = {
     loggedIn: true,
   },
 };
+export const DesktopDarkLoggedIn: Story = {
+  args: {
+    ...DesktopLight.args,
+    loggedIn: true,
+    theme: 'dark',
+  },
+  globals: {
+    backgrounds: { value: 'dark' },
+  },
+};
 
 export const DesktopLoggedOutMaintenance: Story = {
   args: {
