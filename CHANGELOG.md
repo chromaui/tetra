@@ -1,3 +1,16 @@
+# v3.0.0 (Wed Oct 15 2025)
+
+#### 💥 Breaking Change
+
+- Update colors and improve color contrast [#123](https://github.com/chromaui/tetra/pull/123) ([@MichaelArestad](https://github.com/MichaelArestad) [@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 2
+
+- Michael Arestad ([@MichaelArestad](https://github.com/MichaelArestad))
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v2.2.1 (Fri Aug 01 2025)
 
 #### 🐛 Bug Fix
