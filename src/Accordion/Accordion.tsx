@@ -123,7 +123,7 @@ const Item = styled.div<{ inverse?: boolean }>`
 `;
 
 // the button controlling the open/closed state of each item
-const Trigger = styled.div<{ inverse?: boolean }>`
+const Trigger = styled.button<{ inverse?: boolean }>`
   ${typography.body16};
   align-items: center;
   background: none;

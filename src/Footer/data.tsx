@@ -30,6 +30,11 @@ export const createFooterColumns = (
         href: '/features/interaction-test',
         LinkWrapper,
       },
+      {
+        title: 'Accessibility test',
+        href: '/features/accessibility-test',
+        LinkWrapper,
+      },
       { title: 'TurboSnap', href: '/features/turbosnap', LinkWrapper },
       { title: 'SteadySnap', href: '/features/steadysnap', LinkWrapper },
       { title: 'UI Review', href: '/features/review', LinkWrapper },
