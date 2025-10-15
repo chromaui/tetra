@@ -102,7 +102,7 @@ const Count = styled.div<{
 const Dimension = styled.div<{ size: Size; variant: StatVariant }>`
   ${typography.body14};
   color: ${(props) =>
-    props.variant === 'inverse' ? color.slate500 : color.slate600};
+    props.variant === 'inverse' ? color.slate400 : color.slate600};
   ${(props) =>
     props.size === 'small' &&
     css`
@@ -113,7 +113,7 @@ const Dimension = styled.div<{ size: Size; variant: StatVariant }>`
 const Unit = styled.div<{ size: Size; variant: StatVariant }>`
   ${typography.body14};
   color: ${(props) =>
-    props.variant === 'inverse' ? color.slate500 : color.slate600};
+    props.variant === 'inverse' ? color.slate400 : color.slate600};
   ${(props) =>
     props.size === 'small' &&
     css`

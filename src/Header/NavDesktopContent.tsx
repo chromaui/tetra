@@ -81,7 +81,7 @@ const NavDesktopItemCard = ({
           <Text as="div" lineHeightAuto variant="body14" fontWeight="bold">
             {title}
           </Text>
-          <Text as="div" variant="body14" color="slate500">
+          <Text as="div" variant="body14" color="slate600">
             {description}
           </Text>
         </VStack>
@@ -100,7 +100,7 @@ export const NavDesktopContent: FC<Props> = ({ item }) => {
             <Fragment key={content.title}>
               {content.type === 'separator' && (
                 <Separator index={i}>
-                  <Text variant="subheading" color="slate500">
+                  <Text variant="subheading" color="slate600">
                     {content.title}
                   </Text>
                 </Separator>

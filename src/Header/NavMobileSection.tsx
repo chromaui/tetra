@@ -28,7 +28,7 @@ const NonCollapsibleTrigger = styled.div`
   width: calc(100% - 20px);
   margin-left: 2px;
   ${typography.subheading}
-  color: ${color.slate500};
+  color: ${color.slate600};
 `;
 
 const CollapsibleTrigger = styled(Collapsible.Trigger)`
@@ -42,7 +42,7 @@ const CollapsibleTrigger = styled(Collapsible.Trigger)`
   width: calc(100% - 20px);
   margin-left: 2px;
   ${typography.subheading}
-  color: ${color.slate500};
+  color: ${color.slate600};
   cursor: pointer;
 
   &[data-state='open'] > .CaretDown {
@@ -81,7 +81,7 @@ const MoreTrigger = styled(Collapsible.Trigger)`
   height: ${spacing[8]};
   border-radius: 6px;
   ${typography.body14}
-  color: ${color.slate500};
+  color: ${color.slate600};
   cursor: pointer;
 
   &[data-state='open'] {

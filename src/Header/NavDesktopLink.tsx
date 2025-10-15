@@ -22,7 +22,7 @@ const NavigationMenuLink = styled(LinkWithWrapper, {
   background-color: ${({ isActive }) => isActive && 'rgba(30, 167, 253, 0.07)'};
   font-weight: ${fontWeight.bold};
   color: ${({ isActive, theTheme }) => {
-    if (isActive) return color.blue500;
+    if (isActive) return color.blue400;
     if (theTheme === 'light') return color.slate800;
     return color.white;
   }};

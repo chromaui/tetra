@@ -92,7 +92,7 @@ export const NavMobile = ({
             href={links.sales.href}
             size="md"
             weight="semibold"
-            color={theme === 'dark' ? 'white' : 'blue500'}
+            color={theme === 'dark' ? 'white' : 'blue600'}
           >
             Contact
           </Link>
@@ -108,7 +108,7 @@ export const NavMobile = ({
                 href={links.signin.href}
                 size="md"
                 weight="semibold"
-                color={theme === 'dark' ? 'white' : 'blue500'}
+                color={theme === 'dark' ? 'white' : 'blue600'}
               >
                 {links.signin.title}
               </Link>

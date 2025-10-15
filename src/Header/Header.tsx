@@ -120,7 +120,7 @@ export const Header = ({
                   href={links.sales.href}
                   size="md"
                   weight="semibold"
-                  color={theme === 'dark' ? 'white' : 'blue500'}
+                  color={theme === 'dark' ? 'white' : 'blue600'}
                 >
                   Contact
                 </Link>
@@ -137,7 +137,7 @@ export const Header = ({
                         href={links.signin.href}
                         size="md"
                         weight="semibold"
-                        color={theme === 'dark' ? 'white' : 'blue500'}
+                        color={theme === 'dark' ? 'white' : 'blue600'}
                       >
                         {links.signin.title}
                       </Link>
@@ -169,6 +169,7 @@ export const Header = ({
                   LinkWrapper={links.signin.linkWrapper}
                 >
                   <Link
+                    inverted={theme === 'dark'}
                     size="md"
                     weight="semibold"
                     rightIcon="arrowrightalt"
