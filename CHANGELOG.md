@@ -1,3 +1,15 @@
+# v3.0.1 (Fri Nov 07 2025)
+
+#### 🐛 Bug Fix
+
+- add mcp addon [#125](https://github.com/chromaui/tetra/pull/125) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.0.0 (Wed Oct 15 2025)
 
 #### 💥 Breaking Change
