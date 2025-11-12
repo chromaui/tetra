@@ -2,7 +2,7 @@
   "mcpServers": {
     "storybook-mcp": {
       "type": "http",
-      "url": "https://main--642d765a7e8afcfb104268dc.chromatic.com/mcp/"
+      "url": "http://localhost:6006/mcp"
     }
   }
 }

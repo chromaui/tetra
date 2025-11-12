@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-interface AspectRatioProps {
+export interface AspectRatioProps {
   children: React.ReactNode;
   /** e.g. `'4/3'` */
   ratio: `${number}/${number}`;
@@ -23,7 +23,7 @@ export const AspectRatio = styled.div<AspectRatioProps>`
     }
   }
 
-  @support not (aspect-ratio: 1) {
+  @supports not (aspect-ratio: 1) {
     position: relative;
     width: 100%;
     height: 0;

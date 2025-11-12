@@ -5,7 +5,7 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-docs',
     '@storybook/addon-vitest',
-    '@storybook/addon-mcp'
+    '@storybook/addon-mcp',
   ],
 
   features: { experimentalComponentsManifest: true },
@@ -15,6 +15,6 @@ const config: StorybookConfig = {
     options: {},
   },
 
-  staticDirs: ['./assets', '../public']
+  staticDirs: ['./assets', '../public'],
 };
 export default config;
