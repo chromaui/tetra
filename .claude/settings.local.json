@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(pnpm run storybook:*)",
+      "mcp__storybook-mcp__list-all-components",
+      "mcp__storybook-mcp__get-component-documentation",
+      "mcp__storybook-mcp__get-ui-building-instructions",
+      "mcp__storybook-mcp__get-story-urls"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": ["storybook-mcp"]
+}
