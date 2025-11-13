@@ -1,3 +1,17 @@
+# v3.1.0 (Thu Nov 13 2025)
+
+#### 🚀 Enhancement
+
+- Add form components [#127](https://github.com/chromaui/tetra/pull/127) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+- Enable experimental components manifest feature [#126](https://github.com/chromaui/tetra/pull/126) ([@tmeasday](https://github.com/tmeasday))
+
+#### Authors: 2
+
+- Tom Coleman ([@tmeasday](https://github.com/tmeasday))
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.0.1 (Fri Nov 07 2025)
 
 #### 🐛 Bug Fix
