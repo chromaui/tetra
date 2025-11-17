@@ -46,4 +46,12 @@ export { SubNav } from './SubNav';
 export { Testimonial } from './Testimonial';
 export { Text } from './Text';
 
+// Form components
+export { Label } from './Form/Label';
+export { Input } from './Form/Input';
+export { Select } from './Form/Select';
+export { Range } from './Form/Range';
+export { Checkbox } from './Form/Checkbox';
+export { Form, Fieldset, Legend, Field } from './Form/Form';
+
 export { cssVariables } from './css-variables';
