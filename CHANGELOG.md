@@ -1,3 +1,15 @@
+# v3.1.1 (Mon Nov 17 2025)
+
+#### 🐛 Bug Fix
+
+- export form components [#128](https://github.com/chromaui/tetra/pull/128) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.1.0 (Thu Nov 13 2025)
 
 #### 🚀 Enhancement
