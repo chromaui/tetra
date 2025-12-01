@@ -1,3 +1,15 @@
+# v3.1.2 (Mon Dec 01 2025)
+
+#### 🐛 Bug Fix
+
+- Add snapshot and accessibility budget calculators to the header [#129](https://github.com/chromaui/tetra/pull/129) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.1.1 (Mon Nov 17 2025)
 
 #### 🐛 Bug Fix
