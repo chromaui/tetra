@@ -197,6 +197,18 @@ export const defaultLinks: HeaderLinks = {
     iconColor: 'blue500',
     href: '/sales',
   },
+  snapshotCalculator: {
+    title: 'Snapshot calculator',
+    icon: 'photo',
+    iconColor: 'blue500',
+    href: '/snapshot-calculator',
+  },
+  accessibilityBudgetCalculator: {
+    title: 'Accessibility budget calculator',
+    icon: 'accessibility',
+    iconColor: 'green500',
+    href: '/accessibility-budget-calculator',
+  },
 };
 
 export const createDesktopMenu = (
@@ -384,7 +396,18 @@ export const createDesktopMenu = (
           {
             ...links.blog,
             type: 'link',
-            description: 'News and feature updates from our team.',
+            description: 'News and feature updates from our team',
+          },
+          {
+            ...links.snapshotCalculator,
+            type: 'link',
+            description:
+              'Calculate monthly usage based on project-specific needs',
+          },
+          {
+            ...links.accessibilityBudgetCalculator,
+            type: 'link',
+            description: 'Calculate the true cost of accessibility testing',
           },
         ],
         backgroundColor: 'white',

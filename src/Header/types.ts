@@ -84,4 +84,6 @@ export type LinkKeys =
   | 'docs'
   | 'pricing'
   | 'sales'
-  | 'steadySnap';
+  | 'steadySnap'
+  | 'snapshotCalculator'
+  | 'accessibilityBudgetCalculator';
