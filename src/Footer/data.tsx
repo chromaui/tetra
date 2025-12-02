@@ -101,6 +101,16 @@ export const createFooterColumns = (
         href: '/frontend-testing-guide',
         LinkWrapper,
       },
+      {
+        title: 'Snapshot calculator',
+        href: '/snapshot-calculator',
+        LinkWrapper,
+      },
+      {
+        title: 'A11y budget calculator',
+        href: '/accessibility-budget-calculator',
+        LinkWrapper,
+      },
     ],
   },
   {
