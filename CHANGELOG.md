@@ -1,3 +1,15 @@
+# v3.2.0 (Tue Dec 02 2025)
+
+#### 🚀 Enhancement
+
+- add calculator links to footer [#130](https://github.com/chromaui/tetra/pull/130) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.1.2 (Mon Dec 01 2025)
 
 #### 🐛 Bug Fix
