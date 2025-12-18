@@ -1,3 +1,15 @@
+# v3.2.1 (Thu Dec 18 2025)
+
+#### 🐛 Bug Fix
+
+- upgrade storybook [#131](https://github.com/chromaui/tetra/pull/131) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.0 (Tue Dec 02 2025)
 
 #### 🚀 Enhancement
