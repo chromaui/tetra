@@ -115,6 +115,7 @@ export const SubNav: FunctionComponent<SubNavProps> = ({
             href={item.href}
             variant={theme}
             isActive={item.isActive}
+            LinkWrapper={item.LinkWrapper}
           >
             {item.label}{' '}
             {item.external && (
