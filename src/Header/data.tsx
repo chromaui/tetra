@@ -24,11 +24,11 @@ export type HeaderLinks = Record<LinkKeys, HeaderLink>;
 export const defaultLinks: HeaderLinks = {
   signin: {
     title: 'Sign in',
-    href: '/start',
+    href: 'https://app.chromatic.com/start',
   },
   signup: {
     title: 'Sign up',
-    href: '/start?startWithSignup=true',
+    href: 'https://app.chromatic.com/signup',
   },
   uiTest: {
     title: 'UI Tests',
@@ -238,14 +238,14 @@ export const createDesktopMenu = (
               'Pinpoint bugs down to the browser, viewport, and pixel',
           },
           {
-            ...links.interactionTest,
-            type: 'link',
-            description: 'Verify behavior of all screens and components',
-          },
-          {
             ...links.accessibilityTest,
             type: 'link',
             description: 'Catch accessibility issues at the component level',
+          },
+          {
+            ...links.interactionTest,
+            type: 'link',
+            description: 'Verify behavior of all screens and components',
           },
           {
             ...links.turboSnap,
