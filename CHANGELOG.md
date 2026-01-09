@@ -1,3 +1,15 @@
+# v3.2.2 (Fri Jan 09 2026)
+
+#### 🐛 Bug Fix
+
+- Header updates [#132](https://github.com/chromaui/tetra/pull/132) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.1 (Thu Dec 18 2025)
 
 #### 🐛 Bug Fix
