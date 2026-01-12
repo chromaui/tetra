@@ -1,3 +1,15 @@
+# v3.2.3 (Mon Jan 12 2026)
+
+#### 🐛 Bug Fix
+
+- Add frontend workflow for AI to header and footer [#133](https://github.com/chromaui/tetra/pull/133) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.2 (Fri Jan 09 2026)
 
 #### 🐛 Bug Fix
