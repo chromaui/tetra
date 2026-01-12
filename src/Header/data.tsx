@@ -209,6 +209,12 @@ export const defaultLinks: HeaderLinks = {
     iconColor: 'green500',
     href: '/accessibility-budget-calculator',
   },
+  frontendWorkflowForAI: {
+    title: 'Frontend workflow for AI',
+    href: '/frontend-workflow-for-ai',
+    icon: 'wand',
+    iconColor: 'pink500',
+  },
 };
 
 export const createDesktopMenu = (
@@ -408,6 +414,12 @@ export const createDesktopMenu = (
             ...links.accessibilityBudgetCalculator,
             type: 'link',
             description: 'Calculate the true cost of accessibility testing',
+          },
+          {
+            ...links.frontendWorkflowForAI,
+            type: 'link',
+            description:
+              'How humans and agents build together without breaking prod',
           },
         ],
         backgroundColor: 'white',

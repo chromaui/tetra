@@ -86,4 +86,5 @@ export type LinkKeys =
   | 'sales'
   | 'steadySnap'
   | 'snapshotCalculator'
-  | 'accessibilityBudgetCalculator';
+  | 'accessibilityBudgetCalculator'
+  | 'frontendWorkflowForAI';
