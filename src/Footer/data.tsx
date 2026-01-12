@@ -102,6 +102,11 @@ export const createFooterColumns = (
         LinkWrapper,
       },
       {
+        title: 'Frontend workflow for AI',
+        href: '/frontend-workflow-for-ai',
+        LinkWrapper,
+      },
+      {
         title: 'Snapshot calculator',
         href: '/snapshot-calculator',
         LinkWrapper,
