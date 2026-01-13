@@ -19,7 +19,7 @@ interface HeaderLink {
   linkWrapper?: any;
 }
 
-export type HeaderLinks = Partial<Record<LinkKeys, HeaderLink>>;
+export type HeaderLinks = Partial<Record<LinkKeys, Partial<HeaderLink>>>;
 export type HeaderLinksAll = Record<LinkKeys, HeaderLink>;
 
 export const defaultLinks: HeaderLinksAll = {
@@ -179,6 +179,8 @@ export const defaultLinks: HeaderLinksAll = {
   frontendTestingGuide: {
     title: 'Frontend testing guide',
     href: '/frontend-testing-guide',
+    icon: 'contrast',
+    iconColor: 'green500',
   },
   docs: {
     title: 'Docs',
@@ -418,12 +420,6 @@ export const createDesktopMenu = (
               type: 'link',
               description: 'Calculate the true cost of accessibility testing',
             },
-            {
-              ...links.frontendWorkflowForAI,
-              type: 'link',
-              description:
-                'How humans and agents build together without breaking prod',
-            },
           ],
           backgroundColor: 'white',
         },
@@ -431,11 +427,16 @@ export const createDesktopMenu = (
           content: [
             {
               ...links.frontendTestingGuide,
-              type: 'card',
+              type: 'link',
               title: 'Frontend testing guide',
               description:
                 'We researched dozens of teams to figure out which testing strategies actually work.',
-              image: '/guides/frontend-testing-guide-thumbnail.jpg',
+            },
+            {
+              ...links.frontendWorkflowForAI,
+              type: 'link',
+              description:
+                'How humans and agents build together without breaking prod',
             },
           ],
           backgroundColor: 'blue50',
