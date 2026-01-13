@@ -1,3 +1,15 @@
+# v3.2.4 (Tue Jan 13 2026)
+
+#### 🐛 Bug Fix
+
+- Header api [#134](https://github.com/chromaui/tetra/pull/134) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.3 (Mon Jan 12 2026)
 
 #### 🐛 Bug Fix
