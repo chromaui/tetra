@@ -6,7 +6,7 @@ import { fontWeight, spacing } from '../_tokens';
 import { Container, FullWidthContainer } from '../Container';
 import { NavDesktop } from './NavDesktop';
 import { NavMobile } from './NavMobile';
-import { HeaderProps } from './types';
+import { HeaderProps, LinkKeys } from './types';
 import { minSm, typography } from '../_helpers';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { resetCSS } from '../_localHelpers/resetCSS';
@@ -14,6 +14,7 @@ import { Divider } from '../Divider';
 import { desktopBreakpoint } from './styles';
 import { Link } from '../Link';
 import { Button } from '../Button';
+import { defaultLinks, HeaderLinksAll } from './data';
 
 const Wrapper = styled.div`
   ${resetCSS}
@@ -82,7 +83,7 @@ const DefaultTrackSignUp: FC<{ children: React.ReactNode }> = ({
 
 export const Header = ({
   theme = 'light',
-  links,
+  links: linkOverrides,
   logoLinkWrapper,
   desktopActiveId,
   fullWidth = false,
@@ -92,6 +93,13 @@ export const Header = ({
   TrackSignUp = DefaultTrackSignUp,
 }: HeaderProps) => {
   const HeaderContainer = fullWidth ? FullWidthContainer : Container;
+  const links = Object.entries(defaultLinks).reduce((acc, [key, value]) => {
+    acc[key as LinkKeys] = {
+      ...value,
+      ...linkOverrides[key as LinkKeys],
+    };
+    return acc;
+  }, {} as HeaderLinksAll);
 
   return (
     <HeaderProvider theme={theme} desktopActiveId={desktopActiveId}>
