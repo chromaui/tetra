@@ -139,7 +139,7 @@ export const WithSubNav: Story = {
 export const DesktopLightActive: Story = {
   args: {
     ...DesktopLight.args,
-    desktopActiveId: 'features',
+    desktopActiveId: 'pricing',
   },
   parameters: {
     ...DesktopLight.parameters,

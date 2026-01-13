@@ -3,7 +3,7 @@ import React, { FC, useMemo } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
-import { HeaderLinks, createDesktopMenu } from './data';
+import { HeaderLinksAll, createDesktopMenu } from './data';
 
 const NavigationMenuRoot = styled(NavigationMenu.Root)`
   position: relative;
@@ -26,14 +26,14 @@ const NavigationMenuItem = styled(NavigationMenu.Item)`
 `;
 
 interface NavDesktopProps {
-  links: HeaderLinks;
+  links: HeaderLinksAll;
   fullWidth?: boolean;
 }
 
 export const NavDesktop = ({ links, fullWidth, ...props }: NavDesktopProps) => {
   const desktopLinks = useMemo(
     () => createDesktopMenu(links, fullWidth),
-    [links]
+    [links, fullWidth]
   );
 
   return (
