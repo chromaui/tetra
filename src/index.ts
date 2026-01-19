@@ -53,5 +53,21 @@ export { Select } from './Form/Select';
 export { Range } from './Form/Range';
 export { Checkbox } from './Form/Checkbox';
 export { Form, Fieldset, Legend, Field } from './Form/Form';
+export {
+  Autocomplete,
+  AutocompleteOption,
+  AutocompleteProps,
+} from './Autocomplete';
+export {
+  DatePicker,
+  Calendar,
+  DatePickerProps,
+  CalendarProps,
+} from './DatePicker';
+export {
+  FlightBooking,
+  FlightBookingProps,
+  FlightBookingData,
+} from './FlightBooking';
 
 export { cssVariables } from './css-variables';
