@@ -5,7 +5,16 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-docs',
     '@storybook/addon-vitest',
-    '@storybook/addon-mcp',
+    {
+      name: '@storybook/addon-mcp',
+      options: {
+        toolsets: {
+          dev: true, // Tools for story URL retrieval and UI building instructions (default: true)
+          docs: true, // Tools for component manifest and documentation (default: true, requires experimental feature flag below 👇)
+        },
+        experimentalFormat: 'markdown', // Output format: 'markdown' (default) or 'xml'
+      },
+    },
   ],
 
   features: { experimentalComponentsManifest: true },
