@@ -17,7 +17,10 @@ const config: StorybookConfig = {
     },
   ],
 
-  features: { experimentalComponentsManifest: true },
+  features: { 
+    experimentalComponentsManifest: true,
+    experimentalCodeExamples: true, // optional 
+    },
 
   framework: {
     name: '@storybook/react-vite',
