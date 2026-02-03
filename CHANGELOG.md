@@ -1,3 +1,15 @@
+# v3.2.5 (Tue Feb 03 2026)
+
+#### 🐛 Bug Fix
+
+- add ai page to header & footer [#137](https://github.com/chromaui/tetra/pull/137) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.4 (Tue Jan 13 2026)
 
 #### 🐛 Bug Fix
