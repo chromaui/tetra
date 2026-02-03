@@ -210,6 +210,7 @@ export const TabletLight: Story = {
   },
   globals: {
     backgrounds: { value: 'light' },
+    viewport: { value: 'md' },
   },
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },

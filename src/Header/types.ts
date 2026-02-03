@@ -87,4 +87,5 @@ export type LinkKeys =
   | 'steadySnap'
   | 'snapshotCalculator'
   | 'accessibilityBudgetCalculator'
-  | 'frontendWorkflowForAI';
+  | 'frontendWorkflowForAI'
+  | 'ai';
