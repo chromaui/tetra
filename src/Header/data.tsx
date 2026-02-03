@@ -219,7 +219,7 @@ export const defaultLinks: HeaderLinksAll = {
     iconColor: 'pink500',
   },
   ai: {
-    title: 'AI & agents',
+    title: 'AI & Agents',
     href: '/ai',
     icon: 'wand',
     iconColor: 'purple500',
@@ -314,6 +314,11 @@ export const createDesktopMenu = (
               description: 'Run visual tests directly inside Storybook',
             },
             {
+              ...links.ai,
+              type: 'link',
+              description: 'Validated UI context for coding agents',
+            },
+            {
               ...links.playwright,
               type: 'link',
               description:
@@ -324,11 +329,6 @@ export const createDesktopMenu = (
               type: 'link',
               description:
                 'Visual tests for every page in your Cypress E2E suite',
-            },
-            {
-              ...links.ai,
-              type: 'link',
-              description: 'Validated UI context for coding agents',
             },
           ],
           backgroundColor: 'white',
@@ -487,7 +487,7 @@ export const createMobileMenu = (
     {
       name: 'Integrations',
       collapsible: true,
-      content: [links.storybook, links.playwright, links.cypress, links.ai],
+      content: [links.storybook, links.ai, links.playwright, links.cypress],
     },
     {
       name: 'Use cases',
