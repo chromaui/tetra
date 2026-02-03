@@ -218,6 +218,12 @@ export const defaultLinks: HeaderLinksAll = {
     icon: 'wand',
     iconColor: 'pink500',
   },
+  ai: {
+    title: 'AI & Agents',
+    href: '/ai',
+    icon: 'wand',
+    iconColor: 'purple500',
+  },
 };
 
 export const createDesktopMenu = (
@@ -306,6 +312,11 @@ export const createDesktopMenu = (
               ...links.storybook,
               type: 'link',
               description: 'Run visual tests directly inside Storybook',
+            },
+            {
+              ...links.ai,
+              type: 'link',
+              description: 'Validated UI context for coding agents',
             },
             {
               ...links.playwright,
@@ -476,7 +487,7 @@ export const createMobileMenu = (
     {
       name: 'Integrations',
       collapsible: true,
-      content: [links.storybook, links.playwright, links.cypress],
+      content: [links.storybook, links.ai, links.playwright, links.cypress],
     },
     {
       name: 'Use cases',
