@@ -3,6 +3,7 @@ import addonA11y from "@storybook/addon-a11y";
 import { definePreview } from '@storybook/react-vite';
 import { MotionGlobalConfig } from 'framer-motion';
 import registerAPCACheck from 'apca-check';
+import '../src/css/yaSans20251215.css';
 
 registerAPCACheck('bronze'); // or registerAPCACheck('silver');
 
