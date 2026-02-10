@@ -1,18 +1,15 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { InfoBox } from './InfoBox';
 
-const meta: Meta<typeof InfoBox> = {
+const meta = preview.meta({
   title: 'Local/InfoBox',
   component: InfoBox,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof InfoBox>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     children: 'Hello World',
   },
-};
+});

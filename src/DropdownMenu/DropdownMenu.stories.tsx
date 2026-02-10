@@ -1,11 +1,11 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 import { DropdownMenu } from './DropdownMenu';
 import { DropdownMenuItem, DropdownMenuCheckboxItem } from './DropdownItems';
 import { Icon } from '../Icon';
 import { within } from 'storybook/test';
 
-const meta: Meta<typeof DropdownMenu> = {
+const meta = preview.meta({
   title: 'Components/Dropdown',
   component: DropdownMenu,
   play: async ({ canvasElement, userEvent }) => {
@@ -14,12 +14,9 @@ const meta: Meta<typeof DropdownMenu> = {
     MenuButton.focus();
     await userEvent.keyboard('{enter}');
   },
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof DropdownMenu>;
-
-export const ClosedLight: Story = {
+export const ClosedLight = meta.story({
   render: (args) => (
     <DropdownMenu {...args}>
       <DropdownMenuItem>CLI</DropdownMenuItem>
@@ -31,20 +28,20 @@ export const ClosedLight: Story = {
   args: {
     label: 'Filter config options',
   },
-};
+});
 
-export const ClosedDark: Story = {
-  ...ClosedLight,
+export const ClosedDark = meta.story({
+  ...ClosedLight.input,
   args: {
-    ...ClosedLight.args,
+    ...ClosedLight.input.args,
     variant: 'dark',
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
 
-export const LabelWithIconLight: Story = {
+export const LabelWithIconLight = meta.story({
   decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
   render: (args) => (
     <DropdownMenu {...args}>
@@ -61,20 +58,20 @@ export const LabelWithIconLight: Story = {
       </>
     ),
   },
-};
+});
 
-export const LabelWithIconDark: Story = {
-  ...LabelWithIconLight,
+export const LabelWithIconDark = meta.story({
+  ...LabelWithIconLight.input,
   args: {
-    ...LabelWithIconLight.args,
+    ...LabelWithIconLight.input.args,
     variant: 'dark',
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
 
-export const DisabledItemsLight: Story = {
+export const DisabledItemsLight = meta.story({
   decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
   render: (args) => (
     <DropdownMenu {...args}>
@@ -83,21 +80,21 @@ export const DisabledItemsLight: Story = {
       <DropdownMenuItem>Config File</DropdownMenuItem>
     </DropdownMenu>
   ),
-  args: LabelWithIconLight.args,
-};
+  args: LabelWithIconLight.input.args,
+});
 
-export const DisabledItemsDark: Story = {
-  ...DisabledItemsLight,
+export const DisabledItemsDark = meta.story({
+  ...DisabledItemsLight.input,
   args: {
-    ...DisabledItemsLight.args,
+    ...DisabledItemsLight.input.args,
     variant: 'dark',
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
 
-export const CheckboxItemsLight: Story = {
+export const CheckboxItemsLight = meta.story({
   decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
   render: (args) => (
     <DropdownMenu {...args}>
@@ -106,19 +103,19 @@ export const CheckboxItemsLight: Story = {
       <DropdownMenuCheckboxItem checked>Config File</DropdownMenuCheckboxItem>
     </DropdownMenu>
   ),
-  args: LabelWithIconLight.args,
-};
+  args: LabelWithIconLight.input.args,
+});
 
-export const CheckboxItemsDark: Story = {
-  ...CheckboxItemsLight,
+export const CheckboxItemsDark = meta.story({
+  ...CheckboxItemsLight.input,
   args: {
-    ...CheckboxItemsLight.args,
+    ...CheckboxItemsLight.input.args,
     variant: 'dark',
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
 
 // Simple closed
 // Disabled

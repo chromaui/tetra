@@ -1,19 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 
 import { Select } from './Select';
 import { Label } from './Label';
 import { VStack } from '../Stack';
 
-const meta: Meta<typeof Select> = {
+const meta = preview.meta({
   title: 'Forms/Select',
   component: Select,
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Select>;
-
-export const Default: Story = {
+export const Default = meta.story({
   render: ({ inverse }) => (
     <VStack gap={5} paddingX={6} paddingY={6} style={{ maxWidth: 600 }}>
       <div>
@@ -67,10 +64,10 @@ export const Default: Story = {
       </div>
     </VStack>
   ),
-};
+});
 
-export const Inverse: Story = {
-  ...Default,
+export const Inverse = meta.story({
+  ...Default.input,
 
   args: {
     inverse: true,
@@ -78,4 +75,4 @@ export const Inverse: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});

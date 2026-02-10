@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React, { useId, useState } from 'react';
 import { Autocomplete, AutocompleteOption } from './Autocomplete';
 import { VStack } from '../Stack';
 
-const meta: Meta<typeof Autocomplete> = {
+const meta = preview.meta({
   title: 'Forms/Autocomplete',
   component: Autocomplete,
   tags: ['autodocs'],
-};
-
-export default meta;
-type Story = StoryObj<typeof Autocomplete>;
+});
 
 const OPTIONS: AutocompleteOption[] = [
   { value: 'apple', label: 'Apple' },
@@ -25,7 +22,7 @@ const OPTIONS: AutocompleteOption[] = [
   { value: 'grape', label: 'Grape' },
 ];
 
-export const Default: Story = {
+export const Default = meta.story({
   render: () => {
     const [selected, setSelected] = useState<AutocompleteOption | null>(null);
     const inputId = useId();
@@ -46,9 +43,9 @@ export const Default: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const Inverse: Story = {
+export const Inverse = meta.story({
   render: () => {
     const [selected, setSelected] = useState<AutocompleteOption | null>(null);
     const inputId = useId();
@@ -78,9 +75,9 @@ export const Inverse: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
 
-export const Disabled: Story = {
+export const Disabled = meta.story({
   render: () => {
     const [selected, setSelected] = useState<AutocompleteOption | null>(null);
     const inputId = useId();
@@ -102,4 +99,4 @@ export const Disabled: Story = {
       </VStack>
     );
   },
-};
+});

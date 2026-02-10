@@ -1,19 +1,16 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 
 import { IntegrationImage } from './IntegrationImage';
 import { Icon } from '../Icon';
 
-const meta: Meta<typeof IntegrationImage> = {
+const meta = preview.meta({
   title: 'Components/IntegrationImage',
   component: IntegrationImage,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof IntegrationImage>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     backgroundColor: 'black',
     withConnector: true,
@@ -29,4 +26,4 @@ export const Base: Story = {
       <Icon name="github" size={44} color="white" />
     </IntegrationImage>
   ),
-};
+});

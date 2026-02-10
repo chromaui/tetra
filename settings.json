@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "storybook-mcp": {
+      "type": "http",
+      "httpUrl": "http://localhost:6006/mcp",
+      "timeout": 5000
+    }
+  }
+}

@@ -1,18 +1,15 @@
+import preview from '#.storybook/preview';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Avatar } from './Avatar';
 
-const meta: Meta<typeof Avatar> = {
+const meta = preview.meta({
   title: 'Components/Avatar',
   component: Avatar,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Avatar>;
-
-export const Base: Story = {
+export const Base = meta.story({
   render: ({ src, ...args }) => (
     <div>
       <Avatar isLoading {...args} />
@@ -24,20 +21,24 @@ export const Base: Story = {
       />
     </div>
   ),
-};
+});
 
-export const Large = { args: { ...Base.args, size: 'large' } };
+export const Large = meta.story({
+  args: { ...Base.input.args, size: 'large' },
+});
 
-export const Medium = { args: Base.args };
+export const Medium = meta.story({ args: Base.input.args });
 
-export const Small = { args: { ...Base.args, size: 'small' } };
+export const Small = meta.story({
+  args: { ...Base.input.args, size: 'small' },
+});
 
-export const Tiny = { args: { ...Base.args, size: 'tiny' } };
+export const Tiny = meta.story({ args: { ...Base.input.args, size: 'tiny' } });
 
-export const Organization = {
+export const Organization = meta.story({
   args: {
     type: 'organization',
     username: 'Chromatic',
     src: '/chromatic-logo-square.png',
   },
-};
+});

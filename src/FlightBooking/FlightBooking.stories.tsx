@@ -1,18 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 import { FlightBooking, type FlightSearchParams } from './FlightBooking';
 import { VStack } from '../Stack';
 
-const meta: Meta<typeof FlightBooking> = {
+const meta = preview.meta({
   title: 'Forms/FlightBooking',
   component: FlightBooking,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof FlightBooking>;
-
-export const Default: Story = {
+export const Default = meta.story({
   render: () => {
     const handleSearch = (params: FlightSearchParams) => {
       console.log('Flight Search:', params);
@@ -32,9 +29,9 @@ export const Default: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const OneWayTrip: Story = {
+export const OneWayTrip = meta.story({
   render: () => {
     const handleSearch = (params: FlightSearchParams) => {
       console.log('Flight Search:', params);
@@ -54,4 +51,4 @@ export const OneWayTrip: Story = {
       </VStack>
     );
   },
-};
+});

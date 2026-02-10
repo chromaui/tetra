@@ -1,21 +1,18 @@
+import preview from '#.storybook/preview';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Testimonial } from './Testimonial';
 
-const meta: Meta<typeof Testimonial> = {
+const meta = preview.meta({
   title: 'Components/Testimonial',
   component: Testimonial,
   parameters: {
     layout: 'fullscreen',
     chromatic: { viewports: [320, 640, 768, 939] },
   },
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Testimonial>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     text: (
       <span>
@@ -30,22 +27,22 @@ export const Base: Story = {
     logo: './homebound-logo.svg',
     companyName: 'Homebound',
   },
-};
+});
 
-export const Inverse: Story = {
+export const Inverse = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     theme: 'dark',
     logo: './airbnb.svg',
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
 
-export const Compact: Story = {
+export const Compact = meta.story({
   args: {
-    ...Inverse.args,
+    ...Inverse.input.args,
     variant: 'compact',
   },
   globals: {
@@ -54,21 +51,21 @@ export const Compact: Story = {
   parameters: {
     layout: 'padded',
   },
-};
+});
 
-export const LeftAlign: Story = {
+export const LeftAlign = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     variant: 'left-aligned',
   },
   parameters: {
     layout: 'padded',
   },
-};
+});
 
-export const InverseLeftAlign: Story = {
+export const InverseLeftAlign = meta.story({
   args: {
-    ...Inverse.args,
+    ...Inverse.input.args,
     variant: 'left-aligned',
   },
   globals: {
@@ -77,15 +74,15 @@ export const InverseLeftAlign: Story = {
   parameters: {
     layout: 'padded',
   },
-};
+});
 
-export const Balanced: Story = {
+export const Balanced = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     variant: 'compact',
     balanced: true,
   },
   parameters: {
     layout: 'padded',
   },
-};
+});

@@ -1,9 +1,9 @@
+import preview from '#.storybook/preview';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Footer } from './Footer';
 
-const meta: Meta<typeof Footer> = {
+const meta = preview.meta({
   title: 'Components/Footer',
   component: Footer,
   parameters: {
@@ -12,15 +12,12 @@ const meta: Meta<typeof Footer> = {
       viewports: [320, 640, 768, 1024],
     },
   },
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Footer>;
+export const Base = meta.story();
 
-export const Base: Story = {};
-
-export const Inverse: Story = {
+export const Inverse = meta.story({
   args: {
     theme: 'dark',
   },
-};
+});

@@ -1,22 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import styled from '@emotion/styled';
 import { NavDesktopItem } from './NavDesktopItem';
 
-const meta: Meta<typeof NavDesktopItem> = {
+const meta = preview.meta({
   title: 'Components/Header/NavDesktopItem',
   component: NavDesktopItem,
-};
-
-export default meta;
-type Story = StoryObj<typeof NavDesktopItem>;
+});
 
 const List = styled(NavigationMenu.List)`
   all: unset;
 `;
 
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     content: {
       type: 'link',
@@ -34,9 +31,9 @@ export const Base: Story = {
       </NavigationMenu.Root>
     ),
   ],
-};
+});
 
-export const Focused: Story = {
+export const Focused = meta.story({
   args: {
     content: {
       type: 'link',
@@ -60,4 +57,4 @@ export const Focused: Story = {
       await Link.focus();
     });
   },
-};
+});

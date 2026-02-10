@@ -1,8 +1,9 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
+import { StoryObj } from '@storybook/react-vite';
 import React from 'react';
 import { CustomerStoryHero } from './CustomerStoryHero';
 
-const meta: Meta<typeof CustomerStoryHero> = {
+const meta = preview.meta({
   title: 'Components/CustomerStoryHero',
   component: CustomerStoryHero,
   tags: ['autodocs'],
@@ -13,12 +14,11 @@ const meta: Meta<typeof CustomerStoryHero> = {
       </div>
     ),
   ],
-};
+});
 
-export default meta;
 type Story = StoryObj<typeof CustomerStoryHero>;
 
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     items: [
       {
@@ -39,4 +39,4 @@ export const Base: Story = {
     layout: 'centered',
   },
   render: (args) => <CustomerStoryHero items={args.items} />,
-};
+});

@@ -1,17 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 import { NavMobileSection } from './NavMobileSection';
 import { FigmaIcon } from './icons/figma';
 
-const meta: Meta<typeof NavMobileSection> = {
+const meta = preview.meta({
   title: 'Components/Header/NavMobileSection',
   component: NavMobileSection,
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof NavMobileSection>;
-
-export const NotCollapsible: Story = {
+export const NotCollapsible = meta.story({
   args: {
     section: {
       name: 'Features',
@@ -62,11 +59,11 @@ export const NotCollapsible: Story = {
     isLast: false,
   },
   decorators: [(storyFn) => <>{storyFn()}</>],
-};
+});
 
-export const Max3items: Story = {
+export const Max3items = meta.story({
   args: {
-    ...NotCollapsible.args,
+    ...NotCollapsible.input.args,
     section: {
       name: 'Features',
       maxItems: 3,
@@ -117,9 +114,9 @@ export const Max3items: Story = {
     isLast: false,
   },
   decorators: [(storyFn) => <>{storyFn()}</>],
-};
+});
 
-export const Collapsible: Story = {
+export const Collapsible = meta.story({
   args: {
     section: {
       name: 'Features',
@@ -171,4 +168,4 @@ export const Collapsible: Story = {
     isLast: false,
   },
   decorators: [(storyFn) => <>{storyFn()}</>],
-};
+});

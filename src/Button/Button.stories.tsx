@@ -1,19 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
+import type { StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
 import { Button } from './Button';
 import { color } from '../_tokens/tokens';
 
-const meta: Meta<typeof Button> = {
+const meta = preview.meta({
   title: 'Actions/Button',
   component: Button,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     children: 'Hello World',
     size: 'md',
@@ -24,11 +24,11 @@ export const Base: Story = {
     href: undefined,
     target: undefined,
   },
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: ({ children }) => (
     <>
@@ -44,11 +44,11 @@ export const Sizes: Story = {
       </div>
     ),
   ],
-};
+});
 
-export const Variants: Story = {
+export const Variants = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: ({ children }) => (
     <div style={{ display: 'flex', width: '100%' }}>
@@ -91,11 +91,11 @@ export const Variants: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-};
+});
 
-export const Colors: Story = {
+export const Colors = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: ({ children }) => (
     <div style={{ display: 'flex', width: '100%' }}>
@@ -154,11 +154,11 @@ export const Colors: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-};
+});
 
-export const LeftIcon: Story = {
+export const LeftIcon = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: ({ children }) => (
     <div style={{ display: 'flex', width: '100%' }}>
@@ -229,11 +229,11 @@ export const LeftIcon: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-};
+});
 
-export const RightIcon: Story = {
+export const RightIcon = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: ({ children }) => (
     <div style={{ display: 'flex', width: '100%' }}>
@@ -304,11 +304,11 @@ export const RightIcon: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-};
+});
 
-export const FullWidth: Story = {
+export const FullWidth = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: ({ children }) => (
     <div
@@ -333,4 +333,4 @@ export const FullWidth: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-};
+});

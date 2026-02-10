@@ -1,18 +1,15 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 
 import { Text } from './Text';
 
-const meta: Meta<typeof Text> = {
+const meta = preview.meta({
   title: 'Typography/Text Component',
   component: Text,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Text>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     children:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat, velit vel egestas rutrum, arcu ante suscipit mauris, eu eleifend mi ipsum et tellus.',
@@ -22,11 +19,11 @@ export const Base: Story = {
     as: 'p',
     color: 'black',
   },
-};
+});
 
-export const Responsive: Story = {
+export const Responsive = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: ({ children }) => (
     <Text
@@ -41,11 +38,11 @@ export const Responsive: Story = {
       {children}
     </Text>
   ),
-};
+});
 
-export const Heading: Story = {
+export const Heading = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: ({ children }) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -59,11 +56,11 @@ export const Heading: Story = {
       <Text as="h1" variant="heading16">{`Heading 16 - ${children}`}</Text>
     </div>
   ),
-};
+});
 
-export const Body: Story = {
+export const Body = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     children:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat, velit vel egestas rutrum, arcu ante suscipit mauris, eu eleifend mi ipsum et tellus. Integer pharetra diam interdum egestas consectetur. Sed mollis in lectus eget commodo. Cras non sodales elit. Ut ultricies porta ante, sit amet elementum urna commodo nec. Donec volutpat sed massa ac maximus. Curabitur nec imperdiet felis. Vivamus et velit non erat scelerisque rutrum vitae ac purus. Mauris congue facilisis orci scelerisque fermentum. Aenean viverra, felis id lobortis consectetur, lacus dolor cursus metus, ac volutpat lorem est ac risus. Aliquam ultricies massa vel sagittis vestibulum. Integer placerat, lacus id ultrices posuere, felis neque tristique est, a pretium justo urna faucibus dui. Etiam quis justo tempor, facilisis erat at, suscipit lacus.',
   },
@@ -74,19 +71,19 @@ export const Body: Story = {
       <Text as="h1" variant="body14">{`Body 14 - ${children}`}</Text>
     </div>
   ),
-};
+});
 
-export const Subheading: Story = {
+export const Subheading = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     children: 'Lorem ipsum dolor sit amet',
   },
   render: ({ children }) => <Text variant="subheading">{children}</Text>,
-};
+});
 
-export const Alignments: Story = {
+export const Alignments = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     children:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat, velit vel egestas rutrum, arcu ante suscipit mauris, eu eleifend mi ipsum et tellus. Integer pharetra diam interdum egestas consectetur. Sed mollis in lectus eget commodo. Cras non sodales elit. Ut ultricies porta ante, sit amet elementum urna commodo nec. Donec volutpat sed massa ac maximus. Curabitur nec imperdiet felis. Vivamus et velit non erat scelerisque rutrum vitae ac purus. Mauris congue facilisis orci scelerisque fermentum. Aenean viverra, felis id lobortis consectetur, lacus dolor cursus metus, ac volutpat lorem est ac risus. Aliquam ultricies massa vel sagittis vestibulum. Integer placerat, lacus id ultrices posuere, felis neque tristique est, a pretium justo urna faucibus dui. Etiam quis justo tempor, facilisis erat at, suscipit lacus.',
   },
@@ -106,4 +103,4 @@ export const Alignments: Story = {
       </Text>
     </div>
   ),
-};
+});

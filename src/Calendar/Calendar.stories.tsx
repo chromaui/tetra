@@ -1,18 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React, { useState } from 'react';
 import { Calendar } from './Calendar';
 import { VStack } from '../Stack';
 
-const meta: Meta<typeof Calendar> = {
+const meta = preview.meta({
   title: 'Forms/Calendar',
   component: Calendar,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Calendar>;
-
-export const Default: Story = {
+export const Default = meta.story({
   render: () => {
     const [date, setDate] = useState<Date | undefined>();
     return (
@@ -25,9 +22,9 @@ export const Default: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithMinDate: Story = {
+export const WithMinDate = meta.story({
   render: () => {
     const [date, setDate] = useState<Date | undefined>();
     const today = new Date();
@@ -47,9 +44,9 @@ export const WithMinDate: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithDateRange: Story = {
+export const WithDateRange = meta.story({
   render: () => {
     const [date, setDate] = useState<Date | undefined>();
     const today = new Date();
@@ -79,9 +76,9 @@ export const WithDateRange: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const WithDisabledDates: Story = {
+export const WithDisabledDates = meta.story({
   render: () => {
     const [date, setDate] = useState<Date | undefined>();
     const today = new Date();
@@ -107,4 +104,4 @@ export const WithDisabledDates: Story = {
       </VStack>
     );
   },
-};
+});

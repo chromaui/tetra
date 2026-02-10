@@ -1,5 +1,10 @@
-import type { Preview } from '@storybook/react-vite';
+import addonDocs from "@storybook/addon-docs";
+import addonA11y from "@storybook/addon-a11y";
+import { definePreview } from '@storybook/react-vite';
 import { MotionGlobalConfig } from 'framer-motion';
+import registerAPCACheck from 'apca-check';
+
+registerAPCACheck('bronze'); // or registerAPCACheck('silver');
 
 // Use framer-motion's global config to disable animations for visual tests
 MotionGlobalConfig.skipAnimations = true; //isChromatic();
@@ -25,7 +30,9 @@ export const loadFontsForStorybook = () => {
   }
 };
 
-const preview: Preview = {
+loadFontsForStorybook();
+
+export default definePreview({
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
 
@@ -75,10 +82,13 @@ const preview: Preview = {
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
       test: 'error',
+      options: {
+        rules: {
+          'color-contrast': { enabled: false }
+        }
+      }
     },
   },
-};
 
-loadFontsForStorybook();
-
-export default preview;
+  addons: [addonA11y(), addonDocs()]
+});

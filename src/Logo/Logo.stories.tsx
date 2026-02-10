@@ -1,18 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 import { Logo } from './Logo';
 import { color } from '../_tokens';
 
-const meta: Meta<typeof Logo> = {
+const meta = preview.meta({
   title: 'Components/Logo',
   component: Logo,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Logo>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     name: 'chromatic',
     theme: 'light',
@@ -21,11 +18,11 @@ export const Base: Story = {
   render: ({ name, theme, variant }) => {
     return <Logo name={name} theme={theme} variant={variant} />;
   },
-};
+});
 
-export const Chromatic: Story = {
+export const Chromatic = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: () => (
     <div style={{ display: 'flex', width: '100%' }}>
@@ -62,11 +59,11 @@ export const Chromatic: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-};
+});
 
-export const Storybook: Story = {
+export const Storybook = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: () => (
     <div style={{ display: 'flex', width: '100%' }}>
@@ -103,4 +100,4 @@ export const Storybook: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-};
+});

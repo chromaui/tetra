@@ -1,19 +1,16 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React, { FC } from 'react';
 import { Text } from '../Text';
 import { Accordion } from './Accordion';
 
-const meta: Meta<typeof Accordion> = {
+const meta = preview.meta({
   title: 'Components/Accordion',
   component: Accordion,
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
   },
-};
-
-export default meta;
-type Story = StoryObj<typeof Accordion>;
+});
 
 const accordions = [
   {
@@ -52,7 +49,7 @@ const ExamplePanelContent: FC<{ inverse: boolean | undefined }> = ({
   );
 };
 
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     inverse: false,
     iconName: 'arrowdown',
@@ -81,12 +78,12 @@ export const Base: Story = {
       </Accordion>
     );
   },
-};
+});
 
-export const Inverse: Story = {
-  ...Base,
+export const Inverse = meta.story({
+  ...Base.input,
   args: {
-    ...Base.args,
+    ...Base.input.args,
     inverse: true,
   },
   globals: {
@@ -109,12 +106,12 @@ export const Inverse: Story = {
       </Accordion.Item>
     </Accordion>
   ),
-};
+});
 
-export const StartingOpen: Story = {
-  ...Base,
+export const StartingOpen = meta.story({
+  ...Base.input,
   args: {
-    ...Base.args,
+    ...Base.input.args,
     inverse: false,
   },
   render: (args) => {
@@ -131,12 +128,12 @@ export const StartingOpen: Story = {
       </Accordion>
     );
   },
-};
+});
 
-export const WithAlternateIcon: Story = {
-  ...Base,
+export const WithAlternateIcon = meta.story({
+  ...Base.input,
   args: {
-    ...Base.args,
+    ...Base.input.args,
     iconName: 'heart',
     inverse: false,
   },
@@ -154,12 +151,12 @@ export const WithAlternateIcon: Story = {
       </Accordion>
     );
   },
-};
+});
 
-export const WithNoIcon: Story = {
-  ...Base,
+export const WithNoIcon = meta.story({
+  ...Base.input,
   args: {
-    ...Base.args,
+    ...Base.input.args,
     iconName: false,
     inverse: false,
   },
@@ -177,11 +174,11 @@ export const WithNoIcon: Story = {
       </Accordion>
     );
   },
-};
-export const Group: Story = {
-  ...Base,
+});
+export const Group = meta.story({
+  ...Base.input,
   args: {
-    ...Base.args,
+    ...Base.input.args,
     inverse: false,
   },
   parameters: {
@@ -209,12 +206,12 @@ export const Group: Story = {
       </Accordion>
     );
   },
-};
+});
 
-export const GroupInverse: Story = {
-  ...Base,
+export const GroupInverse = meta.story({
+  ...Base.input,
   args: {
-    ...Base.args,
+    ...Base.input.args,
     inverse: true,
   },
   globals: {
@@ -248,13 +245,13 @@ export const GroupInverse: Story = {
       </Accordion>
     );
   },
-};
+});
 
-export const GroupOpenStart: Story = {
-  ...Base,
+export const GroupOpenStart = meta.story({
+  ...Base.input,
   name: 'Group: Starting Open',
   args: {
-    ...Base.args,
+    ...Base.input.args,
     inverse: false,
   },
   render: (args) => {
@@ -280,13 +277,13 @@ export const GroupOpenStart: Story = {
       </Accordion>
     );
   },
-};
+});
 
-export const GroupOpenStartInverse: Story = {
-  ...Base,
+export const GroupOpenStartInverse = meta.story({
+  ...Base.input,
   name: 'Group: Starting Open and Inverse',
   args: {
-    ...Base.args,
+    ...Base.input.args,
     inverse: true,
   },
   globals: {
@@ -315,12 +312,12 @@ export const GroupOpenStartInverse: Story = {
       </Accordion>
     );
   },
-};
+});
 
-export const GroupWithAlternateIcons: Story = {
-  ...Base,
+export const GroupWithAlternateIcons = meta.story({
+  ...Base.input,
   args: {
-    ...Base.args,
+    ...Base.input.args,
     inverse: false,
   },
   globals: {
@@ -346,4 +343,4 @@ export const GroupWithAlternateIcons: Story = {
       </Accordion>
     );
   },
-};
+});
