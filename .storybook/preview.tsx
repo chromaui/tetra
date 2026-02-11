@@ -1,5 +1,8 @@
-import type { Preview } from '@storybook/react-vite';
+import addonDocs from "@storybook/addon-docs";
+import addonA11y from "@storybook/addon-a11y";
+import { definePreview } from '@storybook/react-vite';
 import { MotionGlobalConfig } from 'framer-motion';
+import '../src/css/yaSans20251215.css';
 
 // Use framer-motion's global config to disable animations for visual tests
 MotionGlobalConfig.skipAnimations = true; //isChromatic();
@@ -25,7 +28,9 @@ export const loadFontsForStorybook = () => {
   }
 };
 
-const preview: Preview = {
+loadFontsForStorybook();
+
+export default definePreview({
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
 
@@ -77,8 +82,6 @@ const preview: Preview = {
       test: 'todo',
     },
   },
-};
 
-loadFontsForStorybook();
-
-export default preview;
+  addons: [addonA11y(), addonDocs()]
+});

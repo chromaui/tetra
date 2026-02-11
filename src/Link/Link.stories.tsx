@@ -1,4 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
+import { StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
 import { color } from '../_tokens/tokens';
@@ -6,16 +7,15 @@ import { Link } from './Link';
 import { Text } from '../Text';
 import { VStack } from '../Stack';
 
-const meta: Meta<typeof Link> = {
+const meta = preview.meta({
   title: 'Actions/Link',
   component: Link,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
 type Story = StoryObj<typeof Link>;
 
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     children: 'Hello World',
     size: 'md',
@@ -24,18 +24,18 @@ export const Base: Story = {
     href: undefined,
     target: undefined,
   },
-};
+});
 
-export const Emphasis: Story = {
+export const Emphasis = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     weight: 'semibold',
   },
-};
+});
 
-export const Sizes: Story = {
+export const Sizes = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: ({ children }) => (
     <>
@@ -60,11 +60,11 @@ export const Sizes: Story = {
       </div>
     ),
   ],
-};
+});
 
-export const Inverted: Story = {
+export const Inverted = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     inverted: true,
   },
   decorators: [
@@ -79,11 +79,11 @@ export const Inverted: Story = {
       </div>
     ),
   ],
-};
+});
 
-export const InlineSize: Story = {
+export const InlineSize = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
   },
   render: () => (
     <VStack gap={6}>
@@ -113,9 +113,9 @@ export const InlineSize: Story = {
       </Text>
     </VStack>
   ),
-};
+});
 
-export const RightIcon: Story = {
+export const RightIcon = meta.story({
   args: {
     children: 'Hello World',
     rightIcon: 'arrowright',
@@ -143,12 +143,12 @@ export const RightIcon: Story = {
       </div>
     ),
   ],
-};
+});
 
-export const LeftIcon: Story = {
-  ...RightIcon,
+export const LeftIcon = meta.story({
+  ...RightIcon.input,
   args: {
-    ...Base.args,
+    ...Base.input.args,
     leftIcon: 'arrowleft',
   },
-};
+});

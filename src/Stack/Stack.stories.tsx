@@ -1,19 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 
 import { Stack, HStack, VStack } from './Stack';
 import { Placeholder } from '../_localComponents/Placeholder';
 
-const meta: Meta<typeof Stack> = {
+const meta = preview.meta({
   title: 'Layout/Stack',
   component: Stack,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Stack>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {},
   parameters: {
     layout: 'fullscreen',
@@ -41,9 +38,9 @@ export const Base: Story = {
       </>
     );
   },
-};
+});
 
-export const Align: Story = {
+export const Align = meta.story({
   args: {},
   parameters: {
     layout: 'fullscreen',
@@ -60,9 +57,9 @@ export const Align: Story = {
       </Stack>
     );
   },
-};
+});
 
-export const Justify: Story = {
+export const Justify = meta.story({
   args: {},
   parameters: {
     layout: 'fullscreen',
@@ -76,9 +73,9 @@ export const Justify: Story = {
       </Stack>
     );
   },
-};
+});
 
-export const Horizontal: Story = {
+export const Horizontal = meta.story({
   args: {},
   parameters: {
     layout: 'fullscreen',
@@ -92,9 +89,9 @@ export const Horizontal: Story = {
       </HStack>
     );
   },
-};
+});
 
-export const Vertical: Story = {
+export const Vertical = meta.story({
   args: {},
   parameters: {
     layout: 'fullscreen',
@@ -108,4 +105,4 @@ export const Vertical: Story = {
       </VStack>
     );
   },
-};
+});

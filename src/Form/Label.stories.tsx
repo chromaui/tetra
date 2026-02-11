@@ -1,25 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 
 import { Label } from './Label';
 import { color } from '../_tokens/tokens';
 
-const meta: Meta<typeof Label> = {
+const meta = preview.meta({
   title: 'Forms/Label',
   component: Label,
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Label>;
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: 'Email Address',
     htmlFor: 'example',
   },
-};
+});
 
-export const Inverse: Story = {
+export const Inverse = meta.story({
   args: {
     children: 'Email Address',
     htmlFor: 'example',
@@ -28,4 +25,4 @@ export const Inverse: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});

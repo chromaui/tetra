@@ -1,19 +1,16 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 
 import { Grid } from './Grid';
 import { Placeholder } from '../_localComponents/Placeholder';
 
-const meta: Meta<typeof Grid> = {
+const meta = preview.meta({
   title: 'Layout/Grid',
   component: Grid,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Grid>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {},
   parameters: {
     layout: 'fullscreen',
@@ -46,4 +43,4 @@ export const Base: Story = {
       </Grid>
     </>
   ),
-};
+});

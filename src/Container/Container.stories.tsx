@@ -1,19 +1,16 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import React from 'react';
 import { Container } from './Container';
 import { Placeholder } from '../_localComponents/Placeholder';
 
-const meta: Meta<typeof Container> = {
+const meta = preview.meta({
   title: 'Layout/Container',
   component: Container,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Container>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {},
   parameters: {
     layout: 'fullscreen',
@@ -25,10 +22,10 @@ export const Base: Story = {
       </Container>
     );
   },
-};
+});
 
-export const WithCustomPadding: Story = {
-  ...Base,
+export const WithCustomPadding = meta.story({
+  ...Base.input,
   args: {
     paddingY: 28,
   },
@@ -44,4 +41,4 @@ export const WithCustomPadding: Story = {
       </Container>
     );
   },
-};
+});

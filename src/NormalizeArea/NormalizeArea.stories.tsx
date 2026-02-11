@@ -1,5 +1,6 @@
+import preview from '#.storybook/preview';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { StoryObj } from '@storybook/react-vite';
 import styled from '@emotion/styled';
 import { NormalizeArea } from './NormalizeArea';
 
@@ -54,7 +55,7 @@ const projects = [
   },
 ];
 
-const meta: Meta<typeof NormalizeArea> = {
+const meta = preview.meta({
   title: 'Utilities/NormalizeArea',
   component: NormalizeArea,
   argTypes: {
@@ -77,29 +78,28 @@ const meta: Meta<typeof NormalizeArea> = {
       ))}
     </>
   ),
-};
-export default meta;
+});
 type Story = StoryObj<typeof NormalizeArea>;
 
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     idealArea: 10000,
   },
-};
+});
 
-export const SmallerIdealArea: Story = {
+export const SmallerIdealArea = meta.story({
   args: {
     idealArea: 5000,
   },
-};
+});
 
-export const LargerIdealArea: Story = {
+export const LargerIdealArea = meta.story({
   args: {
     idealArea: 20000,
   },
-};
+});
 
-export const CSSVarIdealArea: Story = {
+export const CSSVarIdealArea = meta.story({
   render: (args) => (
     <div
       style={
@@ -116,9 +116,9 @@ export const CSSVarIdealArea: Story = {
   args: {
     idealArea: 20000,
   },
-};
+});
 
-export const None = {
+export const None = meta.story({
   render: () => (
     <>
       {projects.map(({ logoAlt, logoUrl }) => (
@@ -134,4 +134,4 @@ export const None = {
   parameters: {
     chromatic: { disableSnapshot: true },
   },
-};
+});

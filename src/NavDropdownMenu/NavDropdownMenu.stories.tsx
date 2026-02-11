@@ -1,15 +1,12 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 import { within, userEvent } from 'storybook/test';
 import { NavDropdownMenu } from './NavDropdownMenu';
 
-const meta: Meta<typeof NavDropdownMenu> = {
+const meta = preview.meta({
   title: 'Components/NavDropdownMenu',
   component: NavDropdownMenu,
-};
-
-export default meta;
-type Story = StoryObj<typeof NavDropdownMenu>;
+});
 
 const features = [
   { id: '1', label: 'UI Tests', href: '/ui-tests' },
@@ -18,7 +15,7 @@ const features = [
   { id: '4', label: 'TurboSnap', href: '/turbosnap', external: true },
 ];
 
-export const Light: Story = {
+export const Light = meta.story({
   args: {
     label: 'Features',
     items: features,
@@ -32,15 +29,15 @@ export const Light: Story = {
     MenuButton.focus();
     await userEvent.keyboard('{enter}');
   },
-};
+});
 
-export const Dark: Story = {
+export const Dark = meta.story({
   args: {
-    ...Light.args,
+    ...Light.input.args,
     variant: 'dark',
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
   play: Light.play,
-};
+});

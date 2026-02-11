@@ -6,7 +6,11 @@
       "mcp__storybook-mcp__list-all-components",
       "mcp__storybook-mcp__get-component-documentation",
       "mcp__storybook-mcp__get-ui-building-instructions",
-      "mcp__storybook-mcp__get-story-urls"
+      "mcp__storybook-mcp__get-story-urls",
+      "Bash(npx vitest:*)",
+      "mcp__storybook-mcp__list-all-documentation",
+      "mcp__storybook-mcp__get-documentation",
+      "Bash(pnpm tsc:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 
 import { Fieldset, Form, Legend, Field } from './Form';
@@ -10,15 +10,12 @@ import { Select } from './Select';
 import { Checkbox } from './Checkbox';
 import { color } from '../_tokens';
 
-const meta: Meta<typeof Form> = {
+const meta = preview.meta({
   title: 'Forms/Form',
   component: Form,
-};
+});
 
-export default meta;
-type Story = StoryObj<{ inverse?: boolean }>;
-
-export const Default: Story = {
+export const Default = meta.story({
   render: ({ inverse }) => (
     <Form
       marginX={6}
@@ -89,14 +86,14 @@ export const Default: Story = {
       </Fieldset>
     </Form>
   ),
-};
+});
 
-export const Inverse: Story = {
-  ...Default,
+export const Inverse = meta.story({
+  ...Default.input,
   args: {
     inverse: true,
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});

@@ -1,18 +1,15 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 import { within, userEvent } from 'storybook/test';
 import { SubNav } from './SubNav';
 
-const meta: Meta<typeof SubNav> = {
+const meta = preview.meta({
   title: 'Components/SubNav',
   component: SubNav,
   parameters: {
     layout: 'fullscreen',
   },
-};
-
-export default meta;
-type Story = StoryObj<typeof SubNav>;
+});
 
 const features = [
   { id: '1', label: 'UI Tests', href: '/ui-tests' },
@@ -21,25 +18,25 @@ const features = [
   { id: '4', label: 'TurboSnap', href: '/turbosnap', external: true },
 ];
 
-export const Light: Story = {
+export const Light = meta.story({
   args: {
     label: 'Features',
     items: features,
   },
-};
+});
 
-export const Dark: Story = {
+export const Dark = meta.story({
   args: {
-    ...Light.args,
+    ...Light.input.args,
     theme: 'dark',
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
 
-export const Collapsed: Story = {
-  ...Dark,
+export const Collapsed = meta.story({
+  ...Dark.input,
   decorators: [(storyFn) => <div style={{ height: '400px' }}>{storyFn()}</div>],
   globals: {
     backgrounds: { value: 'dark' },
@@ -56,4 +53,4 @@ export const Collapsed: Story = {
     MenuButton.focus();
     await userEvent.keyboard('{enter}');
   },
-};
+});

@@ -1,25 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 import { within, userEvent } from 'storybook/test';
 import { Header } from './Header';
 import { defaultLinks } from './data';
 import { SubNav } from '../SubNav';
 
-const meta: Meta<typeof Header> = {
+const meta = preview.meta({
   title: 'Components/Header',
   component: Header,
   parameters: {
     layout: 'fullscreen',
   },
-};
-
-export default meta;
-type Story = StoryObj<typeof Header>;
+});
 
 // Radix uses PointerEvent for all interactions
 // see: https://github.com/radix-ui/primitives/issues/1220
 
-export const DesktopLight: Story = {
+export const DesktopLight = meta.story({
   args: {
     theme: 'light',
     links: defaultLinks,
@@ -30,80 +27,80 @@ export const DesktopLight: Story = {
   parameters: {
     chromatic: { viewports: [940, 1024, 1280, 1536] },
   },
-};
+});
 
-export const DesktopDark: Story = {
+export const DesktopDark = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     theme: 'dark',
   },
   globals: {
-    ...DesktopLight.globals,
+    ...DesktopLight.input.globals,
     backgrounds: { value: 'dark' },
   },
   parameters: {
-    ...DesktopLight.parameters,
+    ...DesktopLight.input.parameters,
   },
-};
+});
 
-export const DesktopLightSticky: Story = {
+export const DesktopLightSticky = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     isSticky: true,
   },
-};
+});
 
-export const DesktopDarkSticky: Story = {
+export const DesktopDarkSticky = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     theme: 'dark',
     isSticky: true,
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
 
-export const DesktopLoggedOut: Story = {
+export const DesktopLoggedOut = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     loggedIn: false,
   },
-};
+});
 
-export const DesktopLoggedIn: Story = {
+export const DesktopLoggedIn = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     loggedIn: true,
   },
-};
-export const DesktopDarkLoggedIn: Story = {
+});
+export const DesktopDarkLoggedIn = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     loggedIn: true,
     theme: 'dark',
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
 
-export const DesktopLoggedOutMaintenance: Story = {
+export const DesktopLoggedOutMaintenance = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     maintenanceMode: true,
   },
-};
+});
 
-export const DesktopLoggedInMaintenance: Story = {
+export const DesktopLoggedInMaintenance = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     loggedIn: true,
     maintenanceMode: true,
   },
-};
+});
 
-export const WithSubNav: Story = {
+export const WithSubNav = meta.story({
   render: (args) => (
     <>
       <Header {...args} />
@@ -125,30 +122,30 @@ export const WithSubNav: Story = {
     </>
   ),
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     theme: 'dark',
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
   parameters: {
-    ...DesktopLight.parameters,
+    ...DesktopLight.input.parameters,
   },
-};
+});
 
-export const DesktopLightActive: Story = {
+export const DesktopLightActive = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     desktopActiveId: 'pricing',
   },
   parameters: {
-    ...DesktopLight.parameters,
+    ...DesktopLight.input.parameters,
   },
-};
+});
 
-export const DesktopDarkActive: Story = {
+export const DesktopDarkActive = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     theme: 'dark',
     desktopActiveId: 'pricing',
   },
@@ -156,13 +153,13 @@ export const DesktopDarkActive: Story = {
     backgrounds: { value: 'dark' },
   },
   parameters: {
-    ...DesktopLight.parameters,
+    ...DesktopLight.input.parameters,
   },
-};
+});
 
-export const DesktopLightOpen: Story = {
+export const DesktopLightOpen = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
   },
   globals: {
     viewport: { value: 'lg' },
@@ -179,11 +176,11 @@ export const DesktopLightOpen: Story = {
     MenuButton.focus();
     await userEvent.keyboard('{enter}');
   },
-};
+});
 
-export const DesktopDarkOpen: Story = {
+export const DesktopDarkOpen = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     theme: 'dark',
   },
   globals: {
@@ -193,7 +190,7 @@ export const DesktopDarkOpen: Story = {
   parameters: {
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
   },
-  decorators: DesktopLightOpen.decorators,
+  decorators: DesktopLightOpen.input.decorators,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
@@ -202,11 +199,11 @@ export const DesktopDarkOpen: Story = {
     MenuButton.focus();
     await userEvent.keyboard('{enter}');
   },
-};
+});
 
-export const TabletLight: Story = {
+export const TabletLight = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
   },
   globals: {
     backgrounds: { value: 'light' },
@@ -215,11 +212,11 @@ export const TabletLight: Story = {
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },
   },
-};
+});
 
-export const TabletDark: Story = {
+export const TabletDark = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     theme: 'dark',
   },
   globals: {
@@ -229,11 +226,11 @@ export const TabletDark: Story = {
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },
   },
-};
+});
 
-export const TabletOpen: Story = {
+export const TabletOpen = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
   },
   globals: {
     viewport: { value: 'md' },
@@ -249,10 +246,10 @@ export const TabletOpen: Story = {
     });
     await userEvent.click(MenuButton);
   },
-};
+});
 
-export const TabletExpandSubMenu: Story = {
-  ...TabletOpen,
+export const TabletExpandSubMenu = meta.story({
+  ...TabletOpen.input,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
@@ -265,11 +262,11 @@ export const TabletExpandSubMenu: Story = {
     await userEvent.tab();
     await userEvent.keyboard('{enter}');
   },
-};
+});
 
-export const MobileOpen: Story = {
+export const MobileOpen = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
   },
   globals: {
     viewport: { value: 'xs' },
@@ -277,7 +274,7 @@ export const MobileOpen: Story = {
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },
   },
-  decorators: DesktopLightOpen.decorators,
+  decorators: DesktopLightOpen.input.decorators,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
@@ -285,23 +282,23 @@ export const MobileOpen: Story = {
     });
     await userEvent.click(MenuButton);
   },
-};
+});
 
-export const DesktopFullWidth: Story = {
+export const DesktopFullWidth = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
     fullWidth: true,
   },
-};
+});
 
-export const MobileFullWidth: Story = {
+export const MobileFullWidth = meta.story({
   args: {
-    ...DesktopLight.args,
+    ...DesktopLight.input.args,
   },
   globals: {
     viewport: { value: 'xs' },
   },
-  decorators: DesktopLightOpen.decorators,
+  decorators: DesktopLightOpen.input.decorators,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
@@ -309,4 +306,4 @@ export const MobileFullWidth: Story = {
     });
     await userEvent.click(MenuButton);
   },
-};
+});

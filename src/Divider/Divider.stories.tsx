@@ -1,23 +1,20 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 
 import { Divider } from './Divider';
 import { Placeholder } from '../_localComponents/Placeholder';
 import { Stack } from '../Stack';
 
-const meta: Meta<typeof Divider> = {
+const meta = preview.meta({
   title: 'Layout/Divider',
   component: Divider,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Divider>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {},
   render: (args) => {
     return (
@@ -28,14 +25,14 @@ export const Base: Story = {
       </Stack>
     );
   },
-};
+});
 
-export const Inverse: Story = {
-  ...Base,
+export const Inverse = meta.story({
+  ...Base.input,
   args: {
     inverse: true,
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});

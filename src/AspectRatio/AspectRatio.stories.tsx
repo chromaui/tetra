@@ -1,5 +1,6 @@
+import preview from '#.storybook/preview';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { StoryObj } from '@storybook/react-vite';
 import styled from '@emotion/styled';
 import { getPlaceholderImgUrl } from '../../.storybook/getPlaceholderImgUrl';
 import { AspectRatio } from './AspectRatio';
@@ -12,7 +13,7 @@ const Demo = styled.div`
   }
 `;
 
-const meta: Meta<typeof AspectRatio> = {
+const meta = preview.meta({
   title: 'Utilities/AspectRatio',
   component: AspectRatio,
   argTypes: {
@@ -25,20 +26,19 @@ const meta: Meta<typeof AspectRatio> = {
       </Demo>
     ),
   ],
-};
-export default meta;
+});
 type Story = StoryObj<typeof AspectRatio>;
 
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: <img src={getPlaceholderImgUrl(1000, 1000)} alt="" />,
     ratio: '4/3',
   },
-};
+});
 
-export const TallRatio: Story = {
+export const TallRatio = meta.story({
   args: {
-    ...Default.args,
+    ...Default.input.args,
     ratio: '3/4',
   },
-};
+});

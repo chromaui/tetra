@@ -1,18 +1,15 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 
 import { TypographyHelper } from './TypographyHelper';
 
-const meta: Meta<typeof TypographyHelper> = {
+const meta = preview.meta({
   title: 'Local/Typography Helpers',
   component: TypographyHelper,
   tags: ['autodocs'],
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof TypographyHelper>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     variant: 'heading20',
   },
-};
+});

@@ -1,33 +1,30 @@
+import preview from '#.storybook/preview';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Stat } from './Stat';
 import { HStack, VStack } from '../Stack';
 
-const meta: Meta<typeof Stat> = {
+const meta = preview.meta({
   title: 'Components/Stat',
   component: Stat,
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Stat>;
-
-export const Base: Story = {
+export const Base = meta.story({
   args: {
     dimension: 'On average',
     value: '41%',
     unit: 'More efficient',
   },
-};
+});
 
-export const Small: Story = {
+export const Small = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     size: 'small',
   },
-};
+});
 
-export const Alignment: Story = {
+export const Alignment = meta.story({
   render: (args) => (
     <HStack gap={12}>
       <VStack align="center">
@@ -49,9 +46,9 @@ export const Alignment: Story = {
     value: '41%',
     unit: 'More efficient',
   },
-};
+});
 
-export const Variants: Story = {
+export const Variants = meta.story({
   render: (args) => (
     <HStack gap={12}>
       <VStack align="center">
@@ -80,29 +77,29 @@ export const Variants: Story = {
       </VStack>
     </HStack>
   ),
-  args: Base.args,
-};
+  args: Base.input.args,
+});
 
-export const CustomColor: Story = {
+export const CustomColor = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     valueColor: 'purple500',
   },
-};
+});
 
-export const CustomColorInverse: Story = {
+export const CustomColorInverse = meta.story({
   args: {
-    ...CustomColor.args,
+    ...CustomColor.input.args,
     variant: 'inverse',
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
 
-export const Loading: Story = {
+export const Loading = meta.story({
   args: {
-    ...Base.args,
+    ...Base.input.args,
     isLoading: true,
   },
-};
+});

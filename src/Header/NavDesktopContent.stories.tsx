@@ -1,23 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import styled from '@emotion/styled';
 import { NavDesktopContent } from './NavDesktopContent';
 import { FigmaIcon } from './icons/figma';
 
-const meta: Meta<typeof NavDesktopContent> = {
+const meta = preview.meta({
   title: 'Components/Header/NavDesktopContent',
   component: NavDesktopContent,
-};
-
-export default meta;
-type Story = StoryObj<typeof NavDesktopContent>;
+});
 
 const List = styled(NavigationMenu.List)`
   all: unset;
 `;
 
-export const OneColumn: Story = {
+export const OneColumn = meta.story({
   args: {
     item: {
       id: 'features',
@@ -67,9 +64,9 @@ export const OneColumn: Story = {
       </NavigationMenu.Root>
     ),
   ],
-};
+});
 
-export const TwoColumn: Story = {
+export const TwoColumn = meta.story({
   args: {
     item: {
       id: 'features',
@@ -172,9 +169,9 @@ export const TwoColumn: Story = {
       </NavigationMenu.Root>
     ),
   ],
-};
+});
 
-export const TwoColumnWithCard: Story = {
+export const TwoColumnWithCard = meta.story({
   args: {
     item: {
       id: 'features',
@@ -232,4 +229,4 @@ export const TwoColumnWithCard: Story = {
       </NavigationMenu.Root>
     ),
   ],
-};
+});

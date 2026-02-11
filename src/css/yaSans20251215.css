@@ -1,0 +1,199 @@
+body {
+    font: 13px/1.3 "YASans","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-style: normal !important;
+    font-stretch: normal !important;
+}
+
+button,input,optgroup,select,textarea {
+    font-family: "YASans","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+
+.YahooSans-ExtraLight, .YahooSans-Light, .YahooSans-Regular, .YahooSans-Italic, .YahooSans-Medium, .YahooSans-Semibold, .YahooSans-Bold, .YahooSans-ExtraBold, .YahooSans-Black {
+    font-family: "YASans" !important;
+    font-stretch: normal !important;
+}
+
+.YahooSans-ExtraLight, .YahooSans-Light, .YahooSans-Regular, .YahooSans-Medium, .YahooSans-Semibold, .YahooSans-Bold, .YahooSans-ExtraBold, .YahooSans-Black {
+    font-style: normal !important;
+}
+
+.YahooSans-Cond {
+    font-family: "YASansCond";
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+.YahooSans-ExtraLight {
+    font-weight: 200 !important;
+}
+
+.YahooSans-Light {
+    font-weight: 300 !important;
+}
+
+.YahooSans-Regular {
+    font-weight: 400 !important;
+}
+
+.YahooSans-Italic {
+    font-weight: 400 !important;
+    font-style: italic !important;
+}
+
+.YahooSans-Medium {
+    font-weight: 500 !important;
+}
+
+.YahooSans-Semibold {
+    font-weight: 600 !important;
+}
+
+.YahooSans-Bold {
+    font-weight: 700 !important;
+}
+
+.YahooSans-ExtraBold {
+    font-weight: 800 !important;
+}
+
+.YahooSans-Black {
+    font-weight: 900 !important;
+}
+
+@font-face {
+    font-family: "YASans";
+    font-display: block;
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansExt-Light.woff2") format("woff2"),
+        url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansExt-Light.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "YASans";
+    font-display: block;
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-Light.woff2") format("woff2"),
+            url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "YASans";
+    font-display: block;
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans.woff2") format("woff2"),
+            url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "YASans";
+    font-display: block;
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-Italic.woff2") format("woff2"),
+            url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-Italic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "YASans";
+    font-display: block;
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-Medium.woff2") format("woff2"),
+            url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "YASans";
+    font-display: block;
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-SmBd.woff2") format("woff2"),
+            url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-SmBd.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "YASans";
+    font-display: block;
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-Bold.woff2") format("woff2"),
+            url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "YASans";
+    font-display: block;
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansExt-Bold.woff2") format("woff2"),
+            url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansExt-Bold.woff") format("woff");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "YASans";
+    font-display: block;
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-Black.woff2") format("woff2"),
+            url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASans-Black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "YASansCond";
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansCn-Bold.woff2") format("woff2"),
+        url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansCn-Bold.woff") format("woff");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "YASansCond";
+    src: url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansCn-Black.woff2") format("woff2"),
+         url("https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansCn-Black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@supports (font-variation-settings: normal) {
+    @font-face {
+        font-display: block;
+        font-family: 'YASans VF';
+        src: url('https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansVF.woff2') format('woff2'),
+            url('https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansVF.woff') format('woff');
+        font-weight: 200 900;
+    }
+
+    @font-face {
+        font-display: block;
+        font-family: 'YASansCond VF';
+        src: url('https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansVF.woff2') format('woff2'),
+            url('https://s.yimg.com/cv/apiv2/sports/fonts/2025/YASansVF.woff') format('woff');
+        font-weight: 300 900;
+        font-stretch: condensed;
+        font-width: condensed;
+        font-style: normal;
+    }
+
+    body {
+        font: 13px/1.3 "YASans VF","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+        font-style: normal !important;
+        font-stretch: normal !important;
+    }
+
+    button,input,optgroup,select,textarea {
+        font-family: "YASans VF","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    }
+
+    .YahooSans-ExtraLight, .YahooSans-Light, .YahooSans-Regular, .YahooSans-Italic, .YahooSans-Medium, .YahooSans-Semibold, .YahooSans-Bold, .YahooSans-ExtraBold, .YahooSans-Black {
+        font-family: "YASans VF" !important;
+        font-stretch: normal !important;
+    }
+
+    .YahooSans-Cond {
+        font-family: "YASansCond VF" !important;
+    }
+}

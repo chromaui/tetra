@@ -1,19 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import preview from '#.storybook/preview';
 import React, { useState } from 'react';
 
 import { Range } from './Range';
 import { Label } from './Label';
 import { VStack } from '../Stack';
 
-const meta: Meta<typeof Range> = {
+const meta = preview.meta({
   title: 'Forms/Range',
   component: Range,
-};
+});
 
-export default meta;
-type Story = StoryObj<typeof Range>;
-
-export const Default: Story = {
+export const Default = meta.story({
   render: ({ inverse }) => {
     const [value1, setValue1] = useState(30);
     const [value2, setValue2] = useState(60);
@@ -75,14 +72,14 @@ export const Default: Story = {
       </VStack>
     );
   },
-};
+});
 
-export const Inverse: Story = {
-  ...Default,
+export const Inverse = meta.story({
+  ...Default.input,
   args: {
     inverse: true,
   },
   globals: {
     backgrounds: { value: 'dark' },
   },
-};
+});
