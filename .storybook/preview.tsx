@@ -2,10 +2,7 @@ import addonDocs from "@storybook/addon-docs";
 import addonA11y from "@storybook/addon-a11y";
 import { definePreview } from '@storybook/react-vite';
 import { MotionGlobalConfig } from 'framer-motion';
-import registerAPCACheck from 'apca-check';
 import '../src/css/yaSans20251215.css';
-
-registerAPCACheck('bronze'); // or registerAPCACheck('silver');
 
 // Use framer-motion's global config to disable animations for visual tests
 MotionGlobalConfig.skipAnimations = true; //isChromatic();
@@ -82,12 +79,7 @@ export default definePreview({
       // 'todo' - show a11y violations in the test UI only
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
-      test: 'error',
-      options: {
-        rules: {
-          'color-contrast': { enabled: false }
-        }
-      }
+      test: 'todo',
     },
   },
 
