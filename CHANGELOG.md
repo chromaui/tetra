@@ -1,3 +1,15 @@
+# v3.2.6 (Mon Mar 16 2026)
+
+#### 🐛 Bug Fix
+
+- upgrade sb and mcp [#138](https://github.com/chromaui/tetra/pull/138) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.5 (Tue Feb 03 2026)
 
 #### 🐛 Bug Fix
