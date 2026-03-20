@@ -8,8 +8,6 @@ const config: StorybookConfig = {
     '@storybook/addon-mcp',
   ],
 
-  features: { experimentalComponentsManifest: true },
-
   framework: {
     name: '@storybook/react-vite',
     options: {},
