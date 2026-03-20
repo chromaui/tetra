@@ -1,3 +1,15 @@
+# v3.2.8 (Fri Mar 20 2026)
+
+#### 🐛 Bug Fix
+
+- Add CLAUDE.md, downstream upgrade workflow, and Storybook cleanup [#140](https://github.com/chromaui/tetra/pull/140) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.7 (Fri Mar 20 2026)
 
 #### 🐛 Bug Fix
