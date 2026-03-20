@@ -20,6 +20,10 @@ jobs:
 
     name: Upgrade in ${{ matrix.repo }}
 
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
       - name: Resolve tetra version
         id: tetra
