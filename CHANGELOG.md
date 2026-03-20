@@ -1,3 +1,15 @@
+# v3.2.7 (Fri Mar 20 2026)
+
+#### 🐛 Bug Fix
+
+- "Claude PR Assistant workflow" [#139](https://github.com/chromaui/tetra/pull/139) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.6 (Mon Mar 16 2026)
 
 #### 🐛 Bug Fix
