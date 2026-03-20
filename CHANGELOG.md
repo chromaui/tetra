@@ -1,3 +1,15 @@
+# v3.2.9 (Fri Mar 20 2026)
+
+#### 🐛 Bug Fix
+
+- fix: add id-token write permission for claude-code-action [#141](https://github.com/chromaui/tetra/pull/141) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.8 (Fri Mar 20 2026)
 
 #### 🐛 Bug Fix
