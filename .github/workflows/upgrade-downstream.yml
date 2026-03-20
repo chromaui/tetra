@@ -95,6 +95,7 @@ jobs:
           git checkout -b $BRANCH
           git add -A
           git commit -m "chore: upgrade @chromatic-com/tetra to v${{ steps.tetra.outputs.version }}"
+          git remote set-url origin "https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ matrix.repo }}.git"
           git push origin $BRANCH
 
       - name: Open PR
