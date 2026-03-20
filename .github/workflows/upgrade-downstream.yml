@@ -1,0 +1,120 @@
+name: Upgrade Tetra in downstream projects
+
+on:
+  workflow_dispatch:
+    inputs:
+      tetra_version:
+        description: 'Tetra version to upgrade to (leave blank for latest)'
+        required: false
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        repo:
+          - chromaui/chromatic-docs
+          - chromaui/blog
+
+    name: Upgrade in ${{ matrix.repo }}
+
+    steps:
+      - name: Resolve tetra version
+        id: tetra
+        run: |
+          VERSION="${{ inputs.tetra_version }}"
+          if [ -z "$VERSION" ]; then
+            VERSION=$(npm view @chromatic-com/tetra version)
+          fi
+          if [ -z "$VERSION" ]; then
+            echo "Could not resolve tetra version" && exit 1
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Resolved tetra version: $VERSION"
+
+      - name: Checkout downstream repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ matrix.repo }}
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check current tetra version
+        id: check
+        run: |
+          CURRENT=$(node -p "require('./package.json').dependencies?.['@chromatic-com/tetra'] || require('./package.json').devDependencies?.['@chromatic-com/tetra'] || 'not found'")
+          echo "current=$CURRENT" >> $GITHUB_OUTPUT
+          echo "Current @chromatic-com/tetra version in this repo: $CURRENT"
+
+      - name: Run Claude Code upgrade
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            The design system package '@chromatic-com/tetra' needs to be upgraded to version ${{ steps.tetra.outputs.version }}.
+            The currently installed version is ${{ steps.check.outputs.current }}.
+
+            Please do the following:
+            1. Run: npm install @chromatic-com/tetra@${{ steps.tetra.outputs.version }}
+            2. Read CHANGELOG.md in node_modules/@chromatic-com/tetra/ if it exists to understand what changed
+            3. Search the codebase for all imports and usages of @chromatic-com/tetra components (especially Header and Footer)
+            4. Update any imports, props, or usage patterns that are incompatible with the new version
+            5. Run the test suite with 'npm test' and fix any test failures caused by the upgrade
+            6. Do not modify anything unrelated to the tetra upgrade
+            7. Do not bump any other dependencies
+
+            If the current version already matches the target version, do nothing.
+          claude_args: '--allowedTools Bash,Read,Write,Edit,Glob,Grep --dangerously-skip-permissions --max-turns 20'
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes — already up to date"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push branch
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          BRANCH="chore/upgrade-tetra-${{ steps.tetra.outputs.version }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git config user.name "${{ github.actor }}"
+          git checkout -b $BRANCH
+          git add -A
+          git commit -m "chore: upgrade @chromatic-com/tetra to v${{ steps.tetra.outputs.version }}"
+          git push origin $BRANCH
+
+      - name: Open PR
+        if: steps.changes.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          BRANCH="chore/upgrade-tetra-${{ steps.tetra.outputs.version }}"
+
+          gh pr create \
+            --repo ${{ matrix.repo }} \
+            --title "chore: upgrade @chromatic-com/tetra to v${{ steps.tetra.outputs.version }}" \
+            --body "## Tetra upgrade: v${{ steps.tetra.outputs.version }}
+
+          Automated upgrade of the \`@chromatic-com/tetra\` design system, triggered by @${{ github.actor }}.
+
+          **Previous version:** \`${{ steps.check.outputs.current }}\`
+          **New version:** \`${{ steps.tetra.outputs.version }}\`
+
+          ### What Claude did
+          - Bumped \`@chromatic-com/tetra\` in \`package.json\`
+          - Updated Header/Footer usages to match the new API
+          - Fixed any test failures caused by the upgrade
+
+          > Review the diff carefully before merging." \
+            --head $BRANCH \
+            --base main

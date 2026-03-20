@@ -35,3 +35,4 @@ storybook-static
 
 @chromaui
 debug-storybook.log
+.claude/settings.local.json
