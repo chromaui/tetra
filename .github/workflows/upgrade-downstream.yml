@@ -14,9 +14,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        repo:
-          - chromaui/chromatic-docs
-          - chromaui/blog
+        include:
+          - repo: chromaui/chromatic-docs
+            package_manager: 'pnpm' # leave blank to auto-detect from lockfile
+          - repo: chromaui/blog
+            package_manager: 'yarn' # leave blank to auto-detect from lockfile
 
     name: Upgrade in ${{ matrix.repo }}
 
@@ -49,6 +51,31 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Detect package manager
+        id: pkgmgr
+        run: |
+          FORCED="${{ matrix.package_manager }}"
+          if [ -n "$FORCED" ]; then
+            PKG_MANAGER="$FORCED"
+          elif [ -f "pnpm-lock.yaml" ]; then
+            PKG_MANAGER="pnpm"
+          elif [ -f "yarn.lock" ]; then
+            PKG_MANAGER="yarn"
+          elif [ -f "package-lock.json" ]; then
+            PKG_MANAGER="npm"
+          else
+            PKG_MANAGER="npm"
+          fi
+          echo "pkg_manager=$PKG_MANAGER" >> $GITHUB_OUTPUT
+          echo "Detected package manager: $PKG_MANAGER"
+
+      - name: Set up package manager
+        run: |
+          PKG_MANAGER="${{ steps.pkgmgr.outputs.pkg_manager }}"
+          if [ "$PKG_MANAGER" = "pnpm" ] || [ "$PKG_MANAGER" = "yarn" ]; then
+            corepack enable
+          fi
+
       - name: Check current tetra version
         id: check
         run: |
@@ -64,12 +91,18 @@ jobs:
             The design system package '@chromatic-com/tetra' needs to be upgraded to version ${{ steps.tetra.outputs.version }}.
             The currently installed version is ${{ steps.check.outputs.current }}.
 
+            The package manager for this repo is: ${{ steps.pkgmgr.outputs.pkg_manager }}
+
             Please do the following:
-            1. Run: npm install @chromatic-com/tetra@${{ steps.tetra.outputs.version }}
+            1. Run the appropriate install command for the package manager:
+               - npm:  npm install @chromatic-com/tetra@${{ steps.tetra.outputs.version }}
+               - yarn: yarn add @chromatic-com/tetra@${{ steps.tetra.outputs.version }}
+               - pnpm: pnpm add @chromatic-com/tetra@${{ steps.tetra.outputs.version }}
+               Use the package manager listed above (${{ steps.pkgmgr.outputs.pkg_manager }}).
             2. Read CHANGELOG.md in node_modules/@chromatic-com/tetra/ if it exists to understand what changed
             3. Search the codebase for all imports and usages of @chromatic-com/tetra components (especially Header and Footer)
             4. Update any imports, props, or usage patterns that are incompatible with the new version
-            5. Run the test suite with 'npm test' and fix any test failures caused by the upgrade
+            5. Run the test suite with '${{ steps.pkgmgr.outputs.pkg_manager }} test' and fix any test failures caused by the upgrade
             6. Do not modify anything unrelated to the tetra upgrade
             7. Do not bump any other dependencies
 
