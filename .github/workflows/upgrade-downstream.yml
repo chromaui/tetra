@@ -126,10 +126,17 @@ jobs:
           git config user.email "${{ github.actor }}@users.noreply.github.com"
           git config user.name "${{ github.actor }}"
           git checkout -b $BRANCH
+
+          # Remove any lockfiles that don't belong to this repo's package manager
+          PKG_MANAGER="${{ steps.pkgmgr.outputs.pkg_manager }}"
+          if [ "$PKG_MANAGER" != "npm" ]; then git checkout -- package-lock.json 2>/dev/null || git rm --cached package-lock.json 2>/dev/null || true; fi
+          if [ "$PKG_MANAGER" != "yarn" ]; then git checkout -- yarn.lock 2>/dev/null || git rm --cached yarn.lock 2>/dev/null || true; fi
+          if [ "$PKG_MANAGER" != "pnpm" ]; then git checkout -- pnpm-lock.yaml 2>/dev/null || git rm --cached pnpm-lock.yaml 2>/dev/null || true; fi
+
           git add -A
           git commit -m "chore: upgrade @chromatic-com/tetra to v${{ steps.tetra.outputs.version }}"
           git remote set-url origin "https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ matrix.repo }}.git"
-          git push origin $BRANCH
+          git push --force-with-lease origin $BRANCH
 
       - name: Open PR
         if: steps.changes.outputs.has_changes == 'true'
