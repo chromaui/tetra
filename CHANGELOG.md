@@ -1,3 +1,15 @@
+# v3.2.11 (Wed Mar 25 2026)
+
+#### 🐛 Bug Fix
+
+- fix(ci): increase Claude max-turns from 20 to 50 [#144](https://github.com/chromaui/tetra/pull/144) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.10 (Wed Mar 25 2026)
 
 #### 🐛 Bug Fix
