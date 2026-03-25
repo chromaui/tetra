@@ -1,3 +1,19 @@
+# v3.2.10 (Wed Mar 25 2026)
+
+#### 🐛 Bug Fix
+
+- Downstream workflow [#143](https://github.com/chromaui/tetra/pull/143) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### 🏠 Internal
+
+- Upgrade Storybook/MCP, add CLAUDE.md, skills, and downstream upgrade workflow [#142](https://github.com/chromaui/tetra/pull/142) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.9 (Fri Mar 20 2026)
 
 #### 🐛 Bug Fix
