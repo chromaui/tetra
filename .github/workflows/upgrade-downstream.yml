@@ -107,7 +107,7 @@ jobs:
             7. Do not bump any other dependencies
 
             If the current version already matches the target version, do nothing.
-          claude_args: '--allowedTools Bash,Read,Write,Edit,Glob,Grep --dangerously-skip-permissions --max-turns 20'
+          claude_args: '--allowedTools Bash,Read,Write,Edit,Glob,Grep --dangerously-skip-permissions --max-turns 50'
 
       - name: Check for changes
         id: changes
