@@ -86,7 +86,7 @@ export const Variants: Story = {
 export const CustomColor: Story = {
   args: {
     ...Base.args,
-    valueColor: 'purple500',
+    valueColor: 'purple200',
   },
 };
 

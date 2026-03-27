@@ -19,7 +19,9 @@ export const Base: Story = {
     variant: 'default',
   },
   render: ({ name, theme, variant }) => {
-    return <Logo name={name} theme={theme} variant={variant} />;
+    return (
+      <Logo name={name} theme={theme} variant={variant} alt="chromatic logo" />
+    );
   },
 };
 
@@ -40,8 +42,14 @@ export const Chromatic: Story = {
           flexDirection: 'column',
         }}
       >
-        <Logo name="chromatic" theme="light" width={240} />
-        <Logo name="chromatic" theme="light" variant="monochrome" width={240} />
+        <Logo name="chromatic" theme="light" width={240} alt="chromatic logo" />
+        <Logo
+          name="chromatic"
+          theme="light"
+          variant="monochrome"
+          width={240}
+          alt="chromatic logo"
+        />
       </div>
       <div
         style={{
@@ -54,8 +62,14 @@ export const Chromatic: Story = {
           flexDirection: 'column',
         }}
       >
-        <Logo name="chromatic" theme="dark" width={240} />
-        <Logo name="chromatic" theme="dark" variant="monochrome" width={240} />
+        <Logo name="chromatic" theme="dark" width={240} alt="chromatic logo" />
+        <Logo
+          name="chromatic"
+          theme="dark"
+          variant="monochrome"
+          width={240}
+          alt="chromatic logo"
+        />
       </div>
     </div>
   ),
@@ -81,8 +95,14 @@ export const Storybook: Story = {
           flexDirection: 'column',
         }}
       >
-        <Logo name="storybook" theme="light" width={240} />
-        <Logo name="storybook" theme="light" variant="monochrome" width={240} />
+        <Logo name="storybook" theme="light" width={240} alt="storybook logo" />
+        <Logo
+          name="storybook"
+          theme="light"
+          variant="monochrome"
+          width={240}
+          alt="storybook logo"
+        />
       </div>
       <div
         style={{
@@ -95,8 +115,14 @@ export const Storybook: Story = {
           flexDirection: 'column',
         }}
       >
-        <Logo name="storybook" theme="dark" width={240} />
-        <Logo name="storybook" theme="dark" variant="monochrome" width={240} />
+        <Logo name="storybook" theme="dark" width={240} alt="storybook logo" />
+        <Logo
+          name="storybook"
+          theme="dark"
+          variant="monochrome"
+          width={240}
+          alt="storybook logo"
+        />
       </div>
     </div>
   ),
