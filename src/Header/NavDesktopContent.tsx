@@ -75,6 +75,7 @@ const NavDesktopItemCard = ({
   href,
 }: HeaderDesktopItemContent) => (
   <NavigationMenu.Link asChild>
+    {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
     <CardLink href={href!} LinkWrapper={linkWrapper}>
       <VStack paddingX={3} paddingY={3} gap={5}>
         <VStack gap={0.5}>
