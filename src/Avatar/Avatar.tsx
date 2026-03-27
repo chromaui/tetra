@@ -77,7 +77,6 @@ const LoadingIcon = styled(Icon)<{ type: AvatarType }>`
   bottom: ${(props) => (props.type === 'user' ? -2 : -4)}px;
   height: ${(props) => (props.type === 'user' ? 100 : 70)}%;
   width: ${(props) => (props.type === 'user' ? 100 : 70)}%;
-  vertical-align: top;
 
   path {
     fill: ${color.slate300};
@@ -136,6 +135,7 @@ export const Avatar: FC<AvatarProps> = ({
 }) => {
   let avatarFigure = (
     <LoadingIcon
+      aria-hidden="true"
       name={type === 'user' ? 'useralt' : 'repository'}
       type={type}
     />
@@ -145,10 +145,12 @@ export const Avatar: FC<AvatarProps> = ({
   if (isLoading) {
     a11yProps['aria-busy'] = true;
     a11yProps['aria-label'] = 'Loading avatar ...';
+    a11yProps.role = 'img';
   } else if (src) {
     avatarFigure = <img src={src} alt={username} />;
   } else {
     a11yProps['aria-label'] = username;
+    a11yProps.role = 'img';
     avatarFigure = (
       <Initial size={size} aria-hidden="true">
         {username.substring(0, 1)}
