@@ -62,11 +62,11 @@ const TriggerButton = styled(RadixDropdownMenu.Trigger, {
   &[data-state='open'] {
     background-color: ${({ variant }) => {
       return variant === 'light'
-        ? `hsl(from ${color.blue600} h s l / 0.07)`
-        : `hsl(from ${color.blue400} h s l / 0.07)`;
+        ? `hsl(from ${color.blue700} h s l / 0.07)`
+        : color.slate800;
     }};
     color: ${({ variant }) => {
-      return variant === 'light' ? color.blue600 : color.blue400;
+      return variant === 'light' ? color.blue700 : color.blue400;
     }};
   }
 
