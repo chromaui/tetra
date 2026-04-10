@@ -8,6 +8,8 @@ import { VStack } from '../Stack/Stack';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
+type CardContent = Extract<HeaderDesktopItemContent, { type: 'card' }>;
+
 interface Props {
   item: HeaderDesktopItem;
 }
@@ -73,10 +75,9 @@ const NavDesktopItemCard = ({
   image,
   linkWrapper,
   href,
-}: HeaderDesktopItemContent) => (
+}: CardContent) => (
   <NavigationMenu.Link asChild>
-    {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-    <CardLink href={href!} LinkWrapper={linkWrapper}>
+    <CardLink href={href} LinkWrapper={linkWrapper}>
       <VStack paddingX={3} paddingY={3} gap={5}>
         <VStack gap={0.5}>
           <Text as="div" lineHeightAuto variant="body14" fontWeight="bold">
