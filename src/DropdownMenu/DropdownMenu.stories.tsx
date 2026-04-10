@@ -42,6 +42,9 @@ export const ClosedDark: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
 };
 
 export const LabelWithIconLight: Story = {
@@ -72,6 +75,13 @@ export const LabelWithIconDark: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
+  play: async ({ canvasElement, userEvent }) => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button');
+    MenuButton.focus();
+    await userEvent.keyboard('{enter}');
+  },
 };
 
 export const DisabledItemsLight: Story = {
@@ -95,6 +105,13 @@ export const DisabledItemsDark: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
+  play: async ({ canvasElement, userEvent }) => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button');
+    MenuButton.focus();
+    await userEvent.keyboard('{enter}');
+  },
 };
 
 export const CheckboxItemsLight: Story = {
@@ -117,6 +134,13 @@ export const CheckboxItemsDark: Story = {
   },
   globals: {
     backgrounds: { value: 'dark' },
+  },
+  play: async ({ canvasElement, userEvent }) => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button');
+    MenuButton.focus();
+    await userEvent.keyboard('{enter}');
   },
 };
 

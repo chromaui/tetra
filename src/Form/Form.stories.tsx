@@ -99,4 +99,7 @@ export const Inverse: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
 };
