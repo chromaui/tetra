@@ -67,13 +67,6 @@ export const Compact: Story = {
   play: async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
   },
-  decorators: [
-    (Story) => (
-      <div style={{ backgroundColor: '#171C23' }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const LeftAlign: Story = {
@@ -100,13 +93,6 @@ export const InverseLeftAlign: Story = {
   play: async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
   },
-  decorators: [
-    (Story) => (
-      <div style={{ backgroundColor: '#171C23' }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export const Balanced: Story = {
