@@ -41,6 +41,9 @@ export const Inverse: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
 };
 
 export const Compact: Story = {
@@ -53,6 +56,9 @@ export const Compact: Story = {
   },
   parameters: {
     layout: 'padded',
+  },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
   },
 };
 
@@ -76,6 +82,9 @@ export const InverseLeftAlign: Story = {
   },
   parameters: {
     layout: 'padded',
+  },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
   },
 };
 

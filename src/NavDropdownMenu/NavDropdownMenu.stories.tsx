@@ -42,5 +42,8 @@ export const Dark: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
-  play: Light.play,
+  play: async (context) => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    await Light.play?.(context);
+  },
 };

@@ -44,6 +44,9 @@ export const DesktopDark: Story = {
   parameters: {
     ...DesktopLight.parameters,
   },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
 };
 
 export const DesktopLightSticky: Story = {
@@ -61,6 +64,9 @@ export const DesktopDarkSticky: Story = {
   },
   globals: {
     backgrounds: { value: 'dark' },
+  },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
   },
 };
 
@@ -85,6 +91,9 @@ export const DesktopDarkLoggedIn: Story = {
   },
   globals: {
     backgrounds: { value: 'dark' },
+  },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
   },
 };
 
@@ -134,6 +143,9 @@ export const WithSubNav: Story = {
   parameters: {
     ...DesktopLight.parameters,
   },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
 };
 
 export const DesktopLightActive: Story = {
@@ -157,6 +169,9 @@ export const DesktopDarkActive: Story = {
   },
   parameters: {
     ...DesktopLight.parameters,
+  },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
   },
 };
 
@@ -195,6 +210,7 @@ export const DesktopDarkOpen: Story = {
   },
   decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
       name: 'Platform',
@@ -215,6 +231,9 @@ export const TabletLight: Story = {
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },
   },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
 };
 
 export const TabletDark: Story = {
@@ -228,6 +247,9 @@ export const TabletDark: Story = {
   },
   parameters: {
     chromatic: { viewports: [320, 640, 768, 939] },
+  },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
   },
 };
 

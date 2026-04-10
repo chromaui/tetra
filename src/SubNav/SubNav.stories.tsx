@@ -36,6 +36,9 @@ export const Dark: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
 };
 
 export const Collapsed: Story = {
@@ -49,6 +52,7 @@ export const Collapsed: Story = {
     chromatic: { viewports: [320] },
   },
   play: async ({ canvasElement }) => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
     const canvas = within(canvasElement);
     const MenuButton = await canvas.findByRole('button', {
       name: 'Features',

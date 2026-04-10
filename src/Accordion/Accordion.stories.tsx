@@ -62,6 +62,9 @@ export const Base: Story = {
   globals: {
     backgrounds: { value: 'light' },
   },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
   parameters: {
     chromatic: {
       viewports: [320, 640, 768, 1024],
@@ -91,6 +94,9 @@ export const Inverse: Story = {
   },
   globals: {
     backgrounds: { value: 'dark' },
+  },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
   },
   parameters: {
     chromatic: {
@@ -220,6 +226,9 @@ export const GroupInverse: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
   parameters: {
     chromatic: {
       viewports: [320, 640, 768, 1024],
@@ -292,6 +301,9 @@ export const GroupOpenStartInverse: Story = {
   globals: {
     backgrounds: { value: 'dark' },
   },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
   render: (args) => {
     return (
       <Accordion defaultValue="item-0" inverse={args.inverse}>
@@ -325,6 +337,9 @@ export const GroupWithAlternateIcons: Story = {
   },
   globals: {
     backgrounds: { value: 'light' },
+  },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
   },
   render: (args) => {
     return (
