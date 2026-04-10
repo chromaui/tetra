@@ -142,7 +142,7 @@ const Name = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
     `}
 `;
 
-const JobTitle = styled.div<{ variant: TestimonialVariant }>`
+const JobTitle = styled.div<{ variant: TestimonialVariant; inverse?: boolean }>`
   font-family: ${fontFamily.sans};
   font-size: ${fontSize[12]};
   line-height: 18px;
@@ -152,7 +152,7 @@ const JobTitle = styled.div<{ variant: TestimonialVariant }>`
       font-size: ${fontSize[12]};
       line-height: 14px;
     `}
-  color: ${color.slate600};
+  color: ${(props) => (props.inverse ? color.slate400 : color.slate600)};
 `;
 
 const Logo = styled.div<{ inverse?: boolean; variant: TestimonialVariant }>`
@@ -243,7 +243,9 @@ export const Testimonial = ({
               <Name variant={variant} inverse={inverse}>
                 {name}
               </Name>
-              <JobTitle variant={variant}>{jobTitle}</JobTitle>
+              <JobTitle variant={variant} inverse={inverse}>
+                {jobTitle}
+              </JobTitle>
             </Meta>
           </Author>
           <Logo variant={variant} inverse={inverse}>

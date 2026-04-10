@@ -19,9 +19,9 @@ export const Base: Story = {
   args: {
     text: (
       <span>
-        “We use TurboSnap to identify the changed files and run only the
+        "We use TurboSnap to identify the changed files and run only the
         relevant stories and visual tests, cutting down costs and making our
-        CI/CD much much quicker.”
+        CI/CD much much quicker."
       </span>
     ),
     avatarUrl: 'https://avatars1.githubusercontent.com/u/263385?s=88&v=4',
@@ -44,6 +44,13 @@ export const Inverse: Story = {
   play: async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
   },
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: '#171C23', minHeight: '100vh' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Compact: Story = {
@@ -60,6 +67,13 @@ export const Compact: Story = {
   play: async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
   },
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: '#171C23' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const LeftAlign: Story = {
@@ -86,6 +100,13 @@ export const InverseLeftAlign: Story = {
   play: async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
   },
+  decorators: [
+    (Story) => (
+      <div style={{ backgroundColor: '#171C23' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Balanced: Story = {
