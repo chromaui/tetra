@@ -70,7 +70,7 @@ const Count = styled.div<{
   ${(props) =>
     props.variant === 'positive' &&
     css`
-      color: ${color.green500};
+      color: ${color.green600};
     `};
   ${(props) =>
     props.variant === 'negative' &&
@@ -80,7 +80,7 @@ const Count = styled.div<{
   ${(props) =>
     props.variant === 'warning' &&
     css`
-      color: ${color.yellow500};
+      color: hsl(from ${color.yellow500} h s calc(l * 0.75) / 1);
     `};
   ${(props) =>
     props.variant === 'neutral' &&

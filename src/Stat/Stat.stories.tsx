@@ -92,7 +92,8 @@ export const CustomColor: Story = {
 
 export const CustomColorInverse: Story = {
   args: {
-    ...CustomColor.args,
+    ...Base.args,
+    valueColor: 'purple200',
     variant: 'inverse',
   },
   globals: {

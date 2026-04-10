@@ -8,6 +8,21 @@ import { FigmaIcon } from './icons/figma';
 const meta: Meta<typeof NavDesktopContent> = {
   title: 'Components/Header/NavDesktopContent',
   component: NavDesktopContent,
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Each story renders a single content card in isolation,
+            // outside of the full nav list structure, so the list
+            // role hierarchy is incomplete by design.
+            id: 'list',
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
 };
 
 export default meta;

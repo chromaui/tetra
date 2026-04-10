@@ -17,17 +17,20 @@ export interface HeaderMobileSection {
   }[];
 }
 
-export interface HeaderDesktopItemContent {
-  type: 'link' | 'separator' | 'card';
+interface HeaderDesktopItemContentBase {
   title: string;
   description?: string;
-  href?: string;
   linkWrapper?: any;
   icon?: Icons;
   iconColor?: keyof typeof color;
   customIcon?: ReactNode;
   image?: string;
 }
+
+export type HeaderDesktopItemContent =
+  | (HeaderDesktopItemContentBase & { type: 'link'; href?: string })
+  | (HeaderDesktopItemContentBase & { type: 'separator' })
+  | (HeaderDesktopItemContentBase & { type: 'card'; href: string });
 
 export interface HeaderDesktopItem {
   id: string;

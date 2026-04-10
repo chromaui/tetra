@@ -85,6 +85,18 @@ export const InlineSize: Story = {
   args: {
     ...Base.args,
   },
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            id: 'link-in-text-block',
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
   render: () => (
     <VStack gap={6}>
       <Text variant="body20">

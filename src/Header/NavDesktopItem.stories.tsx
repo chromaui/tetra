@@ -7,6 +7,21 @@ import { NavDesktopItem } from './NavDesktopItem';
 const meta: Meta<typeof NavDesktopItem> = {
   title: 'Components/Header/NavDesktopItem',
   component: NavDesktopItem,
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Each story renders a single nav item in isolation,
+            // outside of the full nav list structure, so the list
+            // role hierarchy is incomplete by design.
+            id: 'list',
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
 };
 
 export default meta;

@@ -6,6 +6,21 @@ import { NavDropdownMenu } from './NavDropdownMenu';
 const meta: Meta<typeof NavDropdownMenu> = {
   title: 'Components/NavDropdownMenu',
   component: NavDropdownMenu,
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Radix portal adds aria-hidden to content behind the overlay,
+            // making the trigger still focusable. This is a known Radix
+            // implementation detail, not an issue in our component.
+            id: 'aria-hidden-focus',
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
 };
 
 export default meta;
