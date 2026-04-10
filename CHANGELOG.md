@@ -1,3 +1,16 @@
+# v3.2.13 (Fri Apr 10 2026)
+
+#### 🐛 Bug Fix
+
+- Fix accessibility violations across components [#145](https://github.com/chromaui/tetra/pull/145) ([@winkerVSbecks](https://github.com/winkerVSbecks) [@Copilot](https://github.com/Copilot))
+
+#### Authors: 2
+
+- [@Copilot](https://github.com/Copilot)
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.12 (Fri Apr 10 2026)
 
 #### 🐛 Bug Fix
