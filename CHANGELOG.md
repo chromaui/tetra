@@ -1,3 +1,16 @@
+# v3.2.12 (Fri Apr 10 2026)
+
+#### 🐛 Bug Fix
+
+- Add 500ms play function delay to stories with background globals [#146](https://github.com/chromaui/tetra/pull/146) ([@claude](https://github.com/claude) [@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 2
+
+- Claude ([@claude](https://github.com/claude))
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.11 (Wed Mar 25 2026)
 
 #### 🐛 Bug Fix
