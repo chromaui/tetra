@@ -66,6 +66,7 @@ export type LinkKeys =
   | 'storybook'
   | 'playwright'
   | 'cypress'
+  | 'vitest'
   | 'turboSnap'
   | 'uiReview'
   | 'publish'

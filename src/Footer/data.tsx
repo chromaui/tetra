@@ -43,6 +43,7 @@ export const createFooterColumns = (
       { title: 'AI & Agents', href: '/ai', LinkWrapper },
       { title: 'Playwright', href: '/playwright', LinkWrapper },
       { title: 'Cypress', href: '/cypress', LinkWrapper },
+      { title: 'Vitest', href: '/vitest', LinkWrapper },
       { title: 'Figma plugin', href: '/features/figma-plugin' },
       { title: 'Pricing', href: '/pricing', LinkWrapper },
     ],

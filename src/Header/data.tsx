@@ -8,6 +8,7 @@ import { color } from '../_tokens';
 import { Icons } from '../Icon/Icon';
 import { PlaywrightIcon } from './icons/playwright';
 import { CypressIcon } from './icons/cypress';
+import { VitestIcon } from './icons/vitest';
 import { EzCaterIcon } from './icons/ezcater';
 
 interface HeaderLink {
@@ -72,6 +73,12 @@ export const defaultLinks: HeaderLinksAll = {
     customIcon: <CypressIcon />,
     iconColor: 'green500',
     href: '/cypress',
+  },
+  vitest: {
+    title: 'Vitest',
+    customIcon: <VitestIcon />,
+    iconColor: 'green500',
+    href: '/vitest',
   },
   turboSnap: {
     title: 'TurboSnap',
@@ -330,6 +337,12 @@ export const createDesktopMenu = (
               description:
                 'Visual tests for every page in your Cypress E2E suite',
             },
+            {
+              ...links.vitest,
+              type: 'link',
+              description:
+                'Visual tests for every component in your Vitest test suite',
+            },
           ],
           backgroundColor: 'white',
         },
@@ -487,7 +500,13 @@ export const createMobileMenu = (
     {
       name: 'Integrations',
       collapsible: true,
-      content: [links.storybook, links.ai, links.playwright, links.cypress],
+      content: [
+        links.storybook,
+        links.ai,
+        links.playwright,
+        links.cypress,
+        links.vitest,
+      ],
     },
     {
       name: 'Use cases',
