@@ -31,6 +31,7 @@ export {
   MondayIcon,
   PlaywrightIcon,
   CypressIcon,
+  VitestIcon,
   BBCIcon,
 } from './Header';
 export { Icon, Icons } from './Icon';
