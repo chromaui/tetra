@@ -1,3 +1,16 @@
+# v3.2.14 (Wed Apr 15 2026)
+
+#### 🐛 Bug Fix
+
+- feat: add `VitestIcon` and Vitest into Header [#147](https://github.com/chromaui/tetra/pull/147) ([@AriPerkkio](https://github.com/AriPerkkio) [@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 2
+
+- Ari Perkkiö ([@AriPerkkio](https://github.com/AriPerkkio))
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.13 (Fri Apr 10 2026)
 
 #### 🐛 Bug Fix
