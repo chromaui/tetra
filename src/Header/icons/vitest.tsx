@@ -34,7 +34,7 @@ export const VitestIcon = () => (
           fill="#00d0c7"
           rx="14.031"
           ry="3.391"
-          transform="rotate(130.547 24.66 9.628)scale(1 -1)"
+          transform="scale(-1 1)rotate(49.453 -20.907 -53.55)"
         />
       </g>
       <g filter="url(#c)">
@@ -44,7 +44,7 @@ export const VitestIcon = () => (
           fill="#00d0c7"
           rx="14.031"
           ry="6.087"
-          transform="rotate(53.967 -21.78 50.176)scale(-1 1)"
+          transform="scale(-1 1)rotate(-53.967 21.78 50.176)"
         />
       </g>
       <g filter="url(#d)">
@@ -74,7 +74,7 @@ export const VitestIcon = () => (
           fill="#6effe1"
           rx="4.985"
           ry="10.069"
-          transform="rotate(135 25.049 17.234)scale(-1 1)"
+          transform="scale(1 -1)rotate(45 41.607 60.474)"
         />
       </g>
     </g>
@@ -92,28 +92,36 @@ export const VitestIcon = () => (
         colorInterpolationFilters="sRGB"
         filterUnits="userSpaceOnUse"
       >
-        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+        <feBlend
+          in="SourceGraphic"
+          in2="BackgroundImageFix"
+          result="shape"
+        ></feBlend>
         <feGaussianBlur
           result="effect1_foregroundBlur_2002_17382"
           stdDeviation="4.596"
-        />
+        ></feGaussianBlur>
       </filter>
       <filter
         id="c"
         width="37.605"
         height="42.185"
-        x="-.371"
+        x="-0.371"
         y="9.415"
         colorInterpolationFilters="sRGB"
         filterUnits="userSpaceOnUse"
       >
-        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+        <feBlend
+          in="SourceGraphic"
+          in2="BackgroundImageFix"
+          result="shape"
+        ></feBlend>
         <feGaussianBlur
           result="effect1_foregroundBlur_2002_17382"
           stdDeviation="4.596"
-        />
+        ></feGaussianBlur>
       </filter>
       <filter
         id="d"
@@ -124,12 +132,16 @@ export const VitestIcon = () => (
         colorInterpolationFilters="sRGB"
         filterUnits="userSpaceOnUse"
       >
-        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+        <feBlend
+          in="SourceGraphic"
+          in2="BackgroundImageFix"
+          result="shape"
+        ></feBlend>
         <feGaussianBlur
           result="effect1_foregroundBlur_2002_17382"
           stdDeviation="4.596"
-        />
+        ></feGaussianBlur>
       </filter>
       <filter
         id="e"
@@ -140,12 +152,16 @@ export const VitestIcon = () => (
         colorInterpolationFilters="sRGB"
         filterUnits="userSpaceOnUse"
       >
-        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+        <feBlend
+          in="SourceGraphic"
+          in2="BackgroundImageFix"
+          result="shape"
+        ></feBlend>
         <feGaussianBlur
           result="effect1_foregroundBlur_2002_17382"
           stdDeviation="4.596"
-        />
+        ></feGaussianBlur>
       </filter>
       <filter
         id="f"
@@ -156,12 +172,16 @@ export const VitestIcon = () => (
         colorInterpolationFilters="sRGB"
         filterUnits="userSpaceOnUse"
       >
-        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+        <feBlend
+          in="SourceGraphic"
+          in2="BackgroundImageFix"
+          result="shape"
+        ></feBlend>
         <feGaussianBlur
           result="effect1_foregroundBlur_2002_17382"
           stdDeviation="4.596"
-        />
+        ></feGaussianBlur>
       </filter>
     </defs>
   </svg>
