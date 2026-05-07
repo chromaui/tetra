@@ -1,3 +1,19 @@
+# v3.2.15 (Thu May 07 2026)
+
+#### 🐛 Bug Fix
+
+- docs: remove decorative glyphs from README title [#153](https://github.com/chromaui/tetra/pull/153) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+- fix workflow [#152](https://github.com/chromaui/tetra/pull/152) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+- Add dx-buddy workflow [#150](https://github.com/chromaui/tetra/pull/150) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+- Fix mobile menu scroll when accordions are expanded [#148](https://github.com/chromaui/tetra/pull/148) ([@boehnen](https://github.com/boehnen))
+
+#### Authors: 2
+
+- Justin Boehnen ([@boehnen](https://github.com/boehnen))
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.14 (Wed Apr 15 2026)
 
 #### 🐛 Bug Fix
