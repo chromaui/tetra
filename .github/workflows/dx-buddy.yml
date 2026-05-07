@@ -68,7 +68,15 @@ jobs:
         run: |
           set -o pipefail
           npx tsx runtime.ts "${{ github.event.issue.html_url }}" 2>&1 | tee out.txt
-          tail -n 30 out.txt > body.txt
+
+      - name: Prepare comment body
+        if: always()
+        run: |
+          if [ -s out.txt ]; then
+            tail -n 30 out.txt > body.txt
+          else
+            echo "dx-buddy produced no output (the runtime step likely failed before writing logs). Check the workflow run for details." > body.txt
+          fi
 
       - name: Post result back to issue
         if: always()

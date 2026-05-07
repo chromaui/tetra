@@ -318,7 +318,13 @@ export const MobileOpenTall: Story = {
     });
     await userEvent.click(MenuButton);
 
-    const sections = ['View more', 'Integrations', 'Use cases', 'Customer Stories', 'Company'];
+    const sections = [
+      'View more',
+      'Integrations',
+      'Use cases',
+      'Customer Stories',
+      'Company',
+    ];
     for (const section of sections) {
       const buttons = document.querySelectorAll('button');
       for (const btn of buttons) {
