@@ -1,4 +1,4 @@
-# Tetra ⍜ ⍚
+# Tetra
 
 <img src="public/cover.jpg" />
 
