@@ -309,6 +309,28 @@ export const MobileOpen: Story = {
   },
 };
 
+export const MobileOpenTall: Story = {
+  ...MobileOpen,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Toggle Menu',
+    });
+    await userEvent.click(MenuButton);
+
+    const sections = ['View more', 'Integrations', 'Use cases', 'Customer Stories', 'Company'];
+    for (const section of sections) {
+      const buttons = document.querySelectorAll('button');
+      for (const btn of buttons) {
+        if (btn.textContent?.trim().startsWith(section)) {
+          await userEvent.click(btn);
+          break;
+        }
+      }
+    }
+  },
+};
+
 export const DesktopFullWidth: Story = {
   args: {
     ...DesktopLight.args,
