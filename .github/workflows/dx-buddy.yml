@@ -1,0 +1,85 @@
+# Example workflow for triggering dx-buddy from a GitHub issue.
+# Drop this in .github/workflows/dx-buddy.yml in chromaui/marketing and/or
+# chromaui/tetra (the repos dx-buddy is allowed to author PRs against).
+#
+# Triggers:
+#   - A comment containing "/dx-buddy" on a non-PR issue.
+#   - The label "dx-buddy:run" being applied to an issue.
+#
+# Required repo secrets:
+#   ANTHROPIC_API_KEY       - same key used in this repo's .env
+#   DX_BUDDY_AGENT_ID       - from .env after running setup.sh
+#   DX_BUDDY_ENV_ID         - from .env
+#   DX_BUDDY_VAULT_ID       - from .env
+#   DX_BUDDY_REPO_PAT       - fine-grained PAT, read-only Contents on chromaui/dx-buddy
+#   GH_PAT                  - fine-grained PAT, Contents+Issues+PullRequests RW on
+#                             the repos dx-buddy will edit (same as your local
+#                             GITHUB_TOKEN)
+#
+# Required label:
+#   "dx-buddy:run" must exist in the target repo (Issues -> Labels).
+
+name: dx-buddy
+
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [labeled]
+
+concurrency:
+  group: dx-buddy-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  run:
+    if: |
+      !github.event.issue.pull_request && (
+        (github.event_name == 'issue_comment'
+          && contains(github.event.comment.body, '/dx-buddy')
+          && github.event.comment.user.type != 'Bot')
+        ||
+        (github.event_name == 'issues'
+          && github.event.label.name == 'dx-buddy:run')
+      )
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Checkout dx-buddy runtime (private)
+        uses: actions/checkout@v4
+        with:
+          repository: chromaui/dx-buddy
+          token: ${{ secrets.DX_BUDDY_REPO_PAT }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Run dx-buddy
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DX_BUDDY_AGENT_ID: ${{ secrets.DX_BUDDY_AGENT_ID }}
+          DX_BUDDY_ENV_ID: ${{ secrets.DX_BUDDY_ENV_ID }}
+          DX_BUDDY_VAULT_ID: ${{ secrets.DX_BUDDY_VAULT_ID }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          set -o pipefail
+          npx tsx runtime.ts "${{ github.event.issue.html_url }}" 2>&1 | tee out.txt
+          tail -n 30 out.txt > body.txt
+
+      - name: Post result back to issue
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('body.txt', 'utf8');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: 'dx-buddy result:\n```\n' + body + '\n```'
+            });
