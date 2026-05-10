@@ -1,3 +1,16 @@
+# v3.2.16 (Sun May 10 2026)
+
+#### 🐛 Bug Fix
+
+- docs(_helpers): add Typography story documenting typography.ts [#155](https://github.com/chromaui/tetra/pull/155) ([@claude](https://github.com/claude) [@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 2
+
+- Claude ([@claude](https://github.com/claude))
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.15 (Thu May 07 2026)
 
 #### 🐛 Bug Fix
