@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { Icon } from '../Icon/Icon';
@@ -64,6 +64,25 @@ const NavigationMenuContent = styled.div<{
 export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
   const { theme, desktopActiveId } = useHeaderContext();
   const isActive = desktopActiveId ? desktopActiveId === item.id : false;
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+
+    const sync = () => {
+      if (el.dataset.state === 'closed') {
+        el.setAttribute('inert', '');
+      } else {
+        el.removeAttribute('inert');
+      }
+    };
+
+    sync();
+    const observer = new MutationObserver(sync);
+    observer.observe(el, { attributes: true, attributeFilter: ['data-state'] });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -74,7 +93,7 @@ export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
         </CaretDown>
       </NavigationMenuTrigger>
       <NavigationMenu.Content asChild>
-        <NavigationMenuContent leftPosition={item.leftPosition}>
+        <NavigationMenuContent ref={contentRef} leftPosition={item.leftPosition}>
           <NavDesktopContent item={item} />
         </NavigationMenuContent>
       </NavigationMenu.Content>
