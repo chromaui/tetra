@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useRef } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { Icon } from '../Icon/Icon';
@@ -64,31 +64,6 @@ const NavigationMenuContent = styled.div<{
 export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
   const { theme, desktopActiveId } = useHeaderContext();
   const isActive = desktopActiveId ? desktopActiveId === item.id : false;
-  const observerRef = useRef<MutationObserver | null>(null);
-
-  const contentRef = useCallback((node: HTMLDivElement | null) => {
-    if (observerRef.current) {
-      observerRef.current.disconnect();
-      observerRef.current = null;
-    }
-
-    if (!node) return;
-
-    const sync = () => {
-      if (node.getAttribute('data-state') === 'closed') {
-        node.setAttribute('inert', '');
-      } else {
-        node.removeAttribute('inert');
-      }
-    };
-
-    sync();
-    observerRef.current = new MutationObserver(sync);
-    observerRef.current.observe(node, {
-      attributes: true,
-      attributeFilter: ['data-state'],
-    });
-  }, []);
 
   return (
     <>
@@ -99,7 +74,7 @@ export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
         </CaretDown>
       </NavigationMenuTrigger>
       <NavigationMenu.Content asChild>
-        <NavigationMenuContent ref={contentRef} leftPosition={item.leftPosition}>
+        <NavigationMenuContent leftPosition={item.leftPosition}>
           <NavDesktopContent item={item} />
         </NavigationMenuContent>
       </NavigationMenu.Content>
