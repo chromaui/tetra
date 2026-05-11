@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useCallback, useRef } from 'react';
 import styled from '@emotion/styled';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { Icon } from '../Icon/Icon';
@@ -64,24 +64,30 @@ const NavigationMenuContent = styled.div<{
 export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
   const { theme, desktopActiveId } = useHeaderContext();
   const isActive = desktopActiveId ? desktopActiveId === item.id : false;
-  const contentRef = useRef<HTMLDivElement>(null);
+  const observerRef = useRef<MutationObserver | null>(null);
 
-  useEffect(() => {
-    const el = contentRef.current;
-    if (!el) return;
+  const contentRef = useCallback((node: HTMLDivElement | null) => {
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+      observerRef.current = null;
+    }
+
+    if (!node) return;
 
     const sync = () => {
-      if (el.dataset.state === 'closed') {
-        el.setAttribute('inert', '');
+      if (node.getAttribute('data-state') === 'closed') {
+        node.setAttribute('inert', '');
       } else {
-        el.removeAttribute('inert');
+        node.removeAttribute('inert');
       }
     };
 
     sync();
-    const observer = new MutationObserver(sync);
-    observer.observe(el, { attributes: true, attributeFilter: ['data-state'] });
-    return () => observer.disconnect();
+    observerRef.current = new MutationObserver(sync);
+    observerRef.current.observe(node, {
+      attributes: true,
+      attributeFilter: ['data-state'],
+    });
   }, []);
 
   return (
