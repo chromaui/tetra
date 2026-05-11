@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
@@ -36,16 +36,16 @@ export const NavDesktop = ({ links, fullWidth, ...props }: NavDesktopProps) => {
     [links, fullWidth]
   );
 
-  // @radix-ui/react-navigation-menu@1.1.2 renders two FocusGuard spans with
-  // aria-hidden="true" + tabindex="0" at the Root level. tabindex="0" makes
-  // them keyboard-reachable while aria-hidden hides them from AT, which axe
-  // flags as aria-hidden-focus. Patching to tabindex="-1" keeps the sentinel
-  // elements reachable via programmatic focus (needed for Radix's logic) but
-  // removes them from the natural tab order.
+  // @radix-ui/react-navigation-menu@1.1.2 renders FocusGuard spans with
+  // aria-hidden="true" + tabindex="0", which axe flags as aria-hidden-focus.
+  // Patching to tabindex="-1" removes them from the tab order while keeping
+  // them reachable via programmatic focus for Radix's internal logic.
   const rootRef = useCallback((node: HTMLElement | null) => {
     if (!node) return;
     node
-      .querySelectorAll<HTMLSpanElement>('span[aria-hidden="true"][tabindex="0"]')
+      .querySelectorAll<HTMLSpanElement>(
+        'span[aria-hidden="true"][tabindex="0"]'
+      )
       .forEach((span) => span.setAttribute('tabindex', '-1'));
   }, []);
 
