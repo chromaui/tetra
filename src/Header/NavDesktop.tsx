@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { FC, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
@@ -36,8 +36,21 @@ export const NavDesktop = ({ links, fullWidth, ...props }: NavDesktopProps) => {
     [links, fullWidth]
   );
 
+  // @radix-ui/react-navigation-menu@1.1.2 renders FocusGuard spans with
+  // aria-hidden="true" + tabindex="0", which axe flags as aria-hidden-focus.
+  // Patching to tabindex="-1" removes them from the tab order while keeping
+  // them reachable via programmatic focus for Radix's internal logic.
+  const rootRef = useCallback((node: HTMLElement | null) => {
+    if (!node) return;
+    node
+      .querySelectorAll<HTMLSpanElement>(
+        'span[aria-hidden="true"][tabindex="0"]'
+      )
+      .forEach((span) => span.setAttribute('tabindex', '-1'));
+  }, []);
+
   return (
-    <NavigationMenuRoot delayDuration={100} {...props}>
+    <NavigationMenuRoot ref={rootRef} delayDuration={100} {...props}>
       <NavigationMenuList>
         {desktopLinks &&
           desktopLinks.map((item) => (
