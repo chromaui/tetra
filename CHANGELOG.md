@@ -1,3 +1,15 @@
+# v3.2.17 (Tue May 12 2026)
+
+#### 🐛 Bug Fix
+
+- fix(a11y): patch Radix FocusGuard tabindex to resolve aria-hidden-focus [#156](https://github.com/chromaui/tetra/pull/156) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.16 (Sun May 10 2026)
 
 #### 🐛 Bug Fix
