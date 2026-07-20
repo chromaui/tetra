@@ -91,4 +91,5 @@ export type LinkKeys =
   | 'snapshotCalculator'
   | 'accessibilityBudgetCalculator'
   | 'frontendWorkflowForAI'
-  | 'ai';
+  | 'ai'
+  | 'liveSessions';

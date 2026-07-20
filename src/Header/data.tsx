@@ -224,6 +224,12 @@ export const defaultLinks: HeaderLinksAll = {
     icon: 'wand',
     iconColor: 'purple500',
   },
+  liveSessions: {
+    title: 'Live sessions',
+    href: '/live-sessions',
+    icon: 'video',
+    iconColor: 'orange500',
+  },
 };
 
 export const createDesktopMenu = (
@@ -419,6 +425,12 @@ export const createDesktopMenu = (
               ...links.blog,
               type: 'link',
               description: 'News and feature updates from our team',
+            },
+            {
+              ...links.liveSessions,
+              type: 'link',
+              description:
+                'Deep dives into frontend testing, Storybook, and shipping better UI',
             },
             {
               ...links.snapshotCalculator,
