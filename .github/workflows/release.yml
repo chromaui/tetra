@@ -7,6 +7,7 @@ permissions:
   contents: write
   issues: write
   pull-requests: write
+  actions: write # Required to dispatch upgrade-downstream.yml
 
 jobs:
   release:
@@ -45,8 +46,41 @@ jobs:
       - name: Lint
         run: pnpm run lint
 
+      - name: Capture version before release
+        id: pre
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pnpm run release
+
+      # Releases created by `auto shipit` use GITHUB_TOKEN, which deliberately
+      # cannot fire `release:` or tag-push events in other workflows. Dispatching
+      # upgrade-downstream.yml directly is the documented exception that works.
+      - name: Trigger downstream upgrade on Header/Footer changes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          OLD_VERSION="${{ steps.pre.outputs.version }}"
+          NEW_VERSION=$(node -p "require('./package.json').version")
+
+          if [ "$NEW_VERSION" = "$OLD_VERSION" ]; then
+            echo "No new version published (still v$OLD_VERSION) — skipping downstream upgrade"
+            exit 0
+          fi
+
+          CHANGED=$(git diff --name-only "v$OLD_VERSION" "v$NEW_VERSION" -- src/Header src/Footer)
+          if [ -z "$CHANGED" ]; then
+            echo "v$NEW_VERSION contains no Header/Footer changes — skipping downstream upgrade"
+            exit 0
+          fi
+
+          echo "Header/Footer changes detected in v$NEW_VERSION:"
+          echo "$CHANGED"
+
+          gh workflow run upgrade-downstream.yml \
+            --ref main \
+            -f tetra_version="$NEW_VERSION" \
+            -f changed_files="$(echo "$CHANGED" | paste -sd ',' -)"
