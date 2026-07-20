@@ -6,6 +6,9 @@ on:
       tetra_version:
         description: 'Tetra version to upgrade to (leave blank for latest)'
         required: false
+      changed_files:
+        description: 'Tetra source files changed in this release (comma-separated; filled in automatically when triggered by release.yml)'
+        required: false
 
 jobs:
   upgrade:
@@ -17,8 +20,13 @@ jobs:
         include:
           - repo: chromaui/chromatic-docs
             package_manager: 'pnpm' # leave blank to auto-detect from lockfile
+            node_version: '20'
           - repo: chromaui/blog
             package_manager: 'yarn' # leave blank to auto-detect from lockfile
+            node_version: '18' # matches .nvmrc (legacy Gatsby)
+          - repo: chromaui/marketing
+            package_manager: 'yarn' # Yarn 4 via corepack (packageManager field)
+            node_version: '22' # matches engines.node
 
     name: Upgrade in ${{ matrix.repo }}
 
@@ -49,7 +57,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: ${{ matrix.node_version }}
 
       - name: Detect package manager
         id: pkgmgr
@@ -93,16 +101,19 @@ jobs:
 
             The package manager for this repo is: ${{ steps.pkgmgr.outputs.pkg_manager }}
 
+            Tetra source files changed in this release (comma-separated; empty if unknown):
+            ${{ inputs.changed_files }}
+
             Please do the following:
             1. Run the appropriate install command for the package manager:
                - npm:  npm install @chromatic-com/tetra@${{ steps.tetra.outputs.version }}
                - yarn: yarn add @chromatic-com/tetra@${{ steps.tetra.outputs.version }}
                - pnpm: pnpm add @chromatic-com/tetra@${{ steps.tetra.outputs.version }}
                Use the package manager listed above (${{ steps.pkgmgr.outputs.pkg_manager }}).
-            2. Read CHANGELOG.md in node_modules/@chromatic-com/tetra/ if it exists to understand what changed
-            3. Search the codebase for all imports and usages of @chromatic-com/tetra components (especially Header and Footer)
-            4. Update any imports, props, or usage patterns that are incompatible with the new version
-            5. Run the test suite with '${{ steps.pkgmgr.outputs.pkg_manager }} test' and fix any test failures caused by the upgrade
+            2. Read CHANGELOG.md in node_modules/@chromatic-com/tetra/ if it exists to understand what changed between ${{ steps.check.outputs.current }} and ${{ steps.tetra.outputs.version }}
+            3. Search the codebase for all imports and usages of @chromatic-com/tetra components. If a changed-files list is provided above, focus on the components it covers (e.g. src/Header/... means the Header component and its nav subcomponents; src/Footer/... means Footer). Also inspect the new component source and types in node_modules/@chromatic-com/tetra/dist/ to spot prop or type changes.
+            4. Update any imports, props, or usage patterns that are incompatible with the new version. This repo may wrap tetra components (e.g. MarketingHeader, Header.ink) — check the wrappers, not just direct imports.
+            5. Verify the upgrade using whichever scripts exist in package.json, in this order: type-check, lint, test, build. Skip a script if it does not exist, and skip failures clearly unrelated to the upgrade (e.g. missing environment variables or pre-existing breakage) — but mention anything you skipped in your final summary.
             6. Do not modify anything unrelated to the tetra upgrade
             7. Do not bump any other dependencies
 
@@ -154,6 +165,7 @@ jobs:
 
           **Previous version:** \`${{ steps.check.outputs.current }}\`
           **New version:** \`${{ steps.tetra.outputs.version }}\`
+          **Tetra files changed in this release:** \`${{ inputs.changed_files || 'n/a (manual run)' }}\`
 
           ### What Claude did
           - Bumped \`@chromatic-com/tetra\` in \`package.json\`
