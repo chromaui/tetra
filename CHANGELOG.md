@@ -1,3 +1,15 @@
+# v3.2.18 (Mon Jul 20 2026)
+
+#### 🐛 Bug Fix
+
+- Live sessions [#157](https://github.com/chromaui/tetra/pull/157) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.2.17 (Tue May 12 2026)
 
 #### 🐛 Bug Fix
