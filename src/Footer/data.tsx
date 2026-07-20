@@ -89,7 +89,7 @@ export const createFooterColumns = (
     links: [
       { title: 'Docs', href: '/docs' },
       { title: 'Changelog', href: '/blog' },
-      { title: 'Live sessions', href: '/live-sessions' },
+      { title: 'Live sessions', href: '/live-sessions', LinkWrapper },
       {
         title: 'Visual Testing',
         href: 'https://storybook.js.org/tutorials/visual-testing-handbook/',
