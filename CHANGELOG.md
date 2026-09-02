@@ -1,3 +1,15 @@
+# v3.3.0 (Wed Sep 02 2026)
+
+#### 🚀 Enhancement
+
+- Add Vitest page to Header & Footer [#159](https://github.com/chromaui/tetra/pull/159) ([@kylegach](https://github.com/kylegach))
+
+#### Authors: 1
+
+- Kyle Gach ([@kylegach](https://github.com/kylegach))
+
+---
+
 # v3.2.19 (Mon Jul 20 2026)
 
 #### 🐛 Bug Fix
