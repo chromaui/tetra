@@ -9,6 +9,7 @@ import { Icons } from '../Icon/Icon';
 import { PlaywrightIcon } from './icons/playwright';
 import { CypressIcon } from './icons/cypress';
 import { EzCaterIcon } from './icons/ezcater';
+import { VitestIcon } from './icons/vitest';
 
 interface HeaderLink {
   title: string;
@@ -60,6 +61,12 @@ export const defaultLinks: HeaderLinksAll = {
     icon: 'storybook',
     iconColor: 'pink500',
     href: '/storybook',
+  },
+  vitest: {
+    title: 'Vitest',
+    href: '/vitest',
+    customIcon: <VitestIcon />,
+    iconColor: 'green500',
   },
   playwright: {
     title: 'Playwright',
@@ -325,6 +332,12 @@ export const createDesktopMenu = (
               description: 'Validated UI context for coding agents',
             },
             {
+              ...links.vitest,
+              type: 'link',
+              description:
+                'Visual tests for every component in your Vitest suite',
+            },
+            {
               ...links.playwright,
               type: 'link',
               description:
@@ -499,7 +512,13 @@ export const createMobileMenu = (
     {
       name: 'Integrations',
       collapsible: true,
-      content: [links.storybook, links.ai, links.playwright, links.cypress],
+      content: [
+        links.storybook,
+        links.ai,
+        links.vitest,
+        links.playwright,
+        links.cypress,
+      ],
     },
     {
       name: 'Use cases',
