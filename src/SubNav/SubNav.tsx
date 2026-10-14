@@ -4,7 +4,7 @@ import { Container } from '../Container';
 import { LinkWithWrapper } from '../LinkWithWrapper/LinkWithWrapper';
 import { HStack } from '../Stack';
 import { color, fontWeight, spacing } from '../_tokens';
-import { minSm, typography } from '../_helpers';
+import { minLg, minMd, minSm, typography } from '../_helpers';
 import { Icon } from '../Icon';
 import { NavDropdownMenu } from '../NavDropdownMenu';
 
@@ -61,7 +61,17 @@ const SubNavLink = styled(LinkWithWrapper, {
     `box-shadow: ${props.variant === 'light' ? color.blue600 : color.blue400} 0 -3px 0 0 inset;`}
 `;
 
-const DropdownMenuWrapper = styled.div`
+type CollapseBreakpoint = 'sm' | 'md' | 'lg';
+
+const expandAt: Record<CollapseBreakpoint, string> = {
+  sm: minSm,
+  md: minMd,
+  lg: minLg,
+};
+
+const DropdownMenuWrapper = styled('div', {
+  shouldForwardProp: (propName) => propName !== 'collapseBelow',
+})<{ collapseBelow: CollapseBreakpoint }>`
   display: flex;
   align-items: center;
   height: ${spacing[10]};
@@ -70,15 +80,17 @@ const DropdownMenuWrapper = styled.div`
     margin-top: -1px; // optically centre
   }
 
-  ${minSm} {
+  ${({ collapseBelow }) => expandAt[collapseBelow]} {
     display: none;
   }
 `;
 
-const TabsMenu = styled(HStack)`
+const TabsMenu = styled(HStack, {
+  shouldForwardProp: (propName) => propName !== 'collapseBelow',
+})<{ collapseBelow: CollapseBreakpoint }>`
   display: none;
 
-  ${minSm} {
+  ${({ collapseBelow }) => expandAt[collapseBelow]} {
     display: flex;
   }
 `;
@@ -96,19 +108,26 @@ export interface SubNavProps {
   theme?: 'light' | 'dark';
   label: string;
   items: SubNavItem[];
+  /**
+   * Below this breakpoint the tabs collapse into a dropdown menu. Use a larger
+   * breakpoint when there are too many tabs to fit on one line at `sm`.
+   * @default 'sm'
+   */
+  collapseBelow?: CollapseBreakpoint;
 }
 
 export const SubNav: FunctionComponent<SubNavProps> = ({
   label,
   items,
   theme = 'light',
+  collapseBelow = 'sm',
 }) => (
   <Wrapper variant={theme}>
     <Container>
-      <DropdownMenuWrapper>
+      <DropdownMenuWrapper collapseBelow={collapseBelow}>
         <NavDropdownMenu label={label} items={items} variant={theme} />
       </DropdownMenuWrapper>
-      <TabsMenu gap={0}>
+      <TabsMenu gap={0} collapseBelow={collapseBelow}>
         {items.map((item) => (
           <SubNavLink
             key={item.id}
