@@ -1,3 +1,15 @@
+# v3.4.0 (Wed Oct 14 2026)
+
+#### 🚀 Enhancement
+
+- Add collapseBelow prop to SubNav [#160](https://github.com/chromaui/tetra/pull/160) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.3.0 (Wed Sep 02 2026)
 
 #### 🚀 Enhancement
