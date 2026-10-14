@@ -65,6 +65,7 @@ export type LinkKeys =
   | 'accessibilityTest'
   | 'storybook'
   | 'vitest'
+  | 'reactNative'
   | 'playwright'
   | 'cypress'
   | 'turboSnap'

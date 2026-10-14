@@ -10,6 +10,7 @@ import { PlaywrightIcon } from './icons/playwright';
 import { CypressIcon } from './icons/cypress';
 import { EzCaterIcon } from './icons/ezcater';
 import { VitestIcon } from './icons/vitest';
+import { ReactNativeIcon } from './icons/react-native';
 
 interface HeaderLink {
   title: string;
@@ -67,6 +68,12 @@ export const defaultLinks: HeaderLinksAll = {
     href: '/vitest',
     customIcon: <VitestIcon />,
     iconColor: 'green500',
+  },
+  reactNative: {
+    title: 'React Native',
+    href: '/react-native',
+    customIcon: <ReactNativeIcon />,
+    iconColor: 'cyan500',
   },
   playwright: {
     title: 'Playwright',
@@ -338,6 +345,11 @@ export const createDesktopMenu = (
                 'Visual tests for every component in your Vitest suite',
             },
             {
+              ...links.reactNative,
+              type: 'link',
+              description: 'Native visual tests for iOS and Android',
+            },
+            {
               ...links.playwright,
               type: 'link',
               description:
@@ -516,6 +528,7 @@ export const createMobileMenu = (
         links.storybook,
         links.ai,
         links.vitest,
+        links.reactNative,
         links.playwright,
         links.cypress,
       ],

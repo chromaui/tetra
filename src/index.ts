@@ -32,6 +32,7 @@ export {
   PlaywrightIcon,
   CypressIcon,
   VitestIcon,
+  ReactNativeIcon,
   BBCIcon,
 } from './Header';
 export { Icon, Icons } from './Icon';

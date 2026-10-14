@@ -7,6 +7,7 @@ export { MondayIcon } from './icons/monday';
 export { PlaywrightIcon } from './icons/playwright';
 export { CypressIcon } from './icons/cypress';
 export { VitestIcon } from './icons/vitest';
+export { ReactNativeIcon } from './icons/react-native';
 export { BBCIcon } from './icons/bbc';
 export { EzCaterIcon } from './icons/ezcater';
 export type { HeaderLinks } from './data';
