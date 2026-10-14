@@ -74,3 +74,36 @@ export const Collapsed: Story = {
     await userEvent.keyboard('{enter}');
   },
 };
+
+const integrations = [
+  { id: 'storybook', label: 'Storybook', href: '/storybook' },
+  { id: 'ai', label: 'AI & Agents', href: '/ai' },
+  { id: 'vitest', label: 'Vitest', href: '/vitest' },
+  {
+    id: 'react-native',
+    label: 'React Native',
+    href: '/react-native',
+    isActive: true,
+  },
+  { id: 'playwright', label: 'Playwright', href: '/playwright' },
+  { id: 'cypress', label: 'Cypress', href: '/cypress' },
+];
+
+/**
+ * Six tabs don't fit on one line just above `sm`, so this list stays a
+ * dropdown until `md`.
+ */
+export const CollapseBelowMd: Story = {
+  args: {
+    label: 'Features: React Native',
+    items: integrations,
+    theme: 'dark',
+    collapseBelow: 'md',
+  },
+  globals: {
+    backgrounds: { value: 'dark' },
+  },
+  parameters: {
+    chromatic: { viewports: [640, 1024] },
+  },
+};
