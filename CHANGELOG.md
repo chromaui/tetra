@@ -1,3 +1,15 @@
+# v3.5.0 (Wed Oct 14 2026)
+
+#### 🚀 Enhancement
+
+- Add React Native page to Header & Footer [#161](https://github.com/chromaui/tetra/pull/161) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.4.0 (Wed Oct 14 2026)
 
 #### 🚀 Enhancement
