@@ -34,7 +34,8 @@ export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {
   const isActive = desktopActiveId ? desktopActiveId === item.id : false;
 
   return (
-    <NavigationMenu.Link asChild>
+    // `active` makes Radix set aria-current="page" on the link.
+    <NavigationMenu.Link asChild active={isActive}>
       <NavigationMenuLink
         href={item.href || ''}
         LinkWrapper={item.linkWrapper}

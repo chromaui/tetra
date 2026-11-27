@@ -148,6 +148,21 @@ export const WithSubNav: Story = {
   },
 };
 
+// Only the active top-level item carries aria-current.
+const expectCurrentItem = async (
+  canvasElement: HTMLElement,
+  name: string,
+  value: 'page' | 'true'
+) => {
+  const nav = within(canvasElement).getByRole('navigation', {
+    name: 'Main',
+  });
+  const current = nav.querySelectorAll('[aria-current]');
+  await expect(current).toHaveLength(1);
+  await expect(current[0]).toHaveTextContent(name);
+  await expect(current[0]).toHaveAttribute('aria-current', value);
+};
+
 export const DesktopLightActive: Story = {
   args: {
     ...DesktopLight.args,
@@ -155,6 +170,22 @@ export const DesktopLightActive: Story = {
   },
   parameters: {
     ...DesktopLight.parameters,
+  },
+  play: async ({ canvasElement }) => {
+    await expectCurrentItem(canvasElement, 'Pricing', 'page');
+  },
+};
+
+export const DesktopLightPlatformActive: Story = {
+  args: {
+    ...DesktopLight.args,
+    desktopActiveId: 'platform',
+  },
+  parameters: {
+    ...DesktopLight.parameters,
+  },
+  play: async ({ canvasElement }) => {
+    await expectCurrentItem(canvasElement, 'Platform', 'true');
   },
 };
 
@@ -165,6 +196,9 @@ export const DesktopLightEnterpriseActive: Story = {
   },
   parameters: {
     ...DesktopLight.parameters,
+  },
+  play: async ({ canvasElement }) => {
+    await expectCurrentItem(canvasElement, 'Enterprise', 'page');
   },
 };
 
@@ -180,8 +214,9 @@ export const DesktopDarkEnterpriseActive: Story = {
   parameters: {
     ...DesktopLight.parameters,
   },
-  play: async () => {
+  play: async ({ canvasElement }) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
+    await expectCurrentItem(canvasElement, 'Enterprise', 'page');
   },
 };
 
@@ -197,8 +232,9 @@ export const DesktopDarkActive: Story = {
   parameters: {
     ...DesktopLight.parameters,
   },
-  play: async () => {
+  play: async ({ canvasElement }) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
+    await expectCurrentItem(canvasElement, 'Pricing', 'page');
   },
 };
 

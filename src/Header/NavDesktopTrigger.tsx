@@ -101,7 +101,12 @@ export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
 
   return (
     <>
-      <NavigationMenuTrigger theTheme={theme} isActive={isActive}>
+      <NavigationMenuTrigger
+        theTheme={theme}
+        isActive={isActive}
+        // The current page sits inside this menu, so mark the trigger itself.
+        aria-current={isActive ? 'true' : undefined}
+      >
         {item.name}
         <CaretDown className="CaretDown">
           <Icon name="arrowdown" aria-hidden size={12} />
