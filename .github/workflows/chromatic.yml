@@ -15,6 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      # Storybook 11 needs Node.js 22.12 or later.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
