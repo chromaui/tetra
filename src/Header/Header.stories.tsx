@@ -4,6 +4,7 @@ import { within, userEvent, expect, waitFor } from 'storybook/test';
 import { Header } from './Header';
 import { defaultLinks } from './data';
 import { SubNav } from '../SubNav';
+import { desktopBreakpoint } from './styles';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -15,6 +16,12 @@ const meta: Meta<typeof Header> = {
 
 export default meta;
 type Story = StoryObj<typeof Header>;
+
+// Chromatic widths on each side of the desktop breakpoint. Below it the desktop
+// nav is display: none, so desktop stories (and their play functions) need
+// the breakpoint width or wider.
+const desktopViewports = [desktopBreakpoint, 1024, 1280, 1536];
+const mobileViewports = [320, 640, 768, desktopBreakpoint - 1];
 
 // Radix uses PointerEvent for all interactions
 // see: https://github.com/radix-ui/primitives/issues/1220
@@ -28,7 +35,7 @@ export const DesktopLight: Story = {
     viewport: { value: 'lg' },
   },
   parameters: {
-    chromatic: { viewports: [940, 1024, 1280, 1536] },
+    chromatic: { viewports: desktopViewports },
   },
 };
 
@@ -374,7 +381,7 @@ export const TabletLight: Story = {
     viewport: { value: 'md' },
   },
   parameters: {
-    chromatic: { viewports: [320, 640, 768, 939] },
+    chromatic: { viewports: mobileViewports },
   },
   play: async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -391,7 +398,7 @@ export const TabletDark: Story = {
     viewport: { value: 'md' },
   },
   parameters: {
-    chromatic: { viewports: [320, 640, 768, 939] },
+    chromatic: { viewports: mobileViewports },
   },
   play: async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -406,7 +413,7 @@ export const TabletOpen: Story = {
     viewport: { value: 'md' },
   },
   parameters: {
-    chromatic: { viewports: [320, 640, 768, 939] },
+    chromatic: { viewports: mobileViewports },
   },
   decorators: [(storyFn) => <div style={{ height: '900px' }}>{storyFn()}</div>],
   play: async ({ canvasElement }) => {
@@ -444,7 +451,7 @@ export const MobileOpen: Story = {
     viewport: { value: 'xs' },
   },
   parameters: {
-    chromatic: { viewports: [320, 640, 768, 939] },
+    chromatic: { viewports: mobileViewports },
   },
   decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {
