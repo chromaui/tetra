@@ -57,7 +57,7 @@ export const createFooterColumns = (
   {
     title: 'Learn',
     links: [
-      { title: 'Docs', href: '/docs' },
+      { title: 'Docs', href: '/docs/' },
       { title: 'Changelog', href: '/blog/releases/' },
       { title: 'Live sessions', href: '/live-sessions', LinkWrapper },
       {
@@ -144,8 +144,8 @@ export const createFooterColumns = (
     links: [
       { title: 'About', href: '/company/about', LinkWrapper },
       { title: 'Careers', href: '/company/careers', LinkWrapper },
-      { title: 'Terms of Service', href: '/docs/terms-of-service' },
-      { title: 'Privacy', href: '/docs/privacy-policy' },
+      { title: 'Terms of Service', href: '/docs/terms-of-service/' },
+      { title: 'Privacy', href: '/docs/privacy-policy/' },
       { title: 'Security • SOC 2', href: '/security' },
       { title: 'Status', href: 'https://status.chromatic.com/' },
       { title: 'Contact Sales', href: '/sales', LinkWrapper },

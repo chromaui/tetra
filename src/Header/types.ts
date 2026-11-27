@@ -139,5 +139,6 @@ export type LinkKeys =
   | 'snapshotCalculator'
   | 'accessibilityBudgetCalculator'
   | 'frontendWorkflowForAI'
+  /** @deprecated AI & Agents is no longer in the navigation; /ai redirects to /features/agents. */
   | 'ai'
   | 'liveSessions';

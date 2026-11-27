@@ -77,7 +77,7 @@ export const Collapsed: Story = {
 
 const integrations = [
   { id: 'storybook', label: 'Storybook', href: '/storybook' },
-  { id: 'ai', label: 'AI & Agents', href: '/ai' },
+  { id: 'ai', label: 'AI & Agents', href: '/features/agents' },
   { id: 'vitest', label: 'Vitest', href: '/vitest' },
   {
     id: 'react-native',

@@ -137,12 +137,13 @@ export const defaultLinks: HeaderLinksAll = {
     href: '/features/figma-plugin',
   },
   // Deprecated: no longer shown in the navigation. Kept so existing link
-  // overrides keep type-checking.
+  // overrides keep type-checking. /solutions/frontend is retired and
+  // redirects to the homepage, so point straight at it.
   frontendTeams: {
     title: 'Frontend teams',
     icon: 'browser',
     iconColor: 'orange500',
-    href: '/solutions/frontend',
+    href: '/',
   },
   designSystems: {
     title: 'Design systems',
@@ -204,13 +205,13 @@ export const defaultLinks: HeaderLinksAll = {
     title: 'Blog',
     icon: 'starhollow',
     iconColor: 'purple500',
-    href: '/blog',
+    href: '/blog/',
   },
   changelog: {
     title: 'Changelog',
     icon: 'book',
     iconColor: 'green500',
-    href: '/blog/releases',
+    href: '/blog/releases/',
   },
   frontendTestingGuide: {
     title: 'Frontend testing guide',
@@ -222,7 +223,7 @@ export const defaultLinks: HeaderLinksAll = {
     title: 'Docs',
     icon: 'browser',
     iconColor: 'orange500',
-    href: '/docs',
+    href: '/docs/',
   },
   pricing: {
     title: 'Pricing',
@@ -254,6 +255,8 @@ export const defaultLinks: HeaderLinksAll = {
     icon: 'wand',
     iconColor: 'pink500',
   },
+  // Deprecated: no longer shown in the navigation. /ai is retired and
+  // redirects to /features/agents.
   ai: {
     title: 'AI & Agents',
     href: '/features/agents',
