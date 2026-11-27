@@ -21,6 +21,7 @@ const config: StorybookConfig = {
     '@storybook/addon-docs',
     '@storybook/addon-vitest',
     '@storybook/addon-mcp',
+    'storybook-addon-colab',
   ],
 
   framework: {

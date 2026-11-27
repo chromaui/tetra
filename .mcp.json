@@ -3,6 +3,10 @@
     "storybook-mcp": {
       "type": "http",
       "url": "http://localhost:6006/mcp"
+    },
+    "storybook-colab": {
+      "type": "http",
+      "url": "http://localhost:6006/colab/mcp"
     }
   }
 }
