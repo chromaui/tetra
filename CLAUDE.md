@@ -32,7 +32,7 @@ pnpm run release      # Build + auto shipit (NPM publish)
 - **Radix UI** for accessible component primitives
 - **Framer Motion** for animations
 - **tsup** for bundling (outputs CJS, ESM, declaration files)
-- **Storybook 10** for component development and docs
+- **Storybook 11** for component development and docs
 - **Storybook play functions** for component interaction tests
 - **Vitest** for unit tests
 
