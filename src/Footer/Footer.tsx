@@ -9,8 +9,9 @@ import { Icon } from '../Icon';
 import { HStack } from '../Stack';
 import { createFooterColumns, footerSocialLinks } from './data';
 
-// Focus ring and hover colours for each footer theme. Both pass WCAG AA
-// against their footer background (see Footer.stories.tsx).
+// Focus ring colour for each footer theme. Both pass WCAG AA against their
+// footer background (see Footer.stories.tsx). Hover keeps the 3.5.0 footer
+// behaviour: links lift by 1px, social icons darken their border.
 const accent = (inverse?: boolean) => (inverse ? color.blue300 : color.blue700);
 
 const focusRing = (inverse?: boolean) => `
@@ -75,16 +76,20 @@ const FooterLink = styled(LinkWithWrapper, {
   display: inline-block;
   padding: 6px 0;
   text-decoration: none;
-  text-underline-offset: 4px;
   overflow-wrap: anywhere;
   border-radius: 2px;
   color: ${({ inverse }) => (inverse ? color.white : color.slate800)};
-  transition: color 150ms ease-out;
+  transition:
+    transform 150ms ease-out,
+    color 150ms ease-out;
 
   &:hover {
     cursor: pointer;
-    color: ${({ inverse }) => accent(inverse)};
-    text-decoration: underline;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   &:focus-visible {
@@ -113,9 +118,9 @@ const SocialLink = styled(LinkWithWrapper, {
     display: block;
   }
 
-  &:hover {
-    color: ${({ inverse }) => accent(inverse)};
-    border-color: ${({ inverse }) => accent(inverse)};
+  &:hover,
+  &:active {
+    border-color: ${({ inverse }) => (inverse ? color.white : color.slate500)};
   }
 
   &:focus-visible {
@@ -176,6 +181,7 @@ const HomeLink = styled(LinkWithWrapper, {
 })<{ inverse?: boolean }>`
   display: block;
   border-radius: 2px;
+  transition: transform 150ms ease-out;
 
   svg {
     display: block;
@@ -183,6 +189,11 @@ const HomeLink = styled(LinkWithWrapper, {
 
   &:hover {
     cursor: pointer;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   &:focus-visible {
