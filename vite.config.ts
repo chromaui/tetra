@@ -15,6 +15,15 @@ export default defineConfig({
   test: {
     projects: [
       {
+        // Plain unit tests (*.test.ts), run in Node. Was the root project of vitest.workspace.ts.
+        extends: true,
+        test: {
+          name: 'unit',
+          include: ['src/**/*.test.{ts,tsx}'],
+          environment: 'node',
+        },
+      },
+      {
         extends: true,
         plugins: [
           // The plugin will run tests for the stories defined in your Storybook config
