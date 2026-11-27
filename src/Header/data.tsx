@@ -360,12 +360,6 @@ export const createDesktopMenu = (
               type: 'link',
               description: 'Increase margins by speeding up client sign-off',
             },
-            {
-              ...links.enterprise,
-              type: 'link',
-              title: 'Enterprise',
-              description: 'Scale frontend development & testing',
-            },
           ],
         },
         {
@@ -512,7 +506,7 @@ export const createMobileMenu = (
     {
       name: 'Use cases',
       collapsible: true,
-      content: [links.designSystems, links.digitalAgencies, links.enterprise],
+      content: [links.designSystems, links.digitalAgencies],
     },
     {
       name: 'Customer stories',

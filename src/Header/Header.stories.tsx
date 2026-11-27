@@ -259,6 +259,28 @@ export const DesktopLightOpen: Story = {
   },
 };
 
+// Enterprise is a top-level item only, so Use cases no longer lists it.
+export const DesktopLightSolutionsOpen: Story = {
+  ...DesktopLightOpen,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Solutions',
+    });
+    MenuButton.focus();
+    await userEvent.keyboard('{enter}');
+    const designSystems = await canvas.findByRole('link', {
+      name: /Design systems/,
+    });
+    // The open dropdown panel, not the top-level list that holds Enterprise.
+    const panel = designSystems.closest<HTMLElement>('[data-state="open"]');
+    await expect(panel).not.toBeNull();
+    await expect(
+      within(panel as HTMLElement).queryByRole('link', { name: /Enterprise/ })
+    ).toBeNull();
+  },
+};
+
 export const DesktopDarkOpen: Story = {
   args: {
     ...DesktopLight.args,
