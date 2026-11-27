@@ -36,12 +36,35 @@ export const NavigationMenuItem = css`
     padding: 0 6px;
   }
 
-  &:focus-visible {
-    box-shadow: 0 0 0 2px ${color.blue500};
-  }
-
   @media (prefers-reduced-motion: reduce) {
     transition: none;
+  }
+`;
+
+/**
+ * Colour of the keyboard focus ring. Same as the footer's: blue700 on light
+ * surfaces (5.97:1 on white, 5.10:1 on blue100, 4.09:1 on blue200) and
+ * blue300 on the dark header (8.04:1 on #171C23). `surface` is the colour the
+ * ring sits on, not the header theme: dropdown panels and the mobile popover
+ * are white in both themes, so their items always use 'light'.
+ */
+export const focusRingColor = (surface?: 'light' | 'dark') =>
+  surface === 'dark' ? color.blue300 : color.blue700;
+
+/**
+ * The one focus ring every focusable element in the header uses: a 2px solid
+ * outline 2px outside the element, following its border-radius. Keyboard
+ * only (:focus-visible), so mouse clicks don't show it. Containers that clip
+ * their overflow need 4px of room around their items to show it whole.
+ */
+export const focusRingStyles = (surface?: 'light' | 'dark') => `
+  outline: 2px solid ${focusRingColor(surface)};
+  outline-offset: 2px;
+`;
+
+export const focusRing = (surface?: 'light' | 'dark') => `
+  &:focus-visible {
+    ${focusRingStyles(surface)}
   }
 `;
 

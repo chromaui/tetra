@@ -11,6 +11,7 @@ import {
   HeaderPipelineLink,
   HeaderPipelineStep,
 } from './types';
+import { focusRing } from './styles';
 
 interface Props {
   pipeline: HeaderDesktopPipeline;
@@ -139,9 +140,7 @@ const linkStyles = css`
     }
   }
 
-  &:focus-visible {
-    box-shadow: inset 0 0 0 2px ${color.blue500};
-  }
+  ${focusRing('light')}
 
   &:active {
     background-color: ${color.blue200};

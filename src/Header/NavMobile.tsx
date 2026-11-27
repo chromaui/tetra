@@ -10,6 +10,7 @@ import { NavMobileSection } from './NavMobileSection';
 import { resetCSS } from '../_localHelpers/resetCSS';
 import { createMobileMenu, HeaderLinks } from './data';
 import { HeaderProps } from './types';
+import { focusRingStyles } from './styles';
 import { Button } from '../Button';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { Link } from '../Link';
@@ -49,6 +50,21 @@ const Bottom = styled.div`
   display: flex;
   flex-direction: column;
   padding: ${spacing[3]} ${spacing[2]} ${spacing[3]} ${spacing[2]};
+
+  a:focus-visible,
+  button:focus-visible {
+    ${focusRingStyles('light')}
+  }
+`;
+
+// Contact and Sign in on the header bar are Tetra Links, which have no focus
+// ring of their own; give them the header's.
+const BarLinks = styled.div<{ headerTheme: HeaderProps['theme'] }>`
+  display: contents;
+
+  a:focus-visible {
+    ${({ headerTheme }) => focusRingStyles(headerTheme)}
+  }
 `;
 
 const MobileButtons = styled.div`
@@ -84,41 +100,43 @@ export const NavMobile = ({
 
   return (
     <Popover.Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-      <HStack gap={6}>
-        <LinkWithWrapper
-          noAnchor
-          href={links.sales.href}
-          LinkWrapper={links.sales.linkWrapper}
-        >
-          <Link
+      <BarLinks headerTheme={theme}>
+        <HStack gap={6}>
+          <LinkWithWrapper
+            noAnchor
             href={links.sales.href}
-            size="md"
-            weight="semibold"
-            color={theme === 'dark' ? 'white' : 'blue600'}
+            LinkWrapper={links.sales.linkWrapper}
           >
-            Contact
-          </Link>
-        </LinkWithWrapper>
-        <SignInWrapper>
-          {!maintenanceMode && (
-            <LinkWithWrapper
-              noAnchor
-              href={links.signin.href}
-              LinkWrapper={links.signin.linkWrapper}
+            <Link
+              href={links.sales.href}
+              size="md"
+              weight="semibold"
+              color={theme === 'dark' ? 'white' : 'blue600'}
             >
-              <Link
+              Contact
+            </Link>
+          </LinkWithWrapper>
+          <SignInWrapper>
+            {!maintenanceMode && (
+              <LinkWithWrapper
+                noAnchor
                 href={links.signin.href}
-                size="md"
-                weight="semibold"
-                color={theme === 'dark' ? 'white' : 'blue600'}
+                LinkWrapper={links.signin.linkWrapper}
               >
-                {links.signin.title}
-              </Link>
-            </LinkWithWrapper>
-          )}
-        </SignInWrapper>
-        <NavMobileTrigger />
-      </HStack>
+                <Link
+                  href={links.signin.href}
+                  size="md"
+                  weight="semibold"
+                  color={theme === 'dark' ? 'white' : 'blue600'}
+                >
+                  {links.signin.title}
+                </Link>
+              </LinkWithWrapper>
+            )}
+          </SignInWrapper>
+          <NavMobileTrigger />
+        </HStack>
+      </BarLinks>
       <AnimatePresence>
         {mobileMenuOpen && (
           <Popover.Portal forceMount>

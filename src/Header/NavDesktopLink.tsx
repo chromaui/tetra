@@ -4,7 +4,12 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { useHeaderContext } from './context';
 import { HeaderDesktopItem } from './types';
 import { LinkWithWrapper } from '../LinkWithWrapper';
-import { NavigationMenuItem, navItemColor, navItemHoverColor } from './styles';
+import {
+  focusRing,
+  NavigationMenuItem,
+  navItemColor,
+  navItemHoverColor,
+} from './styles';
 import { fontWeight } from '../_tokens';
 
 export interface DesktopItemProps {
@@ -27,6 +32,8 @@ const NavigationMenuLink = styled(LinkWithWrapper, {
   &:hover {
     color: ${({ theTheme }) => navItemHoverColor(theTheme)};
   }
+
+  ${({ theTheme }) => focusRing(theTheme)}
 `;
 
 export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {

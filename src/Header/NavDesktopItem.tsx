@@ -6,6 +6,7 @@ import { Icon } from '../Icon/Icon';
 import { Text } from '../Text';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { HeaderDesktopItemContent } from './types';
+import { focusRing } from './styles';
 
 export interface DesktopItemProps {
   content: HeaderDesktopItemContent;
@@ -16,16 +17,11 @@ const Container = styled(LinkWithWrapper)`
   text-decoration: none;
   border-radius: ${spacing[1]};
 
-  &:focus {
-    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  &:focus-visible {
+    background-color: ${color.blue100};
   }
 
-  &:focus-visible {
-    box-shadow: inset 0 0 0 2px rgba(30, 167, 253, 0.3);
-    background-color: ${color.blue100};
-    outline: 2px solid crimson;
-    outline: none;
-  }
+  ${focusRing('light')}
 `;
 
 const Inside = styled.div`

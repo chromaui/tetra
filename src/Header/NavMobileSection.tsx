@@ -5,7 +5,7 @@ import { color, spacing } from '../_tokens';
 import { NavMobileItem } from './NavMobileItem';
 import { Icon } from '../Icon';
 import { HeaderMobileSection } from './types';
-import { slideDown, slideUp } from './styles';
+import { focusRing, slideDown, slideUp } from './styles';
 import { typography } from '../_helpers';
 
 interface Props {
@@ -29,12 +29,6 @@ const NonCollapsibleTrigger = styled.div<{ spaced?: boolean }>`
   ${typography.subheading}
   line-height: 16px;
   color: ${color.slate600};
-`;
-
-const focusRing = `
-  &:focus-visible {
-    box-shadow: inset 0 0 0 2px ${color.blue500};
-  }
 `;
 
 const CollapsibleTrigger = styled(Collapsible.Trigger)`
@@ -62,11 +56,17 @@ const CollapsibleTrigger = styled(Collapsible.Trigger)`
     transform: rotate(-180deg) translateY(1px);
   }
 
-  ${focusRing}
+  ${focusRing('light')}
 `;
 
+// The 4px padding (cancelled out by the negative margin) gives the items'
+// focus rings room inside the overflow clip. border-box keeps Radix's
+// measured height equal to the animated height.
 const CollapsibleContent = styled(Collapsible.Content)`
+  box-sizing: border-box;
   overflow: hidden;
+  margin: -4px;
+  padding: 4px;
 
   &[data-state='open'] {
     animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1);
@@ -110,7 +110,7 @@ const MoreTrigger = styled(Collapsible.Trigger)`
     display: none;
   }
 
-  ${focusRing}
+  ${focusRing('light')}
 `;
 
 const MoreIcon = styled.span`

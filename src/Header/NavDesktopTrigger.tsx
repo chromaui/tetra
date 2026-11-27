@@ -7,6 +7,7 @@ import { HeaderDesktopItem } from './types';
 import { NavDesktopContent } from './NavDesktopContent';
 import { NavDesktopPipeline } from './NavDesktopPipeline';
 import {
+  focusRing,
   NavigationMenuItem,
   navItemColor,
   navItemHoverColor,
@@ -41,6 +42,8 @@ const NavigationMenuTrigger = styled(NavigationMenu.Trigger, {
   &[data-state='open'] > .CaretDown {
     transform: rotate(-180deg) translateY(0px);
   }
+
+  ${({ theTheme }) => focusRing(theTheme)}
 `;
 
 // The pipeline menu is positioned against the header row (see Header's

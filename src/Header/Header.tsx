@@ -11,7 +11,12 @@ import { minSm, typography } from '../_helpers';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { resetCSS } from '../_localHelpers/resetCSS';
 import { Divider } from '../Divider';
-import { compactNavBreakpoint, desktopBreakpoint } from './styles';
+import {
+  compactNavBreakpoint,
+  desktopBreakpoint,
+  focusRing,
+  focusRingStyles,
+} from './styles';
 import { Link } from '../Link';
 import { Button } from '../Button';
 import { defaultLinks, HeaderLinksAll } from './data';
@@ -34,21 +39,27 @@ const Left = styled.div`
   }
 `;
 
-const LogoLink = styled(LinkWithWrapper)`
+const LogoLink = styled(LinkWithWrapper, {
+  shouldForwardProp: (propName) => propName !== 'headerTheme',
+})<{ headerTheme: HeaderProps['theme'] }>`
   display: block;
   padding: ${spacing[2]};
   font-size: 0;
   border-radius: 6px;
   margin-left: -${spacing[2]};
 
-  &:focus-visible {
-    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
-    outline: none;
-  }
+  ${({ headerTheme }) => focusRing(headerTheme)}
 `;
 
-const Right = styled.div`
+// Contact, Sign in, Sign up and Go to app are Tetra Link and Button anchors,
+// which have no focus ring of their own; give them the header's.
+const Right = styled.div<{ headerTheme: HeaderProps['theme'] }>`
   display: none;
+
+  a:focus-visible,
+  button:focus-visible {
+    ${({ headerTheme }) => focusRingStyles(headerTheme)}
+  }
 
   @media (min-width: ${desktopBreakpoint}px) {
     display: flex;
@@ -115,6 +126,7 @@ export const Header = ({
         <Wrapper>
           <Left>
             <LogoLink
+              headerTheme={theme}
               href={'/'}
               LinkWrapper={logoLinkWrapper}
               aria-label="Home"
@@ -125,7 +137,7 @@ export const Header = ({
               <NavDesktop links={links} fullWidth={fullWidth} />
             </DesktopOnly>
           </Left>
-          <Right>
+          <Right headerTheme={theme}>
             <>
               <LinkWithWrapper
                 noAnchor

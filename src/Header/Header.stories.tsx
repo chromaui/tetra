@@ -372,6 +372,40 @@ export const DesktopLightKeyboardFocusInMenu: Story = {
   },
 };
 
+// Keyboard only: open Solutions and arrow onto its first item, so Chromatic
+// captures the focus ring on a dropdown item. The panel is white in both
+// themes, so the ring is blue700 here even on the dark header.
+const focusFirstSolutionsItem: Story['play'] = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const trigger = await canvas.findByRole('button', { name: 'Solutions' });
+  trigger.focus();
+  await userEvent.keyboard('{enter}');
+  await userEvent.keyboard('{arrowdown}');
+  const firstItem = await canvas.findByRole('link', {
+    name: /Design systems/,
+  });
+  await waitFor(() => expect(firstItem).toHaveFocus());
+  await expect(firstItem).toHaveStyle({ outlineStyle: 'solid' });
+};
+
+export const DesktopLightKeyboardFocusInDropdown: Story = {
+  ...DesktopLightKeyboardFocusInMenu,
+  play: focusFirstSolutionsItem,
+};
+
+export const DesktopDarkKeyboardFocusInDropdown: Story = {
+  ...DesktopLightKeyboardFocusInMenu,
+  args: {
+    ...DesktopLight.args,
+    theme: 'dark',
+  },
+  globals: {
+    backgrounds: { value: 'dark' },
+    viewport: { value: 'lg' },
+  },
+  play: focusFirstSolutionsItem,
+};
+
 export const TabletLight: Story = {
   args: {
     ...DesktopLight.args,

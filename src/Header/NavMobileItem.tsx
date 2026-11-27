@@ -5,6 +5,7 @@ import { Icon } from '../Icon/Icon';
 import type { Icons } from '../Icon/Icon';
 import { Text } from '../Text';
 import { LinkWithWrapper } from '../LinkWithWrapper';
+import { focusRing } from './styles';
 
 export interface MobileItemProps {
   icon?: Icons;
@@ -38,8 +39,9 @@ const Container = styled(LinkWithWrapper)`
 
   &:focus-visible {
     background-color: ${color.blue100};
-    box-shadow: inset 0 0 0 2px ${color.blue500};
   }
+
+  ${focusRing('light')}
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
