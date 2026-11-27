@@ -9,7 +9,7 @@ const meta: Meta<typeof Footer> = {
   parameters: {
     layout: 'fullscreen',
     chromatic: {
-      viewports: [320, 640, 1024, 1200],
+      viewports: [320, 640, 800, 1024, 1200],
     },
   },
   args: {

@@ -1,6 +1,6 @@
 import React, { ElementType, useMemo } from 'react';
 import styled from '@emotion/styled';
-import { minLg, minSm, typography } from '../_helpers';
+import { minLg, minMd, minSm, typography } from '../_helpers';
 import { color, lineHeight, spacing } from '../_tokens';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { Container } from '../Container';
@@ -27,14 +27,20 @@ const Directory = styled.nav`
   }
 `;
 
+// The longest labels ("Code UI with fewer tokens", "Frontend workflow for
+// AI") need about 166px. Step up a column only once every column has room
+// for them on one line: one column on phones, two from sm, three from md.
 const Columns = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: ${spacing[10]} ${spacing[5]};
+  grid-template-columns: minmax(0, 1fr);
+  gap: ${spacing[10]};
 
   ${minSm} {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  ${minMd} {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: ${spacing[10]};
   }
 
   // Size the five desktop columns to their content so long labels stay on
