@@ -11,7 +11,7 @@ import { minSm, typography } from '../_helpers';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { resetCSS } from '../_localHelpers/resetCSS';
 import { Divider } from '../Divider';
-import { desktopBreakpoint } from './styles';
+import { compactNavBreakpoint, desktopBreakpoint } from './styles';
 import { Link } from '../Link';
 import { Button } from '../Button';
 import { defaultLinks, HeaderLinksAll } from './data';
@@ -19,6 +19,7 @@ import { defaultLinks, HeaderLinksAll } from './data';
 const Wrapper = styled.div`
   ${resetCSS}
 
+  position: relative;
   display: flex;
   height: 72px;
   align-items: center;
@@ -51,8 +52,15 @@ const Right = styled.div`
 
   @media (min-width: ${desktopBreakpoint}px) {
     display: flex;
+    flex-shrink: 0;
     gap: ${spacing[6]};
     align-items: center;
+    white-space: nowrap;
+  }
+
+  @media (min-width: ${desktopBreakpoint}px) and (max-width: ${compactNavBreakpoint -
+    1}px) {
+    gap: ${spacing[4]};
   }
 `;
 

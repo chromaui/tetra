@@ -4,8 +4,8 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { useHeaderContext } from './context';
 import { HeaderDesktopItem } from './types';
 import { LinkWithWrapper } from '../LinkWithWrapper';
-import { NavigationMenuItem } from './styles';
-import { color, fontWeight } from '../_tokens';
+import { NavigationMenuItem, navItemColor, navItemHoverColor } from './styles';
+import { fontWeight } from '../_tokens';
 
 export interface DesktopItemProps {
   item: HeaderDesktopItem;
@@ -21,11 +21,12 @@ const NavigationMenuLink = styled(LinkWithWrapper, {
   ${NavigationMenuItem}
   background-color: ${({ isActive }) => isActive && 'rgba(30, 167, 253, 0.07)'};
   font-weight: ${fontWeight.bold};
-  color: ${({ isActive, theTheme }) => {
-    if (isActive) return theTheme === 'light' ? color.blue700 : color.blue400;
-    if (theTheme === 'light') return color.slate800;
-    return color.white;
-  }};
+  color: ${({ isActive, theTheme }) =>
+    navItemColor({ theme: theTheme, isActive })};
+
+  &:hover {
+    color: ${({ theTheme }) => navItemHoverColor(theTheme)};
+  }
 `;
 
 export const NavDesktopLink: FC<DesktopItemProps> = ({ item }) => {

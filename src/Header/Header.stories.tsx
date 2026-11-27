@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import { within, userEvent } from 'storybook/test';
+import { within, userEvent, expect, waitFor } from 'storybook/test';
 import { Header } from './Header';
 import { defaultLinks } from './data';
 import { SubNav } from '../SubNav';
@@ -158,6 +158,33 @@ export const DesktopLightActive: Story = {
   },
 };
 
+export const DesktopLightEnterpriseActive: Story = {
+  args: {
+    ...DesktopLight.args,
+    desktopActiveId: 'enterprise',
+  },
+  parameters: {
+    ...DesktopLight.parameters,
+  },
+};
+
+export const DesktopDarkEnterpriseActive: Story = {
+  args: {
+    ...DesktopLight.args,
+    theme: 'dark',
+    desktopActiveId: 'enterprise',
+  },
+  globals: {
+    backgrounds: { value: 'dark' },
+  },
+  parameters: {
+    ...DesktopLight.parameters,
+  },
+  play: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  },
+};
+
 export const DesktopDarkActive: Story = {
   args: {
     ...DesktopLight.args,
@@ -217,6 +244,66 @@ export const DesktopDarkOpen: Story = {
     });
     MenuButton.focus();
     await userEvent.keyboard('{enter}');
+  },
+};
+
+// Keyboard only: tab to Platform, open it with Enter, move into the menu with
+// the arrow key, then close it with Escape and check focus goes back.
+export const DesktopDarkKeyboardFocus: Story = {
+  args: {
+    ...DesktopLight.args,
+    theme: 'dark',
+  },
+  globals: {
+    backgrounds: { value: 'dark' },
+    viewport: { value: 'lg' },
+  },
+  parameters: {
+    chromatic: { pauseAnimationAtEnd: true, delay: 600 },
+  },
+  decorators: DesktopLightOpen.decorators,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = await canvas.findByRole('button', { name: 'Platform' });
+    trigger.focus();
+    await userEvent.keyboard('{enter}');
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    await userEvent.keyboard('{arrowdown}');
+    await waitFor(() =>
+      expect(
+        canvas.getByRole('link', { name: /Frontend-ready agents/ })
+      ).toHaveFocus()
+    );
+    await userEvent.keyboard('{escape}');
+    await waitFor(() => expect(trigger).toHaveFocus());
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    // Leave the trigger focused to show the focus ring.
+  },
+};
+
+export const DesktopLightKeyboardFocusInMenu: Story = {
+  args: {
+    ...DesktopLight.args,
+  },
+  globals: {
+    viewport: { value: 'lg' },
+  },
+  parameters: {
+    chromatic: { pauseAnimationAtEnd: true, delay: 600 },
+  },
+  decorators: DesktopLightOpen.decorators,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = await canvas.findByRole('button', { name: 'Platform' });
+    trigger.focus();
+    await userEvent.keyboard('{enter}');
+    await userEvent.keyboard('{arrowdown}');
+    await userEvent.keyboard('{arrowdown}');
+    await waitFor(() =>
+      expect(
+        canvas.getByRole('link', { name: /Code UI with fewer tokens/ })
+      ).toHaveFocus()
+    );
   },
 };
 
@@ -281,11 +368,13 @@ export const TabletExpandSubMenu: Story = {
       name: 'Toggle Menu',
     });
     await userEvent.click(MenuButton);
-    await userEvent.tab();
-    await userEvent.tab();
-    await userEvent.tab();
-    await userEvent.tab();
+    const body = within(document.body);
+    const integrations = await body.findByRole('button', {
+      name: 'Integrations',
+    });
+    integrations.focus();
     await userEvent.keyboard('{enter}');
+    await expect(integrations).toHaveAttribute('aria-expanded', 'true');
   },
 };
 
@@ -319,10 +408,10 @@ export const MobileOpenTall: Story = {
     await userEvent.click(MenuButton);
 
     const sections = [
-      'View more',
+      'View all features',
       'Integrations',
       'Use cases',
-      'Customer Stories',
+      'Customer stories',
       'Company',
     ];
     for (const section of sections) {
@@ -334,6 +423,37 @@ export const MobileOpenTall: Story = {
         }
       }
     }
+  },
+};
+
+export const MobileViewAllFeatures: Story = {
+  ...MobileOpen,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Toggle Menu',
+    });
+    await userEvent.click(MenuButton);
+    await expect(MenuButton).toHaveAttribute('aria-expanded', 'true');
+    const body = within(document.body);
+    await userEvent.click(
+      await body.findByRole('button', { name: 'View all features' })
+    );
+  },
+};
+
+export const MobileIntegrationsOpen: Story = {
+  ...MobileOpen,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Toggle Menu',
+    });
+    await userEvent.click(MenuButton);
+    const body = within(document.body);
+    await userEvent.click(
+      await body.findByRole('button', { name: 'Integrations' })
+    );
   },
 };
 
