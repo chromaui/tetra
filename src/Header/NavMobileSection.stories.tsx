@@ -175,6 +175,19 @@ export const Collapsible: Story = {
   decorators: [(storyFn) => <>{storyFn()}</>],
 };
 
+export const CollapsibleOpen: Story = {
+  ...Collapsible,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = await canvas.findByRole('button', { name: 'Features' });
+    await userEvent.click(trigger);
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  },
+  parameters: {
+    chromatic: { pauseAnimationAtEnd: true, delay: 600 },
+  },
+};
+
 export const PlatformWithViewAllFeatures: Story = {
   args: {
     section: createMobileMenu()[0],

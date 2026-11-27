@@ -77,7 +77,12 @@ const CollapsibleContent = styled(Collapsible.Content)`
   }
 `;
 
-const CollapsibleInside = styled.div``;
+// Bottom padding lives inside the animated content (not as margin on the
+// root) so Radix measures it and slideDown/slideUp animate it smoothly. It
+// matches the Divider spacing between non-collapsible sections.
+const CollapsibleInside = styled.div<{ spaced: boolean }>`
+  padding-bottom: ${({ spaced }) => (spaced ? spacing[4] : 0)};
+`;
 
 const MoreTrigger = styled(Collapsible.Trigger)`
   all: unset;
@@ -198,7 +203,7 @@ export const NavMobileSection: FC<Props> = ({ section, isLast }) => {
           </CaretDown>
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <CollapsibleInside>{content}</CollapsibleInside>
+          <CollapsibleInside spaced={!isLast}>{content}</CollapsibleInside>
         </CollapsibleContent>
       </Collapsible.Root>
     );
