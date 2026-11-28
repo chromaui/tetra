@@ -157,8 +157,6 @@ const linkStyles = css`
 
 const MainLink = styled(LinkWithWrapper)`
   ${linkStyles}
-  flex-direction: column;
-  gap: ${spacing[1]};
   padding: ${spacing[3]} ${spacing[12]} ${spacing[3]} ${spacing[3]};
 
   .arrow {
@@ -168,13 +166,32 @@ const MainLink = styled(LinkWithWrapper)`
 
 const RowLink = styled(LinkWithWrapper)`
   ${linkStyles}
-  align-items: center;
-  gap: ${spacing[3]};
   padding: ${spacing[2]} ${spacing[12]} ${spacing[2]} ${spacing[3]};
 
   .arrow {
     top: ${spacing[2]};
   }
+`;
+
+/*
+ * A `linkWrapper` such as Next's <Link legacyBehavior> accepts exactly one
+ * child, so each link wraps its contents in one of these, which also carries
+ * the layout.
+ */
+const MainInside = styled.span`
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: ${spacing[1]};
+  min-width: 0;
+`;
+
+const RowInside = styled.span`
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: ${spacing[3]};
+  min-width: 0;
 `;
 
 const Title = styled.span`
@@ -265,9 +282,11 @@ const PipelineMainLink = ({ link }: { link: HeaderPipelineLink }) => (
   <li>
     <NavigationMenu.Link asChild>
       <MainLink href={link.href} LinkWrapper={link.linkWrapper}>
-        <Title>{link.title}</Title>
-        {link.description && <Description>{link.description}</Description>}
-        <Arrow />
+        <MainInside>
+          <Title>{link.title}</Title>
+          {link.description && <Description>{link.description}</Description>}
+          <Arrow />
+        </MainInside>
       </MainLink>
     </NavigationMenu.Link>
   </li>
@@ -283,17 +302,19 @@ const PipelineRowLink = ({
   <li>
     <NavigationMenu.Link asChild>
       <RowLink href={link.href} LinkWrapper={link.linkWrapper}>
-        {variant === 'subpage' ? (
-          <LinkIcon
-            link={{ ...link, customIcon: undefined }}
-            size={16}
-            iconSize={14}
-          />
-        ) : (
-          <LinkIcon link={link} size={20} iconSize={16} />
-        )}
-        <RowLabel bold={variant === 'integration'}>{link.title}</RowLabel>
-        <Arrow />
+        <RowInside>
+          {variant === 'subpage' ? (
+            <LinkIcon
+              link={{ ...link, customIcon: undefined }}
+              size={16}
+              iconSize={14}
+            />
+          ) : (
+            <LinkIcon link={link} size={20} iconSize={16} />
+          )}
+          <RowLabel bold={variant === 'integration'}>{link.title}</RowLabel>
+          <Arrow />
+        </RowInside>
       </RowLink>
     </NavigationMenu.Link>
   </li>

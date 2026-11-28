@@ -23,7 +23,6 @@ const Container = styled(LinkWithWrapper)`
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: ${spacing[2]};
   width: 100%;
   height: ${spacing[8]};
   padding: 0 10px 0 6px;
@@ -46,6 +45,20 @@ const Container = styled(LinkWithWrapper)`
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
+`;
+
+/**
+ * A `linkWrapper` such as Next's <Link legacyBehavior> accepts exactly one
+ * child and may drop the link's className, so the item lays itself out here
+ * rather than on the link.
+ */
+const Inside = styled.span`
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  align-self: stretch;
+  gap: ${spacing[2]};
+  min-width: 0;
 `;
 
 const IconSlot = styled.span<{ background?: string }>`
@@ -80,21 +93,23 @@ export const NavMobileItem: FC<MobileItemProps> = ({
 }) => {
   return (
     <Container href={href || ''} LinkWrapper={linkWrapper}>
-      {(customIcon || icon) && (
-        <IconSlot background={iconBackground} aria-hidden="true">
-          {customIcon ||
-            (icon && (
-              <Icon
-                name={icon}
-                size={iconBackground ? 14 : 16}
-                color={iconColor}
-              />
-            ))}
-        </IconSlot>
-      )}
-      <Text as="span" lineHeightAuto variant="body14" fontWeight="bold">
-        {title}
-      </Text>
+      <Inside>
+        {(customIcon || icon) && (
+          <IconSlot background={iconBackground} aria-hidden="true">
+            {customIcon ||
+              (icon && (
+                <Icon
+                  name={icon}
+                  size={iconBackground ? 14 : 16}
+                  color={iconColor}
+                />
+              ))}
+          </IconSlot>
+        )}
+        <Text as="span" lineHeightAuto variant="body14" fontWeight="bold">
+          {title}
+        </Text>
+      </Inside>
     </Container>
   );
 };
