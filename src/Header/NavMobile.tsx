@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { FC, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import * as Popover from '@radix-ui/react-popover';
 import { color, spacing } from '../_tokens';
@@ -10,7 +10,7 @@ import { NavMobileSection } from './NavMobileSection';
 import { resetCSS } from '../_localHelpers/resetCSS';
 import { createMobileMenu, HeaderLinks } from './data';
 import { HeaderProps } from './types';
-import { focusRingStyles } from './styles';
+import { desktopBreakpoint, focusRingStyles } from './styles';
 import { Button } from '../Button';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { Link } from '../Link';
@@ -81,6 +81,18 @@ const SignInWrapper = styled.div`
   }
 `;
 
+const menuVariants = {
+  closed: { opacity: 0, y: -8 },
+  open: { opacity: 1, y: 0 },
+  // `instant` is true when the menu closes because the viewport grew to
+  // desktop: the desktop header is already showing, so fading the menu out
+  // over it would flash.
+  exit: (instant: boolean) =>
+    instant
+      ? { opacity: 0, transition: { duration: 0 } }
+      : { opacity: 0, y: -8 },
+};
+
 interface NavMobileProps {
   links: HeaderLinks;
   loggedIn?: boolean;
@@ -97,6 +109,29 @@ export const NavMobile = ({
   const { theme, mobileMenuOpen, setMobileMenuOpen } = useHeaderContext();
 
   const mobileLinks = useMemo(() => createMobileMenu(links), [links]);
+
+  // Set when the menu closes because the viewport reached the desktop
+  // breakpoint, where the trigger is display: none.
+  const closedByResize = useRef(false);
+
+  useEffect(() => {
+    if (mobileMenuOpen) closedByResize.current = false;
+  }, [mobileMenuOpen]);
+
+  // The mobile header is hidden with CSS at the desktop breakpoint, but the
+  // popover is portalled to <body>, so close it when the viewport gets there.
+  // Growing back below the breakpoint leaves it closed.
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return undefined;
+    const query = window.matchMedia(`(min-width: ${desktopBreakpoint}px)`);
+    const handleChange = (event: MediaQueryListEvent) => {
+      if (!event.matches) return;
+      closedByResize.current = true;
+      setMobileMenuOpen(false);
+    };
+    query.addEventListener('change', handleChange);
+    return () => query.removeEventListener('change', handleChange);
+  }, [setMobileMenuOpen]);
 
   return (
     <Popover.Root open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -137,18 +172,25 @@ export const NavMobile = ({
           <NavMobileTrigger />
         </HStack>
       </BarLinks>
-      <AnimatePresence>
+      <AnimatePresence custom={closedByResize.current}>
         {mobileMenuOpen && (
           <Popover.Portal forceMount>
             <Popover.Content
               asChild
               aria-label="Menu"
               onOpenAutoFocus={(e) => e.preventDefault()}
+              // Radix returns focus to the trigger on close, but after a resize
+              // to desktop the trigger is hidden; leave focus on <body>.
+              onCloseAutoFocus={(e) => {
+                if (closedByResize.current) e.preventDefault();
+              }}
             >
               <NavigationMenu
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
+                variants={menuVariants}
+                custom={closedByResize.current}
+                initial="closed"
+                animate="open"
+                exit="exit"
                 transition={{ ease: 'easeOut', duration: 0.14 }}
               >
                 {mobileLinks &&
