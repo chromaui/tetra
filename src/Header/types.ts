@@ -6,6 +6,10 @@ import { HeaderLinks } from './data';
 export interface HeaderMobileSection {
   name?: string;
   maxItems?: number;
+  /** Label of the button that reveals the items beyond `maxItems`. */
+  moreLabel?: string;
+  /** Eyebrow shown above the revealed items once `moreLabel` is pressed. */
+  moreTitle?: string;
   collapsible?: boolean;
   content: {
     title: string;
@@ -13,8 +17,45 @@ export interface HeaderMobileSection {
     linkWrapper?: any;
     icon?: Icons;
     iconColor?: keyof typeof color;
+    /** CSS colour for a round tile behind the icon. */
+    iconBackground?: string;
     customIcon?: ReactNode;
   }[];
+}
+
+export interface HeaderPipelineLink {
+  title: string;
+  href: string;
+  description?: string;
+  linkWrapper?: any;
+  icon?: Icons;
+  iconColor?: keyof typeof color;
+  customIcon?: ReactNode;
+}
+
+export interface HeaderPipelineStep {
+  /** Icon shown in the round step tile above the column. */
+  icon: Icons;
+  iconColor?: keyof typeof color;
+  /** CSS colour of the round step tile. */
+  iconBackground?: string;
+  /** Main pages, shown with a bold title and a description. */
+  links: HeaderPipelineLink[];
+  /** Related pages, shown as compact icon rows below the main pages. */
+  subpages?: HeaderPipelineLink[];
+}
+
+/**
+ * A full-width menu that reads left to right as a pipeline: each step is a
+ * column with a step tile, main pages and related pages, plus an optional
+ * sidebar list (used for integrations).
+ */
+export interface HeaderDesktopPipeline {
+  steps: HeaderPipelineStep[];
+  sidebar?: {
+    title: string;
+    links: HeaderPipelineLink[];
+  };
 }
 
 interface HeaderDesktopItemContentBase {
@@ -38,6 +79,14 @@ export interface HeaderDesktopItem {
   href?: string;
   linkWrapper?: any;
   leftPosition?: number;
+  /**
+   * Shown only from `fullNavBreakpoint` up. Narrower desktop widths hide the
+   * item with display: none, which also takes it out of the tab order and
+   * the accessibility tree.
+   */
+  fullNavOnly?: boolean;
+  /** Renders the pipeline menu layout instead of `menu` columns. */
+  pipeline?: HeaderDesktopPipeline;
   menu?: {
     content: HeaderDesktopItemContent[];
     backgroundColor?: keyof typeof color;
@@ -72,6 +121,9 @@ export type LinkKeys =
   | 'uiReview'
   | 'publish'
   | 'figmaPlugin'
+  | 'agents'
+  | 'context'
+  /** @deprecated Frontend teams is no longer in the navigation. */
   | 'frontendTeams'
   | 'designSystems'
   | 'digitalAgencies'
@@ -93,5 +145,6 @@ export type LinkKeys =
   | 'snapshotCalculator'
   | 'accessibilityBudgetCalculator'
   | 'frontendWorkflowForAI'
+  /** @deprecated AI & Agents is no longer in the navigation; /ai redirects to /features/agents. */
   | 'ai'
   | 'liveSessions';

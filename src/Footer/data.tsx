@@ -1,30 +1,33 @@
 import { ElementType } from 'react';
 import { FooterColumn, FooterSocialItem } from './types';
 
+// Groups, labels and order follow the shared footer design (Figma node
+// 7495-85642). Destinations follow the Notion "Shared site navigation" record.
 export const createFooterColumns = (
   LinkWrapper: ElementType
 ): FooterColumn[] => [
   {
-    title: 'Company',
+    title: 'Platform',
     links: [
-      { title: 'About', href: '/company/about', LinkWrapper },
-      { title: 'Careers', href: '/company/careers', LinkWrapper },
-      { title: 'Terms of Service', href: '/docs/terms-of-service' },
-      { title: 'Privacy', href: '/docs/privacy-policy' },
-      { title: 'Security • SOC 2', href: '/security' },
-      { title: 'Status', href: 'https://status.chromatic.com/' },
-      { title: 'Contact Sales', href: '/sales', LinkWrapper },
+      {
+        title: 'Frontend-ready agents',
+        href: '/features/agents',
+        LinkWrapper,
+      },
+      { title: 'Self-correcting loop', href: '/features/test', LinkWrapper },
+      { title: 'Human sign-off', href: '/features/review', LinkWrapper },
+      {
+        title: 'Code UI with fewer tokens',
+        href: '/features/context',
+        LinkWrapper,
+      },
+      { title: 'Pricing', href: '/pricing', LinkWrapper },
     ],
   },
   {
-    title: 'Platform',
+    title: 'Features',
     links: [
-      { title: 'UI Tests', href: '/features/test', LinkWrapper },
-      {
-        title: 'Visual test',
-        href: '/features/visual-test',
-        LinkWrapper,
-      },
+      { title: 'Visual test', href: '/features/visual-test', LinkWrapper },
       {
         title: 'Interaction test',
         href: '/features/interaction-test',
@@ -37,60 +40,25 @@ export const createFooterColumns = (
       },
       { title: 'TurboSnap', href: '/features/turbosnap', LinkWrapper },
       { title: 'SteadySnap', href: '/features/steadysnap', LinkWrapper },
-      { title: 'UI Review', href: '/features/review', LinkWrapper },
-      { title: 'Publish', href: '/features/publish', LinkWrapper },
-      { title: 'Storybook', href: '/storybook', LinkWrapper },
-      { title: 'AI & Agents', href: '/ai', LinkWrapper },
-      { title: 'Vitest', href: '/vitest', LinkWrapper },
-      { title: 'React Native', href: '/react-native', LinkWrapper },
-      { title: 'Playwright', href: '/playwright', LinkWrapper },
-      { title: 'Cypress', href: '/cypress', LinkWrapper },
-      { title: 'Figma plugin', href: '/features/figma-plugin' },
-      { title: 'Pricing', href: '/pricing', LinkWrapper },
+      { title: 'Storybook Publish', href: '/features/publish', LinkWrapper },
     ],
   },
   {
-    title: 'Customers',
+    title: 'Integrations',
     links: [
-      { title: 'Enterprise', href: '/enterprise', LinkWrapper },
-      {
-        title: 'Frontend teams',
-        href: '/solutions/frontend',
-        LinkWrapper,
-      },
-      {
-        title: 'Design systems',
-        href: '/solutions/design-systems',
-        LinkWrapper,
-      },
-      {
-        title: 'Digital agencies',
-        href: '/solutions/agencies',
-        LinkWrapper,
-      },
-      {
-        title: 'Netlify',
-        href: '/customers/netlify',
-        LinkWrapper,
-      },
-      {
-        title: 'Monday.com',
-        href: '/customers/monday',
-        LinkWrapper,
-      },
-      {
-        title: 'Collective.work',
-        href: '/customers/collective',
-        LinkWrapper,
-      },
-      { title: 'ezCater', href: '/customers/ezcater', LinkWrapper },
+      { title: 'Storybook', href: '/storybook', LinkWrapper },
+      { title: 'Vitest', href: '/vitest', LinkWrapper },
+      { title: 'Playwright', href: '/playwright', LinkWrapper },
+      { title: 'Cypress', href: '/cypress', LinkWrapper },
+      { title: 'React Native', href: '/react-native', LinkWrapper },
+      { title: 'Figma plugin', href: '/features/figma-plugin' },
     ],
   },
   {
     title: 'Learn',
     links: [
-      { title: 'Docs', href: '/docs' },
-      { title: 'Changelog', href: '/blog' },
+      { title: 'Docs', href: '/docs/' },
+      { title: 'Changelog', href: '/blog/releases/' },
       { title: 'Live sessions', href: '/live-sessions', LinkWrapper },
       {
         title: 'Visual Testing',
@@ -130,39 +98,65 @@ export const createFooterColumns = (
         href: '/choose/visual-testing',
         LinkWrapper,
       },
-      {
-        title: 'Applitools',
-        href: '/compare/applitools',
-        LinkWrapper,
-      },
+      { title: 'Applitools', href: '/compare/applitools', LinkWrapper },
       { title: 'Percy', href: '/compare/percy', LinkWrapper },
       { title: 'Sauce Labs', href: '/compare/sauce-labs', LinkWrapper },
       { title: 'Katalon', href: '/compare/katalon', LinkWrapper },
-      { title: 'LambdaTest', href: '/compare/lambdatest', LinkWrapper },
+      { title: 'TestMu SmartUI', href: '/compare/lambdatest', LinkWrapper },
       { title: 'SmartBear', href: '/compare/smartbear', LinkWrapper },
-      { title: 'TestingBot', href: '/compare/testingbot', LinkWrapper },
-      { title: 'Lost Pixel', href: '/compare/lost-pixel', LinkWrapper },
-      { title: 'Backstop', href: '/compare/backstop', LinkWrapper },
       { title: 'Playwright', href: '/compare/playwright', LinkWrapper },
+      { title: 'Vitest', href: '/compare/vitest', LinkWrapper },
       { title: 'Axe', href: '/compare/axe', LinkWrapper },
       {
         title: 'Accessibility testing',
         href: '/compare/accessibility',
         LinkWrapper,
       },
+    ],
+  },
+  {
+    title: 'Customers',
+    links: [
+      { title: 'Netlify', href: '/customers/netlify', LinkWrapper },
+      { title: 'Monday.com', href: '/customers/monday', LinkWrapper },
+      { title: 'Collective.work', href: '/customers/collective', LinkWrapper },
+      { title: 'ezCater', href: '/customers/ezcater', LinkWrapper },
+    ],
+  },
+  {
+    title: 'Solutions',
+    links: [
+      { title: 'Enterprise', href: '/enterprise', LinkWrapper },
       {
-        title: 'Deploy Storybook',
-        href: '/choose/storybook-deploy',
+        title: 'Design systems',
+        href: '/solutions/design-systems',
         LinkWrapper,
       },
+      {
+        title: 'Digital agencies',
+        href: '/solutions/agencies',
+        LinkWrapper,
+      },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { title: 'About', href: '/company/about', LinkWrapper },
+      { title: 'Careers', href: '/company/careers', LinkWrapper },
+      { title: 'Terms of Service', href: '/docs/terms-of-service/' },
+      { title: 'Privacy', href: '/docs/privacy-policy/' },
+      { title: 'Security • SOC 2', href: '/security' },
+      { title: 'Status', href: 'https://status.chromatic.com/' },
+      { title: 'Contact Sales', href: '/sales', LinkWrapper },
     ],
   },
 ];
 
 export const footerSocialLinks: FooterSocialItem[] = [
-  { title: 'github', icon: 'github', href: 'https://github.com/chromaui/' },
+  { title: 'GitHub', icon: 'github', href: 'https://github.com/chromaui/' },
   {
-    title: 'twitter',
+    title: 'Twitter',
     icon: 'twitter',
     href: 'https://twitter.com/chromaticcom',
   },
@@ -172,7 +166,7 @@ export const footerSocialLinks: FooterSocialItem[] = [
     href: 'https://bsky.app/profile/chromatic.com',
   },
   {
-    title: 'youtube',
+    title: 'YouTube',
     icon: 'youtube',
     href: 'https://youtube.com/@chromaticui',
   },

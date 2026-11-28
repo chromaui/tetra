@@ -1,21 +1,24 @@
 import React from 'react';
 import { CollectiveIcon } from './icons/collective';
-import { FigmaIcon } from './icons/figma';
 import { NetlifyIcon } from './icons/netlify';
 import { MondayIcon } from './icons/monday';
 import { HeaderDesktopItem, HeaderMobileSection, LinkKeys } from './types';
 import { color } from '../_tokens';
 import { Icons } from '../Icon/Icon';
-import { PlaywrightIcon } from './icons/playwright';
-import { CypressIcon } from './icons/cypress';
 import { EzCaterIcon } from './icons/ezcater';
-import { VitestIcon } from './icons/vitest';
-import { ReactNativeIcon } from './icons/react-native';
+import { StorybookTile } from './icons/storybook-tile';
+import { ReactNativeTile } from './icons/react-native-tile';
+import { VitestTile } from './icons/vitest-tile';
+import { PlaywrightTile } from './icons/playwright-tile';
+import { CypressTile } from './icons/cypress-tile';
+import { FigmaTile } from './icons/figma-tile';
 
 interface HeaderLink {
   title: string;
   icon?: Icons; // Replace by iconProps when tetra is updated
   iconColor?: keyof typeof color;
+  /** CSS colour for a round tile behind the icon (Platform pages). */
+  iconBackground?: string;
   customIcon?: React.ReactNode;
   href: string;
   linkWrapper?: any;
@@ -33,26 +36,41 @@ export const defaultLinks: HeaderLinksAll = {
     title: 'Sign up',
     href: 'https://app.chromatic.com/signup',
   },
+  agents: {
+    title: 'Frontend-ready agents',
+    icon: 'wand',
+    iconColor: 'purple500',
+    iconBackground: '#F5EEFF',
+    href: '/features/agents',
+  },
+  context: {
+    title: 'Code UI with fewer tokens',
+    icon: 'component',
+    iconColor: 'blue500',
+    iconBackground: '#ECF3FD',
+    href: '/features/context',
+  },
   uiTest: {
-    title: 'UI Tests',
+    title: 'Self-correcting loop',
     icon: 'contrast',
     iconColor: 'cyan500',
+    iconBackground: '#E6F6F4',
     href: '/features/test',
   },
   visualTest: {
-    title: 'Visual test',
+    title: 'Visual testing',
     icon: 'eye',
     iconColor: 'purple500',
     href: '/features/visual-test',
   },
   interactionTest: {
-    title: 'Interaction test',
+    title: 'Interaction testing',
     icon: 'pointerhand',
     iconColor: 'orange500',
     href: '/features/interaction-test',
   },
   accessibilityTest: {
-    title: 'Accessibility test',
+    title: 'Accessibility testing',
     icon: 'accessibility',
     iconColor: 'green500',
     href: '/features/accessibility-test',
@@ -61,29 +79,30 @@ export const defaultLinks: HeaderLinksAll = {
     title: 'Storybook',
     icon: 'storybook',
     iconColor: 'pink500',
+    customIcon: <StorybookTile />,
     href: '/storybook',
   },
   vitest: {
     title: 'Vitest',
     href: '/vitest',
-    customIcon: <VitestIcon />,
+    customIcon: <VitestTile />,
     iconColor: 'green500',
   },
   reactNative: {
     title: 'React Native',
     href: '/react-native',
-    customIcon: <ReactNativeIcon />,
+    customIcon: <ReactNativeTile />,
     iconColor: 'cyan500',
   },
   playwright: {
     title: 'Playwright',
-    customIcon: <PlaywrightIcon />,
+    customIcon: <PlaywrightTile />,
     iconColor: 'green500',
     href: '/playwright',
   },
   cypress: {
     title: 'Cypress',
-    customIcon: <CypressIcon />,
+    customIcon: <CypressTile />,
     iconColor: 'green500',
     href: '/cypress',
   },
@@ -100,27 +119,31 @@ export const defaultLinks: HeaderLinksAll = {
     href: '/features/steadysnap',
   },
   uiReview: {
-    title: 'UI Review',
+    title: 'Human sign-off',
     icon: 'batchaccept',
     iconColor: 'green500',
+    iconBackground: '#ECF8E7',
     href: '/features/review',
   },
   publish: {
-    title: 'Publish',
-    icon: 'document',
+    title: 'Storybook Publish',
+    icon: 'storybook',
     iconColor: 'pink500',
     href: '/features/publish',
   },
   figmaPlugin: {
-    title: 'Figma plugin',
-    customIcon: <FigmaIcon />,
+    title: 'Figma',
+    customIcon: <FigmaTile />,
     href: '/features/figma-plugin',
   },
+  // Deprecated: no longer shown in the navigation. Kept so existing link
+  // overrides keep type-checking. /solutions/frontend is retired and
+  // redirects to the homepage, so point straight at it.
   frontendTeams: {
     title: 'Frontend teams',
     icon: 'browser',
     iconColor: 'orange500',
-    href: '/solutions/frontend',
+    href: '/',
   },
   designSystems: {
     title: 'Design systems',
@@ -182,13 +205,13 @@ export const defaultLinks: HeaderLinksAll = {
     title: 'Blog',
     icon: 'starhollow',
     iconColor: 'purple500',
-    href: '/blog',
+    href: '/blog/',
   },
   changelog: {
     title: 'Changelog',
     icon: 'book',
     iconColor: 'green500',
-    href: '/blog/releases',
+    href: '/blog/releases/',
   },
   frontendTestingGuide: {
     title: 'Frontend testing guide',
@@ -200,7 +223,7 @@ export const defaultLinks: HeaderLinksAll = {
     title: 'Docs',
     icon: 'browser',
     iconColor: 'orange500',
-    href: '/docs',
+    href: '/docs/',
   },
   pricing: {
     title: 'Pricing',
@@ -232,9 +255,11 @@ export const defaultLinks: HeaderLinksAll = {
     icon: 'wand',
     iconColor: 'pink500',
   },
+  // Deprecated: no longer shown in the navigation. /ai is retired and
+  // redirects to /features/agents.
   ai: {
     title: 'AI & Agents',
-    href: '/ai',
+    href: '/features/agents',
     icon: 'wand',
     iconColor: 'purple500',
   },
@@ -254,117 +279,65 @@ export const createDesktopMenu = (
     {
       id: 'platform',
       name: 'Platform',
-      leftPosition: fullWidth ? -120 : -220,
-      menu: [
-        {
-          content: [
-            {
-              type: 'separator',
-              title: 'Test',
-            },
-            {
-              ...links.uiTest,
-              type: 'link',
-              description: 'Test how UIs look & function',
-            },
-            {
-              ...links.visualTest,
-              type: 'link',
-              description:
-                'Pinpoint bugs down to the browser, viewport, and pixel',
-            },
-            {
-              ...links.accessibilityTest,
-              type: 'link',
-              description: 'Catch accessibility issues at the component level',
-            },
-            {
-              ...links.interactionTest,
-              type: 'link',
-              description: 'Verify behavior of all screens and components',
-            },
-            {
-              ...links.turboSnap,
-              type: 'link',
-              description:
-                "Track changed components to only test what's necessary",
-            },
-            {
-              ...links.steadySnap,
-              type: 'link',
-              description:
-                'Eliminate flakiness in tests by stabilizing frontend rendering',
-            },
+      pipeline: {
+        steps: [
+          {
+            icon: 'wand',
+            iconColor: 'purple500',
+            iconBackground: links.agents.iconBackground,
+            links: [
+              {
+                ...links.agents,
+                description:
+                  'Give agents your components, patterns, and tools.',
+              },
+              {
+                ...links.context,
+                description: 'Compact UI context that refreshes on merge.',
+              },
+            ],
+          },
+          {
+            icon: 'contrast',
+            iconColor: 'cyan500',
+            iconBackground: links.uiTest.iconBackground,
+            links: [
+              {
+                ...links.uiTest,
+                description: 'Make agents fix UI failures before review.',
+              },
+            ],
+            subpages: [
+              links.visualTest,
+              links.interactionTest,
+              links.accessibilityTest,
+            ],
+          },
+          {
+            icon: 'batchaccept',
+            iconColor: 'green500',
+            iconBackground: links.uiReview.iconBackground,
+            links: [
+              {
+                ...links.uiReview,
+                description: 'Review affected UI and decide what ships.',
+              },
+            ],
+            subpages: [links.publish],
+          },
+        ],
+        sidebar: {
+          title: 'Integrations',
+          links: [
+            links.storybook,
+            links.reactNative,
+            links.vitest,
+            links.playwright,
+            links.cypress,
+            links.figmaPlugin,
           ],
-          backgroundColor: 'white',
         },
-        {
-          content: [
-            {
-              type: 'separator',
-              title: 'Review',
-            },
-            {
-              ...links.uiReview,
-              type: 'link',
-              description: 'Speed up team sign-off and manage change requests',
-            },
-            {
-              ...links.publish,
-              type: 'link',
-              description: 'Index & version components to reuse existing work',
-            },
-            {
-              ...links.figmaPlugin,
-              type: 'link',
-              description: 'Embed your stories right next to designs in Figma',
-            },
-          ],
-          backgroundColor: 'white',
-        },
-        {
-          content: [
-            {
-              type: 'separator',
-              title: 'Integrations',
-            },
-            {
-              ...links.storybook,
-              type: 'link',
-              description: 'Run visual tests directly inside Storybook',
-            },
-            {
-              ...links.ai,
-              type: 'link',
-              description: 'Validated UI context for coding agents',
-            },
-            {
-              ...links.vitest,
-              type: 'link',
-              description:
-                'Visual tests for every component in your Vitest suite',
-            },
-            {
-              ...links.reactNative,
-              type: 'link',
-              description: 'Native visual tests for iOS and Android',
-            },
-            {
-              ...links.playwright,
-              type: 'link',
-              description:
-                'Visual tests for every page in your Playwright E2E suite',
-            },
-            {
-              ...links.cypress,
-              type: 'link',
-              description:
-                'Visual tests for every page in your Cypress E2E suite',
-            },
-          ],
-          backgroundColor: 'white',
-        },
-      ],
+      },
     },
     {
       id: 'solutions',
@@ -378,11 +351,6 @@ export const createDesktopMenu = (
               title: 'Use cases',
             },
             {
-              ...links.frontendTeams,
-              type: 'link',
-              description: 'Boost efficiency by streamlining review and QA',
-            },
-            {
               ...links.designSystems,
               type: 'link',
               description: 'Ensure UI consistency and quality every commit',
@@ -391,12 +359,6 @@ export const createDesktopMenu = (
               ...links.digitalAgencies,
               type: 'link',
               description: 'Increase margins by speeding up client sign-off',
-            },
-            {
-              ...links.enterprise,
-              type: 'link',
-              title: 'Enterprise',
-              description: 'Scale frontend development & testing',
             },
           ],
         },
@@ -433,11 +395,6 @@ export const createDesktopMenu = (
           backgroundColor: 'white',
         },
       ],
-    },
-    {
-      id: 'docs',
-      name: 'Docs',
-      ...links.docs,
     },
     {
       id: 'resources',
@@ -492,9 +449,20 @@ export const createDesktopMenu = (
       ],
     },
     {
+      id: 'docs',
+      name: 'Docs',
+      ...links.docs,
+    },
+    {
       id: 'pricing',
       name: 'Pricing',
       ...links.pricing,
+    },
+    {
+      id: 'enterprise',
+      name: 'Enterprise',
+      ...links.enterprise,
+      fullNavOnly: true,
     },
   ];
 };
@@ -505,46 +473,50 @@ export const createMobileMenu = (
   return [
     {
       name: 'Platform',
-      maxItems: 3,
+      maxItems: 4,
+      moreLabel: 'View all features',
+      moreTitle: 'Features',
       content: [
+        links.agents,
+        links.context,
         links.uiTest,
         links.uiReview,
-        links.publish,
         links.visualTest,
-        links.accessibilityTest,
         links.interactionTest,
+        links.accessibilityTest,
         links.turboSnap,
         links.steadySnap,
-        links.figmaPlugin,
+        links.publish,
       ],
     },
     {
-      content: [links.pricing, links.docs, links.blog, links.sales],
+      content: [
+        links.pricing,
+        links.enterprise,
+        links.docs,
+        links.blog,
+        links.sales,
+      ],
     },
     {
       name: 'Integrations',
       collapsible: true,
       content: [
         links.storybook,
-        links.ai,
-        links.vitest,
         links.reactNative,
+        links.vitest,
         links.playwright,
         links.cypress,
+        links.figmaPlugin,
       ],
     },
     {
       name: 'Use cases',
       collapsible: true,
-      content: [
-        links.frontendTeams,
-        links.designSystems,
-        links.digitalAgencies,
-        links.enterprise,
-      ],
+      content: [links.designSystems, links.digitalAgencies],
     },
     {
-      name: 'Customer Stories',
+      name: 'Customer stories',
       collapsible: true,
       content: [links.netlify, links.monday, links.collective, links.ezcater],
     },

@@ -3,6 +3,7 @@ import React, { FC, Fragment } from 'react';
 import { color, spacing } from '../_tokens';
 import { NavDesktopItem } from './NavDesktopItem';
 import { HeaderDesktopItem, HeaderDesktopItemContent } from './types';
+import { focusRing } from './styles';
 import { Text } from '../Text';
 import { VStack } from '../Stack/Stack';
 import { LinkWithWrapper } from '../LinkWithWrapper';
@@ -57,16 +58,11 @@ const CardLink = styled(LinkWithWrapper)`
     background-color: ${color.blue100};
   }
 
-  &:focus {
-    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
+  &:focus-visible {
+    background-color: ${color.blue100};
   }
 
-  &:focus-visible {
-    box-shadow: inset 0 0 0 2px rgba(30, 167, 253, 0.3);
-    background-color: ${color.blue100};
-    outline: 2px solid crimson;
-    outline: none;
-  }
+  ${focusRing('light')}
 `;
 
 const NavDesktopItemCard = ({

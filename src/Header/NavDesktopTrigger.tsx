@@ -5,8 +5,15 @@ import { Icon } from '../Icon/Icon';
 import { useHeaderContext } from './context';
 import { HeaderDesktopItem } from './types';
 import { NavDesktopContent } from './NavDesktopContent';
-import { NavigationMenuItem, slideIn, slideOut } from './styles';
-import { color } from '../_tokens';
+import { NavDesktopPipeline } from './NavDesktopPipeline';
+import {
+  focusRing,
+  NavigationMenuItem,
+  navItemColor,
+  navItemHoverColor,
+  slideIn,
+  slideOut,
+} from './styles';
 
 export interface DesktopItemProps {
   item: HeaderDesktopItem;
@@ -21,20 +28,49 @@ const NavigationMenuTrigger = styled(NavigationMenu.Trigger, {
 }>`
   ${NavigationMenuItem}
   background-color: ${({ isActive }) => isActive && 'rgba(30, 167, 253, 0.07)'};
-  color: ${({ isActive, theTheme }) => {
-    if (isActive) return theTheme === 'light' ? color.blue700 : color.blue400;
-    if (theTheme === 'light') return color.slate800;
-    return color.white;
-  }};
+  color: ${({ isActive, theTheme }) =>
+    navItemColor({ theme: theTheme, isActive })};
+
+  &:hover {
+    color: ${({ theTheme }) => navItemHoverColor(theTheme)};
+  }
 
   &[data-state='open'] {
-    background-color: rgba(30, 167, 253, 0.07);
-    color: ${({ theTheme }) =>
-      theTheme === 'light' ? color.blue700 : color.blue400};
+    color: ${({ theTheme }) => navItemHoverColor(theTheme)};
   }
 
   &[data-state='open'] > .CaretDown {
     transform: rotate(-180deg) translateY(0px);
+  }
+
+  ${({ theTheme }) => focusRing(theTheme)}
+`;
+
+// The pipeline menu is positioned against the header row (see Header's
+// Wrapper). It starts at the bottom of the trigger and uses
+// padding to cover the gap so the pointer can travel into it.
+const NavigationMenuPipelineContent = styled.div`
+  position: absolute;
+  top: 52px;
+  /* Centred on the header row; may extend past the container edges, but
+     keeps 20px from the viewport. */
+  left: calc(50% - min(565px, 50vw - 20px));
+  width: min(1130px, calc(100vw - 40px));
+  padding-top: 26px;
+  z-index: 100;
+
+  &[data-state='open'] {
+    animation: ${slideIn} 100ms ease;
+  }
+  &[data-state='closed'] {
+    animation: ${slideOut} 100ms ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &[data-state='open'],
+    &[data-state='closed'] {
+      animation: none;
+    }
   }
 `;
 
@@ -50,6 +86,7 @@ const NavigationMenuContent = styled.div<{
   position: absolute;
   top: 100%;
   left: ${({ leftPosition }) => leftPosition || 0}px;
+  z-index: 100;
   animation-duration: 2000ms;
   animation-timing-function: ease;
 
@@ -67,16 +104,27 @@ export const NavDesktopTrigger: FC<DesktopItemProps> = ({ item }) => {
 
   return (
     <>
-      <NavigationMenuTrigger theTheme={theme} isActive={isActive}>
+      <NavigationMenuTrigger
+        theTheme={theme}
+        isActive={isActive}
+        // The current page sits inside this menu, so mark the trigger itself.
+        aria-current={isActive ? 'true' : undefined}
+      >
         {item.name}
         <CaretDown className="CaretDown">
           <Icon name="arrowdown" aria-hidden size={12} />
         </CaretDown>
       </NavigationMenuTrigger>
       <NavigationMenu.Content asChild>
-        <NavigationMenuContent leftPosition={item.leftPosition}>
-          <NavDesktopContent item={item} />
-        </NavigationMenuContent>
+        {item.pipeline ? (
+          <NavigationMenuPipelineContent>
+            <NavDesktopPipeline pipeline={item.pipeline} />
+          </NavigationMenuPipelineContent>
+        ) : (
+          <NavigationMenuContent leftPosition={item.leftPosition}>
+            <NavDesktopContent item={item} />
+          </NavigationMenuContent>
+        )}
       </NavigationMenu.Content>
     </>
   );

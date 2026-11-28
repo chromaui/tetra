@@ -5,8 +5,11 @@ import * as Popover from '@radix-ui/react-popover';
 import { color } from '../_tokens';
 import { HeaderProps } from './types';
 import { useHeaderContext } from './context';
+import { focusRing } from './styles';
 
-const MobileTrigger = styled(Popover.Trigger)`
+const MobileTrigger = styled(Popover.Trigger, {
+  shouldForwardProp: (propName) => propName !== 'headerTheme',
+})<{ headerTheme?: HeaderProps['theme'] }>`
   all: unset;
   display: flex;
   align-items: center;
@@ -16,9 +19,7 @@ const MobileTrigger = styled(Popover.Trigger)`
   border-radius: 6px;
   margin-left: -10px;
 
-  &:focus {
-    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
-  }
+  ${({ headerTheme }) => focusRing(headerTheme)}
 `;
 
 const MobileIcon = styled.div`
@@ -26,10 +27,6 @@ const MobileIcon = styled.div`
   display: flex;
   width: 18px;
   height: 18px;
-
-  &:focus {
-    box-shadow: 0 0 0 2px rgba(30, 167, 253, 0.3);
-  }
 `;
 
 const Line = styled(motion.div, {
@@ -54,6 +51,7 @@ export const NavMobileTrigger: FC = () => {
 
   return (
     <MobileTrigger
+      headerTheme={theme}
       onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       aria-label="Toggle Menu"
     >

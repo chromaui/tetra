@@ -4,12 +4,19 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
 import { HeaderLinksAll, createDesktopMenu } from './data';
+import { fullNavBreakpoint } from './styles';
 
+// Root and pipeline items stay unpositioned so a pipeline menu can be
+// positioned against the full header row. Other menus position against
+// their own item.
 const NavigationMenuRoot = styled(NavigationMenu.Root)`
-  position: relative;
   display: flex;
   justify-content: center;
-  z-index: 100;
+
+  /* Radix wraps the list in an inline position: relative div. */
+  > div {
+    position: static !important;
+  }
 `;
 
 const NavigationMenuList = styled(NavigationMenu.List)`
@@ -21,8 +28,19 @@ const NavigationMenuList = styled(NavigationMenu.List)`
   gap: 9px;
 `;
 
-const NavigationMenuItem = styled(NavigationMenu.Item)`
-  position: relative;
+const NavigationMenuItem = styled(NavigationMenu.Item, {
+  shouldForwardProp: (propName) =>
+    propName !== 'isPipeline' && propName !== 'fullNavOnly',
+})<{ isPipeline?: boolean; fullNavOnly?: boolean }>`
+  position: ${({ isPipeline }) => (isPipeline ? 'static' : 'relative')};
+
+  ${({ fullNavOnly }) =>
+    fullNavOnly &&
+    `
+    @media (max-width: ${fullNavBreakpoint - 1}px) {
+      display: none;
+    }
+  `}
 `;
 
 interface NavDesktopProps {
@@ -54,8 +72,12 @@ export const NavDesktop = ({ links, fullWidth, ...props }: NavDesktopProps) => {
       <NavigationMenuList>
         {desktopLinks &&
           desktopLinks.map((item) => (
-            <NavigationMenuItem key={item.name}>
-              {item.menu ? (
+            <NavigationMenuItem
+              key={item.name}
+              isPipeline={!!item.pipeline}
+              fullNavOnly={item.fullNavOnly}
+            >
+              {item.menu || item.pipeline ? (
                 <NavDesktopTrigger key={item.name} item={item} />
               ) : (
                 <NavDesktopLink key={item.name} item={item} />

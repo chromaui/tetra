@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import { within, userEvent } from 'storybook/test';
+import { within, userEvent, expect, waitFor } from 'storybook/test';
 import { Header } from './Header';
 import { defaultLinks } from './data';
 import { SubNav } from '../SubNav';
+import { desktopBreakpoint, fullNavBreakpoint } from './styles';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -16,6 +17,15 @@ const meta: Meta<typeof Header> = {
 export default meta;
 type Story = StoryObj<typeof Header>;
 
+// Chromatic widths on each side of the desktop breakpoint. Below it the desktop
+// nav is display: none, so desktop stories (and their play functions) need
+// the breakpoint width or wider. Desktop stories cover both nav widths: five
+// items from desktopBreakpoint, six (with Enterprise) from fullNavBreakpoint.
+const desktopViewports = [desktopBreakpoint, fullNavBreakpoint, 1536];
+// Enterprise is hidden below fullNavBreakpoint, so stories about it start there.
+const fullNavViewports = [fullNavBreakpoint, 1536];
+const mobileViewports = [320, 640, 768, desktopBreakpoint - 1];
+
 // Radix uses PointerEvent for all interactions
 // see: https://github.com/radix-ui/primitives/issues/1220
 
@@ -25,10 +35,10 @@ export const DesktopLight: Story = {
     links: defaultLinks,
   },
   globals: {
-    viewport: { value: 'lg' },
+    viewport: { value: 'xl' },
   },
   parameters: {
-    chromatic: { viewports: [940, 1024, 1280, 1536] },
+    chromatic: { viewports: desktopViewports },
   },
 };
 
@@ -148,13 +158,133 @@ export const WithSubNav: Story = {
   },
 };
 
+// Only the active top-level item carries aria-current.
+const expectCurrentItem = async (
+  canvasElement: HTMLElement,
+  name: string,
+  value: 'page' | 'true'
+) => {
+  const nav = within(canvasElement).getByRole('navigation', {
+    name: 'Main',
+  });
+  const current = nav.querySelectorAll('[aria-current]');
+  await expect(current).toHaveLength(1);
+  await expect(current[0]).toHaveTextContent(name);
+  await expect(current[0]).toHaveAttribute('aria-current', value);
+};
+
 export const DesktopLightActive: Story = {
   args: {
     ...DesktopLight.args,
     desktopActiveId: 'pricing',
   },
+  globals: {
+    ...DesktopLight.globals,
+  },
   parameters: {
     ...DesktopLight.parameters,
+  },
+  play: async ({ canvasElement }) => {
+    await expectCurrentItem(canvasElement, 'Pricing', 'page');
+  },
+};
+
+export const DesktopLightPlatformActive: Story = {
+  args: {
+    ...DesktopLight.args,
+    desktopActiveId: 'platform',
+  },
+  globals: {
+    ...DesktopLight.globals,
+  },
+  parameters: {
+    ...DesktopLight.parameters,
+  },
+  play: async ({ canvasElement }) => {
+    await expectCurrentItem(canvasElement, 'Platform', 'true');
+  },
+};
+
+export const DesktopLightEnterpriseActive: Story = {
+  args: {
+    ...DesktopLight.args,
+    desktopActiveId: 'enterprise',
+  },
+  globals: {
+    ...DesktopLight.globals,
+  },
+  parameters: {
+    chromatic: { viewports: fullNavViewports },
+  },
+  play: async ({ canvasElement }) => {
+    await expectCurrentItem(canvasElement, 'Enterprise', 'page');
+  },
+};
+
+export const DesktopDarkEnterpriseActive: Story = {
+  args: {
+    ...DesktopLight.args,
+    theme: 'dark',
+    desktopActiveId: 'enterprise',
+  },
+  globals: {
+    ...DesktopLight.globals,
+    backgrounds: { value: 'dark' },
+  },
+  parameters: {
+    chromatic: { viewports: fullNavViewports },
+  },
+  play: async ({ canvasElement }) => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    await expectCurrentItem(canvasElement, 'Enterprise', 'page');
+  },
+};
+
+// Between desktopBreakpoint and fullNavBreakpoint the desktop nav drops
+// Enterprise (display: none, so it's out of the accessibility tree too) and
+// keeps the other five items at full spacing. 1200 is where the Container's
+// side margins double, the tightest width in this range.
+export const DesktopEnterpriseHidden: Story = {
+  args: {
+    ...DesktopLight.args,
+  },
+  globals: {
+    viewport: { value: 'lg' },
+  },
+  parameters: {
+    chromatic: { viewports: [1100, 1200] },
+  },
+  play: async ({ canvasElement }) => {
+    const nav = within(canvasElement).getByRole('navigation', {
+      name: 'Main',
+    });
+    await expect(
+      within(nav).queryByRole('link', { name: 'Enterprise' })
+    ).not.toBeInTheDocument();
+    await expect(
+      within(nav).getByRole('link', { name: 'Pricing' })
+    ).toBeVisible();
+  },
+};
+
+// From fullNavBreakpoint all six items show, Enterprise included.
+export const DesktopFullNav: Story = {
+  args: {
+    ...DesktopLight.args,
+  },
+  globals: {
+    viewport: { value: 'xl' },
+  },
+  parameters: {
+    chromatic: { viewports: fullNavViewports },
+  },
+  play: async ({ canvasElement }) => {
+    const nav = within(canvasElement).getByRole('navigation', {
+      name: 'Main',
+    });
+    await expect(
+      within(nav).getByRole('link', { name: 'Enterprise' })
+    ).toBeVisible();
   },
 };
 
@@ -165,13 +295,15 @@ export const DesktopDarkActive: Story = {
     desktopActiveId: 'pricing',
   },
   globals: {
+    ...DesktopLight.globals,
     backgrounds: { value: 'dark' },
   },
   parameters: {
     ...DesktopLight.parameters,
   },
-  play: async () => {
+  play: async ({ canvasElement }) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
+    await expectCurrentItem(canvasElement, 'Pricing', 'page');
   },
 };
 
@@ -180,7 +312,7 @@ export const DesktopLightOpen: Story = {
     ...DesktopLight.args,
   },
   globals: {
-    viewport: { value: 'lg' },
+    viewport: { value: 'xl' },
   },
   parameters: {
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
@@ -196,6 +328,28 @@ export const DesktopLightOpen: Story = {
   },
 };
 
+// Enterprise is a top-level item only, so Use cases no longer lists it.
+export const DesktopLightSolutionsOpen: Story = {
+  ...DesktopLightOpen,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Solutions',
+    });
+    MenuButton.focus();
+    await userEvent.keyboard('{enter}');
+    const designSystems = await canvas.findByRole('link', {
+      name: /Design systems/,
+    });
+    // The open dropdown panel, not the top-level list that holds Enterprise.
+    const panel = designSystems.closest<HTMLElement>('[data-state="open"]');
+    await expect(panel).not.toBeNull();
+    await expect(
+      within(panel as HTMLElement).queryByRole('link', { name: /Enterprise/ })
+    ).toBeNull();
+  },
+};
+
 export const DesktopDarkOpen: Story = {
   args: {
     ...DesktopLight.args,
@@ -203,7 +357,7 @@ export const DesktopDarkOpen: Story = {
   },
   globals: {
     backgrounds: { value: 'dark' },
-    viewport: { value: 'lg' },
+    viewport: { value: 'xl' },
   },
   parameters: {
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
@@ -220,6 +374,100 @@ export const DesktopDarkOpen: Story = {
   },
 };
 
+// Keyboard only: tab to Platform, open it with Enter, move into the menu with
+// the arrow key, then close it with Escape and check focus goes back.
+export const DesktopDarkKeyboardFocus: Story = {
+  args: {
+    ...DesktopLight.args,
+    theme: 'dark',
+  },
+  globals: {
+    backgrounds: { value: 'dark' },
+    viewport: { value: 'xl' },
+  },
+  parameters: {
+    chromatic: { pauseAnimationAtEnd: true, delay: 600 },
+  },
+  decorators: DesktopLightOpen.decorators,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = await canvas.findByRole('button', { name: 'Platform' });
+    trigger.focus();
+    await userEvent.keyboard('{enter}');
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    await userEvent.keyboard('{arrowdown}');
+    await waitFor(() =>
+      expect(
+        canvas.getByRole('link', { name: /Frontend-ready agents/ })
+      ).toHaveFocus()
+    );
+    await userEvent.keyboard('{escape}');
+    await waitFor(() => expect(trigger).toHaveFocus());
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    // Leave the trigger focused to show the focus ring.
+  },
+};
+
+export const DesktopLightKeyboardFocusInMenu: Story = {
+  args: {
+    ...DesktopLight.args,
+  },
+  globals: {
+    viewport: { value: 'xl' },
+  },
+  parameters: {
+    chromatic: { pauseAnimationAtEnd: true, delay: 600 },
+  },
+  decorators: DesktopLightOpen.decorators,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = await canvas.findByRole('button', { name: 'Platform' });
+    trigger.focus();
+    await userEvent.keyboard('{enter}');
+    await userEvent.keyboard('{arrowdown}');
+    await userEvent.keyboard('{arrowdown}');
+    await waitFor(() =>
+      expect(
+        canvas.getByRole('link', { name: /Code UI with fewer tokens/ })
+      ).toHaveFocus()
+    );
+  },
+};
+
+// Keyboard only: open Solutions and arrow onto its first item, so Chromatic
+// captures the focus ring on a dropdown item. The panel is white in both
+// themes, so the ring is blue700 here even on the dark header.
+const focusFirstSolutionsItem: Story['play'] = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const trigger = await canvas.findByRole('button', { name: 'Solutions' });
+  trigger.focus();
+  await userEvent.keyboard('{enter}');
+  await userEvent.keyboard('{arrowdown}');
+  const firstItem = await canvas.findByRole('link', {
+    name: /Design systems/,
+  });
+  await waitFor(() => expect(firstItem).toHaveFocus());
+  await expect(firstItem).toHaveStyle({ outlineStyle: 'solid' });
+};
+
+export const DesktopLightKeyboardFocusInDropdown: Story = {
+  ...DesktopLightKeyboardFocusInMenu,
+  play: focusFirstSolutionsItem,
+};
+
+export const DesktopDarkKeyboardFocusInDropdown: Story = {
+  ...DesktopLightKeyboardFocusInMenu,
+  args: {
+    ...DesktopLight.args,
+    theme: 'dark',
+  },
+  globals: {
+    backgrounds: { value: 'dark' },
+    viewport: { value: 'xl' },
+  },
+  play: focusFirstSolutionsItem,
+};
+
 export const TabletLight: Story = {
   args: {
     ...DesktopLight.args,
@@ -229,7 +477,7 @@ export const TabletLight: Story = {
     viewport: { value: 'md' },
   },
   parameters: {
-    chromatic: { viewports: [320, 640, 768, 939] },
+    chromatic: { viewports: mobileViewports },
   },
   play: async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -246,7 +494,7 @@ export const TabletDark: Story = {
     viewport: { value: 'md' },
   },
   parameters: {
-    chromatic: { viewports: [320, 640, 768, 939] },
+    chromatic: { viewports: mobileViewports },
   },
   play: async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -261,7 +509,7 @@ export const TabletOpen: Story = {
     viewport: { value: 'md' },
   },
   parameters: {
-    chromatic: { viewports: [320, 640, 768, 939] },
+    chromatic: { viewports: mobileViewports },
   },
   decorators: [(storyFn) => <div style={{ height: '900px' }}>{storyFn()}</div>],
   play: async ({ canvasElement }) => {
@@ -281,11 +529,13 @@ export const TabletExpandSubMenu: Story = {
       name: 'Toggle Menu',
     });
     await userEvent.click(MenuButton);
-    await userEvent.tab();
-    await userEvent.tab();
-    await userEvent.tab();
-    await userEvent.tab();
+    const body = within(document.body);
+    const integrations = await body.findByRole('button', {
+      name: 'Integrations',
+    });
+    integrations.focus();
     await userEvent.keyboard('{enter}');
+    await expect(integrations).toHaveAttribute('aria-expanded', 'true');
   },
 };
 
@@ -297,7 +547,7 @@ export const MobileOpen: Story = {
     viewport: { value: 'xs' },
   },
   parameters: {
-    chromatic: { viewports: [320, 640, 768, 939] },
+    chromatic: { viewports: mobileViewports },
   },
   decorators: DesktopLightOpen.decorators,
   play: async ({ canvasElement }) => {
@@ -306,6 +556,11 @@ export const MobileOpen: Story = {
       name: 'Toggle Menu',
     });
     await userEvent.click(MenuButton);
+    // The desktop nav hides Enterprise below fullNavBreakpoint; the mobile
+    // menu always lists it.
+    await expect(
+      await within(document.body).findByRole('link', { name: /Enterprise/ })
+    ).toBeVisible();
   },
 };
 
@@ -319,10 +574,10 @@ export const MobileOpenTall: Story = {
     await userEvent.click(MenuButton);
 
     const sections = [
-      'View more',
+      'View all features',
       'Integrations',
       'Use cases',
-      'Customer Stories',
+      'Customer stories',
       'Company',
     ];
     for (const section of sections) {
@@ -334,6 +589,37 @@ export const MobileOpenTall: Story = {
         }
       }
     }
+  },
+};
+
+export const MobileViewAllFeatures: Story = {
+  ...MobileOpen,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Toggle Menu',
+    });
+    await userEvent.click(MenuButton);
+    await expect(MenuButton).toHaveAttribute('aria-expanded', 'true');
+    const body = within(document.body);
+    await userEvent.click(
+      await body.findByRole('button', { name: 'View all features' })
+    );
+  },
+};
+
+export const MobileIntegrationsOpen: Story = {
+  ...MobileOpen,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const MenuButton = await canvas.findByRole('button', {
+      name: 'Toggle Menu',
+    });
+    await userEvent.click(MenuButton);
+    const body = within(document.body);
+    await userEvent.click(
+      await body.findByRole('button', { name: 'Integrations' })
+    );
   },
 };
 
