@@ -1,3 +1,19 @@
+# v4.0.0 (Sat Nov 28 2026)
+
+#### 💥 Breaking Change
+
+- New header and footer for the shared site navigation [#163](https://github.com/chromaui/tetra/pull/163) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### 🏠 Internal
+
+- Upgrade to Storybook 11 RC and add the Colab addon [#162](https://github.com/chromaui/tetra/pull/162) ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+#### Authors: 1
+
+- Varun Vachhar ([@winkerVSbecks](https://github.com/winkerVSbecks))
+
+---
+
 # v3.5.0 (Wed Oct 14 2026)
 
 #### 🚀 Enhancement
