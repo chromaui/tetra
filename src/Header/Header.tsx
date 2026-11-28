@@ -11,12 +11,7 @@ import { minSm, typography } from '../_helpers';
 import { LinkWithWrapper } from '../LinkWithWrapper';
 import { resetCSS } from '../_localHelpers/resetCSS';
 import { Divider } from '../Divider';
-import {
-  compactNavBreakpoint,
-  desktopBreakpoint,
-  focusRing,
-  focusRingStyles,
-} from './styles';
+import { desktopBreakpoint, focusRing, focusRingStyles } from './styles';
 import { Link } from '../Link';
 import { Button } from '../Button';
 import { defaultLinks, HeaderLinksAll } from './data';
@@ -67,11 +62,6 @@ const Right = styled.div<{ headerTheme: HeaderProps['theme'] }>`
     gap: ${spacing[6]};
     align-items: center;
     white-space: nowrap;
-  }
-
-  @media (min-width: ${desktopBreakpoint}px) and (max-width: ${compactNavBreakpoint -
-    1}px) {
-    gap: ${spacing[4]};
   }
 `;
 

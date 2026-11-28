@@ -4,7 +4,6 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
 import { HeaderLinksAll, createDesktopMenu } from './data';
-import { compactNavBreakpoint } from './styles';
 
 // Root and pipeline items stay unpositioned so a pipeline menu can be
 // positioned against the full header row. Other menus position against
@@ -26,10 +25,6 @@ const NavigationMenuList = styled(NavigationMenu.List)`
   margin: 0;
   padding: 0;
   gap: 9px;
-
-  @media (max-width: ${compactNavBreakpoint - 1}px) {
-    gap: 2px;
-  }
 `;
 
 const NavigationMenuItem = styled(NavigationMenu.Item, {

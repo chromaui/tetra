@@ -20,7 +20,7 @@ type Story = StoryObj<typeof Header>;
 // Chromatic widths on each side of the desktop breakpoint. Below it the desktop
 // nav is display: none, so desktop stories (and their play functions) need
 // the breakpoint width or wider.
-const desktopViewports = [desktopBreakpoint, 1024, 1280, 1536];
+const desktopViewports = [desktopBreakpoint, 1280, 1536];
 const mobileViewports = [320, 640, 768, desktopBreakpoint - 1];
 
 // Radix uses PointerEvent for all interactions
@@ -32,7 +32,7 @@ export const DesktopLight: Story = {
     links: defaultLinks,
   },
   globals: {
-    viewport: { value: 'lg' },
+    viewport: { value: 'xl' },
   },
   parameters: {
     chromatic: { viewports: desktopViewports },
@@ -175,6 +175,9 @@ export const DesktopLightActive: Story = {
     ...DesktopLight.args,
     desktopActiveId: 'pricing',
   },
+  globals: {
+    ...DesktopLight.globals,
+  },
   parameters: {
     ...DesktopLight.parameters,
   },
@@ -188,6 +191,9 @@ export const DesktopLightPlatformActive: Story = {
     ...DesktopLight.args,
     desktopActiveId: 'platform',
   },
+  globals: {
+    ...DesktopLight.globals,
+  },
   parameters: {
     ...DesktopLight.parameters,
   },
@@ -200,6 +206,9 @@ export const DesktopLightEnterpriseActive: Story = {
   args: {
     ...DesktopLight.args,
     desktopActiveId: 'enterprise',
+  },
+  globals: {
+    ...DesktopLight.globals,
   },
   parameters: {
     ...DesktopLight.parameters,
@@ -216,6 +225,7 @@ export const DesktopDarkEnterpriseActive: Story = {
     desktopActiveId: 'enterprise',
   },
   globals: {
+    ...DesktopLight.globals,
     backgrounds: { value: 'dark' },
   },
   parameters: {
@@ -234,6 +244,7 @@ export const DesktopDarkActive: Story = {
     desktopActiveId: 'pricing',
   },
   globals: {
+    ...DesktopLight.globals,
     backgrounds: { value: 'dark' },
   },
   parameters: {
@@ -250,7 +261,7 @@ export const DesktopLightOpen: Story = {
     ...DesktopLight.args,
   },
   globals: {
-    viewport: { value: 'lg' },
+    viewport: { value: 'xl' },
   },
   parameters: {
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
@@ -295,7 +306,7 @@ export const DesktopDarkOpen: Story = {
   },
   globals: {
     backgrounds: { value: 'dark' },
-    viewport: { value: 'lg' },
+    viewport: { value: 'xl' },
   },
   parameters: {
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
@@ -321,7 +332,7 @@ export const DesktopDarkKeyboardFocus: Story = {
   },
   globals: {
     backgrounds: { value: 'dark' },
-    viewport: { value: 'lg' },
+    viewport: { value: 'xl' },
   },
   parameters: {
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
@@ -351,7 +362,7 @@ export const DesktopLightKeyboardFocusInMenu: Story = {
     ...DesktopLight.args,
   },
   globals: {
-    viewport: { value: 'lg' },
+    viewport: { value: 'xl' },
   },
   parameters: {
     chromatic: { pauseAnimationAtEnd: true, delay: 600 },
@@ -401,7 +412,7 @@ export const DesktopDarkKeyboardFocusInDropdown: Story = {
   },
   globals: {
     backgrounds: { value: 'dark' },
-    viewport: { value: 'lg' },
+    viewport: { value: 'xl' },
   },
   play: focusFirstSolutionsItem,
 };

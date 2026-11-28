@@ -2,13 +2,14 @@ import { css, keyframes } from '@emotion/react';
 import { color, fontWeight, spacing } from '../_tokens';
 import { typography } from '../_helpers';
 
-export const desktopBreakpoint = 1000;
-
 /**
- * Below this width the header container is too narrow for six top-level
- * items at full spacing, so items and gaps tighten.
+ * Width at which the desktop nav replaces the mobile menu. It's the narrowest
+ * width where the six top-level items fit at full spacing (9px gaps, 8px item
+ * padding, as in Figma) with at least 24px before Sign in / Sign up. Between
+ * 1200 and 1239 the Container's side margins double, so the nav doesn't fit
+ * there either, even though 1088–1199 would.
  */
-export const compactNavBreakpoint = 1280;
+export const desktopBreakpoint = 1240;
 
 export const NavigationMenuItem = css`
   all: unset;
@@ -31,10 +32,6 @@ export const NavigationMenuItem = css`
     background-color 0.2s ease-in-out;
   ${typography.body14}
   font-weight: ${fontWeight.bold};
-
-  @media (max-width: ${compactNavBreakpoint - 1}px) {
-    padding: 0 6px;
-  }
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
