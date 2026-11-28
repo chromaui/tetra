@@ -462,6 +462,7 @@ export const createDesktopMenu = (
       id: 'enterprise',
       name: 'Enterprise',
       ...links.enterprise,
+      fullNavOnly: true,
     },
   ];
 };
@@ -489,7 +490,13 @@ export const createMobileMenu = (
       ],
     },
     {
-      content: [links.pricing, links.docs, links.blog, links.sales],
+      content: [
+        links.pricing,
+        links.enterprise,
+        links.docs,
+        links.blog,
+        links.sales,
+      ],
     },
     {
       name: 'Integrations',

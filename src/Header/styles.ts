@@ -3,13 +3,20 @@ import { color, fontWeight, spacing } from '../_tokens';
 import { typography } from '../_helpers';
 
 /**
- * Width at which the desktop nav replaces the mobile menu. It's the narrowest
- * width where the six top-level items fit at full spacing (9px gaps, 8px item
- * padding, as in Figma) with at least 24px before Sign in / Sign up. Between
- * 1200 and 1239 the Container's side margins double, so the nav doesn't fit
- * there either, even though 1088–1199 would.
+ * Width from which every top-level item shows, Enterprise included. It's the
+ * narrowest width where all six fit at full spacing (9px gaps, 8px item
+ * padding, as in Figma) with at least 24px before Contact / Sign in. Between
+ * 1200 and 1239 the Container's side margins double, so six don't fit there.
+ * Items marked `fullNavOnly` are hidden below it.
  */
-export const desktopBreakpoint = 1240;
+export const fullNavBreakpoint = 1240;
+
+/**
+ * Width at which the desktop nav replaces the mobile menu: the narrowest width
+ * where the five items left once Enterprise is hidden fit at full spacing,
+ * with at least 24px before Contact / Sign in, signed in and signed out.
+ */
+export const desktopBreakpoint = 982;
 
 export const NavigationMenuItem = css`
   all: unset;

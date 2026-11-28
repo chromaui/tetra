@@ -79,6 +79,12 @@ export interface HeaderDesktopItem {
   href?: string;
   linkWrapper?: any;
   leftPosition?: number;
+  /**
+   * Shown only from `fullNavBreakpoint` up. Narrower desktop widths hide the
+   * item with display: none, which also takes it out of the tab order and
+   * the accessibility tree.
+   */
+  fullNavOnly?: boolean;
   /** Renders the pipeline menu layout instead of `menu` columns. */
   pipeline?: HeaderDesktopPipeline;
   menu?: {

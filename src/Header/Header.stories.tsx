@@ -4,7 +4,7 @@ import { within, userEvent, expect, waitFor } from 'storybook/test';
 import { Header } from './Header';
 import { defaultLinks } from './data';
 import { SubNav } from '../SubNav';
-import { desktopBreakpoint } from './styles';
+import { desktopBreakpoint, fullNavBreakpoint } from './styles';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -19,8 +19,11 @@ type Story = StoryObj<typeof Header>;
 
 // Chromatic widths on each side of the desktop breakpoint. Below it the desktop
 // nav is display: none, so desktop stories (and their play functions) need
-// the breakpoint width or wider.
-const desktopViewports = [desktopBreakpoint, 1280, 1536];
+// the breakpoint width or wider. Desktop stories cover both nav widths: five
+// items from desktopBreakpoint, six (with Enterprise) from fullNavBreakpoint.
+const desktopViewports = [desktopBreakpoint, fullNavBreakpoint, 1536];
+// Enterprise is hidden below fullNavBreakpoint, so stories about it start there.
+const fullNavViewports = [fullNavBreakpoint, 1536];
 const mobileViewports = [320, 640, 768, desktopBreakpoint - 1];
 
 // Radix uses PointerEvent for all interactions
@@ -211,7 +214,7 @@ export const DesktopLightEnterpriseActive: Story = {
     ...DesktopLight.globals,
   },
   parameters: {
-    ...DesktopLight.parameters,
+    chromatic: { viewports: fullNavViewports },
   },
   play: async ({ canvasElement }) => {
     await expectCurrentItem(canvasElement, 'Enterprise', 'page');
@@ -229,11 +232,59 @@ export const DesktopDarkEnterpriseActive: Story = {
     backgrounds: { value: 'dark' },
   },
   parameters: {
-    ...DesktopLight.parameters,
+    chromatic: { viewports: fullNavViewports },
   },
   play: async ({ canvasElement }) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
     await expectCurrentItem(canvasElement, 'Enterprise', 'page');
+  },
+};
+
+// Between desktopBreakpoint and fullNavBreakpoint the desktop nav drops
+// Enterprise (display: none, so it's out of the accessibility tree too) and
+// keeps the other five items at full spacing. 1200 is where the Container's
+// side margins double, the tightest width in this range.
+export const DesktopEnterpriseHidden: Story = {
+  args: {
+    ...DesktopLight.args,
+  },
+  globals: {
+    viewport: { value: 'lg' },
+  },
+  parameters: {
+    chromatic: { viewports: [1100, 1200] },
+  },
+  play: async ({ canvasElement }) => {
+    const nav = within(canvasElement).getByRole('navigation', {
+      name: 'Main',
+    });
+    await expect(
+      within(nav).queryByRole('link', { name: 'Enterprise' })
+    ).not.toBeInTheDocument();
+    await expect(
+      within(nav).getByRole('link', { name: 'Pricing' })
+    ).toBeVisible();
+  },
+};
+
+// From fullNavBreakpoint all six items show, Enterprise included.
+export const DesktopFullNav: Story = {
+  args: {
+    ...DesktopLight.args,
+  },
+  globals: {
+    viewport: { value: 'xl' },
+  },
+  parameters: {
+    chromatic: { viewports: fullNavViewports },
+  },
+  play: async ({ canvasElement }) => {
+    const nav = within(canvasElement).getByRole('navigation', {
+      name: 'Main',
+    });
+    await expect(
+      within(nav).getByRole('link', { name: 'Enterprise' })
+    ).toBeVisible();
   },
 };
 
@@ -505,6 +556,11 @@ export const MobileOpen: Story = {
       name: 'Toggle Menu',
     });
     await userEvent.click(MenuButton);
+    // The desktop nav hides Enterprise below fullNavBreakpoint; the mobile
+    // menu always lists it.
+    await expect(
+      await within(document.body).findByRole('link', { name: /Enterprise/ })
+    ).toBeVisible();
   },
 };
 

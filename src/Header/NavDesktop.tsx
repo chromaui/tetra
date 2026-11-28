@@ -4,6 +4,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { NavDesktopLink } from './NavDesktopLink';
 import { NavDesktopTrigger } from './NavDesktopTrigger';
 import { HeaderLinksAll, createDesktopMenu } from './data';
+import { fullNavBreakpoint } from './styles';
 
 // Root and pipeline items stay unpositioned so a pipeline menu can be
 // positioned against the full header row. Other menus position against
@@ -28,9 +29,18 @@ const NavigationMenuList = styled(NavigationMenu.List)`
 `;
 
 const NavigationMenuItem = styled(NavigationMenu.Item, {
-  shouldForwardProp: (propName) => propName !== 'isPipeline',
-})<{ isPipeline?: boolean }>`
+  shouldForwardProp: (propName) =>
+    propName !== 'isPipeline' && propName !== 'fullNavOnly',
+})<{ isPipeline?: boolean; fullNavOnly?: boolean }>`
   position: ${({ isPipeline }) => (isPipeline ? 'static' : 'relative')};
+
+  ${({ fullNavOnly }) =>
+    fullNavOnly &&
+    `
+    @media (max-width: ${fullNavBreakpoint - 1}px) {
+      display: none;
+    }
+  `}
 `;
 
 interface NavDesktopProps {
@@ -62,7 +72,11 @@ export const NavDesktop = ({ links, fullWidth, ...props }: NavDesktopProps) => {
       <NavigationMenuList>
         {desktopLinks &&
           desktopLinks.map((item) => (
-            <NavigationMenuItem key={item.name} isPipeline={!!item.pipeline}>
+            <NavigationMenuItem
+              key={item.name}
+              isPipeline={!!item.pipeline}
+              fullNavOnly={item.fullNavOnly}
+            >
               {item.menu || item.pipeline ? (
                 <NavDesktopTrigger key={item.name} item={item} />
               ) : (
